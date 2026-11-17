@@ -1,0 +1,210 @@
+\problem{1.14}{Continuity equation and probability current}
+\paragraph{Setup.} For a normalized one-dimensional wavefunction, derive the time rate of probability in $(a,b)$ and compute the current for Problem 1.9.
+\paragraph{Derivation: continuity equation.}
+Let $\rho=\Psi^*\Psi$. For a real potential,
+\begin{align}
+\partial_t\Psi&=\frac{\ii\hbar}{2m}\partial_x^2\Psi
+-\frac{\ii}{\hbar}V\Psi,\\
+\partial_t\Psi^*&=-\frac{\ii\hbar}{2m}\partial_x^2\Psi^*
++\frac{\ii}{\hbar}V\Psi^*.
+\end{align}
+By the product rule, the potential terms cancel:
+\begin{align}
+\partial_t\rho
+&=\Psi^*\partial_t\Psi+\Psi\,\partial_t\Psi^*\\
+&=\frac{\ii\hbar}{2m}\left(
+\Psi^*\partial_x^2\Psi-\Psi\partial_x^2\Psi^*\right)\\
+&=\frac{\ii\hbar}{2m}\partial_x\left(
+\Psi^*\partial_x\Psi-\Psi\partial_x\Psi^*\right)
+=-\partial_xJ,
+\end{align}
+where
+\begin{equation}
+\boxed{J(x,t)=\frac{\hbar}{2m\ii}
+\left(\Psi^*\partial_x\Psi-\Psi\partial_x\Psi^*\right)
+=\frac{\hbar}{m}\operatorname{Im}(\Psi^*\partial_x\Psi).}
+\end{equation}
+Define $P_{ab}(t)=\int_a^b\rho(x,t)\dd x$. Then
+\begin{equation}
+\boxed{\frac{\dd P_{ab}}{\dd t}
+=-\int_a^b\partial_xJ\dd x=J(a,t)-J(b,t).}
+\end{equation}
+The sign has an intuitive meaning: inflow through the left boundary increases probability; outflow through the right boundary decreases it.
+\paragraph{Dimensions.}
+In one spatial dimension $[\Psi]=L^{-1/2}$ and
+$[\Psi^*\partial_x\Psi]=L^{-2}$. Since $[\hbar/m]=L^2/T$,
+\begin{equation}
+\boxed{[J]=T^{-1},\quad \text{probability per unit time}.}
+\end{equation}
+\paragraph{Application to Problem 1.9.}
+There $\Psi(x,t)=f(x)\e^{-\ii at}$ with a real Gaussian $f(x)$, so
+$\Psi^*\partial_x\Psi=f(x)f'(x)$ is real. Hence
+\begin{equation}
+\boxed{J(x,t)=0\quad\text{for every }x,t.}
+\end{equation}
+\note{A stationary probability distribution can still carry a current in other systems, but the Gaussian ground state considered here does not.}
+
+\problem{1.15}{Conservation of inner products}
+\paragraph{Setup.} Show that the overlap of any two normalizable solutions of the same Schrödinger equation with real $V(x,t)$ is independent of time.
+\paragraph{Derivation.}
+Define the overlap
+\begin{equation}
+S(t)=\int_{-\infty}^{\infty}\Psi_1^*(x,t)\Psi_2(x,t)\dd x
+=\langle\Psi_1(t)|\Psi_2(t)\rangle.
+\end{equation}
+Using $\partial_t|\Psi_2\rangle=-\ii\hat H|\Psi_2\rangle/\hbar$ and
+$\partial_t\langle\Psi_1|=\ii\langle\Psi_1|\hat H/\hbar$ for a self-adjoint Hamiltonian,
+\begin{align}
+\frac{\dd S}{\dd t}
+&=\frac{\ii}{\hbar}\langle\Psi_1|\hat H|\Psi_2\rangle
+-\frac{\ii}{\hbar}\langle\Psi_1|\hat H|\Psi_2\rangle\\
+&=\boxed{0}.
+\end{align}
+To see the boundary assumption explicitly, the difference in the two Hamiltonian matrix elements is
+\begin{align}
+\langle H\Psi_1|\Psi_2\rangle-\langle\Psi_1|H\Psi_2\rangle
+&=-\frac{\hbar^2}{2m}\int
+\left[(\partial_x^2\Psi_1)^*\Psi_2-
+\Psi_1^*\partial_x^2\Psi_2\right]\dd x\\
+&=-\frac{\hbar^2}{2m}
+\left[(\partial_x\Psi_1)^*\Psi_2-\Psi_1^*\partial_x\Psi_2
+\right]_{-\infty}^{\infty}=0,
+\end{align}
+provided the boundary term vanishes.
+Thus
+\begin{equation}
+\boxed{\langle\Psi_1(t)|\Psi_2(t)\rangle
+=\langle\Psi_1(0)|\Psi_2(0)\rangle.}
+\end{equation}
+\note{Taking $\Psi_1=\Psi_2$ recovers norm conservation. Taking initially orthogonal states preserves their orthogonality under common unitary evolution.}
+
+\problem{1.16}{Parabolic compact-support wavefunction}
+\paragraph{Setup.} For $\Psi(x,0)=A(a^2-x^2)$ on $[-a,a]$ and zero outside, compute normalization, expectations $\E x,\E p,\E{x^2},\E{p^2}$, and uncertainty product.
+\paragraph{Derivation: normalization.}
+Choosing $A>0$,
+\begin{align}
+1&=A^2\int_{-a}^a(a^2-x^2)^2\dd x\\
+&=A^2\int_{-a}^a(a^4-2a^2x^2+x^4)\dd x\\
+&=A^2\left[2a^5-\frac{4a^5}3+\frac{2a^5}5\right]
+=A^2\frac{16a^5}{15}.
+\end{align}
+Thus
+\begin{equation}
+\boxed{A=\frac{\sqrt{15}}{4a^{5/2}}.}
+\end{equation}
+\paragraph{Derivation: position moments.}
+The density is even, giving $\E x=0$. For the second moment,
+\begin{align}
+\E{x^2}
+&=A^2\int_{-a}^a x^2(a^2-x^2)^2\dd x\\
+&=A^2\cdot2\left[\frac{a^7}3-\frac{2a^7}5+\frac{a^7}7\right]\\
+&=\frac{15}{16a^5}\frac{16a^7}{105}
+=\boxed{\frac{a^2}{7}}.
+\end{align}
+Therefore $\boxed{\sigma_x=a/\sqrt7}$.
+\paragraph{Derivation: momentum moments.}
+Inside the support, $\partial_x\Psi=-2Ax$; the wavefunction is real and vanishes at $x=\pm a$. Thus
+\begin{equation}
+\E p=-\ii\hbar\int_{-a}^a\Psi\,\partial_x\Psi\,\dd x
+=-\frac{\ii\hbar}{2}\left[\Psi(x,0)^2\right]_{-a}^a
+=\boxed{0}.
+\end{equation}
+Integration by parts, with zero endpoint contribution, yields
+\begin{align}
+\E{p^2}&=-\hbar^2\int_{-a}^a\Psi\,\partial_x^2\Psi\,\dd x
+=\hbar^2\int_{-a}^a|\partial_x\Psi|^2\dd x\\
+&=4A^2\hbar^2\int_{-a}^a x^2\dd x
+=4\frac{15}{16a^5}\hbar^2\frac{2a^3}{3}
+=\boxed{\frac{5\hbar^2}{2a^2}}.
+\end{align}
+As a result
+\begin{equation}
+\boxed{\sigma_p=\sqrt{\frac52}\frac{\hbar}{a}},\qquad
+\boxed{\sigma_x\sigma_p=\hbar\sqrt{\frac5{14}}
+\simeq0.597614\hbar>\frac{\hbar}{2}.}
+\end{equation}
+\note{Although the derivative jumps at the support endpoints, the wavefunction itself is continuous and vanishes there, and the weak derivative is square-integrable. The integration-by-parts quadratic form above is legitimate.}
+
+\problem{1.17}{A complex potential as a decay model}
+\paragraph{Setup.} Let a phenomenological potential have a constant absorptive imaginary part,
+$V(x)=V_0(x)-\ii\Gamma$ with $\Gamma>0$. Determine the total probability and lifetime.
+\paragraph{Derivation.}
+Taking the Schrödinger equation and its complex conjugate as in Problem 1.14, the real part $V_0$ cancels, but the imaginary contribution produces a sink:
+\begin{equation}
+\partial_t|\Psi|^2+\partial_xJ
+=-\frac{2\Gamma}{\hbar}|\Psi|^2.
+\end{equation}
+Integrating over all space and assuming no boundary flux,
+\begin{align}
+P(t)&=\int_{\mathbb R}|\Psi(x,t)|^2\dd x,\\
+\frac{\dd P}{\dd t}&=-[J]_{-\infty}^{\infty}
+-\frac{2\Gamma}{\hbar}P
+=\boxed{-\frac{2\Gamma}{\hbar}P}.
+\end{align}
+Separate variables and integrate:
+\begin{equation}
+\frac{\dd P}{P}=-\frac{2\Gamma}{\hbar}\dd t
+\quad\Rightarrow\quad P(t)=P(0)\e^{-2\Gamma t/\hbar}.
+\end{equation}
+For $P(0)=1$, comparison with $P(t)=\e^{-t/\tau}$ yields
+\begin{equation}
+\boxed{\tau=\frac{\hbar}{2\Gamma}}.
+\end{equation}
+\note{A non-Hermitian effective Hamiltonian does not conserve the norm of the selected subsystem. The decreasing norm represents survival probability and does not contradict probability conservation in a larger closed system.}
+
+\problem{1.18}{Thermal de Broglie wavelength and quantum regimes}
+\paragraph{Setup.} Estimate the threshold for thermal de Broglie wavelength $\lambda$ to exceed a characteristic separation $d$ in a solid or ideal gas. Compare electrons, silicon nuclei, helium gas, and dilute atomic hydrogen in space.
+\paragraph{Derivation: general condition.}
+The stated thermal kinetic-energy estimate $p^2/(2m)=3k_BT/2$ gives a typical momentum $p=\sqrt{3mk_BT}$ and
+\begin{equation}
+\boxed{\lambda=\frac{h}{\sqrt{3mk_BT}}}.
+\end{equation}
+The criterion $\lambda\gtrsim d$ becomes
+\begin{equation}
+\boxed{T\lesssim T_{\rm q}(m,d):=\frac{h^2}{3mk_Bd^2}.}
+\end{equation}
+This estimate indicates when \emph{translational} wave effects are important; it is a rule of thumb, not a sharp phase transition.
+\paragraph{Solids.}
+For $d=0.3\,\mathrm{nm}=3.0\times10^{-10}\,\mathrm{m}$, using $h=6.62607015\times10^{-34}\,\mathrm{J\,s}$ and $k_B=1.380649\times10^{-23}\,\mathrm{J/K}$,
+\begin{align}
+T_{\rm q,e}&=
+\frac{h^2}{3(9.10938\times10^{-31}\,\mathrm{kg})k_Bd^2}
+\simeq\boxed{1.29\times10^5\,\mathrm K},\\
+T_{\rm q,Si}&=
+\frac{h^2}{3(28.085\,u)k_Bd^2}
+\simeq\boxed{2.53\,\mathrm K},\qquad
+u=1.66053906660\times10^{-27}\,\mathrm{kg}.
+\end{align}
+Thus conducting electrons are typically quantum-mechanical even at room temperature by this criterion, whereas lattice nuclei show comparable translational wave scales only at low temperature.
+\paragraph{Ideal gases.}
+For number density $n=N/V=P/(k_BT)$, estimate the spacing
+\begin{equation}
+d\simeq n^{-1/3}=\left(\frac{k_BT}{P}\right)^{1/3}.
+\end{equation}
+Substituting into $\lambda\gtrsim d$ and raising both sides to appropriate powers gives
+\begin{align}
+\frac{h^2}{3mk_BT}&\gtrsim\left(\frac{k_BT}{P}\right)^{2/3},\\
+T^{5/3}&\lesssim\frac{h^2}{3mk_B}\left(\frac{P}{k_B}\right)^{2/3},
+\end{align}
+hence
+\begin{equation}
+\boxed{T\lesssim\frac1{k_B}\left(\frac{h^2}{3m}\right)^{3/5}P^{2/5}.}
+\end{equation}
+For helium atoms of mass $4.002602\,u$ at $P=101325\,\mathrm{Pa}$, this formula gives
+\begin{equation}
+\boxed{T_{\rm q,He}\simeq2.94\,\mathrm K.}
+\end{equation}
+At such temperatures ordinary helium may liquefy, so applying the \emph{ideal gas} estimate at atmospheric pressure is a formal scale comparison rather than a claim of a stable ideal-gas phase.
+\paragraph{Hydrogen in interstellar conditions.}
+For monatomic hydrogen $m\simeq1.00784u$, $T=3\,\mathrm K$,
+\begin{equation}
+\lambda=\frac{6.62607015\times10^{-34}}
+{\sqrt{3(1.00784u)k_B(3\,\mathrm K)}}
+\simeq\boxed{1.45\times10^{-9}\,\mathrm m}.
+\end{equation}
+Compared with $d\simeq1\,\mathrm{cm}=10^{-2}\,\mathrm m$,
+\begin{equation}
+\boxed{\frac{\lambda}{d}\simeq1.45\times10^{-7}\ll1}.
+\end{equation}
+Therefore this extremely dilute \emph{translational} gas is nondegenerate by the stated criterion; the internal electronic structure of its atoms is nevertheless quantum mechanical.
+\note{The relevant distance scale differs across problems. A correct conclusion must specify whether the question concerns conduction electrons, atomic centers of mass, or internal bound states.}

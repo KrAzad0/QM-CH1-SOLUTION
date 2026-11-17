@@ -1,0 +1,50 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,graphicx,float,hyperref,enumitem}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\numberwithin{equation}{section}
+\newcommand{\dd}{\,\mathrm{d}}
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\E}[1]{\left\langle #1\right\rangle}
+\newcommand{\problem}[2]{\subsection*{Problem #1: #2}\addcontentsline{toc}{subsection}{Problem #1: #2}}
+\newcommand{\note}[1]{\par\medskip\noindent\textit{Check / interpretation.} #1\par}
+\title{\textbf{The Wave Function}\\[2mm]\large Complete Worked Solutions to Chapter 1, Problems 1.1--1.18\\[1mm]\normalsize Independent Mathematical-Physics Study Notes}
+\author{Kumar Azad\\\small \url{https://github.com/KrAzad0/QM-CH1-SOLUTION}}
+\date{17 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Original step-by-step calculations for all eighteen problems in Chapter~1 of D.~J.~Griffiths and D.~F.~Schroeter, \emph{Introduction to Quantum Mechanics}, third edition (Cambridge University Press, 2018). The emphasis is on normalization, expectation values, uncertainty, Ehrenfest's theorem, probability flux, classical comparison, and physical interpretation. Problem prompts are independent short paraphrases, not reproductions of the textbook. This is an \emph{arXiv-inspired layout}; it is not an arXiv submission or a peer-reviewed paper.
+\end{abstract}
+\tableofcontents
+\section{Conventions and mathematical foundations}
+For the one-dimensional Schrödinger equation with a real potential:
+\begin{equation}
+\ii\hbar\partial_t\Psi=\left[-\frac{\hbar^2}{2m}\partial_x^2+V(x,t)\right]\Psi,\quad
+\rho=|\Psi|^2,\qquad \int_{\mathbb R}\rho\,\dd x=1.
+\end{equation}
+The key quantities for normalized states are
+\begin{align}
+\E{x^n}&=\int_{\mathbb R} x^n|\Psi|^2\dd x,&
+\E{p^n}&=\int_{\mathbb R}\Psi^*(-\ii\hbar\partial_x)^n\Psi\dd x,\\
+\sigma_A^2&=\E{A^2}-\E A^2,&
+J&=\frac{\hbar}{m}\operatorname{Im}(\Psi^*\partial_x\Psi).
+\end{align}
+For a piecewise differentiable state, boundary terms require careful treatment. For exact textbook statements consult the reference below.
+\section{Section exercises, Problems 1.1--1.9}
+\input{tex/problems-01-06}
+\input{tex/problems-07-09}
+\section{Further exercises, Problems 1.10--1.18}
+\input{tex/problems-10-13}
+\input{tex/problems-14-18}
+\section*{Conclusions}
+\addcontentsline{toc}{section}{Conclusions}
+Normalization, probabilistic expectations, uncertainty, and probability currents are connected by the Hermitian structure of quantum dynamics. The final exercises contrast this closed-system picture with classical statistical mechanics and phenomenological non-Hermitian evolution.
+\begin{thebibliography}{9}
+\bibitem{griffiths} D.~J.~Griffiths and D.~F.~Schroeter, \emph{Introduction to Quantum Mechanics}, 3rd ed., Cambridge University Press (2018), Chapter~1, pp.~3--24. DOI: \href{https://doi.org/10.1017/9781316995433}{10.1017/9781316995433}.
+\end{thebibliography}
+\end{document}

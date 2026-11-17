@@ -13,15 +13,26 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install plotting dependencies
+        run: python -m pip install numpy matplotlib
+      - name: Generate Problem 1.13 plot
+        run: python scripts/problem_1_13.py
       - name: Compile PDF
         uses: xu-cheng/latex-action@v3
         with:
           root_file: main.tex
           latexmk_use_xelatex: false
           args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
-      - name: Upload compiled manuscript
+      - name: Upload compiled manuscript and plot
         uses: actions/upload-artifact@v4
         with:
           name: QM-CH1-SOLUTION-PDF
-          path: main.pdf
+          path: |
+            main.pdf
+            figures/problem_1_13.pdf
+            figures/problem_1_13.png
           if-no-files-found: error

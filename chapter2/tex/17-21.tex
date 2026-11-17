@@ -1,0 +1,155 @@
+\problem{2.17}{Traveling-wave and standing-wave bases}
+Euler's identities imply
+$\ee^{\ii kx}=\cos kx+\ii\sin kx$ and
+$\ee^{-\ii kx}=\cos kx-\ii\sin kx$. Thus
+\begin{equation}
+A\ee^{\ii kx}+B\ee^{-\ii kx}
+=(A+B)\cos kx+\ii(A-B)\sin kx.
+\end{equation}
+Comparing coefficients gives
+\begin{equation}
+\boxed{C=A+B,\qquad D=\ii(A-B)},\qquad
+\boxed{A=\frac{C-\ii D}{2},\qquad
+B=\frac{C+\ii D}{2}}.
+\end{equation}
+The two descriptions span the same two-dimensional solution
+space for $E=\hbar^2k^2/(2m)$, but expose different physics:
+exponentials carry directional flux, sines and cosines
+describe standing waves.
+
+\problem{2.18}{Probability current of free waves}
+For a fixed positive $k$ and energy $E=\hbar^2k^2/(2m)$,
+write
+\begin{equation}
+\Psi(x,t)=[A\ee^{\ii kx}+B\ee^{-\ii kx}]
+\ee^{-\ii Et/\hbar}.
+\end{equation}
+The one-dimensional current is
+$J=(\hbar/m)\operatorname{Im}(\Psi^*\partial_x\Psi)$.
+The cross terms are real in $\Psi^*\partial_x\Psi$, so
+\begin{equation}
+\boxed{J=\frac{\hbar k}{m}(|A|^2-|B|^2)}.
+\end{equation}
+A single right-moving wave $A\ee^{\ii kx}$ has positive
+current, a single left-moving wave $B\ee^{-\ii kx}$
+negative current, and equal amplitudes produce a standing
+wave with zero net current. An ideal plane wave is not
+normalizable; $J$ describes flux per unit normalization
+of the scattering amplitude.
+
+\problem{2.19}{Complex Fourier series and the Fourier transform}
+Start with an ordinary Fourier series on $[-a,a]$,
+\begin{equation}
+f(x)=\sum_{n=0}^{\infty}
+\left[a_n\sin\frac{n\pi x}{a}+b_n\cos\frac{n\pi x}{a}\right].
+\end{equation}
+Using Euler's identity and taking $a_0=0$,
+\begin{equation}
+f(x)=\sum_{n=-\infty}^\infty c_n\ee^{\ii n\pi x/a},
+\quad c_0=b_0,\quad
+c_n=\frac{b_n-\ii a_n}{2},\quad
+c_{-n}=\frac{b_n+\ii a_n}{2}\quad(n>0).
+\end{equation}
+Orthogonality of exponentials gives
+\begin{equation}
+\int_{-a}^{a}\ee^{\ii(m-n)\pi x/a}\dd x
+=2a\delta_{mn}
+\Rightarrow
+\boxed{c_n=\frac1{2a}\int_{-a}^{a}
+f(x)\ee^{-\ii n\pi x/a}\dd x}.
+\end{equation}
+Now define $k_n=n\pi/a$, $\Delta k=\pi/a$ and
+$F(k_n)=\sqrt{2/\pi}\,a c_n$.
+Then
+\begin{equation}
+f(x)=\frac1{\sqrt{2\pi}}\sum_{n=-\infty}^\infty
+F(k_n)\ee^{\ii k_nx}\Delta k,\qquad
+F(k_n)=\frac1{\sqrt{2\pi}}\int_{-a}^a
+f(x)\ee^{-\ii k_nx}\dd x.
+\end{equation}
+In the limit $a\to\infty$, $\Delta k\to0$,
+and for appropriate integrable functions these sums
+and truncated integrals approach the Fourier transform pair
+\begin{equation}
+\boxed{F(k)=\frac1{\sqrt{2\pi}}\int_{\mathbb R}
+f(x)\ee^{-\ii kx}\dd x,\qquad
+f(x)=\frac1{\sqrt{2\pi}}\int_{\mathbb R}
+F(k)\ee^{\ii kx}\dd k}.
+\end{equation}
+\qcheck{The finite-interval argument motivates the transform
+rather than giving a rigorous existence theorem for all functions.
+The Plancherel identity additionally preserves the $L^2$ norm.}
+
+\problem{2.20}{Free evolution from a two-sided exponential}
+For $\Psi(x,0)=A\ee^{-a|x|}$ with $a>0$,
+\begin{equation}
+1=2|A|^2\int_0^\infty\ee^{-2ax}\dd x
+=\frac{|A|^2}{a}
+\Rightarrow\quad \boxed{A=\sqrt a}.
+\end{equation}
+The Fourier coefficient is
+\begin{align}
+\phi(k)&=\frac{\sqrt a}{\sqrt{2\pi}}
+\int_{-\infty}^\infty\ee^{-a|x|}
+\ee^{-\ii kx}\dd x\\
+&=\sqrt{\frac a{2\pi}}
+\left[\frac1{a+\ii k}+\frac1{a-\ii k}\right]
+=\boxed{\sqrt{\frac2\pi}\frac{a^{3/2}}{a^2+k^2}}.
+\end{align}
+Each momentum component evolves with frequency
+$\omega_k=\hbar k^2/(2m)$. Therefore
+\begin{equation}
+\boxed{
+\Psi(x,t)=\frac{a^{3/2}}{\pi}
+\int_{-\infty}^\infty
+\frac{\ee^{\ii kx-\ii\hbar k^2t/(2m)}}{a^2+k^2}\dd k}.
+\end{equation}
+When $a$ is large, the original state has width
+$\sigma_x\sim1/a$ and a broad momentum distribution,
+so it spreads rapidly; when $a$ is small the
+wavefunction is very broad and its typical momentum
+scale $\hbar a$ is small.
+Neither extreme is a normalizable delta function
+or uniform plane wave at the literal limiting parameter.
+
+\problem{2.21}{Gaussian wave-packet spreading}
+Take $\Psi(x,0)=A\ee^{-ax^2}$ with $a>0$.
+Normalization gives $A=(2a/\pi)^{1/4}$.
+Its Fourier transform is
+\begin{equation}
+\phi(k)=\frac{A}{\sqrt{2\pi}}
+\int\ee^{-ax^2-\ii kx}\dd x
+=\frac{A}{\sqrt{2a}}\ee^{-k^2/(4a)}.
+\end{equation}
+Completing the square in the inverse transform after
+multiplication by $\ee^{-\ii\hbar k^2t/(2m)}$ yields
+\begin{equation}
+\boxed{\Psi(x,t)=
+\left(\frac{2a}{\pi}\right)^{1/4}
+\frac1{\sqrt{\gamma(t)}}
+\exp\left[-\frac{ax^2}{\gamma(t)}\right]},
+\qquad \gamma=1+\frac{2\ii\hbar at}{m}.
+\end{equation}
+Define $s=2\hbar at/m$ and
+$w=a/(1+s^2)$. Since
+$\operatorname{Re}(1/\gamma)=1/(1+s^2)$,
+\begin{equation}
+\boxed{|\Psi|^2=\sqrt{\frac{2w}{\pi}}
+\ee^{-2wx^2}}.
+\end{equation}
+The state remains Gaussian but its width grows.
+Parity gives $\avg{x}=\avg p=0$.
+The second moments and uncertainties are
+\begin{align}
+\avg{x^2}&=\frac{1+s^2}{4a},&
+\avg{p^2}&=a\hbar^2,\\
+\boxed{\sigma_x}&=\boxed{\frac{\sqrt{1+s^2}}{2\sqrt a}},&
+\boxed{\sigma_p}&=\boxed{\hbar\sqrt a},\\
+\boxed{\sigma_x\sigma_p}&=\boxed{\frac{\hbar}{2}\sqrt{1+s^2}}.
+\end{align}
+The momentum uncertainty remains constant, whereas
+position uncertainty increases due to free dispersion.
+The lower bound is saturated at $t=0$ alone.
+\qcheck{A wavepacket's density can evolve even though each
+Fourier mode has a fixed energy; interference between
+different energies generates the spreading.}

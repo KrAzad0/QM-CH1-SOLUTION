@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f6f3eb">
+<meta name="description" content="Quantum Mechanics Chapter 2: The Time-Independent Schrödinger Equation. 64 original worked problems and an arXiv-inspired LaTeX manuscript.">
+<meta property="og:title" content="Time-Independent Schrödinger Equation — 64 Worked Problems">
+<meta property="og:description" content="Full worked solutions to Griffiths & Schroeter Chapter 2, with equations, numerical plots and searchable exercise index.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../style.css">
+<title>Chapter 2 — The Time-Independent Schrödinger Equation | Kumar Azad</title>
+<script>
+window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},
+svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','code','pre']}};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<script src="./chapter2.js" defer></script>
+<script src="../site.js" defer></script>
+<style>
+  .chapter2-topline{display:inline-flex;gap:12px;align-items:center;font-family:var(--mono);font-size:10px;letter-spacing:.09em;color:var(--accent);margin:12px 0}
+  .hero.chapter-two .hero-grid{min-height:620px}
+  .hero.chapter-two h1{font-size:clamp(54px,6.2vw,92px);line-height:1.12;letter-spacing:-.055em}
+  .section-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
+  .section-summary a{border:1px solid var(--line);background:var(--paper);padding:19px 19px 17px;min-height:135px;transition:background .15s}
+  .section-summary a:hover{background:var(--accent-light)}
+  .section-summary a span{color:var(--accent);font:400 11px var(--mono)}
+  .section-summary a strong{display:block;font:400 18px/1.3 var(--serif);margin:11px 0 7px}
+  .section-summary a small{font:400 11px var(--sans);color:var(--muted)}
+  .problem-tag{font-family:var(--mono);font-size:10px;color:var(--accent)}
+  .site-header .brand-text strong{font-weight:700}
+  .chapter-note{border-left:3px solid var(--accent);padding:13px 20px;background:var(--wash);color:var(--muted);font-size:12px;line-height:1.75;margin-top:25px}
+  .chapter-two .hero-source{max-width:520px}
+  .chapter-two .hero-statline{margin-top:35px}
+  .challenge-label{font:400 10px var(--mono);color:var(--accent);letter-spacing:.05em}
+  @media(max-width:950px){.section-summary{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.section-summary{grid-template-columns:1fr}.hero.chapter-two h1{font-size:clamp(48px,11vw,75px)}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="top-progress" id="reading-progress"></div>
+<header class="site-header"><div class="header-inner">
+<a href="../index.html" class="brand" aria-label="Quantum mechanics solutions collection">
+<span class="brand-mark">Ψ</span><span class="brand-text">Q.M. <strong>CHAPTER 02</strong><small>Study archive / 2026</small></span>
+</a>
+<nav class="main-nav" aria-label="Main navigation"><a href="../index.html">Chapter 1</a><a href="#syllabus">Topics</a><a href="#problems">64 problems</a><a href="#manuscript">Manuscript</a></nav>
+<div class="header-actions"><button class="theme-toggle" id="theme-toggle" type="button" title="Toggle color theme" aria-label="Switch color theme">◐</button>
+<a class="github-pill" href="https://github.com/KrAzad0/QM-CH1-SOLUTION/tree/main/chapter2" target="_blank" rel="noopener noreferrer">Source ↗</a></div>
+</div></header>
+
+<main id="main">
+<section id="top" class="hero chapter-two"><div class="container hero-grid">
+<div class="hero-copy">
+  <div class="eyebrow"><span class="eyebrow-line"></span> A mathematical-physics solution companion <span class="eyebrow-index">02 / 12</span></div>
+  <h1>Time-Independent<br><em>Schrödinger</em><br>Equation<span class="title-dot">.</span></h1>
+  <p class="hero-lede">From stationary states to quantum tunneling—64 exercises with boundary conditions, algebra, and the physics behind every equation.</p>
+  <p class="hero-source">Based on <cite>Introduction to Quantum Mechanics</cite>, third edition · David J. Griffiths &amp; Darrell F. Schroeter · Chapter 2, textbook pages 25–90.</p>
+  <div class="hero-cta"><a class="button button-primary" href="#problems">Browse all 64 problems ↗</a><a class="button button-outline" href="./chapter-2-solutions.pdf" target="_blank" rel="noopener noreferrer">Open manuscript ↗</a></div>
+  <div class="hero-statline"><div><strong>64</strong><span>Problems</span></div><div><strong>06</strong><span>Chapter sections</span></div><div><strong>08</strong><span>Solution groups</span></div></div>
+</div>
+<div class="hero-visual">
+<div class="visual-caption"><span>FIG. 02</span><span>DISCRETE STATIONARY STATES</span></div>
+<svg class="wave-figure" viewBox="0 0 620 440" role="img" aria-label="Infinite square well with first three stationary-state waveforms">
+<g class="wave-grid"><path d="M50 48V375M100 48V375M150 48V375M200 48V375M250 48V375M300 48V375M350 48V375M400 48V375M450 48V375M500 48V375M550 48V375"/><path d="M45 104H570M45 157H570M45 210H570M45 263H570M45 316H570M45 369H570"/></g>
+<rect x="82" y="60" width="453" height="325" fill="#b78d6f" fill-opacity=".055" stroke="#ba8e79" stroke-width="1"/>
+<line x1="82" y1="76" x2="82" y2="381" stroke="#9b4635" stroke-width="2"/><line x1="535" y1="76" x2="535" y2="381" stroke="#9b4635" stroke-width="2"/>
+<g fill="none" stroke-linecap="round" stroke-width="3.6"><path d="M82 144 Q308 -53 535 144" stroke="#b64b3b"/><path d="M82 246 Q195 145 308 246 T535 246" stroke="#2c7771"/><path d="M82 349 Q157 278 233 349 T384 349 T535 349" stroke="#a67b48"/></g>
+<g font-family="monospace" font-size="14" fill="currentColor" opacity=".68"><text x="50" y="130">n=1</text><text x="50" y="231">n=2</text><text x="50" y="335">n=3</text><text x="82" y="405">x=0</text><text x="513" y="405">x=a</text></g>
+</svg>
+<div class="formula-panel"><span class="formula-kicker">EIGENVALUE PROBLEM</span><div class="hero-formula">\(\hat H\psi_n = E_n\psi_n\)</div><span class="formula-foot">BOUNDARY CONDITIONS SELECT THE ALLOWED ENERGIES</span></div>
+<div class="figure-reference">DIAGRAM NOT TO SCALE · SINE EIGENMODES WITH ENERGY OFFSETS</div>
+</div>
+</div></section>
+
+<section class="principles" id="syllabus"><div class="container">
+<div class="section-topline"><span>01 — CHAPTER ROADMAP</span><span>GRIFFITHS / SCHROETER · THIRD EDITION</span></div>
+<div class="intro-layout"><h2>Six core topics.<br><em>One framework.</em></h2><div class="intro-text"><p>The time-independent Schrödinger equation is a boundary-value problem. Its energy spectrum and spatial eigenfunctions depend on the potential, self-adjoint boundary conditions, and normalization.</p><p>This companion follows the third-edition problem numbering, adds intermediate mathematics, and distinguishes bound states, scattering states, and numerical approximations.</p></div></div>
+<div class="topic-grid">
+<article class="topic"><span>2.1</span><h3>Stationary states</h3><p>Separation of variables, discrete spectra and superpositions.</p><div class="topic-math">\(\Psi_n=\psi_ne^{-iE_nt/\hbar}\)</div></article>
+<article class="topic"><span>2.2</span><h3>Infinite square well</h3><p>Quantization, orthogonality and time evolution.</p><div class="topic-math">\(E_n \propto n^2\)</div></article>
+<article class="topic"><span>2.3</span><h3>Harmonic oscillator</h3><p>Ladder operators, Hermite polynomials and coherent dynamics.</p><div class="topic-math">\(E_n=(n+\tfrac12)\hbar\omega\)</div></article>
+<article class="topic"><span>2.4</span><h3>Free particles</h3><p>Fourier transforms and dispersing wave packets.</p><div class="topic-math">\(\omega(k)=\hbar k^2/2m\)</div></article>
+<article class="topic"><span>2.5</span><h3>Delta potentials</h3><p>Singular interactions, bound levels and jumps in derivatives.</p><div class="topic-math">\(\Delta\psi' \propto \psi(0)\)</div></article>
+<article class="topic"><span>2.6</span><h3>Finite square well</h3><p>Even/odd bound states, scattering and tunneling.</p><div class="topic-math">\(T+R=1\)</div></article>
+</div>
+<div class="section-summary" aria-label="Quick navigation for the eight solution groups">
+<a href="#problems" data-group-link="0"><span>PROBLEMS 01–09</span><strong>Stationary states and infinite wells</strong><small>9 exercises</small></a>
+<a href="#problems" data-group-link="1"><span>PROBLEMS 10–16</span><strong>Quantum harmonic oscillator</strong><small>7 exercises</small></a>
+<a href="#problems" data-group-link="2"><span>PROBLEMS 17–21</span><strong>Free particles and wave packets</strong><small>5 exercises</small></a>
+<a href="#problems" data-group-link="3"><span>PROBLEMS 22–28</span><strong>Dirac delta potentials</strong><small>7 exercises</small></a>
+<a href="#problems" data-group-link="4"><span>PROBLEMS 29–35</span><strong>Finite wells and potential steps</strong><small>7 exercises</small></a>
+<a href="#problems" data-group-link="5"><span>PROBLEMS 36–45</span><strong>Revival, symmetry and spectral theory</strong><small>10 exercises</small></a>
+<a href="#problems" data-group-link="6"><span>PROBLEMS 46–54</span><strong>Dynamics and scattering matrices</strong><small>9 exercises</small></a>
+<a href="#problems" data-group-link="7"><span>PROBLEMS 55–64</span><strong>Computational and advanced problems</strong><small>10 exercises</small></a>
+</div>
+</div></section>
+
+<section class="problem-section" id="problems"><div class="container">
+<div class="section-topline"><span>02 — COMPLETE PROBLEM INDEX</span><span>64 NUMBERED EXERCISES</span></div>
+<div class="section-heading-row"><div><h2>Every equation<br><em>has a reason.</em></h2><p>Search by concept or problem number. Open the original LaTeX derivation for each entry.</p></div><div class="complete-count">64 <span>/ 64</span><small>DOCUMENTED</small></div></div>
+<div class="problem-toolbar"><label class="search-wrap"><span class="sr-only">Search problems</span><span aria-hidden="true">⌕</span><input id="problem-search" type="search" placeholder="Search e.g. tunneling, Airy, 2.48…" autocomplete="off"></label><div class="filter-group"><button type="button" class="filter is-active" data-filter="all" aria-pressed="true">All 64</button><button type="button" class="filter" data-filter="section" aria-pressed="false">2.1–2.35</button><button type="button" class="filter" data-filter="further" aria-pressed="false">2.36–2.64</button></div></div>
+<div class="problem-list" id="problem-list"></div><p class="no-results" id="no-results" hidden>No matching problems. Try a different mathematical concept.</p>
+<div class="list-footer"><span id="visible-count" aria-live="polite">Showing 64 of 64 problems</span><a href="#manuscript">Read the complete manuscript ↘</a></div>
+</div></section>
+
+<section class="manuscript-section" id="manuscript"><div class="container">
+<div class="section-topline"><span>03 — FULL DOCUMENT</span><span>LATEX + NUMERICAL CHECKS</span></div>
+<div class="manuscript-layout"><div class="manuscript-heading"><div class="manuscript-index">STUDY COMPANION / QM-02</div><h2>A complete<br><em>mathematical</em><br>record.</h2><p>One carefully typeset manuscript covering all 64 numbered exercises, with derivations, limiting-case checks, and independent Python calculations for the more demanding numerical problems.</p><div class="manuscript-actions"><a class="button button-primary" href="./chapter-2-solutions.pdf" target="_blank" rel="noopener noreferrer">Open full PDF ↗</a><a class="button button-outline" href="https://github.com/KrAzad0/QM-CH1-SOLUTION/tree/main/chapter2" target="_blank" rel="noopener noreferrer">Read LaTeX source ↗</a></div></div>
+<div class="paper-preview"><div class="paper-head"><span>MATHEMATICAL PHYSICS / COURSE COMPANION</span><span>QM—02</span></div><div class="paper-accent"></div><div class="paper-title">Time-Independent Schrödinger Equation</div><div class="paper-subtitle">Independent worked solutions to Chapter 2<br>Problems 2.1–2.64</div><div class="paper-author">Kumar Azad</div><div class="paper-rule"></div><strong>Abstract</strong><p>Stationary states, boundary conditions, harmonic-oscillator algebra, Fourier wave packets, delta potentials, finite wells and barriers, quantum revival, scattering matrices and numerical spectra.</p><div class="paper-fake-lines"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="paper-bottom">INDEPENDENT STUDY · NOVEMBER 2026</div></div></div>
+<div class="citation-strip"><div><span>TEXTBOOK REFERENCE</span><p>Griffiths, D. J. and Schroeter, D. F. <em>Introduction to Quantum Mechanics</em>, third edition. Cambridge University Press, 2018, Chapter 2, pp. 25–90. Problems summarized independently.</p></div><a href="https://doi.org/10.1017/9781316995433" target="_blank" rel="noopener noreferrer">Book DOI ↗</a></div>
+<div class="chapter-note">This is an independent educational solution companion—not a peer-reviewed research article, an official textbook manual, or an arXiv submission. Consult the textbook for the exact problem wording. Some computational results depend on the stated discretizations and numerical tolerances.</div>
+</div></section>
+</main>
+<footer class="site-footer"><div class="container footer-grid"><div><a class="footer-brand" href="#top">Ψ <span>Chapter 2</span></a><p>The mathematics of bound states and quantum motion.</p></div><div><span>STUDY</span><a href="../index.html">Chapter 1</a><a href="#syllabus">Core sections</a><a href="#problems">64 solutions</a></div><div><span>CONNECT</span><a href="https://github.com/KrAzad0/QM-CH1-SOLUTION" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://krazad0.github.io/" target="_blank" rel="noopener noreferrer">Portfolio ↗</a></div></div><div class="container footer-bottom"><span>© 2026 Kumar Azad · Independent educational companion.</span><span>Not an official solutions manual or arXiv publication.</span></div></footer>
+</body></html>

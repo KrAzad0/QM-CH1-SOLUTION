@@ -1,0 +1,182 @@
+\problem{2.10}{Second excited harmonic oscillator state}
+Introduce $q=\sqrt{m\omega/\hbar}\,x$ and the normalized
+$\psi_0(x)=(m\omega/\pi\hbar)^{1/4}\ee^{-q^2/2}$.
+Using
+$a^\dagger=(q-\partial_q)/\sqrt2$ and
+$\psi_2=(a^\dagger)^2\psi_0/\sqrt{2!}$,
+\begin{equation}
+a^\dagger\psi_0=\sqrt2\,q\psi_0,\quad
+(a^\dagger)^2\psi_0=(2q^2-1)\psi_0,\quad
+\boxed{\psi_2(x)=\frac{2q^2-1}{\sqrt2}\psi_0(x)}.
+\end{equation}
+The first three are $\psi_0=\psi_0(x)$ (even, no
+nodes), $\psi_1=\sqrt2q\psi_0$ (odd, one node $q=0$), and
+$\psi_2$ (even, nodes at $q=\pm1/\sqrt2$). The inner products
+$\avg{\psi_0|\psi_1}$ and $\avg{\psi_1|\psi_2}$ vanish
+by oddness. The nontrivial pair is
+\begin{align}
+\int_{\mathbb R}\psi_0\psi_2\,\dd x
+&=\frac1{\sqrt2\sqrt\pi}
+\int_{-\infty}^\infty(2q^2-1)\ee^{-q^2}\dd q\\
+&=\frac{2(\sqrt\pi/2)-\sqrt\pi}{\sqrt{2\pi}}=0.
+\end{align}
+\qcheck{Normalization of $\psi_2$ follows from
+$\avg{(2q^2-1)^2}_{\psi_0}/2
+=[4(3/4)-4(1/2)+1]/2=1$.}
+
+\problem{2.11}{Lowest two oscillator states: direct expectations}
+For $\psi_0\propto\ee^{-q^2/2}$ and
+$\psi_1=\sqrt2q\psi_0$, the densities are even, so
+$\avg x=\avg p=0$ (the functions are real and the
+momentum integral is a boundary term).
+Use the Gaussian moments
+\begin{equation}
+\frac1{\sqrt\pi}\int q^2\ee^{-q^2}\dd q=\frac12,\qquad
+\frac1{\sqrt\pi}\int q^4\ee^{-q^2}\dd q=\frac34.
+\end{equation}
+For the ground state, $\avg{q^2}_0=1/2$.
+For the first excited state,
+$\avg{q^2}_1=2\avg{q^4}_0=3/2$. Since
+$x=\ell q$, with $\ell=\sqrt{\hbar/(m\omega)}$,
+\begin{equation}
+\boxed{\avg{x^2}_0=\frac{\hbar}{2m\omega},\qquad
+\avg{x^2}_1=\frac{3\hbar}{2m\omega}}.
+\end{equation}
+Acting with $-\hbar^2\partial_x^2$ on $\psi_0$ gives
+$\hat p^2\psi_0=(m\hbar\omega-m^2\omega^2x^2)\psi_0$;
+on $\psi_1$ gives
+$\hat p^2\psi_1=(3m\hbar\omega-m^2\omega^2x^2)\psi_1$.
+Thus
+\begin{equation}
+\boxed{\avg{p^2}_0=\frac{m\hbar\omega}{2},\qquad
+\avg{p^2}_1=\frac{3m\hbar\omega}{2}}.
+\end{equation}
+The uncertainty products are respectively
+$\hbar/2$ and $3\hbar/2$. The potential and
+kinetic energies in these states satisfy
+\begin{equation}
+\avg V=\frac12m\omega^2\avg{x^2}=\frac12 E_n,\qquad
+\avg T=\frac{\avg{p^2}}{2m}=\frac12 E_n,
+\end{equation}
+giving totals $E_0=\hbar\omega/2$ and
+$E_1=3\hbar\omega/2$ as required.
+
+\problem{2.12}{General oscillator expectations using ladder algebra}
+Use
+\begin{equation}
+x=\sqrt{\frac{\hbar}{2m\omega}}(a+a^\dagger),\qquad
+p=\ii\sqrt{\frac{m\hbar\omega}{2}}(a^\dagger-a),
+\end{equation}
+together with $\langle n|a|n\rangle=0$,
+$a^\dagger a|n\rangle=n|n\rangle$ and
+$aa^\dagger|n\rangle=(n+1)|n\rangle$.
+Terms with $a^2$ or $(a^\dagger)^2$ change $n$ by two
+and therefore vanish in diagonal matrix elements.
+Consequently
+\begin{align}
+\avg x_n&=\avg p_n=0,\\
+\boxed{\avg{x^2}_n}&=\boxed{\frac{\hbar}{m\omega}
+\left(n+\frac12\right)},\\
+\boxed{\avg{p^2}_n}&=\boxed{m\hbar\omega
+\left(n+\frac12\right)},\\
+\boxed{\avg T_n}&=\boxed{\frac12\hbar\omega
+\left(n+\frac12\right)},\\
+\boxed{\sigma_x\sigma_p}&=\boxed{\hbar\left(n+\frac12\right)}.
+\end{align}
+This obeys the uncertainty relation for all $n\ge0$,
+with equality only in the ground state.
+
+\problem{2.13}{Dynamics of a $3:4$ oscillator superposition}
+Let $\Psi(x,0)=A[3\psi_0(x)+4\psi_1(x)]$.
+Orthonormality gives $A=1/5$.
+Writing $E_n=(n+1/2)\hbar\omega$,
+\begin{equation}
+\Psi(x,t)=\frac35\psi_0\ee^{-\ii\omega t/2}
++\frac45\psi_1\ee^{-3\ii\omega t/2}.
+\end{equation}
+Because the stationary functions are real,
+\begin{equation}
+|\Psi|^2=\frac9{25}\psi_0^2+\frac{16}{25}\psi_1^2+
+\frac{24}{25}\psi_0\psi_1\cos(\omega t).
+\end{equation}
+Replacing $\psi_1$ by $\psi_2$ would produce a density
+cross-term oscillating at $2\omega$ instead. Since
+$\langle0|x|1\rangle=\sqrt{\hbar/(2m\omega)}$,
+\begin{align}
+\boxed{\avg x(t)}&=\boxed{\frac{24}{25}
+\sqrt{\frac{\hbar}{2m\omega}}\cos(\omega t)},\\
+\boxed{\avg p(t)}&=\boxed{-\frac{24}{25}
+\sqrt{\frac{m\hbar\omega}{2}}\sin(\omega t)}.
+\end{align}
+Differentiating the second equation gives
+$\dd\avg p/\dd t=-m\omega^2\avg x$,
+which is Ehrenfest's theorem.
+Energy outcomes are $E_0$ and $E_1$ with
+probabilities $9/25$ and $16/25$, and
+\begin{equation}
+\avg H=\frac9{25}\frac12\hbar\omega+
+\frac{16}{25}\frac32\hbar\omega
+=\boxed{\frac{57}{50}\hbar\omega}.
+\end{equation}
+
+\problem{2.14}{Ground-state probability outside classical turning points}
+The ground-state energy is $\hbar\omega/2$.
+Classical turning points satisfy
+$m\omega^2x_t^2/2=E_0$, giving $x_t=\ell$
+with $\ell=\sqrt{\hbar/(m\omega)}$.
+For $q=x/\ell$, the normalized ground-state density is
+$\rho_q=\ee^{-q^2}/\sqrt\pi$. Thus
+\begin{equation}
+P(|x|>x_t)=\frac{2}{\sqrt\pi}
+\int_1^\infty \ee^{-q^2}\dd q
+=\operatorname{erfc}(1)
+=\boxed{0.157\quad\text{(three significant figures)}}.
+\end{equation}
+The nonzero tail is a direct signature of quantum
+penetration into the classically forbidden region.
+
+\problem{2.15}{Fifth and sixth Hermite polynomials}
+The Hermite equation $H_n''-2qH_n'+2nH_n=0$
+admits the recursion
+$H_{n+1}=2qH_n-2nH_{n-1}$,
+with $H_0=1$, $H_1=2q$.
+Starting from $H_3=8q^3-12q$ and
+$H_4=16q^4-48q^2+12$,
+\begin{align}
+H_5&=2q(16q^4-48q^2+12)-8(8q^3-12q)\\
+&=\boxed{32q^5-160q^3+120q},\\
+H_6&=2q(32q^5-160q^3+120q)-10(16q^4-48q^2+12)\\
+&=\boxed{64q^6-480q^4+720q^2-120}.
+\end{align}
+The leading coefficients are $2^5$ and $2^6$ respectively.
+
+\problem{2.16}{Rodrigues, recursion, differentiation, generating function}
+For physicists' Hermite polynomials,
+\begin{equation}
+H_n(q)=(-1)^n\ee^{q^2}\frac{\dd^n}{\dd q^n}
+\ee^{-q^2},\quad
+H_{n+1}=2qH_n-2nH_{n-1}.
+\end{equation}
+Repeated differentiation in Rodrigues' expression gives
+\begin{equation}
+H_3=8q^3-12q,\qquad
+H_4=16q^4-48q^2+12.
+\end{equation}
+The recurrence then gives the $H_5$ and $H_6$
+calculated in Problem 2.15. Direct differentiation checks
+\begin{align}
+H_5'&=160q^4-480q^2+120=10H_4,\\
+H_6'&=384q^5-1920q^3+1440q=12H_5.
+\end{align}
+Finally expand the generating function
+\begin{equation}
+\ee^{-z^2+2qz}
+=1+2qz+(2q^2-1)z^2+
+\left(\frac43q^3-2q\right)z^3+O(z^4).
+\end{equation}
+Reading off the coefficient of $z^n/n!$ gives
+\begin{equation}
+\boxed{H_1=2q,\quad H_2=4q^2-2,\quad H_3=8q^3-12q}.
+\end{equation}
+The three identities are mutually consistent and provide
+independent calculations of the same polynomial family.

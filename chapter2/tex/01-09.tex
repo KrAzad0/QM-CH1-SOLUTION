@@ -1,0 +1,201 @@
+\problem{2.1}{Reality, parity, and stationary states}
+\textit{Paraphrase.} Establish three properties of stationary solutions for real
+one-dimensional, time-independent potentials.
+For a separated solution $\Psi=\psi(x)\ee^{-\ii Et/\hbar}$, let
+$E=E_R+\ii E_I$. Then
+\begin{equation}
+\|\Psi(t)\|^2=\ee^{2E_It/\hbar}\|\psi\|^2.
+\end{equation}
+A normalizable closed-system state preserves its norm, so $E_I=0$:
+the energy is real. For real $V$, complex conjugation of
+$-\hbar^2\psi''/(2m)+V\psi=E\psi$ shows that $\psi^*$ solves the same
+equation. Hence $\Re\psi=(\psi+\psi^*)/2$ and
+$\Im\psi=(\psi-\psi^*)/(2\ii)$ provide real solutions (at least one
+nonzero) spanning the same real solution space. If $V(-x)=V(x)$, the
+reflected function $\psi(-x)$ also solves the same equation.
+Then
+\begin{equation}
+\psi_e(x)=\frac{\psi(x)+\psi(-x)}2,\qquad
+\psi_o(x)=\frac{\psi(x)-\psi(-x)}2
+\end{equation}
+are even and odd eigenfunctions with the same energy.
+\answer{Bound-state eigenfunctions can be chosen real and of definite
+parity, and their energies are real.}
+\qcheck{In higher-dimensional or degenerate problems not every complex
+eigenvector is a single parity eigenfunction; one chooses a suitable
+basis within the eigenspace.}
+
+\problem{2.2}{Why bound-state energy exceeds the potential minimum}
+\textit{Paraphrase.} Prove a lower bound for any nontrivial normalizable eigenstate.
+Multiply $\hat H\psi=E\psi$ by $\psi^*$ and integrate. Integration by
+parts under boundary conditions giving vanishing surface terms gives
+\begin{equation}
+E\int|\psi|^2\dd x=
+\frac{\hbar^2}{2m}\int|\psi'|^2\dd x+
+\int V|\psi|^2\dd x
+\ge V_{\min}\int|\psi|^2\dd x .
+\end{equation}
+For a normalized state,
+\begin{equation}
+E-V_{\min}=\frac{\hbar^2}{2m}\int|\psi'|^2\dd x
++\int(V-V_{\min})|\psi|^2\dd x.
+\end{equation}
+Both terms are nonnegative. Equality would require $\psi'$ to
+vanish almost everywhere and the support to lie where $V=V_{\min}$;
+a nonzero constant is not square-integrable on the real line.
+\answer{$\boxed{E>V_{\min}}$ for a nontrivial normalizable bound
+state on the infinite line under standard assumptions.}
+Classically $E=T+V\ge V_{\min}$; the strict quantum inequality reflects
+the impossibility of a normalizable state with everywhere vanishing
+kinetic expectation.
+
+\problem{2.3}{Excluding nonpositive well energies}
+In the well $V=0$ for $0<x<a$ and $\psi(0)=\psi(a)=0$.
+For $E=0$ the equation is $\psi''=0$, hence
+$\psi=Ax+B$. The endpoint values yield $B=0$, then $A=0$.
+For $E<0$, set $\kappa=\sqrt{-2mE}/\hbar>0$. Then
+\begin{equation}
+\psi=A\sinh(\kappa x)+B\cosh(\kappa x);
+\quad \psi(0)=0\Rightarrow B=0;\quad
+\psi(a)=0\Rightarrow A\sinh(\kappa a)=0.
+\end{equation}
+Since $\sinh(\kappa a)\ne0$, $A=0$ as well. Only the trivial state
+remains. Thus $E_n=n^2\pi^2\hbar^2/(2ma^2)>0$.
+
+\problem{2.4}{Position and momentum fluctuations in a box}
+For $\phi_n=\sqrt{2/a}\sin(n\pi x/a)$,
+\begin{align}
+\avg{x}&=\frac2a\int_0^a x\sin^2(n\pi x/a)\dd x=\frac a2,\\
+\avg{x^2}&=\frac2a\int_0^a x^2\sin^2(n\pi x/a)\dd x
+=a^2\left(\frac13-\frac{1}{2n^2\pi^2}\right),\\
+\avg p&=-\ii\hbar\int_0^a\phi_n\phi_n'\dd x
+=-\frac{\ii\hbar}{2}[\phi_n^2]_0^a=0,\\
+\avg{p^2}&=-\hbar^2\int_0^a\phi_n\phi_n''\dd x
+=\frac{n^2\pi^2\hbar^2}{a^2}.
+\end{align}
+Therefore
+\begin{equation}
+\boxed{\sigma_x=a\sqrt{\frac1{12}-\frac1{2n^2\pi^2}},
+\quad \sigma_p=\frac{n\pi\hbar}{a},\quad
+\sigma_x\sigma_p=\hbar\sqrt{\frac{n^2\pi^2}{12}-\frac12}.}
+\end{equation}
+The expression increases with integer $n\ge1$, so the
+ground state is closest to the Heisenberg bound:
+$\sigma_x\sigma_p=\hbar\sqrt{\pi^2/12-1/2}\approx0.568\hbar$.
+The strict inequality follows from the sine shape not being Gaussian.
+
+\problem{2.5}{Equal two-state superposition in an infinite well}
+Let $\Omega=\pi^2\hbar/(2ma^2)$ and
+$\Psi(x,0)=A[\phi_1(x)+\phi_2(x)]$.
+Orthonormality yields $1=|A|^2(1+1)$; choose $A=1/\sqrt2$.
+The evolved state and its density are
+\begin{align}
+\Psi(x,t)&=\frac1{\sqrt2}
+\left[\phi_1(x)\ee^{-\ii\Omega t}+
+\phi_2(x)\ee^{-4\ii\Omega t}\right],\\
+|\Psi|^2&=\frac12(\phi_1^2+\phi_2^2)
++\phi_1\phi_2\cos(3\Omega t).
+\end{align}
+The diagonal position elements are $a/2$, while
+\begin{equation}
+X_{12}=\int_0^a\phi_1(x)x\phi_2(x)\dd x
+=\frac1a\int_0^a x[\cos(\pi x/a)-\cos(3\pi x/a)]\dd x
+=-\frac{16a}{9\pi^2}.
+\end{equation}
+Hence
+\begin{align}
+\boxed{\avg{x}(t)=\frac a2-\frac{16a}{9\pi^2}\cos(3\Omega t)},\\
+\boxed{\avg p(t)=m\frac{\dd\avg x}{\dd t}
+=\frac{16ma\Omega}{3\pi^2}\sin(3\Omega t)}.
+\end{align}
+The oscillation amplitude is $16a/(9\pi^2)<a/2$ and angular
+frequency $3\Omega$. Only $E_1=\hbar\Omega$ and
+$E_2=4\hbar\Omega$ can be measured, with probability $1/2$
+each; $\avg H=(E_1+E_2)/2=5\hbar\Omega/2$.
+
+\problem{2.6}{Relative phase controls spatial oscillation}
+Change the initial state to
+$\Psi(x,0)=[\phi_1(x)+\ee^{\ii\varphi}\phi_2(x)]/\sqrt2$.
+Time evolution gives
+\begin{equation}
+\Psi(x,t)=\frac{\phi_1\ee^{-\ii\Omega t}
++\ee^{\ii\varphi}\phi_2\ee^{-4\ii\Omega t}}{\sqrt2},
+\end{equation}
+so
+\begin{align}
+|\Psi|^2&=\frac12(\phi_1^2+\phi_2^2)
++\phi_1\phi_2\cos(3\Omega t-\varphi),\\
+\avg x(t)&=\boxed{\frac a2-\frac{16a}{9\pi^2}
+\cos(3\Omega t-\varphi)}.
+\end{align}
+For $\varphi=\pi/2$ the oscillation is shifted by a quarter
+period and $\avg x(0)=a/2$; for $\varphi=\pi$, the cosine term changes
+sign and the initial spatial asymmetry reverses. The energy
+probabilities remain $1/2$ and $1/2$. A global phase would cancel;
+the \emph{relative} phase does not.
+
+\problem{2.7}{Triangular initial state and spectral decomposition}
+Let $\Psi(x,0)=A\min(x,a-x)$ on $[0,a]$, zero otherwise.
+By symmetry,
+\begin{equation}
+1=2A^2\int_0^{a/2}x^2\dd x
+=A^2\frac{a^3}{12}
+\quad\Longrightarrow\quad A=\sqrt{\frac{12}{a^3}}.
+\end{equation}
+It has a peak $Aa/2$ at the midpoint. Its expansion coefficients are
+\begin{align}
+c_n&=\sqrt{\frac2a}A\left[
+\int_0^{a/2}x\sin\frac{n\pi x}{a}\dd x+
+\int_{a/2}^{a}(a-x)\sin\frac{n\pi x}{a}\dd x\right]\\
+&=\boxed{\frac{4\sqrt6}{n^2\pi^2}
+\sin\left(\frac{n\pi}{2}\right)}.
+\end{align}
+Thus all even terms vanish, and
+\begin{equation}
+\Psi(x,t)=\sum_{n=1,3,5,\ldots}c_n\phi_n(x)
+\ee^{-\ii n^2\Omega t},\qquad
+P(E_1)=|c_1|^2=\frac{96}{\pi^4}.
+\end{equation}
+Using $\sum_{n\ \mathrm{odd}\ge1}n^{-2}=\pi^2/8$,
+\begin{align}
+\avg H&=\sum_{n\ \mathrm{odd}}n^2\hbar\Omega|c_n|^2
+=\hbar\Omega\frac{96}{\pi^4}\frac{\pi^2}{8}\\
+&=\boxed{\frac{12\hbar\Omega}{\pi^2}
+=\frac{6\hbar^2}{ma^2}}.
+\end{align}
+\qcheck{The square-integrable jump in the first derivative does not
+invalidate the spectral expansion; in Problem 2.39 it is treated
+using distributions.}
+
+\problem{2.8}{Energy measurement from a half-box constant state}
+Here $\Psi(x,0)=A$ on $0<x<a/2$, and zero otherwise.
+Normalization gives $|A|^2(a/2)=1$, so $A=\sqrt{2/a}$.
+The ground-state overlap is
+\begin{equation}
+c_1=\sqrt{\frac2a}\sqrt{\frac2a}
+\int_0^{a/2}\sin(\pi x/a)\dd x
+=\frac{2}{a}\frac{a}{\pi}
+=\frac2\pi.
+\end{equation}
+As the potential is time-independent, $|c_1|^2$ remains fixed:
+\begin{equation}
+\boxed{P\left(E=\frac{\pi^2\hbar^2}{2ma^2}\right)
+=\frac4{\pi^2}\approx0.4053.}
+\end{equation}
+
+\problem{2.9}{Direct Hamiltonian expectation for a polynomial state}
+For Example 2.2, $\Psi(x,0)=A x(a-x)$ with
+$A=\sqrt{30/a^5}$. Inside the well,
+\begin{equation}
+\Psi''(x,0)=-2A,\qquad
+\hat H\Psi=-\frac{\hbar^2}{2m}\Psi''
+=\frac{\hbar^2 A}{m}.
+\end{equation}
+Then
+\begin{align}
+\avg H&=\int_0^a\Psi(x,0)\hat H\Psi(x,0)\dd x\\
+&=\frac{\hbar^2A^2}{m}\int_0^a x(a-x)\dd x
+=\frac{\hbar^2}{m}\frac{30}{a^5}\frac{a^3}{6}\\
+&=\boxed{\frac{5\hbar^2}{ma^2}}.
+\end{align}
+This equals the spectral-sum result in Example 2.3.

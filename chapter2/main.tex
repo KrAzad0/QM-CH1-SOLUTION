@@ -1,0 +1,128 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,microtype}
+\usepackage[a4paper,margin=23mm,headheight=15pt]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,enumitem}
+\usepackage{hyperref,graphicx,xcolor,fancyhdr}
+\definecolor{accent}{HTML}{9B4635}
+\definecolor{dark}{HTML}{1B2B2B}
+\hypersetup{colorlinks=true,linkcolor=accent,urlcolor=accent,citecolor=accent}
+\pagestyle{fancy}\fancyhf{}\lhead{\footnotesize\scshape Chapter 2: Time-Independent Schrödinger Equation}
+\rhead{\footnotesize Azad}\cfoot{\thepage}
+\numberwithin{equation}{section}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\ii}{\mathrm i}
+\newcommand{\ee}{\mathrm e}
+\newcommand{\avg}[1]{\left\langle #1\right\rangle}
+\newcommand{\kappaB}{\kappa}
+\newcommand{\problem}[2]{\subsection*{\texorpdfstring{Problem #1: #2}{Problem #1: #2}}\addcontentsline{toc}{subsection}{Problem #1: #2}\label{prob:#1}}
+\newcommand{\answer}[1]{\par\smallskip\noindent\textcolor{accent}{\textbf{Result.}}\quad #1\par\smallskip}
+\newcommand{\qcheck}[1]{\par\smallskip\noindent\textit{Verification / interpretation.} #1\par\smallskip}
+\newcommand{\basis}{\sqrt{2/a}}
+\setlength{\parskip}{5pt}
+\setlength{\parindent}{0pt}
+\title{\vspace{-1.4cm}\textcolor{accent}{\large MATHEMATICAL PHYSICS / COURSE COMPANION}\\[12pt]
+\textbf{\Huge Time-Independent\\[3pt] Schrödinger Equation}\\[13pt]
+{\large Independent worked solutions and research-style commentary}\\[5pt]
+{\normalsize Chapter 2, Problems 2.1--2.64}}
+\author{Kumar Azad\\[-1pt]\small\url{https://krazad0.github.io/QM-CH1-SOLUTION/chapter2/}}
+\date{November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+This educational manuscript follows Chapter 2 of Griffiths and Schroeter,
+\textit{Introduction to Quantum Mechanics}, third edition, and presents original
+paraphrases and mathematical work for the chapter's 64 numbered problems.
+The central themes are stationary-state boundary-value problems, orthonormal
+eigenfunctions, superposition dynamics, harmonic-oscillator algebra, Fourier
+wave packets, singular and finite-range potentials, scattering coefficients,
+numerical spectral methods, and asymptotic analysis.
+Long and computational problems include reproducible algorithms or reduced
+equations; where a result requires numerical root finding, that requirement is
+made explicit. This is a \textbf{coursework companion, not a new research result,
+not a published arXiv preprint, and not an official solutions manual}.
+\end{abstract}
+
+\tableofcontents
+\section{Notation and foundational identities}
+The stationary eigenvalue equation and its associated time dependence are
+\begin{align}
+\hat H\psi_n&=E_n\psi_n,&
+\hat H&=-\frac{\hbar^2}{2m}\frac{\dd^2}{\dd x^2}+V(x),&
+\Psi_n(x,t)&=\psi_n(x)\ee^{-\ii E_nt/\hbar}.
+\end{align}
+When the eigenstates form a complete orthonormal discrete basis,
+\begin{equation}
+\Psi(x,t)=\sum_n c_n\psi_n(x)\ee^{-\ii E_nt/\hbar},\qquad
+c_n=\int\psi_n^*(x)\Psi(x,0)\dd x,\qquad
+\sum_n|c_n|^2=1.
+\end{equation}
+For the infinite well $0<x<a$, define
+\begin{equation}
+\phi_n(x)=\sqrt{\frac2a}\sin\left(\frac{n\pi x}{a}\right),\quad
+E_n=n^2\hbar\Omega,\quad
+\Omega=\frac{\pi^2\hbar}{2ma^2}.
+\end{equation}
+For the oscillator define $q=\sqrt{m\omega/\hbar}\,x$ and
+$\ell=\sqrt{\hbar/(m\omega)}$.
+Continuity of the wavefunction and derivative applies to finite jumps in a
+regular potential; a Dirac delta of strength $\lambda$ instead imposes
+$\psi'(x_0^+)-\psi'(x_0^-)=2m\lambda\psi(x_0)/\hbar^2$.
+All statements concerning bound eigenstates assume appropriate self-adjoint
+boundary conditions; formal plane waves require generalized normalization.
+
+\section{Stationary states and the infinite square well (2.1--2.9)}
+\input{tex/01-09}
+\section{The harmonic oscillator (2.10--2.16)}
+\input{tex/10-16}
+\section{Free particles and wave packets (2.17--2.21)}
+\input{tex/17-21}
+\section{Delta potentials (2.22--2.28)}
+\input{tex/22-28}
+\section{Finite wells, barriers and steps (2.29--2.35)}
+\input{tex/29-35}
+\section{Further mathematical problems (2.36--2.45)}
+\input{tex/36-45}
+\section{Dynamics, symmetries, and scattering matrices (2.46--2.54)}
+\input{tex/46-54}
+\section{Numerical and advanced problems (2.55--2.64)}
+\input{tex/55-64}
+\section{Numerical visualization and convergence tests}
+The script \texttt{scripts/numerical\_checks.py} checks Problems
+2.27, 2.48, 2.59, 2.61, and 2.62 independently.
+The plots use the stated dimensionless units.
+\IfFileExists{figures/bouncing_ball.pdf}{
+\begin{figure}[htbp]\centering
+\includegraphics[width=.80\linewidth]{figures/bouncing_ball.pdf}
+\caption{Normalized Airy eigenstates for the quantum bouncing ball,
+Problem 2.59.}
+\end{figure}}{}
+\IfFileExists{figures/box_convergence.pdf}{
+\begin{figure}[htbp]\centering
+\includegraphics[width=.80\linewidth]{figures/box_convergence.pdf}
+\caption{Convergence of finite-difference energies toward
+$n^2\pi^2$ for Problem 2.61.}
+\end{figure}}{}
+\IfFileExists{figures/sinusoidal_well.pdf}{
+\begin{figure}[htbp]\centering
+\includegraphics[width=.80\linewidth]{figures/sinusoidal_well.pdf}
+\caption{First three eigenfunctions of the sinusoidal-bottom
+well with $N=100$, Problem 2.62.}
+\end{figure}}{}
+\clearpage
+
+\section*{References and scope}
+\addcontentsline{toc}{section}{References and scope}
+\begin{enumerate}[label={[\arabic*]},leftmargin=16pt]
+\item D. J. Griffiths and D. F. Schroeter,
+\textit{Introduction to Quantum Mechanics}, 3rd edition, Cambridge
+University Press (2018), Chapter 2, textbook pages 25--90.
+DOI: \href{https://doi.org/10.1017/9781316995433}{10.1017/9781316995433}.
+\item GitHub project: \url{https://github.com/KrAzad0/QM-CH1-SOLUTION}.
+\end{enumerate}
+Problem statements have been paraphrased to avoid reproducing copyrighted
+textbook questions. All mathematical work is independently written.
+Numerical claims should be checked against the indicated computational
+scripts, parameter choices, and boundary conditions.
+\end{document}

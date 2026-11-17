@@ -1,0 +1,392 @@
+\problem{2.55}{Numerical shooting for the oscillator ground state}
+With $q=\sqrt{m\omega/\hbar}\,x$ and
+$K=2E/(\hbar\omega)$, the dimensionless equation is
+\begin{equation}
+u''(q)=(q^2-K)u(q).
+\end{equation}
+For an even ground state use $u(0)=1,u'(0)=0$,
+integrate to a large cutoff $q=b$, and vary $K$
+until the growing asymptotic component changes sign
+and the tail becomes decaying. A robust alternative
+is to match logarithmic derivatives of inward and
+outward solutions, reducing sensitivity to the
+exponentially growing solution.
+The exact result provides a stringent five-digit check:
+\begin{equation}
+\boxed{K_0=1.0000,\qquad
+E_0=0.50000\,\hbar\omega}.
+\end{equation}
+\qcheck{A plot that appears to decay on a finite interval
+does not by itself prove an eigenvalue. Verify node
+count and cutoff convergence.}
+
+\problem{2.56}{First three excited oscillator energies by shooting}
+Solve the same equation as Problem 2.55.
+For odd parity impose $u(0)=0,u'(0)=1$;
+for even parity impose $u(0)=1,u'(0)=0$.
+In increasing order the first three excited
+solutions have one, two, and three nodes and
+five-significant-digit dimensionless eigenvalues
+\begin{equation}
+\boxed{K_1=3.0000,\quad K_2=5.0000,\quad K_3=7.0000}.
+\end{equation}
+Since $E=(\hbar\omega/2)K$,
+\begin{equation}
+\boxed{E_1=1.5000\,\hbar\omega,\quad
+E_2=2.5000\,\hbar\omega,\quad
+E_3=3.5000\,\hbar\omega}.
+\end{equation}
+Alternating parity and rejecting growing tails
+distinguishes the successive bound states.
+
+\problem{2.57}{Numerical shooting for four infinite-well energies}
+Scale the box by $y=x/a\in[0,1]$ and set
+$\varepsilon=2ma^2E/\hbar^2$. The equation becomes
+\begin{equation}
+-u''(y)=\varepsilon u(y),\qquad
+u(0)=0,\quad u'(0)=1,\quad u(1)=0.
+\end{equation}
+With trial $\varepsilon>0$,
+$u(y)=\sin(\sqrt{\varepsilon}\,y)/\sqrt\varepsilon$.
+The shooting residual is
+$u(1)=\sin\sqrt{\varepsilon}/\sqrt\varepsilon$,
+whose roots give
+\begin{equation}
+\boxed{\varepsilon_1=9.8696,\quad
+\varepsilon_2=39.478,\quad
+\varepsilon_3=88.826,\quad
+\varepsilon_4=157.91}.
+\end{equation}
+The exact benchmark is $\varepsilon_n=n^2\pi^2$.
+The corresponding eigenfunctions have $n-1$
+interior nodes.
+
+\problem{2.58}{Simple estimate of metallic cohesion}
+An isolated electron in a width-$a$ box has
+ground energy $e_1=\pi^2\hbar^2/(2ma^2)$.
+For $N$ separate atoms with one electron each,
+$E_{\rm sep}=Ne_1$.
+Place the $N$ electrons (temporarily ignoring spin)
+in a single box of width $Na$, one in each
+of its lowest $N$ levels. The total is
+\begin{align}
+E_{\rm metal}
+&=\sum_{n=1}^N\frac{n^2\pi^2\hbar^2}{2mN^2a^2}\\
+&=e_1\frac{N(N+1)(2N+1)}{6N^2}
+=e_1\frac{(N+1)(2N+1)}{6N}.
+\end{align}
+Thus the energy required to separate the atoms is
+$E_{\rm coh}=E_{\rm sep}-E_{\rm metal}$.
+For large $N$,
+\begin{equation}
+\boxed{\frac{E_{\rm coh}}{N}\longrightarrow
+\frac23 e_1=\frac{\pi^2\hbar^2}{3ma^2}}.
+\end{equation}
+At $a=4$ \AA{} with the electron mass,
+\begin{equation}
+\boxed{E_{\rm coh}/N\simeq1.57\ \mathrm{eV}}.
+\end{equation}
+This toy model omits spin, three-dimensional
+bands and ion-core structure, but captures
+the lowering of kinetic energy when electrons
+delocalize across a larger volume.
+
+\problem{2.59}{Quantum bouncing ball: Airy eigenstates}
+For a particle above a reflecting floor, let
+$V=mgx$ when $x>0$ and infinite below.
+Define
+\begin{equation}
+a_g=\left(\frac{2m^2g}{\hbar^2}\right)^{1/3},
+\quad z=a_gx,\quad
+\lambda=\frac{a_gE}{mg}
+=\frac{2mE}{\hbar^2a_g^2}.
+\end{equation}
+The Schrödinger equation becomes
+$-y''(z)+zy(z)=\lambda y(z)$,
+whose general solution is
+$C\operatorname{Ai}(z-\lambda)+
+D\operatorname{Bi}(z-\lambda)$.
+The $\operatorname{Bi}$ term diverges as
+$z\to+\infty$, so $D=0$. The floor enforces
+$\operatorname{Ai}(-\lambda_n)=0$.
+The first and tenth positive Airy-zero magnitudes
+are
+\begin{equation}
+\boxed{\lambda_1=2.338107410,\qquad
+\lambda_{10}=12.828776753}.
+\end{equation}
+The Airy normalization identity gives
+\begin{equation}
+\int_0^\infty\operatorname{Ai}(z-\lambda_n)^2\dd z
+=\operatorname{Ai}'(-\lambda_n)^2,
+\qquad
+\boxed{\psi_n(x)=
+\frac{\sqrt{a_g}\operatorname{Ai}(a_gx-\lambda_n)}
+{|\operatorname{Ai}'(-\lambda_n)|}}.
+\end{equation}
+In units $a_g=1$, the normalizing
+prefactors are approximately $1.426105$
+and $0.936510$ for the two states.
+Their orthogonality follows from the
+self-adjoint Sturm--Liouville equation,
+and can also be verified numerically.
+Virial and Airy integral identities give
+\begin{equation}
+\avg z=\frac23\lambda,\qquad
+\avg{z^2}=\frac8{15}\lambda^2,\qquad
+\avg{p^2}=\hbar^2a_g^2\,\frac{\lambda}{3},
+\quad\avg p=0.
+\end{equation}
+Therefore
+\begin{equation}
+\boxed{\sigma_x=\frac{2\lambda}{\sqrt{45}\,a_g},
+\quad \sigma_p=\hbar a_g\sqrt{\frac{\lambda}{3}},
+\quad \frac{\sigma_x\sigma_p}{\hbar}
+=\frac{2\lambda^{3/2}}{\sqrt{135}}}.
+\end{equation}
+For $\lambda_1$ this is $0.61540$, and
+for $\lambda_{10}$ it is $7.90935$,
+both above $1/2$.
+Classically, the particle has a height cutoff
+$z=\lambda$ and residence-time density
+\begin{equation}
+\boxed{\rho_C(z)=\frac1{2\sqrt{\lambda(\lambda-z)}}},
+\quad0<z<\lambda.
+\end{equation}
+This diverges integrably at the classical
+turning point, while the quantum density
+$|\psi_n|^2$ oscillates and extends
+beyond it; the coarse-grained high-$n$
+profile approaches the classical envelope.
+\qcheck{The companion Python numerics script
+plots these comparisons in the scaled coordinates.}
+
+\problem{2.60}{Inverse-square attraction and the boundary-condition anomaly}
+For $V=-\alpha/x^2$ on $x>0$, the constants
+$m,\hbar,\alpha$ provide no independent length
+scale: $\beta=2m\alpha/\hbar^2$ is dimensionless.
+Hence there is no nonzero energy uniquely fixed
+by dimensional analysis alone.
+For $E=-\hbar^2\kappa^2/(2m)$,
+\begin{equation}
+\psi''+\frac{\beta}{x^2}\psi=\kappa^2\psi.
+\end{equation}
+If $\psi(x)$ solves this for $\kappa$,
+$\psi(sx)$ solves it for $s\kappa$, giving
+the formal scaling $E\mapsto s^2E$.
+Set $g=\sqrt{\beta-1/4}$, assumed real
+($\beta>1/4$). Let $\psi(x)=\sqrt x\,f(\kappa x)$;
+the equation for $f(z)$ is
+\begin{equation}
+z^2f''+zf'-(z^2-g^2)f=0.
+\end{equation}
+The decaying solution is the modified Bessel
+function $K_{\ii g}$:
+\begin{equation}
+\boxed{\psi_\kappa(x)=C\sqrt x\,K_{\ii g}(\kappa x)}.
+\end{equation}
+Its norm uses the identity
+$\int_0^\infty z\,K_{\ii g}(z)^2\dd z
+=\pi g/(2\sinh\pi g)$, so
+\begin{equation}
+\boxed{C=\kappa\sqrt{\frac{2\sinh(\pi g)}{\pi g}}}.
+\end{equation}
+As $x\to0$, the wavefunction behaves as
+$\sqrt x$ times an oscillatory function of $\ln x$,
+with infinitely many nodes approaching zero.
+\textit{Important mathematical qualification:}
+square integrability alone does not choose
+a self-adjoint Hamiltonian at the singular origin.
+A fixed self-adjoint extension supplies a
+boundary phase/length scale, so formal
+continuous rescaling need not preserve its
+domain. This is the scale anomaly of the
+attractive inverse-square problem.
+If an infinite wall is instead placed at
+$x=\ell>0$, the new condition is
+\begin{equation}
+\boxed{K_{\ii g}(\kappa\ell)=0}.
+\end{equation}
+Its largest positive $\kappa$ root
+gives the most negative bound level.
+Writing $z_*(g)=\kappa_0\ell$,
+\begin{equation}
+\boxed{E_0=-\frac{\alpha}{\ell^2}
+f(\beta)},\qquad
+\boxed{f(\beta)=\frac{z_*(\sqrt{\beta-1/4})^2}{\beta}}.
+\end{equation}
+This displays explicitly how a length parameter
+restores a well-defined energy scale.
+
+\problem{2.61}{Finite-difference Hamiltonian for a box}
+Discretize the interval $[0,a]$ into $N+1$
+equal segments of length $\Delta x=a/(N+1)$.
+With Dirichlet endpoints $\psi_0=\psi_{N+1}=0$,
+the $N\times N$ tridiagonal matrix is
+\begin{equation}
+\boxed{H_N=\frac{\hbar^2}{2m(\Delta x)^2}
+\begin{pmatrix}
+2&-1&0&\cdots\\
+-1&2&-1&\cdots\\
+0&-1&2&\ddots\\
+\vdots&\vdots&\ddots&\ddots
+\end{pmatrix}}.
+\end{equation}
+In units $E_*= \hbar^2/(2ma^2)$,
+the dimensionless eigenvalues and eigenvectors
+are exactly
+\begin{equation}
+\boxed{\varepsilon_n(N)=4(N+1)^2
+\sin^2\left(\frac{n\pi}{2(N+1)}\right)},\quad
+\boxed{v^{(n)}_j=
+\sqrt{\frac2{N+1}}\sin\frac{jn\pi}{N+1}},
+\end{equation}
+for $n,j=1,\ldots,N$.
+This follows by applying the discrete second
+difference to a sine eigenvector and using
+$\sin(\theta+\delta)+\sin(\theta-\delta)
+=2\sin\theta\cos\delta$.
+For small sizes:
+\begin{equation}
+\begin{array}{c|l}
+N & \{\varepsilon_n\}\\\hline
+1& 8\\
+2&9,\ 27\\
+3&9.372583,\ 32,\ 54.627417
+\end{array}
+\end{equation}
+For $N=10$ and $100$, the lowest five are:
+\begin{center}
+\begin{tabular}{rrrr}
+\toprule
+$n$ & $\varepsilon_n(10)$&$\varepsilon_n(100)$
+& $\varepsilon_n(\infty)=n^2\pi^2$\\
+\midrule
+1&9.802700&9.868809&9.869604\\
+2&38.416645&39.465687&39.478418\\
+3&83.523702&88.762003&88.826440\\
+4&141.469567&157.710064&157.913670\\
+5&207.559809&246.243168&246.740110\\
+\bottomrule
+\end{tabular}
+\end{center}
+The convergence is of order $(\Delta x)^2$
+for fixed low-lying $n$, and the eigenvectors
+approach the corresponding continuum sine
+functions.
+
+\problem{2.62}{Numerical energies for a sinusoidal well bottom}
+Let the infinite well occupy $0<x<a$
+with $V(x)=500E_*\sin(\pi x/a)$,
+$E_*=\hbar^2/(2ma^2)$.
+For $N=100$ interior grid points
+$x_j=ja/(N+1)$, use the dimensionless
+tridiagonal matrix
+\begin{equation}
+\boxed{H_{jj}/E_*=2(N+1)^2+
+500\sin\frac{\pi j}{N+1},\quad
+H_{j,j\pm1}/E_*=-(N+1)^2}.
+\end{equation}
+Diagonalization yields the three lowest levels
+(in units of $E_*$):
+\begin{equation}
+\boxed{\varepsilon_1\simeq304.65956,\quad
+\varepsilon_2\simeq304.80037,\quad
+\varepsilon_3\simeq476.16270}
+\quad(N=100).
+\end{equation}
+The numerical eigenvectors are normalized by
+$\sum_j|v_j|^2=1$ and can be converted to
+continuum-normalized wavefunctions with
+$\psi_j=v_j/\sqrt{\Delta x}$.
+The first two states are close in energy
+because the strong central positive hump
+creates two effective edge wells with a
+small tunneling splitting.
+\qcheck{The indicated $N=100$ matrix results
+are specific discretization outputs, not
+continuum-exact eigenvalues; the companion
+script recomputes them and generates plots.}
+
+\problem{2.63}{Oscillator partition function and Einstein heat capacity}
+For equilibrium probabilities
+$P_n=\ee^{-\beta E_n}/Z$ with
+$Z=\sum_n\ee^{-\beta E_n}$,
+\begin{equation}
+-\frac{\partial}{\partial\beta}\ln Z
+=-\frac1Z\frac{\partial Z}{\partial\beta}
+=\frac1Z\sum_n E_n\ee^{-\beta E_n}
+=\boxed{\bar E}.
+\end{equation}
+With oscillator energies $E_n=(n+1/2)\hbar\omega$,
+the geometric series gives
+\begin{equation}
+\boxed{Z=\frac{\ee^{-\beta\hbar\omega/2}}
+{1-\ee^{-\beta\hbar\omega}}}.
+\end{equation}
+Differentiating its logarithm yields
+\begin{equation}
+\boxed{\bar E=\frac{\hbar\omega}{2}
++\frac{\hbar\omega}{\ee^{\beta\hbar\omega}-1}
+=\frac{\hbar\omega}{2}
+\frac{1+\ee^{-\beta\hbar\omega}}
+{1-\ee^{-\beta\hbar\omega}}}.
+\end{equation}
+For three oscillators per atom, define
+$\theta_E=\hbar\omega/k_B$.
+Then $C=3\,\partial\bar E/\partial T$ gives
+\begin{equation}
+\boxed{C=3k_B
+\left(\frac{\theta_E}{T}\right)^2
+\frac{\ee^{\theta_E/T}}
+{(\ee^{\theta_E/T}-1)^2}}.
+\end{equation}
+At $T\gg\theta_E$,
+$\ee^{\theta_E/T}-1\sim\theta_E/T$, hence
+$C\to3k_B$ (classical Dulong--Petit limit).
+At $T\ll\theta_E$,
+$C\sim3k_B(\theta_E/T)^2\ee^{-\theta_E/T}\to0$.
+The textbook's diamond curve illustrates
+this temperature dependence qualitatively;
+the model does not capture all real-crystal
+phonon dispersions.
+
+\problem{2.64}{Power-series solution of Legendre's equation}
+For real $\ell\ge0$, start with
+\begin{equation}
+(1-x^2)f''-2xf'+\ell(\ell+1)f=0,\qquad
+f(x)=\sum_{n=0}^{\infty}a_nx^n.
+\end{equation}
+Substituting
+$f''=\sum_n(n+2)(n+1)a_{n+2}x^n$
+and collecting the coefficient of $x^n$,
+\begin{equation}
+(n+2)(n+1)a_{n+2}
++[\ell(\ell+1)-n(n+1)]a_n=0.
+\end{equation}
+Therefore
+\begin{equation}
+\boxed{a_{n+2}=
+\frac{n(n+1)-\ell(\ell+1)}
+{(n+1)(n+2)}\,a_n}.
+\end{equation}
+Even and odd coefficients form independent
+series. For integer $\ell$, the series
+of matching parity truncates at $n=\ell$.
+The resulting low-degree polynomial solutions,
+normalized by $P_\ell(1)=1$, are
+\begin{align}
+\boxed{P_0(x)}&=\boxed{1},&
+\boxed{P_1(x)}&=\boxed{x},\\
+\boxed{P_2(x)}&=\boxed{\frac12(3x^2-1)},&
+\boxed{P_3(x)}&=\boxed{\frac12(5x^3-3x)}.
+\end{align}
+For noninteger $\ell$, an isolated parity
+series does not terminate and generically has
+a logarithmic endpoint singularity. More general
+linear combinations, however, include the
+non-polynomial Legendre function $P_\ell(x)$,
+which is regular at one endpoint. Imposing
+regularity at \emph{both} endpoints in the usual
+self-adjoint eigenvalue problem selects
+nonnegative integer $\ell$.

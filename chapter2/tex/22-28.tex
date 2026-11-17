@@ -1,0 +1,195 @@
+\problem{2.22}{Three delta-function integrals}
+The sifting identity is
+$\int_I f(x)\delta(x-x_0)\dd x=f(x_0)$
+if $x_0$ lies in the interior of $I$, and zero if it
+lies outside. Consequently
+\begin{align}
+\int_{-3}^{1}(x^3-3x^2+2x-1)\delta(x+2)\dd x
+&=(-2)^3-3(-2)^2+2(-2)-1=\boxed{-25},\\
+\int_0^\infty[\cos(3x)+2]\delta(x-\pi)\dd x
+&=\cos(3\pi)+2=\boxed{1},\\
+\int_{-1}^{1}\ee^{|x|+3}\delta(x-2)\dd x
+&=\boxed{0}.
+\end{align}
+The third integral vanishes because the delta's support
+lies outside the domain, regardless of the integrand
+evaluated at its center.
+
+\problem{2.23}{Scaling of the delta and distributional derivative of a step}
+For nonzero real $c$ and a smooth test function $f$,
+substitute $u=cx$, taking account of orientation if
+$c<0$:
+\begin{equation}
+\int_{-\infty}^{\infty}f(x)\delta(cx)\dd x
+=\frac1{|c|}\int f(u/c)\delta(u)\dd u
+=\frac{f(0)}{|c|}.
+\end{equation}
+Therefore $\boxed{\delta(cx)=\delta(x)/|c|}$ as
+distributions. For the Heaviside step $\theta$,
+integration by parts against a compactly supported
+smooth test function gives
+\begin{equation}
+\langle\theta',f\rangle
+=-\int_0^\infty f'(x)\dd x=f(0)
+=\langle\delta,f\rangle,
+\end{equation}
+and hence $\boxed{\theta'(x)=\delta(x)}$
+in the distributional sense. The conventional
+value $\theta(0)=1/2$ has no effect on this result.
+
+\problem{2.24}{Uncertainty product for a delta-bound state}
+For $V=-\alpha\delta(x)$ with $\alpha>0$, define
+$\kappa=m\alpha/\hbar^2$. The normalized bound state is
+\begin{equation}
+\psi(x)=\sqrt\kappa\,\ee^{-\kappa|x|},
+\qquad E=-\frac{\hbar^2\kappa^2}{2m}.
+\end{equation}
+Symmetry gives $\avg x=\avg p=0$ and
+\begin{equation}
+\avg{x^2}=2\kappa\int_0^\infty
+x^2\ee^{-2\kappa x}\dd x=\frac1{2\kappa^2}.
+\end{equation}
+The first derivative is
+$\psi'=-\kappa\,\operatorname{sgn}(x)\psi$,
+whereas the second derivative contains a delta:
+\begin{equation}
+\psi''=\kappa^2\psi-2\kappa\psi(0)\delta(x).
+\end{equation}
+Therefore, using $\avg{p^2}=-\hbar^2\int\psi^*\psi''\dd x$,
+\begin{equation}
+\avg{p^2}=-\hbar^2\kappa^2+
+2\hbar^2\kappa|\psi(0)|^2
+=\hbar^2\kappa^2.
+\end{equation}
+Consequently
+\begin{equation}
+\boxed{\sigma_x=\frac1{\sqrt2\kappa},\quad
+\sigma_p=\hbar\kappa,\quad
+\sigma_x\sigma_p=\frac{\hbar}{\sqrt2}>
+\frac{\hbar}{2}}.
+\end{equation}
+\check{The delta term is essential; ignoring the derivative
+jump would incorrectly produce a negative $\avg{p^2}$.}
+
+\problem{2.25}{Bound-scattering orthogonality in the delta well}
+Let $\psi_b$ be the normalized delta-well bound state
+with $E_b<0$ and let $\psi_k$ be a generalized scattering
+eigenfunction with $E_k>0$. Both satisfy the same matching
+condition at $x=0$:
+$\psi'(0^+)-\psi'(0^-)=-2m\alpha\psi(0)/\hbar^2$.
+Multiply the equations $\hat H\psi_b=E_b\psi_b$
+and $\hat H\psi_k=E_k\psi_k$ by $\psi_k^*$
+and $\psi_b$, subtract and integrate on the two
+half-lines. The Wronskian boundary contributions at
+$0$ cancel because both states obey the same jump,
+and the terms at infinity vanish because
+$\psi_b,\psi_b'\to0$ exponentially and $\psi_k$ is bounded.
+Thus
+\begin{equation}
+(E_k-E_b)\int_{-\infty}^\infty\psi_b(x)\psi_k^*(x)\dd x=0.
+\end{equation}
+Since $E_k\ne E_b$,
+\begin{equation}
+\boxed{\int\psi_b(x)\psi_k^*(x)\dd x=0}.
+\end{equation}
+\check{The scattering state is not individually in
+$L^2(\mathbb R)$, but this mixed overlap is convergent.}
+
+\problem{2.26}{Fourier transform of a delta distribution}
+For the symmetric convention
+$\widehat f(k)=(2\pi)^{-1/2}
+\int f(x)\ee^{-\ii kx}\dd x$,
+\begin{equation}
+\boxed{\widehat\delta(k)=\frac1{\sqrt{2\pi}}}.
+\end{equation}
+Formally applying the inverse transform gives
+\begin{equation}
+\boxed{\delta(x)=\frac1{2\pi}
+\int_{-\infty}^\infty\ee^{\ii kx}\dd k}.
+\end{equation}
+This is an identity of distributions, not an
+ordinary convergent improper integral.
+For instance, a Gaussian regulator gives
+\begin{align}
+\frac1{2\pi}\int\ee^{-\epsilon k^2}
+\ee^{\ii kx}\dd k
+&=\frac1{\sqrt{4\pi\epsilon}}
+\ee^{-x^2/(4\epsilon)}
+\longrightarrow\delta(x)
+\quad(\epsilon\downarrow0).
+\end{align}
+Against any smooth, rapidly decaying test function,
+the right-hand side converges to its value at $x=0$.
+
+\problem{2.27}{Bound states of two attractive delta centers}
+For $V=-\alpha[\delta(x-a)+\delta(x+a)]$
+with $\kappa_0=m\alpha/\hbar^2$ and $E<0$,
+set $\kappa=\sqrt{-2mE}/\hbar>0$. By parity, a
+normalized bound state has the form
+\begin{align}
+\psi_e(x)&=\begin{cases}
+C\cosh(\kappa x),&|x|<a,\\
+C\cosh(\kappa a)\ee^{-\kappa(|x|-a)},&|x|\ge a,
+\end{cases}\\
+\psi_o(x)&=\begin{cases}
+C\sinh(\kappa x),&|x|<a,\\
+C\,\operatorname{sgn}(x)\sinh(\kappa a)
+\ee^{-\kappa(|x|-a)},&|x|\ge a.
+\end{cases}
+\end{align}
+Continuity at $a$ is automatic. Imposing the derivative
+jump $\psi'(a^+)-\psi'(a^-)=-2\kappa_0\psi(a)$ gives
+\begin{equation}
+\boxed{\kappa_e=\kappa_0(1+\ee^{-2\kappa_e a}),\qquad
+\kappa_o=\kappa_0(1-\ee^{-2\kappa_o a})}.
+\end{equation}
+The even state always exists; a positive odd root exists
+only for $2\kappa_0a>1$. For the specified strengths:
+\begin{center}
+\begin{tabular}{lcc}
+\toprule
+$\alpha$&$\kappa_e a$&$\kappa_o a$\\
+\midrule
+$\hbar^2/(ma)$&$1.108858$&$0.796812$\\
+$\hbar^2/(4ma)$&$0.369418$&none\\
+\bottomrule
+\end{tabular}
+\end{center}
+Each energy is $E=-\hbar^2(\kappa a)^2/(2ma^2)$.
+As $a\to0$, the even state approaches a single
+delta of strength $2\alpha$, with
+$E_e\to-2m\alpha^2/\hbar^2$; the odd state disappears.
+As $a\to\infty$, the two bound levels converge
+to the isolated-well energy $-m\alpha^2/(2\hbar^2)$.
+
+\problem{2.28}{Transmission through the double-delta potential}
+For $k=\sqrt{2mE}/\hbar>0$ and
+$\beta=m\alpha/(\hbar^2k)$, write a local plane-wave
+solution as $A\ee^{\ii kx}+B\ee^{-\ii kx}$ to
+the left and $F\ee^{\ii kx}+G\ee^{-\ii kx}$
+to the right. Matching at an attractive delta at
+$x=x_0$ yields
+\begin{equation}
+\begin{pmatrix}F\\G\end{pmatrix}=
+\underbrace{\begin{pmatrix}
+1+\ii\beta&\ii\beta\ee^{-2\ii kx_0}\\
+-\ii\beta\ee^{2\ii kx_0}&1-\ii\beta
+\end{pmatrix}}_{M(x_0)}
+\begin{pmatrix}A\\B\end{pmatrix}.
+\end{equation}
+For centers at $-a$ and $a$, $M=M(a)M(-a)$.
+Because $\det M=1$, left incidence ($G=0$) gives
+$F/A=1/M_{22}$, where
+\begin{equation}
+M_{22}=(1-\ii\beta)^2+\beta^2\ee^{4\ii ka}.
+\end{equation}
+Thus
+\begin{equation}
+\boxed{T(k)=
+\frac1{\left|(1-\ii\beta)^2+
+\beta^2\ee^{4\ii ka}\right|^2}}.
+\end{equation}
+This is real, nonnegative, and no larger than one
+for a real potential. As $a\to0$,
+$T\to[1+4\beta^2]^{-1}$, precisely the result for
+a single attractive delta of strength $2\alpha$.

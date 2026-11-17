@@ -1,0 +1,313 @@
+\problem{2.46}{Stationary quantum states on a ring}
+A ring of circumference $L$ imposes periodicity
+$\psi(x+L)=\psi(x)$. Free solutions are
+$\ee^{\ii kx}$; periodicity requires
+$k_nL=2\pi n$ for integer $n$.
+Normalization over one circumference gives
+\begin{equation}
+\boxed{\psi_n(x)=\frac1{\sqrt L}\ee^{2\pi\ii nx/L}},
+\qquad
+\boxed{E_n=\frac{2\pi^2\hbar^2n^2}{mL^2}},
+\quad n\in\mathbb Z.
+\end{equation}
+For each positive $n$, the independent
+$\psi_n$ and $\psi_{-n}$ carry opposite currents
+and have equal energy. The $n=0$ state is
+nondegenerate. The Wronskian theorem from
+Problem 2.44 assumes wavefunctions decay
+at spatial infinity on a connected line;
+a circle is periodic rather than a line
+with vanishing tails, so its constant
+Wronskian need not be zero.
+
+\problem{2.47}{Qualitative behavior of a double finite well}
+At zero separation, the two attractive wells merge
+into one wider region, and the lowest wavefunction
+is nodeless and broadly distributed; the first excited
+function has one antisymmetric node. At intermediate
+separation the lowest pair becomes a symmetric and
+antisymmetric combination of wavefunctions localized
+near the left and right wells. At very large separation,
+the overlap between the two centers becomes tiny:
+the even and odd combinations have nearly the
+same energy and become effectively independent.
+The ground energy tends toward the isolated-well
+ground energy from below, whereas the antisymmetric
+partner tends toward it from above.
+The splitting shrinks as the barrier separation
+increases. In this model the electron favors closer
+nuclei because the symmetric bonding state's
+energy falls as the wells overlap. Real molecules
+also involve internuclear repulsion, electron--electron
+effects and three-dimensional geometry, so the
+simple potential is only an analogy.
+\check{This is deliberately a qualitative answer:
+the textbook specifies no calculation for this problem.}
+
+\problem{2.48}{Bound states beside a hard wall}
+The potential is infinite for $x<0$, equals
+$-V_0$ for $0<x<a$, and is zero for $x>a$,
+where $V_0=32\hbar^2/(ma^2)$. For bound
+states $-V_0<E<0$, set
+\begin{equation}
+z=ka=\frac{a\sqrt{2m(E+V_0)}}{\hbar},
+\quad q=\kappa a=\frac{a\sqrt{-2mE}}{\hbar},
+\quad z^2+q^2=64.
+\end{equation}
+The wall forces $\psi=C\sin(kx)$ inside;
+outside, $\psi=C\sin z\,\ee^{-\kappa(x-a)}$.
+The derivative matching gives
+\begin{equation}
+\boxed{-z\cot z=\sqrt{64-z^2}},\quad0<z<8.
+\end{equation}
+The three roots of this equation occur at
+\begin{equation}
+z\simeq2.785902,\quad5.521446,\quad7.957321,
+\end{equation}
+so there are three bound states. Their energies are
+$E=-\hbar^2q^2/(2ma^2)$ with
+$q=\sqrt{64-z^2}$.
+For the highest state, $q\simeq0.825248$.
+Integrating its density on either side of $a$,
+\begin{align}
+I_{\mathrm{in}}&=C^2a\left(
+\frac12-\frac{\sin(2z)}{4z}\right),\\
+I_{\mathrm{out}}&=C^2a\frac{\sin^2z}{2q},\\
+P_{\mathrm{out}}&=\frac{I_{\mathrm{out}}}{I_{\mathrm{in}}+
+I_{\mathrm{out}}}
+=\boxed{0.542041\ \text{(approximately)}}.
+\end{align}
+\check{Despite $E<0$, the shallowest bound state
+has more probability outside the finite well
+than inside it.}
+
+\problem{2.49}{Exact coherent oscillator wave packet}
+Write $\ell^2=\hbar/(m\omega)$ and
+$X(t)=x_0\cos\omega t$. The exact packet
+given in the textbook can be written
+\begin{align}
+\Psi(x,t)&=(\pi\ell^2)^{-1/4}
+\exp\Bigg[-\frac1{2\ell^2}
+\left(x^2+\frac{x_0^2}2
+(1+\ee^{-2\ii\omega t})
+-2x_0x\ee^{-\ii\omega t}\right)
+-\frac{\ii\omega t}{2}\Bigg].
+\end{align}
+To check it, denote its exponent by $S$ and use
+$\partial_x\Psi=S_x\Psi$,
+$\partial_x^2\Psi=(S_{xx}+S_x^2)\Psi$,
+$\partial_t\Psi=S_t\Psi$. Inserting
+\begin{align}
+S_x&=-x/\ell^2+x_0\ee^{-\ii\omega t}/\ell^2,\\
+S_{xx}&=-1/\ell^2,\\
+S_t&=\frac{\ii\omega x_0^2}{\ell^2}\ee^{-2\ii\omega t}
+-\frac{\ii\omega x_0 x}{\ell^2}\ee^{-\ii\omega t}
+-\frac{\ii\omega}{2}
+\end{align}
+into $i\hbar S_t=
+-\hbar^2(S_{xx}+S_x^2)/(2m)+m\omega^2x^2/2$
+verifies the Schrödinger equation term by term.
+Taking the real part of $S$,
+\begin{equation}
+\boxed{|\Psi(x,t)|^2=
+\frac1{\sqrt{\pi}\ell}
+\exp\left[-\frac{(x-x_0\cos\omega t)^2}{\ell^2}\right]}.
+\end{equation}
+The width remains constant:
+$\sigma_x=\ell/\sqrt2$.
+Gaussian integration gives
+$\boxed{\avg x=x_0\cos\omega t}$ and
+$\boxed{\avg p=-m\omega x_0\sin\omega t}$.
+Then $\dd\avg p/\dd t=-m\omega^2\avg x$,
+precisely Ehrenfest's theorem.
+
+\problem{2.50}{A translating attractive delta well}
+Let $V=-\alpha\delta(x-vt)$ and
+$\kappa=m\alpha/\hbar^2$.
+Start with the stationary bound state
+$\psi_0(u)=\sqrt\kappa\ee^{-\kappa|u|}$
+at energy $E_0=-m\alpha^2/(2\hbar^2)$.
+A Galilean boost of velocity $v$ gives
+\begin{equation}
+\boxed{\Psi(x,t)=
+\sqrt\kappa\ee^{-\kappa|x-vt|}
+\exp\left[\frac{\ii}{\hbar}
+\left(mvx-\left(E_0+\frac12mv^2\right)t\right)\right]}.
+\end{equation}
+For $u=x-vt$, differentiation of the phase
+produces a kinetic-energy shift $mv^2/2$
+and cross terms that cancel the translation
+term $-v\partial_u\psi_0$. The remaining
+equation is exactly the stationary delta-well
+equation, including the distributional cusp.
+Therefore this is a normalized exact solution.
+Its instantaneous Hamiltonian expectation is
+\begin{equation}
+\boxed{\avg H=E_0+\frac12mv^2}.
+\end{equation}
+The center of the density moves at $vt$ while
+the internal binding energy remains $E_0$.
+
+\problem{2.51}{Gaussian free fall in a constant force}
+Let $\Psi_0(y,t)$ be a freely evolving Gaussian
+with $\avg y_0=0$ and zero mean momentum.
+Define $y=x+gt^2/2$ and
+\begin{equation}
+\boxed{\Psi(x,t)=
+\Psi_0\left(x+\frac12gt^2,t\right)
+\exp\left[-\frac{\ii mgt}{\hbar}
+\left(x+\frac16gt^2\right)\right]}.
+\end{equation}
+If $\Phi$ denotes the phase, its derivatives are
+$\partial_x\Phi=-mgt/\hbar$ and
+$\partial_t\Phi=-mg(x+gt^2/2)/\hbar$.
+The chain rule gives
+$\partial_t\Psi_0(y,t)=
+(\partial_t\Psi_0)_y+gt\,\partial_y\Psi_0$;
+the extra convective derivative cancels the
+cross term from differentiating the phase
+in the kinetic operator. The remaining term
+is the required gravitational potential $mgx$.
+Since the phase has unit modulus, the density
+is simply translated:
+\begin{equation}
+|\Psi(x,t)|^2=
+|\Psi_0(x+gt^2/2,t)|^2,\qquad
+\boxed{\avg x(t)=-\frac12gt^2}.
+\end{equation}
+The center follows classical free fall although
+the Gaussian simultaneously spreads.
+
+\problem{2.52}{A reflectionless hyperbolic-secant well}
+Let
+\begin{equation}
+V(x)=-\frac{\hbar^2a^2}{m}\operatorname{sech}^2(ax).
+\end{equation}
+The potential is even, approaches zero at both
+infinities, and reaches $-\hbar^2a^2/m$ at zero.
+For $\psi_0=A\operatorname{sech}(ax)$,
+the identity
+\begin{equation}
+\frac{\psi_0''}{\psi_0}=
+a^2[1-2\operatorname{sech}^2(ax)]
+\end{equation}
+shows
+$\hat H\psi_0=-\hbar^2a^2\psi_0/(2m)$.
+As $\int_{-\infty}^{\infty}
+\operatorname{sech}^2(ax)\dd x=2/a$,
+\begin{equation}
+\boxed{\psi_0=\sqrt{\frac a2}\operatorname{sech}(ax),
+\qquad E_0=-\frac{\hbar^2a^2}{2m}}.
+\end{equation}
+For $E=\hbar^2k^2/(2m)>0$,
+take the exact scattering solution
+\begin{equation}
+\psi_k(x)=A\frac{\ii k-a\tanh(ax)}{\ii k+a}
+\ee^{\ii kx}.
+\end{equation}
+Using $(\tanh ax)'=a\operatorname{sech}^2(ax)$
+and $(\operatorname{sech}^2 ax)'=
+-2a\operatorname{sech}^2(ax)\tanh(ax)$
+in $\psi_k''$ verifies $\hat H\psi_k=E\psi_k$.
+At $x\to-\infty$, $\tanh(ax)\to-1$,
+so $\psi_k\to A\ee^{\ii kx}$, with no
+left-moving reflected component. At
+$x\to+\infty$,
+\begin{equation}
+\psi_k\to A
+\frac{\ii k-a}{\ii k+a}\ee^{\ii kx}.
+\end{equation}
+The amplitude ratio has magnitude one, hence
+\begin{equation}
+\boxed{R=0,\qquad T=1}
+\end{equation}
+at every positive incident energy: an exactly
+reflectionless potential.
+
+\problem{2.53}{Scattering matrices for symmetric localized wells}
+For a real localized potential, let $A,G$ be
+the incoming amplitudes from left and right,
+and $B,F$ the outgoing amplitudes:
+\begin{equation}
+\begin{pmatrix}B\\F\end{pmatrix}
+=S\begin{pmatrix}A\\G\end{pmatrix}.
+\end{equation}
+For the attractive delta well at $x=0$ set
+$\beta=m\alpha/(\hbar^2k)$.
+The matching conditions give amplitudes
+$r=\ii\beta/(1-\ii\beta)$ and
+$t=1/(1-\ii\beta)$. Left--right symmetry gives
+\begin{equation}
+\boxed{S_{\delta}=
+\frac1{1-\ii\beta}
+\begin{pmatrix}\ii\beta&1\\1&\ii\beta\end{pmatrix}}.
+\end{equation}
+Indeed $|r|^2+|t|^2=1$ and
+$r^*t+t^*r=0$, so $S^\dagger S=I$.
+For a finite symmetric well of half-width $a$,
+write $k=\sqrt{2mE}/\hbar$,
+$l=\sqrt{2m(E+V_0)}/\hbar$,
+and
+$D=\cos(2la)-\ii(k^2+l^2)\sin(2la)/(2kl)$.
+Solving the four continuity equations yields
+\begin{equation}
+\boxed{t=\frac{\ee^{-2\ii ka}}{D},\qquad
+r=\frac{\ii(l^2-k^2)\sin(2la)\ee^{-2\ii ka}}{2klD}},
+\qquad
+\boxed{S_{\rm well}=\begin{pmatrix}r&t\\t&r\end{pmatrix}}.
+\end{equation}
+The probabilities $|t|^2$ and $|r|^2$
+satisfy $T+R=1$; parity symmetry makes
+the left and right reflection/transmission
+probabilities equal.
+
+\problem{2.54}{Transfer matrices, composition, and double deltas}
+A transfer matrix relates right-hand amplitudes
+to left-hand amplitudes:
+\begin{equation}
+\begin{pmatrix}F\\G\end{pmatrix}
+=M\begin{pmatrix}A\\B\end{pmatrix}.
+\end{equation}
+Starting with
+$B=S_{11}A+S_{12}G$ and
+$F=S_{21}A+S_{22}G$, solve for $G$ and $F$:
+\begin{equation}
+\boxed{M=\frac1{S_{12}}
+\begin{pmatrix}-\det S&S_{22}\\-S_{11}&1\end{pmatrix}}.
+\end{equation}
+Conversely, solving $G=M_{21}A+M_{22}B$
+for $B$, then substituting into $F$ gives
+\begin{equation}
+\boxed{S=\frac1{M_{22}}
+\begin{pmatrix}-M_{21}&1\\\det M&M_{12}\end{pmatrix}}.
+\end{equation}
+Hence
+\begin{equation}
+R_l=\left|\frac{M_{21}}{M_{22}}\right|^2,\quad
+T_l=\left|\frac{\det M}{M_{22}}\right|^2,\quad
+R_r=\left|\frac{M_{12}}{M_{22}}\right|^2,\quad
+T_r=\frac1{|M_{22}|^2}.
+\end{equation}
+For a real localized potential $\det M=1$.
+Two isolated potentials traversed from left to
+right act consecutively, so
+$\boxed{M_{\rm total}=M_2M_1}$.
+For $V=-\alpha\delta(x-x_0)$, the
+jump condition gives
+\begin{equation}
+\boxed{M(x_0)=
+\begin{pmatrix}
+1+\ii\beta&\ii\beta\ee^{-2\ii kx_0}\\
+-\ii\beta\ee^{2\ii kx_0}&1-\ii\beta
+\end{pmatrix}},
+\qquad\beta=\frac{m\alpha}{\hbar^2k}.
+\end{equation}
+The two-delta transfer matrix is
+$M(a)M(-a)$. Its lower-right element is
+$M_{22}=(1-\ii\beta)^2+\beta^2\ee^{4\ii ka}$,
+so
+\begin{equation}
+\boxed{T_{\delta\delta}=
+\frac1{\left|(1-\ii\beta)^2+\beta^2\ee^{4\ii ka}\right|^2}},
+\end{equation}
+agreeing with Problem 2.28.

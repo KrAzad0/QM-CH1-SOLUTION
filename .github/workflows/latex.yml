@@ -1,0 +1,27 @@
+name: Build LaTeX PDF
+
+on:
+  push:
+    branches: [main, chapter1-complete-latex-solutions]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile PDF
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+          latexmk_use_xelatex: false
+          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+      - name: Upload compiled manuscript
+        uses: actions/upload-artifact@v4
+        with:
+          name: QM-CH1-SOLUTION-PDF
+          path: main.pdf
+          if-no-files-found: error

@@ -1,0 +1,118 @@
+\problem{1.10}{Empirical statistics of the first 25 digits of $\pi$}
+\paragraph{Setup.} Treat the first twenty-five decimal-expansion digits, beginning with the initial $3$, as an equally likely sample space. Determine digit probabilities, mode, median, mean, and standard deviation.
+\paragraph{Derivation.}
+The sequence is
+\begin{equation}
+3,\ 1,\ 4,\ 1,\ 5,\ 9,\ 2,\ 6,\ 5,\ 3,\ 5,\ 8,\ 9,\
+7,\ 9,\ 3,\ 2,\ 3,\ 8,\ 4,\ 6,\ 2,\ 6,\ 4,\ 3.
+\end{equation}
+Counting occurrences gives the following frequency table, with probability $P(j)=N(j)/25$:
+\begin{center}
+\begin{tabular}{c*{10}{r}}
+\toprule
+Digit $j$&0&1&2&3&4&5&6&7&8&9\\
+\midrule
+Count $N(j)$&0&2&3&5&3&3&3&1&2&3\\
+\bottomrule
+\end{tabular}
+\end{center}
+The total count is $0+2+3+5+3+3+3+1+2+3=25$. The digit $3$ occurs five times and is the unique mode. For twenty-five ordered observations, the median is the thirteenth; the cumulative counts through digits $0,1,2,3$ are $0,2,5,10$ and through digit $4$ are $13$, so the median is $4$. For the moments,
+\begin{align}
+\E j&=\frac{1(2)+2(3)+3(5)+4(3)+5(3)+6(3)+7(1)+8(2)+9(3)}{25}
+=\boxed{\frac{118}{25}=4.72},\\
+\E{j^2}&=\frac{1^2(2)+2^2(3)+3^2(5)+4^2(3)+5^2(3)+6^2(3)+7^2(1)+8^2(2)+9^2(3)}{25}
+=\frac{710}{25}=28.4.
+\end{align}
+It follows that
+\begin{equation}
+\boxed{\sigma_j=\sqrt{28.4-(4.72)^2}=\sqrt{6.1216}\simeq2.47419.}
+\end{equation}
+\note{A frequency table can serve as a discrete probability distribution even when the sampled symbols are digits rather than physical measurements.}
+
+\problem{1.11}{Classical position density of a harmonic oscillator}
+\paragraph{Setup.} For a particle moving at fixed energy $E$ between classical turning points, obtain the time-sampling density from its speed, then specialize to $V(x)=kx^2/2$ and calculate its position moments.
+\paragraph{Derivation: general energy.}
+Energy conservation is
+\begin{equation}
+E=\frac12mv(x)^2+V(x)\quad\Rightarrow\quad
+\boxed{v(x)=\sqrt{\frac2m[E-V(x)]}}.
+\end{equation}
+For the travel time $T=\int_a^b \dd x/v(x)$ between turning points, a random observation during the \emph{one-way} journey has normalized density
+\begin{equation}
+\rho(x)=\frac1{T\,v(x)},\qquad
+\int_a^b\rho(x)\dd x=\frac1T\int_a^b\frac{\dd x}{v(x)}=1.
+\end{equation}
+Over a full periodic orbit, each interior interval is visited twice; the factor of two appears both in residence time and period and therefore cancels.
+\paragraph{Derivation: harmonic potential.}
+Let $\omega=\sqrt{k/m}$ and $A=\sqrt{2E/k}$, so the turning points are $\pm A$. Then
+\begin{equation}
+v(x)=\omega\sqrt{A^2-x^2},\qquad
+T=\frac1\omega\int_{-A}^A\frac{\dd x}{\sqrt{A^2-x^2}}
+=\frac{\pi}{\omega}.
+\end{equation}
+Thus
+\begin{equation}
+\boxed{\rho(x)=\frac1{\pi\sqrt{A^2-x^2}},\quad |x|<A;\qquad
+\rho(x)=0\ \text{outside}.}
+\end{equation}
+It has integrable endpoint peaks at $\pm A$, where the particle moves most slowly. To compute moments set $x=A\sin\theta$ with $\theta\in[-\pi/2,\pi/2]$:
+\begin{align}
+\E x&=\frac A\pi\int_{-\pi/2}^{\pi/2}\sin\theta\,\dd\theta=0,\\
+\E{x^2}&=\frac{A^2}{\pi}\int_{-\pi/2}^{\pi/2}\sin^2\theta\,\dd\theta
+=\frac{A^2}{2},\\
+\boxed{\sigma_x}&=\boxed{\frac A{\sqrt2}=\sqrt{\frac E{k}}}.
+\end{align}
+\note{The graph has a central minimum $1/(\pi A)$ and rises symmetrically toward the turning points. Classical position density differs strongly from the quantum ground-state Gaussian.}
+
+\problem{1.12}{Classical momentum density and uncertainty product}
+\paragraph{Setup.} Use the classical oscillator from Problem 1.11 to obtain momentum statistics and compare with the quantum uncertainty scale.
+\paragraph{Derivation.}
+For harmonic motion $x(t)=A\cos(\omega t)$ the momentum is
+$p(t)=-mA\omega\sin(\omega t)$. Define
+\begin{equation}
+p_{\max}=mA\omega=\sqrt{2mE}.
+\end{equation}
+Uniform phase sampling, together with the two branches of the sine map in each period, gives the momentum density
+\begin{equation}
+\boxed{\rho_p(p)=\frac1{\pi\sqrt{p_{\max}^2-p^2}},
+\quad |p|<p_{\max};\qquad 0\ \text{otherwise}.}
+\end{equation}
+Indeed, substituting $p=p_{\max}\sin\theta$ shows
+$\int_{-p_{\max}}^{p_{\max}}\rho_p(p)\dd p=1$. By parity $\E p=0$ and
+\begin{align}
+\E{p^2}&=\frac{p_{\max}^2}{\pi}\int_{-\pi/2}^{\pi/2}\sin^2\theta\dd\theta
+=\frac{p_{\max}^2}{2}=mE,\\
+\boxed{\sigma_p}&=\boxed{\frac{p_{\max}}{\sqrt2}=\sqrt{mE}}.
+\end{align}
+Combining with $\sigma_x=A/\sqrt2$,
+\begin{equation}
+\boxed{\sigma_x\sigma_p=\frac{Ap_{\max}}2=\frac E\omega.}
+\end{equation}
+Classical mechanics permits $E\to0$, so the product can tend to zero. If one \emph{formally} inserts the oscillator's quantum lower bound $E\ge\hbar\omega/2$, this same expression yields
+\begin{equation}
+\sigma_x\sigma_p\ge\hbar/2.
+\end{equation}
+\note{The final inequality is an instructive comparison, not a derivation of quantum uncertainty from the classical distribution. The genuine quantum calculation must use a wavefunction and momentum operator.}
+
+\problem{1.13}{Numerical verification by random phase sampling}
+\paragraph{Setup.} Simulate ten thousand positions of a unit-amplitude oscillator sampled at random times and compare the histogram with the analytical density.
+\paragraph{Analysis and algorithm.}
+Set $A=\omega=1$. A uniform random time $t$ in $[0,2\pi]$ gives $X=\cos t$. For $-1<x<1$, the transformation has two roots per period, and
+\begin{equation}
+\rho_X(x)=\sum_{t_i:\cos t_i=x}\frac{1}{2\pi}\left|\frac{\dd t}{\dd x}\right|_{t_i}
+=\frac{1}{\pi\sqrt{1-x^2}}.
+\end{equation}
+Its analytical mean and variance are $\E X=0$ and $\operatorname{Var}X=1/2$. A reproducible computation is:
+\begin{enumerate}[leftmargin=*]
+\item Draw $N=10\,000$ independent angles $\theta_j\sim U(0,2\pi)$.
+\item Compute $x_j=\cos\theta_j$.
+\item Plot a density-normalized histogram with e.g. $100$ bins spanning $[-1,1]$.
+\item Superimpose $\rho(x)=1/[\pi\sqrt{1-x^2}]$ for $|x|<1$ (avoid evaluating exactly at the endpoints).
+\item Compare the sample mean and sample standard deviation with $0$ and $1/\sqrt2\simeq0.7071$.
+\end{enumerate}
+The accompanying script \texttt{scripts/problem\_1\_13.py} produces a PDF/PNG plot and prints the sample statistics. The expected histogram is U-shaped, with large counts near the turning points; sampling fluctuations decrease roughly as $N^{-1/2}$ for fixed interior bins. The endpoint density diverges but each finite histogram bin has finite probability.
+\IfFileExists{figures/problem_1_13.pdf}{
+\begin{figure}[H]\centering
+\includegraphics[width=.78\linewidth]{figures/problem_1_13.pdf}
+\caption{Ten thousand random oscillator snapshots and the analytical arcsine density.}
+\end{figure}}{\paragraph{Figure.} Run the companion Python script to generate \texttt{figures/problem\_1\_13.pdf} and recompile this manuscript to insert the comparison plot.}

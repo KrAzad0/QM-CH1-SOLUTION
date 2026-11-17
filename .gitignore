@@ -1,0 +1,18 @@
+# LaTeX build output
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.bbl
+*.blg
+main.pdf
+
+# Generated figures (reproducible)
+figures/*.pdf
+figures/*.png
+
+__pycache__/
+.DS_Store

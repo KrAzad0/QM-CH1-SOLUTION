@@ -1,0 +1,151 @@
+\problem{1.1}{Mean square and standard deviation for discrete ages}
+\paragraph{Setup.} Fourteen ages occur with frequencies $(14,1),(15,1),(16,3),(22,2),(24,2),(25,5)$. Calculate the second moment, deviations, and variance.
+\paragraph{Derivation.}
+The total count is $N=1+1+3+2+2+5=14$ and $P(j)=N(j)/14$. The mean is
+\begin{equation}
+\E j=\frac{14+15+3(16)+2(22)+2(24)+5(25)}{14}
+=\frac{294}{14}=21.
+\end{equation}
+The second moment and squared mean are
+\begin{align}
+\E{j^2}
+&=\frac{14^2+15^2+3(16^2)+2(22^2)+2(24^2)+5(25^2)}{14}
+=\frac{6434}{14}=\frac{3217}{7},\\
+\E j^2&=441.
+\end{align}
+The deviations for the six distinct ages are $-7,-6,-5,1,3,4$. Directly,
+\begin{align}
+\sigma_j^2&=\frac{(-7)^2+(-6)^2+3(-5)^2+2(1)^2+2(3)^2+5(4)^2}{14}\\
+&=\frac{260}{14}=\frac{130}{7}.
+\end{align}
+As a check, $\E{j^2}-\E j^2=3217/7-441=130/7$. Hence
+\begin{equation}
+\boxed{\sigma_j=\sqrt{\frac{130}{7}}\simeq4.30946.}
+\end{equation}
+\note{Both methods agree. An average of signed deviations would vanish and could not measure spread.}
+
+\problem{1.2}{Falling-rock distribution: standard deviation and tails}
+\paragraph{Setup.} For a uniformly timed snapshot during free fall through height $h$, the distance distribution is $\rho(x)=1/(2\sqrt{hx})$ for $0<x<h$. Find its standard deviation and probability outside one standard deviation from its mean.
+\paragraph{Derivation.}
+For $n>-1/2$ the moments are
+\begin{equation}
+\E{x^n}=\int_0^h\frac{x^n}{2\sqrt{hx}}\dd x
+=\frac{1}{2\sqrt h}\left[\frac{x^{n+1/2}}{n+1/2}\right]_0^h
+=\frac{h^n}{2n+1}.
+\end{equation}
+Thus $\mu=\E x=h/3$, $\E{x^2}=h^2/5$, and
+\begin{equation}
+\boxed{\sigma_x=\sqrt{\frac{h^2}5-\frac{h^2}9}=\frac{2h}{3\sqrt5}}.
+\end{equation}
+Both cutoffs $x_{\pm}=h(1/3\pm2/(3\sqrt5))$ lie inside $(0,h)$.
+The cumulative distribution is $F(x)=\sqrt{x/h}$ on $[0,h]$. Hence
+\begin{align}
+P(|x-\mu|>\sigma_x)
+&=F(x_-)+1-F(x_+)\\
+&=\boxed{1+\sqrt{\frac13-\frac{2}{3\sqrt5}}-
+\sqrt{\frac13+\frac{2}{3\sqrt5}}}
+\simeq0.392938.
+\end{align}
+\note{The $x^{-1/2}$ singularity at the starting point is integrable. The usual Gaussian one-sigma heuristic does not apply to this distribution.}
+
+\problem{1.3}{Normalization and moments of a Gaussian}
+\paragraph{Setup.} Let $\rho(x)=A\exp[-\lambda(x-a)^2]$, with $\lambda>0$. Determine $A$, mean, second moment, variance, and shape.
+\paragraph{Derivation.}
+With $u=x-a$,
+\begin{equation}
+1=A\int_{-\infty}^{\infty}\e^{-\lambda u^2}\dd u
+=A\sqrt{\frac{\pi}{\lambda}}
+\quad\Rightarrow\quad
+\boxed{A=\sqrt{\lambda/\pi}}.
+\end{equation}
+Oddness gives $\E u=0$ so $\E x=a$. Differentiating the Gaussian integral,
+\begin{equation}
+\int_{-\infty}^{\infty}u^2\e^{-\lambda u^2}\dd u
+=-\frac{\dd}{\dd\lambda}\sqrt{\frac{\pi}{\lambda}}
+=\frac{\sqrt\pi}{2\lambda^{3/2}}.
+\end{equation}
+Therefore $\E{u^2}=1/(2\lambda)$, and
+\begin{equation}
+\boxed{\E x=a,\qquad \E{x^2}=a^2+\frac1{2\lambda},
+\qquad \sigma_x=\frac1{\sqrt{2\lambda}}.}
+\end{equation}
+The density is a symmetric bell with maximum $\sqrt{\lambda/\pi}$ at $x=a$, total area one, and inflection points at $a\pm1/\sqrt{2\lambda}$.
+
+\problem{1.4}{Triangular wavefunction}
+\paragraph{Setup.} Study the normalized piecewise state
+\begin{equation}
+\Psi(x,0)=
+\begin{cases}
+Ax/a,&0\le x\le a,\\
+A(b-x)/(b-a),&a\le x\le b,\\
+0,&\text{otherwise},
+\end{cases}
+\qquad 0<a<b.
+\end{equation}
+\paragraph{Derivation.}
+The graph of $\Psi$ is triangular: it rises from zero at $0$ to $A$ at $a$ and falls to zero at $b$. Choosing the irrelevant overall phase so $A>0$,
+\begin{align}
+1&=A^2\left[\frac1{a^2}\int_0^a x^2\dd x+
+\frac1{(b-a)^2}\int_a^b(b-x)^2\dd x\right]\\
+&=A^2\left[\frac a3+\frac{b-a}3\right]
+=A^2\frac b3,
+\end{align}
+and so $\boxed{A=\sqrt{3/b}}$. Since $\rho=|\Psi|^2$, the most likely position is the apex $x=a$ (the probability at an exact point is zero; this means the \emph{density} is maximal there).
+The probability of finding $x<a$ is
+\begin{equation}
+P(x<a)=A^2\int_0^a \frac{x^2}{a^2}\dd x
+=\boxed{\frac ab}.
+\end{equation}
+It tends to one as $b\downarrow a$, and equals $1/2$ when $b=2a$. For the mean,
+\begin{align}
+\E x&=A^2\left[\frac1{a^2}\int_0^a x^3\dd x+
+\frac1{(b-a)^2}\int_a^b x(b-x)^2\dd x\right]\\
+&=\frac3b\left[\frac{a^2}4+\frac{b(b-a)}3-\frac{(b-a)^2}4\right]\\
+&=\boxed{\frac a2+\frac b4}.
+\end{align}
+\note{The mean of the amplitude's square is not the familiar $(a+b)/3$ mean of a triangular probability density. For $b=2a$, symmetry gives $\E x=a$, as required.}
+
+\problem{1.5}{Two-sided exponential localization}
+\paragraph{Setup.} The wavefunction is $\Psi=A\e^{-\lambda|x|}\e^{-\ii\omega t}$, with $\lambda>0$. Compute normalization, first two position moments, width, and probability beyond one standard deviation.
+\paragraph{Derivation.}
+The time factor has unit modulus, so
+\begin{equation}
+1=A^2\int_{\mathbb R}\e^{-2\lambda|x|}\dd x
+=2A^2\int_0^\infty\e^{-2\lambda x}\dd x
+=\frac{A^2}{\lambda}
+\quad\Rightarrow\quad \boxed{A=\sqrt\lambda}.
+\end{equation}
+By parity $\E x=0$. Using $\int_0^\infty x^2\e^{-qx}\dd x=2/q^3$,
+\begin{align}
+\E{x^2}&=2\lambda\int_0^\infty x^2\e^{-2\lambda x}\dd x
+=2\lambda\,\frac{2}{(2\lambda)^3}
+=\frac1{2\lambda^2},\\
+\boxed{\sigma_x}&=\boxed{\frac1{\sqrt2\,\lambda}}.
+\end{align}
+Finally
+\begin{equation}
+P(|x|>\sigma_x)
+=2\lambda\int_{\sigma_x}^\infty \e^{-2\lambda x}\dd x
+=\boxed{\e^{-\sqrt2}}\simeq0.243117.
+\end{equation}
+The graph of $|\Psi|^2=\lambda\e^{-2\lambda|x|}$ is a symmetric exponential cusp; mark the points $x=\pm1/(\sqrt2\lambda)$.
+
+\problem{1.6}{Why a time derivative cannot be integrated by parts in space}
+\paragraph{Setup.} Explain the mistaken inference $\dd\E x/\dd t=0$ obtained by trying to transfer $\partial_t$ onto $x$ under a spatial integral.
+\paragraph{Derivation.}
+The derivative
+\begin{equation}
+\frac{\dd\E x}{\dd t}=\int_{\mathbb R}x\,\partial_t|\Psi(x,t)|^2\dd x
+\end{equation}
+is with respect to $t$ whereas integration is with respect to $x$. The integration-by-parts formula
+\begin{equation}
+\int_a^b f(x)\,\partial_xg(x)\dd x=[fg]_a^b-\int_a^b g(x)\,\partial_x f(x)\dd x
+\end{equation}
+requires the derivative and integration variable to match. One may not change $\partial_t$ to $\partial_x$. Instead, after invoking the Schrödinger equation and continuity equation $\partial_t\rho=-\partial_xJ$,
+\begin{equation}
+\frac{\dd\E x}{\dd t}
+=-\int x\,\partial_xJ\dd x
+=-[xJ]_{-\infty}^{\infty}+\int J\dd x
+=\frac{\E p}{m},
+\end{equation}
+assuming the boundary terms vanish. The last identity follows by integrating by parts in the current and using the definition of $\E p$.

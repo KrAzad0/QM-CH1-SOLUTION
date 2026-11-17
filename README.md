@@ -1,5 +1,14 @@
 # The Wave Function — Interactive Chapter 1 Website
 
+## Continue to Chapter 2
+
+**[Time-Independent Schrödinger Equation — 64 worked problems](https://krazad0.github.io/QM-CH1-SOLUTION/chapter2/)**
+
+The second chapter covers stationary-state boundary value problems, harmonic oscillators, Fourier wave packets, delta potentials, scattering and numerical spectral calculations. The full source and reproducible figures live in [chapter2/](chapter2/). Both chapters share the GitHub Pages deployment while preserving separate manuscripts.
+
+---
+
+
 **Study the complete chapter online:** [Open the GitHub Pages website](https://krazad0.github.io/QM-CH1-SOLUTION/)
 
 The website includes a responsive academic design, the six foundational concepts, a searchable and filterable index of **all 18 worked exercises**, links to the LaTeX derivations, a light/dark theme switch, and a **PDF manuscript that is rebuilt and published with the site**.

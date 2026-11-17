@@ -4,7 +4,7 @@
 
 The website includes a responsive academic design, the six foundational concepts, a searchable and filterable index of **all 18 worked exercises**, links to the LaTeX derivations, a light/dark theme switch, and a **PDF manuscript that is rebuilt and published with the site**.
 
-Website sources live in [docs/](docs/). The publishing workflow is [.github/workflows/pages.yml](.github/workflows/pages.yml). It uses GitHub Pages deployment via Actions and attempts to enable Pages automatically on the first run.
+Website sources live in [docs/](docs/). The publishing workflow is [.github/workflows/pages.yml](.github/workflows/pages.yml). It builds the manuscript and publishes the static files to the `gh-pages` branch. GitHub Pages serves that branch; a one-time Pages source configuration may be required for newly created repositories.
 
 ---
 

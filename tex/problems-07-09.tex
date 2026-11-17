@@ -1,0 +1,102 @@
+\problem{1.7}{Ehrenfest's equation for momentum}
+\paragraph{Setup.} Derive the time evolution of the momentum expectation for a particle in a real scalar potential $V(x,t)$.
+\paragraph{Derivation.}
+For a wavefunction satisfying the Schrödinger equation and the standard boundary conditions, any time-independent operator $\hat A$ obeys
+\begin{equation}
+\frac{\dd}{\dd t}\E A
+=\frac{\ii}{\hbar}\E{[\hat H,\hat A]},
+\qquad \hat H=\frac{\hat p^2}{2m}+V(x,t).
+\end{equation}
+This follows by differentiating $\int\Psi^*\hat A\Psi\,\dd x$ and substituting
+$\partial_t\Psi=-(\ii/\hbar)\hat H\Psi$, together with its Hermitian conjugate. For $\hat A=\hat p=-\ii\hbar\partial_x$, the kinetic term commutes with $\hat p$, whereas
+\begin{align}
+[V,\hat p]\psi
+&=V(-\ii\hbar\psi')-(-\ii\hbar\partial_x)(V\psi)\\
+&=-\ii\hbar V\psi'+\ii\hbar(V'\psi+V\psi')
+=\ii\hbar V'\psi.
+\end{align}
+Therefore
+\begin{equation}
+\boxed{\frac{\dd\E p}{\dd t}
+=\frac{\ii}{\hbar}\E{[V,\hat p]}
+=-\E{\frac{\partial V}{\partial x}}.}
+\end{equation}
+\note{This is the average-force form of Newton's second law. It does not generally mean $\dd\E p/\dd t=-V'(\E x)$, because averaging and evaluating a nonlinear function at the mean are different operations.}
+
+\problem{1.8}{Adding a constant to potential energy}
+\paragraph{Setup.} Compare the solutions of the Schrödinger equation for $V(x,t)$ and $V'(x,t)=V(x,t)+V_0$, where $V_0$ is real and independent of position and time.
+\paragraph{Derivation.}
+Suppose $\Psi$ solves $\ii\hbar\partial_t\Psi=\hat H\Psi$. Let
+\begin{equation}
+\Psi'(x,t)=\e^{-\ii V_0t/\hbar}\Psi(x,t).
+\end{equation}
+Differentiating,
+\begin{align}
+\ii\hbar\partial_t\Psi'
+&=\e^{-\ii V_0t/\hbar}
+\left[V_0\Psi+\ii\hbar\partial_t\Psi\right]\\
+&=(\hat H+V_0)\Psi',
+\end{align}
+so $\Psi'$ is the desired state for the shifted potential. Since the extra factor is a spatially uniform complex phase,
+\begin{equation}
+|\Psi'|^2=|\Psi|^2,\qquad
+\E{Q}'=\int\Psi'^*\hat Q\Psi'\dd x
+=\int\Psi^*\hat Q\Psi\dd x=\E Q
+\end{equation}
+for physical observables $\hat Q$ unaffected by the shift. The Hamiltonian expectation itself increases by $V_0$ because the \emph{energy origin} has changed, even though position, momentum, and other unshifted observables do not change.
+\note{A constant potential offset adds a global dynamical phase and shifts all energy levels equally. Energy differences and measurement probabilities remain unchanged.}
+
+\problem{1.9}{A Gaussian oscillator state saturating uncertainty}
+\paragraph{Setup.} Consider $\Psi(x,t)=A\exp[-a(mx^2/\hbar+\ii t)]$ with real $a>0$. Determine $A$, the required potential, the first two moments of position and momentum, and their uncertainties.
+\paragraph{Derivation: normalization.}
+Taking the absolute square eliminates the time phase,
+\begin{equation}
+|\Psi|^2=A^2\e^{-2amx^2/\hbar}.
+\end{equation}
+The Gaussian integral yields
+\begin{equation}
+1=A^2\sqrt{\frac{\pi\hbar}{2am}}
+\quad\Rightarrow\quad
+\boxed{A=\left(\frac{2am}{\pi\hbar}\right)^{1/4}}.
+\end{equation}
+\paragraph{Derivation: inverse Schrödinger equation.}
+The derivatives are
+\begin{align}
+\partial_t\Psi&=-\ii a\Psi,&
+\partial_x\Psi&=-\frac{2amx}{\hbar}\Psi,\\
+\partial_x^2\Psi&=\left(-\frac{2am}{\hbar}+
+\frac{4a^2m^2x^2}{\hbar^2}\right)\Psi.
+\end{align}
+Therefore
+\begin{align}
+\ii\hbar\partial_t\Psi&=\hbar a\Psi,\\
+-\frac{\hbar^2}{2m}\partial_x^2\Psi
+&=\left(\hbar a-2ma^2x^2\right)\Psi.
+\end{align}
+The Schrödinger equation holds precisely for
+\begin{equation}
+\boxed{V(x)=2ma^2x^2=\frac12m(2a)^2x^2,}
+\end{equation}
+which is a harmonic-oscillator potential of frequency $\omega=2a$, and the state has energy $\hbar a=\hbar\omega/2$.
+\paragraph{Derivation: moments and widths.}
+The spatial probability density is even, so $\E x=0$. Its Gaussian variance is
+\begin{equation}
+\boxed{\E{x^2}=\frac{\hbar}{4am}}.
+\end{equation}
+We likewise obtain
+\begin{equation}
+\E p=-\ii\hbar\int\Psi^*\partial_x\Psi\dd x
+=2\ii am\E x=0,
+\end{equation}
+and either integrating $\Psi^*(-\hbar^2\partial_x^2)\Psi$ or using
+$\hbar^2\int|\partial_x\Psi|^2$ gives
+\begin{equation}
+\boxed{\E{p^2}=4a^2m^2\E{x^2}=am\hbar}.
+\end{equation}
+Consequently
+\begin{equation}
+\boxed{\sigma_x=\sqrt{\frac{\hbar}{4am}},\qquad
+\sigma_p=\sqrt{am\hbar},\qquad
+\sigma_x\sigma_p=\frac{\hbar}{2}.}
+\end{equation}
+\note{Equality holds: this real Gaussian is the ground state of the oscillator. The parameter $a$ has dimensions of inverse time.}

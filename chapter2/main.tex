@@ -88,6 +88,30 @@ boundary conditions; formal plane waves require generalized normalization.
 \input{tex/46-54}
 \section{Numerical and advanced problems (2.55--2.64)}
 \input{tex/55-64}
+\section{Numerical visualization and convergence tests}
+The script \texttt{scripts/numerical\_checks.py} checks Problems
+2.27, 2.48, 2.59, 2.61, and 2.62 independently.
+The plots use the stated dimensionless units.
+\IfFileExists{figures/bouncing_ball.pdf}{
+\begin{figure}[htbp]\centering
+\includegraphics[width=.80\linewidth]{figures/bouncing_ball.pdf}
+\caption{Normalized Airy eigenstates for the quantum bouncing ball,
+Problem 2.59.}
+\end{figure}}{}
+\IfFileExists{figures/box_convergence.pdf}{
+\begin{figure}[htbp]\centering
+\includegraphics[width=.80\linewidth]{figures/box_convergence.pdf}
+\caption{Convergence of finite-difference energies toward
+$n^2\pi^2$ for Problem 2.61.}
+\end{figure}}{}
+\IfFileExists{figures/sinusoidal_well.pdf}{
+\begin{figure}[htbp]\centering
+\includegraphics[width=.80\linewidth]{figures/sinusoidal_well.pdf}
+\caption{First three eigenfunctions of the sinusoidal-bottom
+well with $N=100$, Problem 2.62.}
+\end{figure}}{}
+\clearpage
+
 \section*{References and scope}
 \addcontentsline{toc}{section}{References and scope}
 \begin{enumerate}[label={[\arabic*]},leftmargin=16pt]

@@ -1,0 +1,293 @@
+\problem{2.36}{Centered infinite square well}
+For $V=0$ on $-a<x<a$ and $V=\infty$ elsewhere,
+the boundary conditions are $\psi(-a)=\psi(a)=0$.
+Even solutions have the form $\cos(kx)$ and satisfy
+$\cos(ka)=0$, giving $ka=(j+1/2)\pi$.
+Odd solutions have the form $\sin(kx)$ and satisfy
+$\sin(ka)=0$, giving $ka=j\pi$.
+A combined ordering is
+\begin{equation}
+\boxed{E_n=\frac{n^2\pi^2\hbar^2}{8ma^2}},\qquad
+n=1,2,\ldots,
+\end{equation}
+with
+\begin{equation}
+\boxed{\psi_n(x)=
+\begin{cases}
+a^{-1/2}\cos(n\pi x/2a),&n\text{ odd},\\
+a^{-1/2}\sin(n\pi x/2a),&n\text{ even}.
+\end{cases}}
+\end{equation}
+Signs can be changed without physical effect.
+Each integral $\int_{-a}^a|\psi_n|^2\dd x=1$.
+These are the familiar well states for a box of
+width $2a$, shifted to the origin. The first three
+are an even ground state with no internal node,
+an odd first excited state with one internal node,
+and an even second excited state with two nodes.
+
+\problem{2.37}{Cubic sine initial wavefunction}
+On $0<x<a$, let $\Psi(x,0)=A\sin^3(\pi x/a)$.
+Use $\sin^3\theta=(3\sin\theta-\sin3\theta)/4$ and
+$\int_0^\pi\sin^6\theta\dd\theta=5\pi/16$.
+Normalization yields
+\begin{equation}
+1=A^2\frac{5a}{16}
+\quad\Rightarrow\quad \boxed{A=\frac4{\sqrt{5a}}}.
+\end{equation}
+The eigenstate decomposition is
+\begin{equation}
+\Psi(x,0)=\frac3{\sqrt{10}}\phi_1(x)
+-\frac1{\sqrt{10}}\phi_3(x).
+\end{equation}
+Therefore
+\begin{equation}
+\boxed{\Psi(x,t)=\frac3{\sqrt{10}}\phi_1(x)\ee^{-\ii\Omega t}
+-\frac1{\sqrt{10}}\phi_3(x)\ee^{-9\ii\Omega t}}.
+\end{equation}
+Both $\phi_1,\phi_3$ are even about $x=a/2$.
+The density remains symmetric about the midpoint,
+so $\boxed{\avg x(t)=a/2}$ for every $t$.
+Energy probabilities are $9/10$ and $1/10$:
+\begin{equation}
+\boxed{\avg H=\frac9{10}E_1+\frac1{10}E_3
+=\frac95\hbar\Omega}.
+\end{equation}
+\check{The density is not stationary, despite a
+constant mean position; interference changes its shape.}
+
+\problem{2.38}{Quantum revivals and classical crossing times}
+Any normalized well state has expansion
+$\Psi(x,t)=\sum_n c_n\phi_n(x)
+\ee^{-\ii n^2\Omega t}$.
+Choose $T_q=2\pi/\Omega$; then
+$\ee^{-\ii n^2\Omega T_q}=\ee^{-2\pi\ii n^2}=1$
+for every integer $n$. Hence
+\begin{equation}
+\boxed{\Psi(x,T_q)=\Psi(x,0)},\qquad
+\boxed{T_q=\frac{4ma^2}{\pi\hbar}}.
+\end{equation}
+A classical particle traverses the box and returns
+after a round-trip distance $2a$ at speed
+$v=\sqrt{2E/m}$:
+\begin{equation}
+\boxed{T_{\mathrm{cl}}=\frac{2a}{v}
+=2a\sqrt{\frac{m}{2E}}}.
+\end{equation}
+Equating the two times gives
+\begin{equation}
+\boxed{E=\frac{\pi^2\hbar^2}{8ma^2}=\frac{E_1}{4}}.
+\end{equation}
+This is below the lowest allowed energy of the
+infinite well. The two concepts of recurrence
+are therefore not equal for any stationary
+state in the well.
+
+\problem{2.39}{Second derivative of a state with a cusp}
+From Problem 2.7,
+\begin{equation}
+\Psi(x,0)=A
+\begin{cases}x,&0<x<a/2,\\a-x,&a/2<x<a,\end{cases}
+\quad A=\sqrt{12/a^3}.
+\end{equation}
+Inside the open interval $(0,a)$, the first
+derivative is the step-function expression
+\begin{equation}
+\boxed{\Psi'(x,0)=A[1-2\theta(x-a/2)]}.
+\end{equation}
+Using $\theta'=\delta$,
+\begin{equation}
+\boxed{\Psi''(x,0)=-2A\delta(x-a/2)}.
+\end{equation}
+This is a distributional derivative, not an ordinary
+second derivative at the cusp. The quadratic energy
+form gives
+\begin{align}
+\avg H&=-\frac{\hbar^2}{2m}\int_0^a
+\Psi(x,0)\Psi''(x,0)\dd x\\
+&=\frac{\hbar^2}{m}A\Psi(a/2,0)
+=\frac{\hbar^2}{m}A^2\frac a2
+=\boxed{\frac{6\hbar^2}{ma^2}}.
+\end{align}
+It agrees with Problem 2.7. A rigorous
+alternative is the kinetic-energy quadratic form
+$\hbar^2\int_0^a|\Psi'|^2/(2m)$.
+
+\problem{2.40}{A quadratic polynomial times a Gaussian}
+Set $q=\sqrt{m\omega/\hbar}\,x$.
+The initial state is proportional to
+$(1-2q)^2\ee^{-q^2/2}$.
+Since $H_0=1$, $H_1=2q$, and
+$H_2=4q^2-2$,
+\begin{equation}
+(1-2q)^2=3H_0-2H_1+H_2.
+\end{equation}
+Using normalized oscillator functions
+$\psi_n=\alpha H_n(q)\ee^{-q^2/2}/\sqrt{2^nn!}$
+where $\alpha=(m\omega/\pi\hbar)^{1/4}$,
+\begin{equation}
+\Psi(x,0)=A_{\mathrm{norm}}
+\left[3\psi_0-2\sqrt2\psi_1+2\sqrt2\psi_2\right].
+\end{equation}
+The squared norm of the bracket is
+$9+8+8=25$, so $A_{\mathrm{norm}}=1/5$.
+The prefactor multiplying the \emph{unnormalized}
+polynomial-Gaussian is $A=\alpha/5$.
+Thus
+\begin{equation}
+\boxed{(c_0,c_1,c_2)=
+\left(\frac35,-\frac{2\sqrt2}5,
+\frac{2\sqrt2}5\right)}.
+\end{equation}
+Energy probabilities are $9/25$, $8/25$, $8/25$ and
+\begin{equation}
+\avg H=
+\left[\frac9{25}\frac12+\frac8{25}\frac32+
+\frac8{25}\frac52\right]\hbar\omega
+=\boxed{\frac{73}{50}\hbar\omega}.
+\end{equation}
+At $t=\pi/\omega$, relative phases are
+$\ee^{-\ii n\pi}=(-1)^n$.
+The odd $n=1$ coefficient changes sign while
+$n=0,2$ do not, so the polynomial becomes
+$(1+2q)^2$ up to a global phase.
+The smallest positive time is
+$\boxed{T=\pi/\omega}$.
+
+\problem{2.41}{The half harmonic oscillator}
+For $x>0$, $V=m\omega^2x^2/2$; on $x\le0$
+there is an infinite wall. Thus
+$\psi(0)=0$ and $\psi(x)$ must decay as
+$x\to+\infty$. Extending a half-line solution
+oddly to the entire line produces an
+odd full-oscillator eigenfunction.
+Only $n=1,3,5,\dots$ are permitted.
+Reindex $n=2j+1$, $j=0,1,\dots$:
+\begin{equation}
+\boxed{E_j=\left(2j+\frac32\right)\hbar\omega}.
+\end{equation}
+The normalized half-line wavefunctions are
+$\boxed{\psi_j^{\rm half}(x)=\sqrt2\,
+\psi_{2j+1}^{\rm full}(x)}$ for $x>0$.
+The factor $\sqrt2$ compensates for
+discarding the negative half of a normalized
+odd-state density.
+
+\problem{2.42}{Traveling Gaussian packet: envelope and phase speeds}
+For $\Psi(x,0)=A\ee^{-ax^2}\ee^{\ii\ell x}$,
+normalization still gives $A=(2a/\pi)^{1/4}$.
+The initial Fourier distribution is shifted:
+$\phi(k)\propto\ee^{-(k-\ell)^2/(4a)}$.
+In the free-particle Fourier integral set
+$u=k-\ell$ and complete the Gaussian square.
+With $\gamma=1+2\ii\hbar at/m$,
+\begin{equation}
+\boxed{\Psi(x,t)=
+\left(\frac{2a}{\pi}\right)^{1/4}
+\gamma^{-1/2}
+\exp\left[-\frac{a(x-v_gt)^2}{\gamma}\right]
+\exp\left[\ii\ell\left(x-\frac{\hbar\ell t}{2m}\right)\right]},
+\quad v_g=\frac{\hbar\ell}{m}.
+\end{equation}
+The density is a translated spreading Gaussian:
+\begin{equation}
+|\Psi|^2=
+\sqrt{\frac{2a}{\pi|\gamma|^2}}\,
+\exp\left[-\frac{2a(x-v_gt)^2}{|\gamma|^2}\right].
+\end{equation}
+Thus the envelope travels at
+$v_g=\hbar\ell/m$; its central phase has
+$\omega_\ell=\hbar\ell^2/(2m)$, so
+the phase speed is
+$v_p=\omega_\ell/\ell=\hbar\ell/(2m)=v_g/2$
+for $\ell\ne0$. The packet satisfies
+$\avg x(t)=v_gt$, $\avg p=\hbar\ell$.
+\check{The local phase of the dispersing Gaussian
+envelope also evolves, so this $v_p$ refers to
+its plane-wave carrier, not to every local
+phase contour of the full packet.}
+
+\problem{2.43}{Infinite well with a central delta barrier}
+Take $V(x)=\alpha\delta(x)$ for $|x|<a$,
+infinite outside, with $\alpha>0$.
+Odd states vanish at $x=0$ and satisfy
+the delta jump automatically. They remain
+\begin{equation}
+\psi_o(x)\propto\sin(j\pi x/a),\qquad
+\boxed{E_{o,j}=\frac{j^2\pi^2\hbar^2}{2ma^2}}
+\quad(j=1,2,\ldots).
+\end{equation}
+An even state on the right half may be written
+$\psi_e(x)=C\sin[k(a-x)]$ for $0<x<a$,
+reflected evenly for $x<0$.
+At the origin the jump is
+$2\psi_e'(0^+)=2m\alpha\psi_e(0)/\hbar^2$,
+giving
+\begin{equation}
+-2Ck\cos(ka)=\frac{2m\alpha}{\hbar^2}C\sin(ka)
+\quad\Rightarrow\quad
+\boxed{-ka\cot(ka)=\frac{m\alpha a}{\hbar^2}}.
+\end{equation}
+At $\alpha=0$, the roots are $ka=(j+1/2)\pi$.
+At $\alpha\to\infty$, the even roots approach
+$ka=j\pi$ from below and become degenerate
+with the unaffected odd states. A repulsive
+central barrier raises the even-state energies,
+consistent with the variational principle.
+
+\problem{2.44}{No degenerate bound levels on a connected line}
+Let $\psi_1,\psi_2$ solve the same
+one-dimensional stationary equation at energy $E$:
+\begin{equation}
+-\frac{\hbar^2}{2m}\psi_j''+V\psi_j=E\psi_j.
+\end{equation}
+Multiply the first by $\psi_2$, the second by
+$\psi_1$ and subtract:
+$\psi_2\psi_1''-\psi_1\psi_2''=0$.
+This is the derivative of the Wronskian
+$W=\psi_2\psi_1'-\psi_1\psi_2'$.
+Hence $W$ is constant. For ordinary bound states
+$\psi_j,\psi_j'\to0$ at an outer boundary, so
+$W=0$ everywhere. Wherever $\psi_1\ne0$,
+\begin{equation}
+\left(\frac{\psi_2}{\psi_1}\right)'=
+\frac{\psi_1\psi_2'-\psi_1'\psi_2}{\psi_1^2}=0.
+\end{equation}
+Thus $\psi_2=C\psi_1$ and continuity extends the
+relation through zeros. The solutions are not
+linearly independent. Therefore each isolated
+bound energy is nondegenerate on a connected
+one-dimensional line under these assumptions.
+
+\problem{2.45}{Node interlacing for different bound energies}
+Take real eigenfunctions $\psi_m,\psi_n$ with
+$E_n>E_m$ and define
+\begin{equation}
+W(x)=\psi_m'(x)\psi_n(x)-\psi_m(x)\psi_n'(x).
+\end{equation}
+Use $\psi_j''=(2m/\hbar^2)(V-E_j)\psi_j$
+to obtain
+\begin{equation}
+\boxed{W'(x)=\frac{2m}{\hbar^2}
+(E_n-E_m)\psi_m(x)\psi_n(x)}.
+\end{equation}
+Between successive nodes $x_1<x_2$ of $\psi_m$,
+integrate to get
+\begin{equation}
+\boxed{\psi_m'(x_2)\psi_n(x_2)-
+\psi_m'(x_1)\psi_n(x_1)=
+\frac{2m(E_n-E_m)}{\hbar^2}
+\int_{x_1}^{x_2}\psi_m\psi_n\dd x}.
+\end{equation}
+Suppose $\psi_n$ has no zero in $(x_1,x_2)$.
+Then it has a definite sign, as does $\psi_m$.
+If $\psi_m>0$ in this interval, then
+$\psi_m'(x_1)>0$ and $\psi_m'(x_2)<0$;
+the left side has the \emph{opposite} sign
+to $\psi_n$ while the right side has the
+\emph{same} sign. This is a contradiction.
+The argument with $\psi_m<0$ is analogous.
+Thus $\psi_n$ has a node between adjacent
+nodes of $\psi_m$. With Sturm--Liouville
+boundary conditions this interlacing yields
+the increasing node count with energy.

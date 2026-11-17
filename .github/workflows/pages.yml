@@ -1,0 +1,72 @@
+name: Publish Chapter 1 Website
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "docs/**"
+      - "main.tex"
+      - "tex/**"
+      - "scripts/problem_1_13.py"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    name: Build PDF and publish website
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install figure dependencies
+        run: python -m pip install numpy matplotlib
+
+      - name: Generate statistical simulation figure
+        run: python scripts/problem_1_13.py
+
+      - name: Compile complete solutions PDF
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+          latexmk_use_xelatex: false
+          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+
+      - name: Prepare published site
+        run: |
+          test -s main.pdf
+          cp main.pdf docs/chapter-1-solutions.pdf
+          touch docs/.nojekyll
+          test -s docs/index.html
+          test -s docs/chapter-1-solutions.pdf
+
+      - name: Upload site content
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

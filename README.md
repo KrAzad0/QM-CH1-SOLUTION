@@ -1,3 +1,13 @@
+# The Wave Function — Interactive Chapter 1 Website
+
+**Study the complete chapter online:** [Open the GitHub Pages website](https://krazad0.github.io/QM-CH1-SOLUTION/)
+
+The website includes a responsive academic design, the six foundational concepts, a searchable and filterable index of **all 18 worked exercises**, links to the LaTeX derivations, a light/dark theme switch, and a **PDF manuscript that is rebuilt and published with the site**.
+
+Website sources live in [docs/](docs/). The publishing workflow is [.github/workflows/pages.yml](.github/workflows/pages.yml). It uses GitHub Pages deployment via Actions and attempts to enable Pages automatically on the first run.
+
+---
+
 # Quantum Mechanics — Chapter 1 Complete Solutions
 
 **An arXiv-inspired mathematical-physics study manuscript** with original step-by-step worked solutions to **Problems 1.1–1.18** in Chapter 1, *The Wave Function*, of Griffiths & Schroeter, *Introduction to Quantum Mechanics*, 3rd edition (Cambridge University Press, 2018).

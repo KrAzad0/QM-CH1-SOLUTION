@@ -1,0 +1,201 @@
+\problem{3.23}{Projection operators and their spectrum}
+For a normalized ket $\ket\alpha$ define
+$P=\ket\alpha\bra\alpha$. Then
+\begin{equation}
+P^2=\ket\alpha\braket\alpha\alpha\bra\alpha
+=\ket\alpha\bra\alpha=\boxed P.
+\end{equation}
+Any eigenvalue $p$ obeys $p^2=p$, hence
+$p=0$ or $1$. The vector $\ket\alpha$
+is a $p=1$ eigenvector, and every vector
+orthogonal to it is in the $p=0$
+eigenspace. A projection onto a
+higher-dimensional subspace has the same
+eigenvalues, with the range and kernel
+as the corresponding eigenspaces.
+
+\problem{3.24}{Hermiticity of an operator's matrix}
+Let $\{\ket n\}$ be an orthonormal basis and
+$Q_{mn}=\bra m Q\ket n$.
+If $Q=Q^\dagger$,
+\begin{align}
+Q_{mn}&=\braket m{Qn}
+=\braket{Qm}n\\
+&=\braket n{Qm}^*
+=\boxed{Q_{nm}^*}.
+\end{align}
+Thus the matrix $Q$ satisfies
+$\boxed{Q=Q^\dagger}$, i.e.\ its
+conjugate transpose equals itself.
+In particular all diagonal entries are real.
+
+\problem{3.25}{Diagonalizing a two-level Hamiltonian}
+In the orthonormal basis $\ket1,\ket2$,
+the stated operator has the matrix
+\begin{equation}
+H=\varepsilon
+\begin{pmatrix}1&1\\1&-1\end{pmatrix}.
+\end{equation}
+Its characteristic equation is
+\begin{equation}
+\det(H-EI)=E^2-2\varepsilon^2=0,
+\qquad\boxed{E_\pm=\pm\sqrt2\,\varepsilon}.
+\end{equation}
+For $E_+$ the first row gives
+$v_2=(\sqrt2-1)v_1$; for $E_-$,
+$v_2=-(\sqrt2+1)v_1$.
+A normalized eigenbasis is therefore
+\begin{align}
+\boxed{\ket{E_+}}&=
+\frac{\ket1+(\sqrt2-1)\ket2}
+{\sqrt{1+(\sqrt2-1)^2}},\\
+\boxed{\ket{E_-}}&=
+\frac{\ket1-(\sqrt2+1)\ket2}
+{\sqrt{1+(\sqrt2+1)^2}}.
+\end{align}
+The vectors are orthogonal because
+$1+(\sqrt2-1)(-\sqrt2-1)=0$.
+
+\problem{3.26}{Complex kets, dual vectors and outer products}
+With basis coordinates
+$\ket\alpha=(\ii,-2,-\ii)^{\mathsf T}$,
+$\ket\beta=(\ii,0,2)^{\mathsf T}$,
+taking conjugate transposes gives
+\begin{equation}
+\boxed{\bra\alpha=(-\ii,-2,\ii)},\qquad
+\boxed{\bra\beta=(-\ii,0,2)}.
+\end{equation}
+The two inner products are
+\begin{equation}
+\boxed{\braket\alpha\beta=
+(-\ii)\ii+\ii(2)=1+2\ii},\qquad
+\boxed{\braket\beta\alpha=1-2\ii}.
+\end{equation}
+The outer product $A=\ket\alpha\bra\beta$ is
+\begin{equation}
+\boxed{A=
+\begin{pmatrix}
+1&0&2\ii\\
+2\ii&0&-4\\
+-1&0&-2\ii
+\end{pmatrix}}.
+\end{equation}
+For example $A_{13}=\ii\cdot2=2\ii$ and
+$A_{31}=(-\ii)(-\ii)=-1$.
+Since $A_{13}\ne A_{31}^*$,
+$\boxed{A\ne A^\dagger}$.
+
+\problem{3.27}{Spectral decomposition and functions of an operator}
+Let $Q\ket{e_n}=q_n\ket{e_n}$, where
+$\{\ket{e_n}\}$ is a complete orthonormal
+basis. Completeness gives
+$\sum_n\ket{e_n}\bra{e_n}=I$. On an arbitrary
+vector $\ket\alpha=\sum_n\alpha_n\ket{e_n}$,
+\begin{equation}
+Q\ket\alpha=
+\sum_nq_n\alpha_n\ket{e_n}=
+\left(\sum_nq_n\ket{e_n}\bra{e_n}\right)\ket\alpha.
+\end{equation}
+Therefore
+\begin{equation}
+\boxed{Q=\sum_nq_n\ket{e_n}\bra{e_n}}.
+\end{equation}
+For a function $f$ defined on the spectrum,
+$f(Q)=\sum_nf(q_n)\ket{e_n}\bra{e_n}$.
+For the exponential, its power series gives
+\begin{align}
+\ee^Q&=\sum_{k=0}^\infty Q^k/k!\\
+&=\sum_n\sum_{k=0}^\infty
+q_n^k/k!\ket{e_n}\bra{e_n}\\
+&=\boxed{\sum_n\ee^{q_n}\ket{e_n}\bra{e_n}}.
+\end{align}
+\qnote{For unbounded operators, convergence and
+the domain of each function of $Q$ are
+specified by the spectral theorem.}
+
+\problem{3.28}{Functions of the differentiation operator}
+For $D=\dd/\dd x$, apply
+$\sin D=\sum_{j\ge0}(-1)^jD^{2j+1}/(2j+1)!$
+to $x^5$. Higher than fifth derivatives vanish:
+\begin{equation}
+\boxed{(\sin D)x^5=
+5x^4-\frac{60x^2}{6}+\frac{120}{120}
+=5x^4-10x^2+1}.
+\end{equation}
+To evaluate $(1-D/2)^{-1}\cos x$, solve
+$(1-D/2)f=\cos x$. Set
+$f=a\cos x+b\sin x$.
+Since $D\cos x=-\sin x$ and
+$D\sin x=\cos x$,
+\begin{equation}
+(a-b/2)\cos x+(b+a/2)\sin x=\cos x.
+\end{equation}
+The equations $a-b/2=1$, $b+a/2=0$
+give $a=4/5$ and $b=-2/5$, hence
+\begin{equation}
+\boxed{(1-D/2)^{-1}\cos x=
+\frac45\cos x-\frac25\sin x}.
+\end{equation}
+\qnote{The inverse is interpreted on the
+two-dimensional invariant span of
+$\cos x$ and $\sin x$, where it is
+unambiguously invertible.}
+
+\problem{3.29}{A central-commutator Baker–Campbell–Hausdorff formula}
+Assume $C=[A,B]$ and $[A,C]=[B,C]=0$.
+Induction from
+$[A^{n+1},B]=A[A^n,B]+[A,B]A^n$
+gives
+\begin{equation}
+\boxed{[A^n,B]=nA^{n-1}C}.
+\end{equation}
+Expanding $\ee^{\lambda A}$ into a series,
+\begin{align}
+[\ee^{\lambda A},B]
+&=\sum_{n=1}^\infty\frac{\lambda^n}{n!}
+[A^n,B]\\
+&=\lambda\ee^{\lambda A}C.
+\end{align}
+To establish the BCH identity, define
+$F(t)=\ee^{t(A+B)}$ and
+$G(t)=\ee^{tA}\ee^{tB}\ee^{-t^2C/2}$.
+Using $[A,\ee^{tB}]=tC\ee^{tB}$,
+or equivalently
+$\ee^{tA}B=(B+tC)\ee^{tA}$,
+differentiate $G$:
+\begin{equation}
+G'=(A+B+tC-tC)G=(A+B)G.
+\end{equation}
+Since $G(0)=I=F(0)$ and
+$F'=(A+B)F$, uniqueness gives
+$F(t)=G(t)$ and at $t=1$,
+\begin{equation}
+\boxed{\ee^{A+B}=\ee^A\ee^B\ee^{-C/2}}.
+\end{equation}
+\qnote{For unbounded operators, this algebra
+is formal unless the exponential operators
+and their domains satisfy the necessary
+analytic conditions. The Weyl relations
+provide a rigorous form for $x,p$.}
+
+\problem{3.30}{From position-space to energy-space amplitudes}
+Let $\ket n$ be a discrete orthonormal
+energy eigenbasis, with position representation
+$\psi_n(x)=\braket x n$. For a state $\ket{S(t)}$,
+insert the position resolution of the identity:
+\begin{align}
+c_n(t)&=\braket n{S(t)}
+=\bra n\left(\int_{\mathbb R}
+\ket x\bra x\dd x\right)\ket{S(t)}\\
+&=\int_{\mathbb R}
+\braket n x\,\braket x{S(t)}\,\dd x\\
+&=\boxed{\int_{\mathbb R}
+\psi_n^*(x)\Psi(x,t)\dd x}.
+\end{align}
+For a time-independent Hamiltonian,
+\begin{equation}
+\boxed{c_n(t)=c_n(0)\ee^{-\ii E_nt/\hbar}},
+\quad\boxed{\Psi(x,t)=\sum_nc_n(t)\psi_n(x)}.
+\end{equation}
+This is the energy-basis transformation
+of the same Hilbert-space vector.

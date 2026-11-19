@@ -1,0 +1,335 @@
+\problem{3.31}{Orthonormal Legendre polynomials from Gram–Schmidt}
+On $[-1,1]$ take the inner product
+$\braket fg=\int_{-1}^1 f(x)g(x)\dd x$.
+Start with $u_0=1$, $\|u_0\|=\sqrt2$.
+Since $\int x\dd x=0$, $u_1=x$,
+$\|u_1\|=\sqrt{2/3}$.
+For $x^2$, subtract the projection onto $1$:
+\begin{equation}
+u_2=x^2-\frac{\int_{-1}^1x^2\dd x}
+{\int_{-1}^1 1\dd x}=x^2-\frac13.
+\end{equation}
+It is automatically orthogonal to $x$ by parity,
+and $\|u_2\|^2=8/45$.
+For $x^3$, subtract the projection onto $x$:
+\begin{equation}
+u_3=x^3-\frac{\int x^4\dd x}
+{\int x^2\dd x}\,x=x^3-\frac35x.
+\end{equation}
+The other projections vanish by parity or
+orthogonality, and $\|u_3\|^2=8/175$.
+The orthonormal basis is therefore
+\begin{align}
+\boxed{e_0(x)}&=\frac1{\sqrt2},&
+\boxed{e_1(x)}&=\sqrt{\frac32}\,x,\\
+\boxed{e_2(x)}&=\sqrt{\frac52}\,
+\frac{3x^2-1}{2},&
+\boxed{e_3(x)}&=\sqrt{\frac72}\,
+\frac{5x^3-3x}{2}.
+\end{align}
+These are $\sqrt{(2n+1)/2}\,P_n(x)$
+for Legendre polynomials normalized by $P_n(1)=1$.
+
+\problem{3.32}{Anti-Hermitian operators and their commutators}
+Let $Q^\dagger=-Q$.
+Then
+$\avg Q^*=\bra\psi Q^\dagger\ket\psi=-\avg Q$,
+so $\avg Q$ is purely imaginary (or zero).
+For $Q\ket u=\lambda\ket u$ with $\|u\|=1$,
+$\lambda=\avg Q$ is likewise imaginary.
+For eigenvectors $u,v$ with eigenvalues
+$\lambda,\mu$, respectively,
+\begin{equation}
+\braket{Qu}v=\lambda^*\braket uv
+=-\braket u{Qv}=-\mu\braket uv.
+\end{equation}
+Hence $(\lambda^*+\mu)\braket uv=0$.
+Since $\lambda^*=-\lambda$,
+distinct eigenvalues imply
+$\boxed{\braket uv=0}$.
+For Hermitian $A,B$,
+\begin{equation}
+[A,B]^\dagger=(AB-BA)^\dagger=BA-AB=-[A,B].
+\end{equation}
+The same conclusion holds if both operators
+are anti-Hermitian: their commutator is
+again anti-Hermitian.
+Finally every operator $Q$ decomposes as
+\begin{equation}
+\boxed{Q=A+B,\quad A=\frac{Q+Q^\dagger}{2},
+\quad B=\frac{Q-Q^\dagger}{2}},
+\end{equation}
+with $A^\dagger=A$ and $B^\dagger=-B$.
+
+\problem{3.33}{Three sequential projective measurements}
+After measuring $A$ and obtaining $a_1$,
+the state is $\psi_1=(3\phi_1+4\phi_2)/5$.
+A subsequent measurement of $B$ yields
+$b_1$ with probability $9/25$ or $b_2$
+with probability $16/25$.
+Conditional on $b_1$, the state becomes
+$\phi_1$ and the next probability of
+$a_1$ is $|\braket{\psi_1}{\phi_1}|^2=9/25$;
+conditional on $b_2$, that probability is
+$16/25$.
+If the $B$ outcome is not disclosed,
+the law of total probability gives
+\begin{equation}
+\boxed{P(a_1\text{ at the third measurement})=
+\frac9{25}\frac9{25}+
+\frac{16}{25}\frac{16}{25}
+=\frac{337}{625}}.
+\end{equation}
+The result differs from the probability one
+without an intervening nonselective $B$ measurement,
+because that measurement destroys coherence
+in the $B$ basis.
+
+\problem{3.34}{Infinite-well energy eigenstates in momentum space}
+For $0<x<a$ write
+$\psi_n(x)=\sqrt{2/a}\sin(k_nx)$,
+$k_n=n\pi/a$, and zero otherwise.
+The Fourier transform integral is
+\begin{align}
+\Phi_n(p,t)&=\frac{\ee^{-\ii E_nt/\hbar}}
+{\sqrt{2\pi\hbar}}\sqrt{\frac2a}
+\int_0^a\sin(k_nx)\ee^{-\ii px/\hbar}\dd x\\
+&=\boxed{
+\frac{\ee^{-\ii E_nt/\hbar}}{\sqrt{\pi a\hbar}}
+\frac{k_n[1-(-1)^n\ee^{-\ii pa/\hbar}]}
+{k_n^2-(p/\hbar)^2}}.
+\end{align}
+Apparent poles at $p=\pm\hbar k_n$ are
+removable: the numerator vanishes there too.
+Writing $q=p/\hbar$, the probability density is
+\begin{equation}
+\boxed{|\Phi_n(p,t)|^2=
+\frac{2k_n^2[1-(-1)^n\cos(qa)]}
+{\pi a\hbar(k_n^2-q^2)^2}}.
+\end{equation}
+It is symmetric in $p$, hence $\avg p=0$.
+For large $n$, the dominant momentum peaks
+are near $p=\pm n\pi\hbar/a$, reflecting the
+two traveling-wave constituents of the standing
+energy eigenstate. Parseval's identity for
+Fourier transforms gives
+\begin{equation}
+\avg{p^2}=
+\hbar^2\int_{\mathbb R}|\psi_n'(x)|^2\dd x
+=\boxed{\left(\frac{n\pi\hbar}{a}\right)^2},
+\end{equation}
+in agreement with Problem 2.4.
+\qnote{The PDF's numerical plots use a
+dimensionless momentum $pa/\hbar$ and
+$n=1,2,5,10$.}
+
+\problem{3.35}{Finite wave train and the cost of sharp edges}
+Set $L=n\lambda$ with positive integer $n$,
+$k_0=2\pi/\lambda$, and
+$\Psi(x,0)=\ee^{\ii k_0x}/\sqrt{2L}$
+on $-L<x<L$, zero elsewhere.
+Its Fourier transform is
+\begin{align}
+\Phi(p,0)
+&=\frac1{\sqrt{4\pi L\hbar}}
+\int_{-L}^L\ee^{-\ii(p/\hbar-k_0)x}\dd x\\
+&=\boxed{\frac1{\sqrt{\pi L\hbar}}
+\frac{\sin[(p/\hbar-k_0)L]}{p/\hbar-k_0}}.
+\end{align}
+The position density is a rectangle of height
+$1/(2L)$ and width $w_x=2L$.
+The momentum density is a squared-sinc distribution
+centered at $p_0=\hbar k_0$.
+Its first zeros are at $p=p_0\pm\pi\hbar/L$,
+so the main-lobe width is
+\begin{equation}
+\boxed{w_p=\frac{2\pi\hbar}{L}},\qquad
+\boxed{w_xw_p=4\pi\hbar}.
+\end{equation}
+As $n\to\infty$, $w_x\to\infty$ and
+$w_p\to0$. These widths are only
+rough spread estimates, not standard deviations.
+Indeed $|\Phi(p)|^2$ decays as $p^{-2}$
+with nonvanishing oscillations. Therefore
+$\int p^2|\Phi(p)|^2\dd p$ diverges and
+$\sigma_p=\infty$. The sharp cutoff
+creates jumps in $\Psi$ and invalidates a
+finite kinetic-energy variance.
+\qnote{One must not claim a finite Heisenberg
+standard-deviation product based on the
+sinc peak widths.}
+
+\problem{3.36}{Lorentzian-amplitude wavefunction and its Fourier dual}
+Take $\Psi(x,0)=A/(x^2+a^2)$ with $a>0$.
+Use
+\begin{equation}
+\int_{-\infty}^\infty\frac{\dd x}{(x^2+a^2)^2}
+=\frac{\pi}{2a^3},
+\quad
+\int_{-\infty}^\infty\frac{x^2\dd x}{(x^2+a^2)^2}
+=\frac{\pi}{2a}.
+\end{equation}
+Normalization gives
+$\boxed{A=\sqrt{2a^3/\pi}}$.
+Parity yields $\avg x=0$, and the second
+integral gives $\avg{x^2}=a^2$,
+so $\boxed{\sigma_x=a}$.
+The standard Fourier integral
+$\int\ee^{-\ii kx}/(x^2+a^2)\dd x
+=(\pi/a)\ee^{-a|k|}$ gives
+\begin{equation}
+\boxed{\Phi(p,0)=
+\sqrt{\frac a\hbar}\ee^{-a|p|/\hbar}}.
+\end{equation}
+Check normalization:
+$\int|\Phi|^2\dd p=
+(2a/\hbar)\int_0^\infty\ee^{-2ap/\hbar}\dd p=1$.
+Again $\avg p=0$, and
+\begin{equation}
+\avg{p^2}=\frac{2a}{\hbar}
+\int_0^\infty p^2\ee^{-2ap/\hbar}\dd p
+=\frac{\hbar^2}{2a^2}.
+\end{equation}
+Thus
+\begin{equation}
+\boxed{\sigma_p=\frac{\hbar}{\sqrt2a}},
+\qquad
+\boxed{\sigma_x\sigma_p=\frac{\hbar}{\sqrt2}
+>\frac{\hbar}{2}}.
+\end{equation}
+
+\problem{3.37}{General virial theorem and the harmonic oscillator}
+For $H=p^2/(2m)+V(x)$, apply
+Ehrenfest's identity to the operator $xp$
+(on an appropriate domain):
+\begin{equation}
+\frac{\dd}{\dd t}\avg{xp}=
+\frac{\ii}{\hbar}\avg{[H,xp]}.
+\end{equation}
+Use $[H,xp]=[H,x]p+x[H,p]$
+and the commutators
+$[H,x]=-\ii\hbar p/m$,
+$[H,p]=\ii\hbar V'(x)$:
+\begin{equation}
+\boxed{\frac{\dd}{\dd t}\avg{xp}
+=2\avg T-\avg{xV'(x)}}.
+\end{equation}
+For a stationary energy eigenstate, the
+expectation of a time-independent observable
+is constant, hence the left side vanishes:
+\begin{equation}
+\boxed{2\avg T=\avg{xV'(x)}}.
+\end{equation}
+For $V=m\omega^2x^2/2$,
+$xV'=m\omega^2x^2=2V$,
+so $\boxed{\avg T=\avg V=E_n/2}$,
+consistent with oscillator energy moments.
+
+\problem{3.38}{Time to become orthogonal for two energy levels}
+At $t=0$ let
+$\ket{\Psi(0)}=(\ket1+\ket2)/\sqrt2$
+with orthonormal energy states and
+$E_1\ne E_2$.
+Time evolution gives
+\begin{equation}
+\ket{\Psi(t)}=\frac1{\sqrt2}
+(\ee^{-\ii E_1t/\hbar}\ket1+
+\ee^{-\ii E_2t/\hbar}\ket2).
+\end{equation}
+Its overlap with the initial state is
+\begin{align}
+\braket{\Psi(0)}{\Psi(t)}
+&=\frac12(\ee^{-\ii E_1t/\hbar}
++\ee^{-\ii E_2t/\hbar})\\
+&=\ee^{-\ii(E_1+E_2)t/(2\hbar)}
+\cos\left(\frac{(E_2-E_1)t}{2\hbar}\right).
+\end{align}
+The first orthogonality time is
+$\boxed{\tau=\pi\hbar/|E_2-E_1|}$.
+The energy standard deviation is
+$\boxed{\sigma_H=|E_2-E_1|/2}$.
+With the specified $\Delta t=\tau/\pi$,
+\begin{equation}
+\boxed{\sigma_H\Delta t=
+\frac{|E_2-E_1|}{2}\,
+\frac{\hbar}{|E_2-E_1|}
+=\frac{\hbar}{2}}.
+\end{equation}
+The case of equal energy does not
+orthogonalize and has $\sigma_H=0$.
+
+\problem{3.39}{Oscillator matrices for position, momentum and Hamiltonian}
+Let $a\ket n=\sqrt n\ket{n-1}$,
+$a^\dagger\ket n=\sqrt{n+1}\ket{n+1}$.
+With $\ell_x=\sqrt{\hbar/(2m\omega)}$,
+$\ell_p=\sqrt{m\hbar\omega/2}$,
+\begin{align}
+x&=\ell_x(a+a^\dagger),&
+p&=\ii\ell_p(a^\dagger-a).
+\end{align}
+Therefore, for nonnegative indices $j,k$,
+\begin{align}
+\boxed{X_{jk}}&=
+\ell_x(\sqrt{k}\,\delta_{j,k-1}
++\sqrt{k+1}\,\delta_{j,k+1}),\\
+\boxed{P_{jk}}&=
+\ii\ell_p(\sqrt{k+1}\,\delta_{j,k+1}
+-\sqrt{k}\,\delta_{j,k-1}).
+\end{align}
+Thus $X$ is real symmetric and tridiagonal,
+and $P$ is imaginary Hermitian and tridiagonal.
+Squaring in the \emph{complete infinite basis},
+\begin{equation}
+\frac{P^2}{2m}+\frac12m\omega^2X^2
+=\frac{\hbar\omega}{4}
+[(a^\dagger-a)^2(-1)+(a+a^\dagger)^2]
+=\frac{\hbar\omega}{2}(aa^\dagger+a^\dagger a).
+\end{equation}
+With $aa^\dagger=N+1$ and $a^\dagger a=N$,
+\begin{equation}
+\boxed{H_{jk}=\hbar\omega(k+\tfrac12)\delta_{jk}}.
+\end{equation}
+\qnote{Truncating $X$ and $P$ before squaring
+can corrupt their topmost diagonal level.}
+
+\problem{3.40}{Classical-frequency motion for any oscillator state}
+Let
+$\ket{\Psi(t)}=\sum_{n=0}^\infty
+c_n\ee^{-\ii\omega(n+1/2)t}\ket n$
+with $\sum|c_n|^2=1$.
+The oscillator ladder matrix elements give
+\begin{equation}
+\avg{a}(t)=\ee^{-\ii\omega t}
+\sum_{n=0}^\infty\sqrt{n+1}\,c_n^*c_{n+1}.
+\end{equation}
+Set $S=\sum\sqrt{n+1}\,c_n^*c_{n+1}$
+and write
+$S=|S|\ee^{\ii\phi}$.
+Since
+$x=\sqrt{\hbar/(2m\omega)}(a+a^\dagger)$,
+\begin{equation}
+\boxed{\avg x(t)=C\cos(\omega t-\phi)},
+\quad
+\boxed{C=\sqrt{\frac{2\hbar}{m\omega}}|S|}.
+\end{equation}
+Equivalently
+$C\ee^{-\ii\phi}=
+\sqrt{2\hbar/(m\omega)}
+\sum\sqrt{n+1}\,c_{n+1}^*c_n$.
+For Problem 2.40, the real coefficients are
+$c_0=3/5$, $c_1=-2\sqrt2/5$,
+$c_2=2\sqrt2/5$, with all others zero.
+Then
+\begin{equation}
+S=c_0c_1+\sqrt2c_1c_2
+=-\frac{14\sqrt2}{25},
+\end{equation}
+and
+\begin{equation}
+\boxed{C=\frac{28}{25}
+\sqrt{\frac{\hbar}{m\omega}},\quad \phi=\pi}.
+\end{equation}
+Thus every oscillator state with finite
+$\avg x$ follows the \emph{classical
+frequency} $\omega$, even if its
+probability density is highly nonclassical.

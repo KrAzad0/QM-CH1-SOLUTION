@@ -66,7 +66,7 @@ def well_plots():
 
 def coherent_plot():
     # Problem 3.42. m=omega=hbar=1; C=2.0 and phase=0.
-    x=np.linspace(-4.7,4.7,1300)
+    x=np.linspace(-8,8,1800)
     C=2.
     fig, ax=plt.subplots(figsize=(9,5.3))
     for theta in (0,np.pi/3,2*np.pi/3,np.pi):

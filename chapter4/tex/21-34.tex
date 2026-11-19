@@ -1,0 +1,313 @@
+\problem{4.21}{Ladder normalization for orbital angular momentum}
+With $L_\pm=L_x\pm\ii L_y$ and
+$L_\pm^\dagger=L_\mp$,
+\begin{equation}
+L_\mp L_\pm=L^2-L_z^2\mp\sh L_z.
+\end{equation}
+If $\ket{\ell m}$ is normalized,
+$\|L_+\ket{\ell m}\|^2=
+\bra{\ell m}L_-L_+\ket{\ell m}
+=\sh^2[\ell(\ell+1)-m(m+1)]$.
+Therefore
+\begin{align}
+\boxed{L_+\ket{\ell m}}
+&=\boxed{\sh\sqrt{(\ell-m)(\ell+m+1)}
+\ket{\ell,m+1}},\\
+\boxed{L_-\ket{\ell m}}
+&=\boxed{\sh\sqrt{(\ell+m)(\ell-m+1)}
+\ket{\ell,m-1}}.
+\end{align}
+The top and bottom coefficients vanish at $m=\pm\ell$,
+respectively.
+
+\problem{4.22}{Orbital commutators and rotational invariance}
+Since $L_z=xp_y-yp_x$,
+\begin{align}
+[L_z,x]&=[xp_y,x]-[yp_x,x]=\ii\sh y,&
+[L_z,y]&=-\ii\sh x,&[L_z,z]&=0,\\
+[L_z,p_x]&=\ii\sh p_y,&
+[L_z,p_y]&=-\ii\sh p_x,&[L_z,p_z]&=0.
+\end{align}
+Insert $L_x=yp_z-zp_y$ into
+$[L_z,L_x]$ and use the product rule
+to obtain $\boxed{[L_z,L_x]=\ii\sh L_y}$.
+The same commutators imply
+$[L_z,x^2+y^2+z^2]=0$ and
+$[L_z,p_x^2+p_y^2+p_z^2]=0$;
+hence
+$\boxed{[L_z,r]=[L_z,p^2]=0}$.
+For central $V(r)$, $[L_i,V(r)]=0$
+and $[L_i,p^2]=0$ for all $i$,
+so $\boxed{[H,\mathbf L]=0}$ and
+$[H,L^2]=0$.
+
+\problem{4.23}{Quantum torque and orbital-angular-momentum conservation}
+For $L_i=\epsilon_{ijk}r_jp_k$,
+apply the generalized Ehrenfest theorem:
+\begin{align}
+\frac{\dd}{\dd t}\avg{L_i}
+&=\frac{\ii}{\sh}
+\epsilon_{ijk}\avg{[H,r_jp_k]}\\
+&=\epsilon_{ijk}\avg{(p_j/m)p_k
+-r_j\partial_kV}\\
+&=-\epsilon_{ijk}\avg{r_j\partial_kV}.
+\end{align}
+The term with $p_jp_k$ vanishes
+because it is symmetric in $j,k$.
+Thus
+\begin{equation}
+\boxed{\frac{\dd\avg{\mathbf L}}{\dd t}
+=\avg{\mathbf r\times(-\nabla V)}}.
+\end{equation}
+For $V=V(r)$, $\nabla V=V'(r)\hat{\mathbf r}$,
+so the torque vanishes identically and
+$\boxed{\dd\avg{\mathbf L}/\dd t=0}$.
+
+\problem{4.24}{Differential representation of $L^2$}
+For a test function $f(\theta,\phi)$,
+\begin{equation}
+L_\pm f=\pm\sh\ee^{\pm\ii\phi}
+(\partial_\theta\pm\ii\cot\theta\,\partial_\phi)f.
+\end{equation}
+Apply $L_+$ to $L_-f$, differentiating
+both the exponential and $\cot\theta$:
+\begin{equation}
+L_+L_-=-\sh^2\left(
+\partial_\theta^2+\cot\theta\,\partial_\theta+
+\cot^2\theta\,\partial_\phi^2+
+\ii\partial_\phi\right).
+\end{equation}
+Using the algebraic identity
+$L^2=L_+L_-+L_z^2-\sh L_z$
+and $L_z=-\ii\sh\partial_\phi$,
+the first-derivative terms cancel.
+The coefficient of $\partial_\phi^2$
+combines as $1+\cot^2\theta=\csc^2\theta$:
+\begin{equation}
+\boxed{L^2=-\sh^2
+\left[\frac1{\sin\theta}\partial_\theta
+(\sin\theta\,\partial_\theta)+
+\frac1{\sin^2\theta}\partial_\phi^2\right]}.
+\end{equation}
+
+\problem{4.25}{Highest-weight spherical harmonic}
+By the ladder algebra,
+$\boxed{L_+Y_\ell^\ell=0}$.
+Let $Y_\ell^\ell(\theta,\phi)=
+F(\theta)\ee^{\ii\ell\phi}$.
+Then $L_+Y=0$ reduces to
+$F'-\ell\cot\theta\,F=0$ and hence
+$F(\theta)=C\sin^\ell\theta$.
+Normalize:
+\begin{equation}
+1=2\pi|C|^2\int_0^\pi
+\sin^{2\ell+1}\theta\dd\theta,\quad
+\int_0^\pi\sin^{2\ell+1}\theta\dd\theta
+=\frac{2^{2\ell+1}(\ell!)^2}{(2\ell+1)!}.
+\end{equation}
+Choosing the standard phase gives
+\begin{equation}
+\boxed{Y_\ell^\ell=
+(-1)^\ell\frac{\sqrt{(2\ell+1)!}}
+{2^\ell\ell!\sqrt{4\pi}}\,
+\sin^\ell\theta\ee^{\ii\ell\phi}}.
+\end{equation}
+This agrees with the associated-Legendre formula.
+
+\problem{4.26}{Raising $Y_2^1$ to obtain $Y_2^2$}
+Start from
+$Y_2^1=-\sqrt{15/(8\pi)}
+\sin\theta\cos\theta\,\ee^{\ii\phi}$.
+Apply
+$L_+=\sh\ee^{\ii\phi}
+(\partial_\theta+\ii\cot\theta\,\partial_\phi)$:
+\begin{equation}
+L_+Y_2^1=
+\sh\sqrt{\frac{15}{8\pi}}
+\sin^2\theta\,\ee^{2\ii\phi}.
+\end{equation}
+The normalization factor from Problem 4.21
+is $\sh\sqrt{(2-1)(2+1+1)}=2\sh$.
+Therefore
+\begin{equation}
+\boxed{Y_2^2=
+\sqrt{\frac{15}{32\pi}}\,
+\sin^2\theta\,\ee^{2\ii\phi}}.
+\end{equation}
+
+\problem{4.27}{Rigid rotor spectrum of a diatomic molecule}
+The center-of-mass distances are
+$r_1=m_2a/(m_1+m_2)$ and
+$r_2=m_1a/(m_1+m_2)$, so
+\begin{equation}
+I=m_1r_1^2+m_2r_2^2
+=\boxed{\frac{m_1m_2}{m_1+m_2}a^2}.
+\end{equation}
+For a rigid rotor $H=L^2/(2I)$, giving
+\begin{equation}
+\boxed{E_\ell=\frac{\sh^2\ell(\ell+1)}{2I}},
+\quad\boxed{\psi_{\ell m}=Y_\ell^m(\theta,\phi)},
+\quad d_\ell=2\ell+1.
+\end{equation}
+For electric-dipole rotational transitions
+$\Delta\ell=\pm1$, the emission frequencies are
+\begin{equation}
+\boxed{\nu_j=\frac{E_j-E_{j-1}}h
+=\frac{\sh j}{2\pi I}},\quad j=1,2,\dots.
+\end{equation}
+Adjacent lines are separated by
+$\Delta\nu=\sh/(2\pi I)$.
+Using the approximate separation in the
+textbook CO figure, $\Delta\tilde\nu\simeq
+3.84\ {\rm cm^{-1}}$,
+$I=\sh/(2\pi c\Delta\tilde\nu)$.
+The $^{12}$C--$^{16}$O reduced mass is
+about $6.86$ atomic mass units, giving
+\begin{equation}
+\boxed{a=\sqrt{I/\mu}\simeq1.13\times10^{-10}\ {\rm m}}.
+\end{equation}
+\textit{The line spacing is read approximately from a figure;
+the quoted bond length is correspondingly approximate.}
+
+\problem{4.28}{Why a classical spinning electron cannot explain spin}
+For a uniform classical solid sphere,
+$I=(2/5)m_er_c^2$, where
+$r_c=e^2/(4\pi\epsilon_0m_ec^2)$.
+Equating $I\omega=\sh/2$ gives
+\begin{equation}
+v_{\rm equator}=\omega r_c
+=\boxed{\frac{5\sh}{4m_er_c}}.
+\end{equation}
+With $r_c\simeq2.818\times10^{-15}$ m,
+\begin{equation}
+\boxed{v_{\rm equator}\simeq5.1\times10^{10}
+\ {\rm m/s}\simeq171\,c}.
+\end{equation}
+This impossible speed shows that electron
+spin is intrinsic angular momentum, not the
+classical rotation of a tiny extended sphere.
+
+\problem{4.29}{Spin commutators and Pauli-product identity}
+For spin one-half, $S_j=\sh\sigma_j/2$,
+where
+\begin{equation}
+\sigma_x=\begin{pmatrix}0&1\\1&0\end{pmatrix},
+\quad\sigma_y=\begin{pmatrix}0&-\ii\\\ii&0\end{pmatrix},
+\quad\sigma_z=\begin{pmatrix}1&0\\0&-1\end{pmatrix}.
+\end{equation}
+Explicit multiplication gives
+$\sigma_x\sigma_y=\ii\sigma_z$,
+$\sigma_y\sigma_x=-\ii\sigma_z$,
+and $\sigma_j^2=I$. Cyclic permutation yields
+\begin{equation}
+\boxed{\sigma_j\sigma_k=
+\delta_{jk}I+\ii\sum_\ell
+\epsilon_{jk\ell}\sigma_\ell},
+\end{equation}
+hence
+$\boxed{[S_j,S_k]=\ii\sh\epsilon_{jk\ell}S_\ell}$.
+
+\problem{4.30}{Measured spins and uncertainties for $(3i,4)$}
+The state $\chi=A(3\ii,4)^{\mathsf T}$
+has $A=1/5$ (real, positive).
+With the Pauli matrices,
+\begin{equation}
+\boxed{\avg{S_x}=0,\quad
+\avg{S_y}=-\frac{12\sh}{25},\quad
+\avg{S_z}=-\frac{7\sh}{50}}.
+\end{equation}
+Since $S_j^2=\sh^2I/4$,
+\begin{equation}
+\boxed{\sigma_{S_x}=\frac\sh2,\quad
+\sigma_{S_y}=\frac{7\sh}{50},\quad
+\sigma_{S_z}=\frac{12\sh}{25}}.
+\end{equation}
+The products
+$\sigma_{S_x}\sigma_{S_y}=7\sh^2/100$ and
+$\sigma_{S_x}\sigma_{S_z}=6\sh^2/25$
+equal $(\sh/2)|\avg{S_z}|$
+and $(\sh/2)|\avg{S_y}|$, respectively.
+The remaining inequality is automatic because
+$\avg{S_x}=0$.
+
+\problem{4.31}{Expectations of a general spin-one-half state}
+For normalized $\chi=(a,b)^{\mathsf T}$,
+$|a|^2+|b|^2=1$, matrix multiplication yields
+\begin{equation}
+\boxed{\avg{S_x}=\sh\,\mathrm{Re}(a^*b),\quad
+\avg{S_y}=\sh\,\mathrm{Im}(a^*b),\quad
+\avg{S_z}=\frac\sh2(|a|^2-|b|^2)}.
+\end{equation}
+Since all Pauli matrices square to $I$,
+\begin{equation}
+\boxed{\avg{S_x^2}=\avg{S_y^2}=\avg{S_z^2}
+=\frac{\sh^2}{4}},\qquad
+\boxed{\avg{S^2}=\frac{3\sh^2}{4}}.
+\end{equation}
+The spin standard deviations follow by
+subtracting squared means from $\sh^2/4$.
+
+\problem{4.32}{Eigenstates and probabilities for $S_y$}
+Diagonalize
+$S_y=(\sh/2)\begin{pmatrix}0&-\ii\\\ii&0\end{pmatrix}$:
+\begin{equation}
+\boxed{\lambda_\pm=\pm\sh/2,\qquad
+\chi_{y,+}=\frac1{\sqrt2}\binom{1}{\ii},
+\quad\chi_{y,-}=\frac1{\sqrt2}\binom{1}{-\ii}}.
+\end{equation}
+For a general normalized $\chi=(a,b)^T$,
+\begin{equation}
+\boxed{P_y(+)=\frac12|a-\ii b|^2,\quad
+P_y(-)=\frac12|a+\ii b|^2}.
+\end{equation}
+Their sum is $|a|^2+|b|^2=1$.
+Since $S_y^2=(\sh^2/4)I$, measuring
+$S_y^2$ yields only $\boxed{\sh^2/4}$,
+with probability $1$.
+
+\problem{4.33}{Spin along an arbitrary spatial direction}
+For unit $\hat{\mathbf n}=
+(\sin\theta\cos\phi,\sin\theta\sin\phi,\cos\theta)$,
+\begin{equation}
+S_{\mathbf n}=\frac\sh2
+\begin{pmatrix}
+\cos\theta&\ee^{-\ii\phi}\sin\theta\\
+\ee^{\ii\phi}\sin\theta&-\cos\theta
+\end{pmatrix}.
+\end{equation}
+Because $(\boldsymbol\sigma\cdot\hat{\mathbf n})^2=I$,
+the eigenvalues are $\pm\sh/2$.
+Solving the first row using
+$\cos\theta\mp1=\mp2\sin^2(\theta/2)$
+gives normalized eigenspinors
+\begin{equation}
+\boxed{\chi_{\mathbf n,+}=
+\binom{\cos(\theta/2)}
+{\ee^{\ii\phi}\sin(\theta/2)}},
+\quad
+\boxed{\chi_{\mathbf n,-}=
+\binom{\ee^{-\ii\phi}\sin(\theta/2)}
+{-\cos(\theta/2)}}.
+\end{equation}
+They are orthogonal and have unit norm.
+
+\problem{4.34}{Spin-one matrices}
+Choose the ordered $S_z$ basis
+$\ket{1,1}$, $\ket{1,0}$, $\ket{1,-1}$.
+The ladder rule
+$S_\pm\ket{1,m}=\sh
+\sqrt{2-m(m\pm1)}\ket{1,m\pm1}$
+gives
+\begin{align}
+\boxed{S_x}&=\frac\sh{\sqrt2}
+\begin{pmatrix}0&1&0\\1&0&1\\0&1&0\end{pmatrix},\\
+\boxed{S_y}&=\frac\sh{\sqrt2}
+\begin{pmatrix}0&-\ii&0\\\ii&0&-\ii\\0&\ii&0\end{pmatrix},\\
+\boxed{S_z}&=\sh\begin{pmatrix}
+1&0&0\\0&0&0\\0&0&-1
+\end{pmatrix}.
+\end{align}
+Direct products give
+$[S_x,S_y]=\ii\sh S_z$,
+and cyclic permutations, and
+$S_x^2+S_y^2+S_z^2=2\sh^2I_3$.

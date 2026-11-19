@@ -1,0 +1,200 @@
+\problem{3.1}{Square-integrable functions form a vector space and inner-product space}
+Let $L^2(a,b)$ denote equivalence classes of measurable complex functions
+with finite $\|f\|^2=\int_a^b|f|^2\dd x$.
+For $f,g\in L^2$ and complex $\alpha,\beta$, use
+$|u+v|^2\le2|u|^2+2|v|^2$ to obtain
+\begin{equation}
+\|\alpha f+\beta g\|^2\le
+2|\alpha|^2\|f\|^2+2|\beta|^2\|g\|^2<\infty.
+\end{equation}
+Thus the set is closed under vector addition and scalar multiplication;
+the other vector-space axioms hold pointwise almost everywhere.
+The \emph{normalized} subset is not a vector space: it does
+not contain zero and, for normalized $f$, the multiple $2f$
+has norm two.
+For $\braket f g=\int f^*g$, linearity in the second slot gives
+$\braket f{\alpha g+\beta h}=\alpha\braket fg+
+\beta\braket fh$. Conjugate symmetry follows by complex
+conjugation under the integral; positivity is
+$\braket ff=\int|f|^2\ge0$, with equality exactly
+for the zero equivalence class. The Cauchy--Schwarz
+inequality assures finite overlaps.
+\answer{$L^2(a,b)$ is an inner-product vector space and is complete
+as a normed space; the unit sphere of normalized states is not
+a linear subspace.}
+
+\problem{3.2}{Integrability and the unbounded derivative operator}
+For $f(x)=x^\nu$, $0<x<1$, square integrability requires
+\begin{equation}
+\int_0^1|f|^2\dd x
+=\int_0^1x^{2\nu}\dd x
+=\frac{1}{2\nu+1}<\infty
+\quad\Longleftrightarrow\quad\boxed{\nu>-\frac12}.
+\end{equation}
+For $\nu=1/2$, $f=\sqrt x$ and $xf=x^{3/2}$
+are in $L^2(0,1)$, with squared norms $1/2$ and $1/4$.
+But $f'=1/(2\sqrt x)$ has
+$\int_0^1|f'|^2\dd x=\frac14\int_0^1\dd x/x=\infty$.
+\answer{Differentiation does not map every $L^2$ function
+back into $L^2$; the derivative operator requires a domain.}
+
+\problem{3.3}{Equivalence of Hermiticity tests via polarization}
+Suppose $\braket h{Qh}=\braket{Qh}h$ for all
+$h$ in a complex linear domain.
+Set $B(f,g)=\braket f{Qg}-\braket{Qf}g$.
+Then $B(h,h)=0$, while $B$ is conjugate-linear
+in its first entry and linear in its second.
+Expanding $B(f+g,f+g)=0$ gives
+\begin{equation}
+B(f,g)+B(g,f)=0.
+\end{equation}
+Expanding $B(f+\ii g,f+\ii g)=0$ instead gives
+$\ii B(f,g)-\ii B(g,f)=0$. Together they imply
+$B(f,g)=0$ for arbitrary $f,g$:
+\begin{equation}
+\boxed{\braket f{Qg}=\braket{Qf}g}.
+\end{equation}
+The converse follows by setting $f=g$.
+\qnote{This proves the algebraic symmetry identity;
+self-adjointness additionally requires equality of adjoint domains.}
+
+\problem{3.4}{Sums, scalar multiples and products of Hermitian operators}
+On an appropriate common dense domain,
+$(A+B)^\dagger=A^\dagger+B^\dagger$;
+thus the sum of symmetric operators is symmetric.
+For a scalar $\alpha$ and nonzero Hermitian $Q$,
+$(\alpha Q)^\dagger=\alpha^*Q$, so
+$\alpha Q$ is Hermitian precisely when $\alpha$ is real.
+For Hermitian $A,B$, $(AB)^\dagger=BA$;
+$AB$ is Hermitian when $AB=BA$ (with the
+necessary shared operator-domain conditions).
+Position is multiplication by real $x$:
+$\int f^*xg=\int(xf)^*g$.
+For $H=-\hbar^2\partial_x^2/(2m)+V(x)$,
+two integrations by parts give
+\begin{equation}
+\braket f{Hg}-\braket{Hf}g
+=-\frac{\hbar^2}{2m}
+\left[f^*g'-f'^*g\right]_{\partial I},
+\end{equation}
+where $V$ is real. The surface term vanishes
+for suitable boundary conditions, proving formal symmetry.
+\qnote{Sums and products of unbounded self-adjoint
+operators require domain care; the finite-dimensional
+matrix rules are not automatically sufficient.}
+
+\problem{3.5}{Adjoint rules and oscillator ladder operators}
+Integration by parts shows, when the boundary
+term vanishes, $(\partial_x)^\dagger=-\partial_x$.
+Multiplication by $x$ satisfies $x^\dagger=x$,
+whereas $(\ii I)^\dagger=-\ii I$. For operators
+on a common compatible domain,
+\begin{equation}
+\boxed{(QR)^\dagger=R^\dagger Q^\dagger,\quad
+(Q+R)^\dagger=Q^\dagger+R^\dagger,\quad
+(cQ)^\dagger=c^*Q^\dagger}.
+\end{equation}
+These follow directly from applying the adjoint
+definition twice: $\braket f{QRg}
+=\braket{Q^\dagger f}{Rg}
+=\braket{R^\dagger Q^\dagger f}g$.
+The oscillator raising operator
+$a_+=(m\omega x-\ii p)/\sqrt{2m\hbar\omega}$
+therefore has adjoint
+\begin{equation}
+\boxed{a_+^\dagger=
+\frac{m\omega x+\ii p}{\sqrt{2m\hbar\omega}}=a_-}.
+\end{equation}
+
+\problem{3.6}{Angular second derivative, eigenvalues and degeneracy}
+On the periodic domain $f(\phi+2\pi)=f(\phi)$,
+$f'(\phi+2\pi)=f'(\phi)$, integrate twice:
+\begin{equation}
+\int_0^{2\pi}f^*g''\dd\phi=
+[f^*g'-f'^*g]_0^{2\pi}
++\int_0^{2\pi}f''{}^*g\dd\phi
+=\int_0^{2\pi}f''{}^*g\dd\phi.
+\end{equation}
+Hence $Q=\partial_\phi^2$ is symmetric
+(and self-adjoint on the usual periodic $H^2$ domain).
+The normalized eigenfunctions are
+\begin{equation}
+\boxed{u_n(\phi)=\frac{\ee^{\ii n\phi}}{\sqrt{2\pi}}},
+\quad\boxed{Q u_n=-n^2u_n},\qquad n\in\mathbb Z.
+\end{equation}
+The spectrum is $0,-1,-4,-9,\ldots$; $0$ is simple,
+each $-n^2$ ($n\ge1$) is doubly degenerate,
+with independent $\ee^{\pm\ii n\phi}$.
+
+\problem{3.7}{Degenerate eigenspaces and orthogonal combinations}
+If $Qf=qf$ and $Qg=qg$, linearity gives
+$Q(\alpha f+\beta g)=q(\alpha f+\beta g)$.
+For $Q=\partial_x^2$ on $(-1,1)$,
+$f=\ee^x$ and $g=\ee^{-x}$ both have eigenvalue $1$.
+Choose their even/odd combinations
+\begin{equation}
+u(x)=\cosh x=\frac{\ee^x+\ee^{-x}}2,\qquad
+v(x)=\sinh x=\frac{\ee^x-\ee^{-x}}2.
+\end{equation}
+Both satisfy $u''=u$, $v''=v$, and
+$\int_{-1}^1u(x)v(x)\dd x=0$
+because the integrand is odd.
+\qnote{These are orthogonal eigenfunctions of the
+differential expression. A self-adjoint boundary
+domain must be specified before interpreting the
+degeneracy as a physical observable's spectrum.}
+
+\problem{3.8}{Orthogonality of angular eigenfunctions}
+For the angular momentum operator of Example 3.1,
+$L_z=-\ii\hbar\partial_\phi$,
+the periodic eigenfunctions
+$u_n(\phi)=\ee^{\ii n\phi}/\sqrt{2\pi}$
+obey $L_zu_n=n\hbar u_n$: the eigenvalues are real.
+Their overlaps are
+\begin{equation}
+\braket{u_m}{u_n}=
+\frac1{2\pi}\int_0^{2\pi}
+\ee^{\ii(n-m)\phi}\dd\phi
+=\delta_{mn}.
+\end{equation}
+For Problem 3.6, the same basis diagonalizes
+$\partial_\phi^2$ with eigenvalues $-n^2$.
+Distinct eigenvalues correspond to distinct
+$|n|$, hence orthogonality follows from the
+same integral. For $n$ and $-n$, orthogonality
+still holds despite the degeneracy (for $n\ne0$).
+
+\problem{3.9}{Discrete, continuous and mixed energy spectra}
+A particle in a one-dimensional infinite well
+has only the discrete energies
+$E_n=n^2\pi^2\hbar^2/(2ma^2)$.
+A potential step has only scattering states in
+the customary no-bound-state configuration,
+and hence a continuous energy spectrum.
+An attractive delta well has one bound level
+$E_b=-m\alpha^2/(2\hbar^2)$ and positive-energy
+scattering states; its spectrum is mixed.
+\qnote{Other examples may be used if the
+potential and boundary conditions are stated:
+the type of spectrum depends on the self-adjoint
+Hamiltonian, not merely its differential formula.}
+
+\problem{3.10}{Is the ground well state a momentum eigenstate?}
+For $0<x<a$, the normalized ground state is
+$\psi_1(x)=\sqrt{2/a}\sin(\pi x/a)$.
+Its derivative gives
+\begin{equation}
+\hat p\psi_1=-\ii\hbar\frac{\pi}{a}
+\sqrt{\frac2a}\cos(\pi x/a),
+\end{equation}
+which is not a constant multiple of $\psi_1$.
+Therefore it is not a momentum eigenstate.
+An energy eigenstate in a box is a standing wave,
+not a single traveling momentum wave.
+Although $\avg p=0$ and
+$\avg{p^2}=\pi^2\hbar^2/a^2$, neither result
+makes the state an eigenvector of $\hat p$.
+\qnote{There is a subtle distinction between the
+formal derivative and the domain of a self-adjoint
+momentum operator on a finite interval,
+explored explicitly in Problem 3.48.}

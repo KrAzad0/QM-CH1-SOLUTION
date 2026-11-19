@@ -9,6 +9,7 @@ on:
       - "tex/**"
       - "scripts/**"
       - "chapter2/**"
+      - "chapter3/**"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
 
@@ -21,51 +22,55 @@ concurrency:
 
 jobs:
   publish:
-    name: Build both chapter PDFs and publish GitHub Pages
+    name: Build Chapter 1, 2 and 3 PDFs; publish GitHub Pages
     runs-on: ubuntu-latest
     steps:
-      - name: Check out source
+      - name: Check out repository
         uses: actions/checkout@v4
-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-
       - name: Install numerical dependencies
         run: python -m pip install numpy scipy matplotlib
-
-      - name: Generate Chapter 1 simulation figure
+      - name: Reproduce Chapter 1 figure
         run: python scripts/problem_1_13.py
-
-      - name: Generate Chapter 2 checks and figures
+      - name: Reproduce Chapter 2 numerical checks
         run: python chapter2/scripts/numerical_checks.py
-
+      - name: Reproduce Chapter 3 numerical checks and figures
+        run: python chapter3/scripts/plots.py
       - name: Compile Chapter 1 PDF
         uses: xu-cheng/latex-action@v3
         with:
           root_file: main.tex
           args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
-
       - name: Compile Chapter 2 PDF
         uses: xu-cheng/latex-action@v3
         with:
           working_directory: chapter2
           root_file: main.tex
           args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
-
-      - name: Prepare published HTML and PDF files
+      - name: Compile Chapter 3 PDF
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: chapter3
+          root_file: main.tex
+          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+      - name: Prepare published website and PDFs
         run: |
           test -s main.pdf
           test -s chapter2/main.pdf
+          test -s chapter3/main.pdf
           test -s docs/index.html
           test -s docs/chapter2/index.html
+          test -s docs/chapter3/index.html
           cp main.pdf docs/chapter-1-solutions.pdf
           cp chapter2/main.pdf docs/chapter2/chapter-2-solutions.pdf
-          mkdir -p docs/chapter2/figures
+          cp chapter3/main.pdf docs/chapter3/chapter-3-solutions.pdf
+          mkdir -p docs/chapter2/figures docs/chapter3/figures
           cp chapter2/figures/*.png docs/chapter2/figures/
+          cp chapter3/figures/*.png docs/chapter3/figures/
           touch docs/.nojekyll
-
       - name: Publish to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
         with:

@@ -1,0 +1,308 @@
+\problem{3.11}{Momentum distribution of the oscillator ground state}
+Set $\ell=\sqrt{\hbar/(m\omega)}$. The normalized
+position wavefunction is
+$\psi_0(x)=(\pi\ell^2)^{-1/4}
+\exp[-x^2/(2\ell^2)]$.
+Fourier transformation with the $p$-normalization gives
+\begin{align}
+\Phi_0(p,t)&=\frac{\ee^{-\ii\omega t/2}}
+{\sqrt{2\pi\hbar}}\int_{\mathbb R}
+(\pi\ell^2)^{-1/4}
+\ee^{-x^2/(2\ell^2)-\ii px/\hbar}\dd x\\
+&=\boxed{(\pi m\hbar\omega)^{-1/4}
+\ee^{-p^2/(2m\hbar\omega)}
+\ee^{-\ii\omega t/2}}.
+\end{align}
+The classical momentum limit at $E_0=\hbar\omega/2$
+is $p_c=\sqrt{2mE_0}=\sqrt{m\hbar\omega}$.
+Therefore, with $u=p/\sqrt{m\hbar\omega}$,
+\begin{equation}
+P(|p|>p_c)=\frac2{\sqrt\pi}\int_1^\infty
+\ee^{-u^2}\dd u=\operatorname{erfc}(1)
+\simeq\boxed{0.16\quad\text{(two significant figures)}}.
+\end{equation}
+\qnote{The classically forbidden momentum tail
+is the momentum-space counterpart of the
+oscillator's position-space forbidden region.}
+
+\problem{3.12}{Fourier coefficients of a free wave packet}
+For the free-particle expansion
+$\Psi(x,t)=
+(2\pi)^{-1/2}\int\phi(k)
+\ee^{\ii kx-\ii\hbar k^2t/(2m)}\dd k$,
+the symmetric momentum Fourier transform yields
+\begin{equation}
+\Phi(p,t)=\frac1{\sqrt{2\pi\hbar}}
+\int\ee^{-\ii px/\hbar}\Psi(x,t)\dd x.
+\end{equation}
+Insert the expansion and use
+$\int_{\mathbb R}\ee^{\ii(k-p/\hbar)x}\dd x
+=2\pi\delta(k-p/\hbar)$:
+\begin{equation}
+\boxed{\Phi(p,t)=\frac1{\sqrt\hbar}
+\phi(p/\hbar)\ee^{-\ii p^2t/(2m\hbar)}}.
+\end{equation}
+Taking the squared modulus removes the phase:
+\begin{equation}
+\boxed{|\Phi(p,t)|^2=
+\hbar^{-1}|\phi(p/\hbar)|^2},
+\end{equation}
+independent of time. This also follows
+from the free Hamiltonian commuting with momentum.
+
+\problem{3.13}{The position operator in momentum space}
+Starting from the inverse transform,
+$\Psi(x)=(2\pi\hbar)^{-1/2}\int
+\ee^{\ii px/\hbar}\Phi(p)\dd p$,
+differentiate the plane-wave factor:
+$x\ee^{\ii px/\hbar}=
+-\ii\hbar\,\partial_p\ee^{\ii px/\hbar}$.
+Integration by parts (vanishing boundary term) then gives
+\begin{equation}
+x\Psi(x)=\frac1{\sqrt{2\pi\hbar}}
+\int\ee^{\ii px/\hbar}
+\left(\ii\hbar\,\partial_p\Phi(p)\right)\dd p.
+\end{equation}
+Since Fourier transformation is unitary,
+\begin{equation}
+\boxed{\avg x=\int_{\mathbb R}
+\Phi^*(p)\,\ii\hbar\frac{\partial\Phi}{\partial p}\dd p}.
+\end{equation}
+Thus $\hat x=\ii\hbar\partial_p$
+in the momentum representation, whereas
+$\hat p$ acts by multiplication by $p$.
+
+\problem{3.14}{Commutator algebra and functions of position}
+Expand $\comm{A+B}C=(A+B)C-C(A+B)$ to obtain
+$\boxed{\comm{A+B}C=\comm AC+\comm BC}$.
+Similarly,
+\begin{align}
+\comm{AB}C
+&=ABC-CAB\\
+&=A(BC-CB)+(AC-CA)B\\
+&=\boxed{A\comm BC+\comm AC\,B}.
+\end{align}
+The canonical commutator gives
+$\comm{x^n}p=
+x^{n-1}\comm xp+
+\comm{x^{n-1}}p\,x$.
+By induction,
+\begin{equation}
+\boxed{\comm{x^n}p=\ii n\hbar\,x^{n-1}}.
+\end{equation}
+If $f(x)=\sum_{n=0}^\infty a_nx^n$
+and formal termwise differentiation is valid
+on a common dense domain,
+\begin{equation}
+\boxed{\comm{f(x)}p=
+\sum_{n=1}^\infty a_n\ii n\hbar x^{n-1}
+=\ii\hbar f'(x)}.
+\end{equation}
+Direct verification:
+$f(-\ii\hbar\psi')+
+\ii\hbar(f\psi)'=\ii\hbar f'\psi$.
+
+\problem{3.15}{Position–energy uncertainty relation}
+Apply Robertson's inequality to $A=x$ and $B=H$:
+$\sigma_x\sigma_H\ge
+\frac12|\avg{\comm{x}{H}}|$.
+For $H=p^2/(2m)+V(x)$,
+$\comm{x}{V(x)}=0$ and
+\begin{equation}
+\comm{x}{p^2}=\comm xp\,p+
+p\comm xp=2\ii\hbar p.
+\end{equation}
+Consequently
+\begin{equation}
+\boxed{\sigma_x\sigma_H\ge
+\frac{\hbar}{2m}|\avg p|}.
+\end{equation}
+In a stationary energy eigenstate,
+$\sigma_H=0$, but also
+$\dd\avg x/\dd t=\avg p/m=0$
+(for a normalizable state with no boundary
+current). Therefore $\avg p=0$
+and the inequality becomes $0\ge0$.
+
+\problem{3.16}{Noncommutativity forbids a complete common eigenbasis}
+Assume two linear operators $A,B$ have
+a complete basis of simultaneous eigenvectors
+$u_n$, with $Au_n=a_nu_n$ and $Bu_n=b_nu_n$.
+For every basis vector,
+\begin{equation}
+[A,B]u_n=(a_nb_n-b_na_n)u_n=0.
+\end{equation}
+By linearity, $[A,B]$ annihilates every
+finite linear combination of basis vectors.
+On a finite-dimensional space this gives
+$[A,B]=0$ on the whole space. For
+unbounded operators in an infinite-dimensional
+Hilbert space, the same conclusion holds
+on a common invariant dense span, subject
+to the required domains. The contrapositive is
+that a genuinely nonzero commutator excludes
+a complete common eigenbasis.
+
+\problem{3.17}{All normalized minimum-uncertainty position states}
+Equality in Cauchy--Schwarz requires
+$(p-p_0)\Psi=\ii c(x-x_0)\Psi$
+for an appropriate real nonzero constant $c$.
+In the position representation,
+\begin{equation}
+-\ii\hbar\Psi'(x)-p_0\Psi(x)
+=\ii c(x-x_0)\Psi(x).
+\end{equation}
+Divide by $\Psi$ and integrate:
+\begin{equation}
+\frac{\Psi'}{\Psi}=\frac{\ii p_0}{\hbar}
+-\frac{c}{\hbar}(x-x_0),
+\quad
+\Psi(x)=A\exp\left[
+-\frac{c(x-x_0)^2}{2\hbar}+
+\frac{\ii p_0x}{\hbar}\right].
+\end{equation}
+Normalizability requires $c>0$. Writing
+$c=\hbar/(2\sigma_x^2)$ and normalizing yields
+\begin{equation}
+\boxed{\Psi(x)=
+(2\pi\sigma_x^2)^{-1/4}
+\exp\left[-\frac{(x-x_0)^2}{4\sigma_x^2}
++\frac{\ii p_0x}{\hbar}\right]}.
+\end{equation}
+Its distribution has
+$\avg x=x_0$, $\sigma_x$ as specified,
+$\avg p=p_0$, $\sigma_p=\hbar/(2\sigma_x)$,
+hence $\sigma_x\sigma_p=\hbar/2$.
+\qnote{A physically irrelevant global phase
+may multiply the solution.}
+
+\problem{3.18}{Time derivatives of four expectation values}
+For time-independent $H$ and any operator $Q$,
+\begin{equation}
+\frac{\dd}{\dd t}\avg Q=
+\frac{\ii}{\hbar}\avg{\comm H Q}
++\left\langle\frac{\partial Q}{\partial t}\right\rangle.
+\end{equation}
+(a) $Q=I$: $\comm HI=0$ gives
+$\boxed{\dd\avg I/\dd t=0}$, norm conservation.
+(b) $Q=H$: $\comm HH=0$ gives
+$\boxed{\dd\avg H/\dd t=0}$, energy conservation
+when $\partial H/\partial t=0$.
+(c) $Q=x$: $\comm Hx=-\ii\hbar p/m$ gives
+\begin{equation}
+\boxed{\dd\avg x/\dd t=\avg p/m}.
+\end{equation}
+(d) $Q=p$: $\comm Hp=\ii\hbar V'(x)$ gives
+\begin{equation}
+\boxed{\dd\avg p/\dd t=-\avg{V'(x)}}.
+\end{equation}
+These are the Ehrenfest equations.
+
+\problem{3.19}{Free and harmonic-oscillator motion of the mean}
+For a free particle, $V=0$, hence
+$\dd\avg p/\dd t=0$. Integrating twice gives
+\begin{equation}
+\boxed{\avg x(t)=\avg x(0)+
+\frac{\avg p(0)}m t}.
+\end{equation}
+For $V(x)=m\omega^2x^2/2$, Ehrenfest's
+equations imply
+$m\dd^2\avg x/\dd t^2=-m\omega^2\avg x$.
+With $x_0=\avg x(0)$ and $p_0=\avg p(0)$,
+\begin{equation}
+\boxed{\avg x(t)=x_0\cos\omega t+
+\frac{p_0}{m\omega}\sin\omega t}.
+\end{equation}
+Both results hold for any normalized state
+with the appropriate finite expectations.
+
+\problem{3.20}{Energy–time inequality for a two-level box superposition}
+Use the normalized state from Problem 2.5,
+$(\phi_1\ee^{-\ii E_1t/\hbar}
++\phi_2\ee^{-\ii E_2t/\hbar})/\sqrt2$,
+$E_n=n^2\hbar\Omega$,
+$\Omega=\pi^2\hbar/(2ma^2)$.
+Its energy uncertainty is
+\begin{equation}
+\sigma_H=\frac{|E_2-E_1|}{2}
+=\boxed{\frac{3\hbar\Omega}{2}}.
+\end{equation}
+By integrating sine products,
+$\avg x=a/2-\frac{16a}{9\pi^2}\cos(3\Omega t)$,
+$\avg{x^2}=a^2(\frac13-\frac{5}{16\pi^2})
+-\frac{16a^2}{9\pi^2}\cos(3\Omega t)$, so
+\begin{equation}
+\boxed{\sigma_x^2(t)=a^2
+\left[\frac1{12}-\frac{5}{16\pi^2}
+-\frac{256}{81\pi^4}\cos^2(3\Omega t)\right]}.
+\end{equation}
+Furthermore
+\begin{equation}
+\left|\frac{\dd\avg x}{\dd t}\right|=
+\frac{16a\Omega}{3\pi^2}
+|\sin(3\Omega t)|.
+\end{equation}
+With $\Delta t=\sigma_x/|\dd\avg x/\dd t|$
+(where the denominator is nonzero),
+\begin{equation}
+\sigma_H\Delta t=
+\frac{9\pi^2\hbar}{32a}
+\frac{\sigma_x(t)}{|\sin(3\Omega t)|}
+\ge\frac{\hbar}{2}.
+\end{equation}
+To check the last inequality algebraically,
+square it and use
+$\sigma_x^2/a^2\ge
+(256/(81\pi^4))\sin^2(3\Omega t)$;
+the difference is
+$1/12-5/(16\pi^2)-256/(81\pi^4)>0$.
+At instants when the mean position is momentarily
+stationary, $\Delta t$ is infinite or undefined.
+
+\problem{3.21}{Energy–time inequality for a traveling Gaussian}
+For the freely moving Gaussian of Problem 2.42,
+$\Psi(x,0)\propto\ee^{-ax^2+\ii \ell x}$,
+where $a>0$, the momentum distribution is
+Gaussian with mean $p_0=\hbar\ell$ and
+variance $s_p^2=a\hbar^2$.
+For a normal random variable,
+$\mathrm{Var}(p^2)=4p_0^2s_p^2+2s_p^4$;
+hence, with $H=p^2/(2m)$,
+\begin{equation}
+\boxed{\sigma_H=
+\frac{\hbar^2}{m}\sqrt{a\ell^2+\frac{a^2}{2}}}.
+\end{equation}
+Writing $s=2\hbar at/m$, the wavepacket width
+and mean velocity are
+\begin{equation}
+\boxed{\sigma_x(t)=\frac{\sqrt{1+s^2}}{2\sqrt a}},
+\quad
+\boxed{\frac{\dd\avg x}{\dd t}=\frac{\hbar\ell}{m}}.
+\end{equation}
+For $\ell\ne0$,
+\begin{equation}
+\sigma_H\Delta t=
+\frac{\hbar}{2}\sqrt{1+\frac{a}{2\ell^2}}
+\sqrt{1+s^2}\ge\frac{\hbar}{2}.
+\end{equation}
+If $\ell=0$, the mean does not move and this
+particular characteristic-time definition
+is not informative.
+
+\problem{3.22}{Energy–time and position–energy uncertainty coincide}
+For $Q=x$ the Mandelstam–Tamm timescale is
+$\Delta t=\sigma_x/|\dd\avg x/\dd t|$.
+Ehrenfest gives $\dd\avg x/\dd t=\avg p/m$,
+so the energy–time inequality
+$\sigma_H\Delta t\ge\hbar/2$ becomes
+\begin{equation}
+\frac{\sigma_H\sigma_x m}{|\avg p|}
+\ge\frac\hbar2
+\quad\Longleftrightarrow\quad
+\boxed{\sigma_x\sigma_H\ge
+\frac{\hbar|\avg p|}{2m}},
+\end{equation}
+which is exactly Problem 3.15.
+When $\avg p=0$ the intermediate division
+is not permitted; the direct commutator form
+remains valid.

@@ -1,0 +1,384 @@
+\problem{3.41}{Largest momentum expectation for two oscillator levels}
+Equal probabilities for the first two energies imply
+the general normalized state
+\begin{equation}
+\ket{\Psi(0)}=\frac1{\sqrt2}
+(\ket0+\ee^{\ii\theta}\ket1),
+\end{equation}
+where a global phase has been removed.
+Because $p=\ii\sqrt{m\hbar\omega/2}(a^\dagger-a)$
+and $\avg a=\ee^{\ii\theta}/2$,
+\begin{equation}
+\boxed{\avg p(0)=
+\sqrt{\frac{m\hbar\omega}{2}}\sin\theta}.
+\end{equation}
+The largest \emph{positive} value is
+$\boxed{\sqrt{m\hbar\omega/2}}$,
+achieved at $\theta=\pi/2$.
+Including time dependence,
+\begin{equation}
+\boxed{\Psi(x,t)=\frac1{\sqrt2}
+\left[\psi_0(x)\ee^{-\ii\omega t/2}+
+\ii\psi_1(x)\ee^{-3\ii\omega t/2}\right]}.
+\end{equation}
+The momentum expectation later evolves
+as $\avg p(t)=\sqrt{m\hbar\omega/2}\cos\omega t$.
+
+\problem{3.42}{Coherent states, their normalization and time evolution}
+Let $a\ket\alpha=\alpha\ket\alpha$,
+where $\alpha$ is arbitrary complex.
+Taking the adjoint gives
+$\bra\alpha a^\dagger=\alpha^*\bra\alpha$.
+For $x=\ell_x(a+a^\dagger)$,
+$p=\ii\ell_p(a^\dagger-a)$,
+with $\ell_x=\sqrt{\hbar/(2m\omega)}$ and
+$\ell_p=\sqrt{m\hbar\omega/2}$,
+\begin{align}
+\boxed{\avg x}&=\boxed{\ell_x(\alpha+\alpha^*)},&
+\boxed{\avg p}&=\boxed{\ii\ell_p(\alpha^*-\alpha)},\\
+\boxed{\avg{x^2}}&=\boxed{\avg x^2+\ell_x^2},&
+\boxed{\avg{p^2}}&=\boxed{\avg p^2+\ell_p^2}.
+\end{align}
+Indeed $\avg{a^\dagger a}=|\alpha|^2$,
+$\avg{aa^\dagger}=|\alpha|^2+1$,
+$\avg{a^2}=\alpha^2$ and
+$\avg{(a^\dagger)^2}=(\alpha^*)^2$.
+It follows that
+\begin{equation}
+\boxed{\sigma_x=\sqrt{\frac{\hbar}{2m\omega}}},
+\quad
+\boxed{\sigma_p=\sqrt{\frac{m\hbar\omega}{2}}},
+\quad
+\boxed{\sigma_x\sigma_p=\frac\hbar2}.
+\end{equation}
+Expand $\ket\alpha=\sum_{n=0}^\infty c_n\ket n$.
+Comparing coefficients in
+$a\ket\alpha=\alpha\ket\alpha$ yields
+$c_{n+1}\sqrt{n+1}=\alpha c_n$, hence
+\begin{equation}
+c_n=\frac{\alpha^n}{\sqrt{n!}}c_0.
+\end{equation}
+Normalization gives
+\begin{equation}
+1=|c_0|^2\sum_{n=0}^\infty
+\frac{|\alpha|^{2n}}{n!}
+=|c_0|^2\ee^{|\alpha|^2}
+\quad\Rightarrow\quad
+\boxed{c_0=\ee^{-|\alpha|^2/2}}
+\end{equation}
+up to an overall phase.
+Under oscillator evolution,
+\begin{equation}
+\ket{\Psi(t)}=
+\ee^{-\ii\omega t/2}
+\ket{\alpha\ee^{-\ii\omega t}},
+\quad
+\boxed{\alpha(t)=\alpha\ee^{-\ii\omega t}}.
+\end{equation}
+Thus the state remains coherent, with fixed
+uncertainties. If
+$\alpha=C\sqrt{m\omega/(2\hbar)}
+\ee^{\ii\phi}$, then
+\begin{equation}
+\boxed{\avg{x}(t)=C\cos(\omega t-\phi)},
+\qquad
+\boxed{\sigma_x(t)=\sqrt{\frac{\hbar}{2m\omega}}}.
+\end{equation}
+The ground state $\ket0$ is coherent with
+$\boxed{\alpha=0}$.
+
+\problem{3.43}{Robertson–Schrödinger uncertainty bound}
+For Hermitian $A,B$, set
+$\delta A=A-\avg A\,I$,
+$\delta B=B-\avg B\,I$.
+Cauchy--Schwarz gives
+\begin{equation}
+\sigma_A^2\sigma_B^2\ge
+|\avg{\delta A\delta B}|^2.
+\end{equation}
+Split the product into symmetric
+and antisymmetric pieces:
+\begin{equation}
+\avg{\delta A\delta B}=
+\frac12\avg{\{\delta A,\delta B\}}+
+\frac12\avg{[A,B]}.
+\end{equation}
+Let $C=-\ii[A,B]$ and
+$D=AB+BA-2\avg A\avg B\,I$.
+Then $C,D$ are Hermitian, and
+$\avg{[A,B]}=\ii\avg C$,
+$\avg{\{\delta A,\delta B\}}=\avg D$.
+Thus
+\begin{equation}
+\boxed{\sigma_A^2\sigma_B^2\ge
+\frac14\left(\avg C^2+\avg D^2\right)},
+\end{equation}
+where $\avg C^2$ means
+$(\avg C)^2$, not $\avg{C^2}$.
+For $B=A$, $C=0$ and
+$\avg D=2(\avg{A^2}-\avg A^2)=2\sigma_A^2$.
+The extended inequality becomes
+$\sigma_A^4\ge\sigma_A^4$:
+it is automatically an equality and
+adds no new information.
+
+\problem{3.44}{Time evolution of a coupled three-level Hamiltonian}
+In the basis $(e_1,e_2,e_3)$,
+\begin{equation}
+H=\begin{pmatrix}a&0&b\\0&c&0\\b&0&a\end{pmatrix}.
+\end{equation}
+The vector $e_2$ is an eigenstate
+with energy $c$. For initial state $e_2$,
+\begin{equation}
+\boxed{\ket{S(t)}=\ee^{-\ii ct/\hbar}e_2}.
+\end{equation}
+The remaining block is
+$aI+b\sigma_x$ on $\operatorname{span}(e_1,e_3)$.
+Its eigenvectors $(e_1\pm e_3)/\sqrt2$
+have energies $a\pm b$.
+Exponentiation in that subspace gives
+\begin{align}
+\ee^{-\ii t(aI+b\sigma_x)/\hbar}
+&=\ee^{-\ii at/\hbar}
+[\cos(bt/\hbar)I-\ii\sin(bt/\hbar)\sigma_x].
+\end{align}
+Thus for initial state $e_1$,
+\begin{equation}
+\boxed{\ket{S(t)}=\ee^{-\ii at/\hbar}
+\left[\cos\frac{bt}{\hbar}\,e_1
+-\ii\sin\frac{bt}{\hbar}\,e_3\right]}.
+\end{equation}
+Its two nonzero probabilities are
+$\cos^2(bt/\hbar)$ and $\sin^2(bt/\hbar)$,
+summing to one.
+
+\problem{3.45}{Position operator acting on energy coefficients}
+If $\ket{S(t)}=\sum_{k=0}^\infty c_k(t)\ket k$,
+insert the oscillator position matrix elements
+\begin{equation}
+\bra n x\ket k=
+\sqrt{\frac{\hbar}{2m\omega}}
+[\sqrt{k}\,\delta_{n,k-1}
++\sqrt{k+1}\,\delta_{n,k+1}].
+\end{equation}
+Summing over $k$ gives
+\begin{equation}
+\boxed{\bra n x\ket{S(t)}=
+\sqrt{\frac{\hbar}{2m\omega}}
+\left[\sqrt n\,c_{n-1}(t)
++\sqrt{n+1}\,c_{n+1}(t)\right]}.
+\end{equation}
+Set $c_{-1}=0$. The position operator
+therefore mixes only neighboring energy levels;
+it is not diagonal in the energy basis.
+
+\problem{3.46}{Three-level spectra and outcome probabilities}
+Let $e_1,e_2,e_3$ be the standard basis.
+The specified observables are
+\begin{equation}
+H=\hbar\omega\,\mathrm{diag}(1,2,2),\quad
+A=\lambda\begin{pmatrix}0&1&0\\1&0&0\\0&0&2\end{pmatrix},\quad
+B=\mu\begin{pmatrix}2&0&0\\0&0&1\\0&1&0\end{pmatrix}.
+\end{equation}
+An orthonormal eigenbasis for $H$ is
+$\{e_1,e_2,e_3\}$, energies
+$\hbar\omega,2\hbar\omega,2\hbar\omega$.
+For $A$, eigenvalues and eigenstates are
+\begin{equation}
+\begin{array}{c|c}
++\lambda&(e_1+e_2)/\sqrt2\\
+-\lambda&(e_1-e_2)/\sqrt2\\
+2\lambda&e_3
+\end{array}.
+\end{equation}
+For $B$ they are
+\begin{equation}
+\begin{array}{c|c}
+2\mu&e_1\\
++\mu&(e_2+e_3)/\sqrt2\\
+-\mu&(e_2-e_3)/\sqrt2
+\end{array}.
+\end{equation}
+For $\ket{S(0)}=c_1e_1+c_2e_2+c_3e_3$,
+$\sum|c_j|^2=1$, the expectations are
+\begin{align}
+\boxed{\avg H}&=\hbar\omega
+(|c_1|^2+2|c_2|^2+2|c_3|^2),\\
+\boxed{\avg A}&=2\lambda
+[\operatorname{Re}(c_1^*c_2)+|c_3|^2],\\
+\boxed{\avg B}&=2\mu
+[|c_1|^2+\operatorname{Re}(c_2^*c_3)].
+\end{align}
+Time evolution is
+\begin{equation}
+\boxed{\ket{S(t)}=
+c_1\ee^{-\ii\omega t}e_1+
+(c_2e_2+c_3e_3)\ee^{-2\ii\omega t}}.
+\end{equation}
+The energy probabilities remain
+$P(\hbar\omega)=|c_1|^2$ and
+$P(2\hbar\omega)=|c_2|^2+|c_3|^2$.
+For $A$ the probabilities are
+\begin{align}
+P(A=+\lambda)&=\tfrac12|c_1\ee^{\ii\omega t}+c_2|^2,\\
+P(A=-\lambda)&=\tfrac12|c_1\ee^{\ii\omega t}-c_2|^2,\\
+P(A=2\lambda)&=|c_3|^2.
+\end{align}
+For $B$, the common phase in the
+degenerate energy subspace cancels:
+\begin{align}
+P(B=2\mu)&=|c_1|^2,\\
+P(B=+\mu)&=\tfrac12|c_2+c_3|^2,\\
+P(B=-\mu)&=\tfrac12|c_2-c_3|^2.
+\end{align}
+Each distribution sums to one.
+
+\problem{3.47}{Supersymmetric partner Hamiltonians and delta wells}
+Write $s=\hbar/\sqrt{2m}$.
+Since $p=-\ii\hbar\partial_x$,
+\begin{equation}
+A=s\partial_x+W(x),\quad
+A^\dagger=-s\partial_x+W(x).
+\end{equation}
+For real $W$ and suitable domains,
+multiplying and applying the product rule gives
+\begin{align}
+H_1=A^\dagger A&=-s^2\partial_x^2+
+W^2-sW',\\
+H_2=AA^\dagger&=-s^2\partial_x^2+
+W^2+sW'.
+\end{align}
+Thus
+\begin{equation}
+\boxed{V_1=W^2-sW',\qquad V_2=W^2+sW'}.
+\end{equation}
+If $H_1\psi_n^{(1)}=E_n\psi_n^{(1)}$,
+then
+$H_2(A\psi_n^{(1)})=A H_1\psi_n^{(1)}
+=E_n(A\psi_n^{(1)})$.
+Likewise $H_1(A^\dagger\psi_n^{(2)})
+=E_n(A^\dagger\psi_n^{(2)})$.
+A nonzero energy eigenstate maps to a
+partner state unless annihilated by the
+intertwiner. If $A\psi_0^{(1)}=0$, then
+\begin{equation}
+\boxed{W(x)=-s\,\frac{\psi_0'(x)}{\psi_0(x)}}.
+\end{equation}
+For the shifted attractive delta well,
+$\psi_0(x)=\sqrt\kappa\,\ee^{-\kappa|x|}$,
+$\kappa=m\alpha/\hbar^2$, hence
+\begin{equation}
+W(x)=s\kappa\,\operatorname{sgn}(x)
+=\alpha\sqrt{\frac{m}{2\hbar^2}}
+\,\operatorname{sgn}(x).
+\end{equation}
+Use $(\operatorname{sgn}x)'=2\delta(x)$:
+\begin{equation}
+W^2=\frac{m\alpha^2}{2\hbar^2},\qquad
+sW'=\alpha\delta(x).
+\end{equation}
+Therefore
+\begin{equation}
+\boxed{V_1=\frac{m\alpha^2}{2\hbar^2}
+-\alpha\delta(x),\qquad
+V_2=\frac{m\alpha^2}{2\hbar^2}
++\alpha\delta(x)}.
+\end{equation}
+The partner is a \emph{repulsive} delta
+plus the same constant shift, so
+it has no negative-energy bound level.
+Its continuum scattering probabilities
+equal those of the attractive partner.
+
+\problem{3.48}{Symmetry versus self-adjointness of momentum}
+Consider $p=-\ii\hbar\partial_x$ on $(0,a)$.
+For differentiable $f,g$,
+integration by parts gives
+\begin{equation}
+\braket g{pf}-\braket{pg}f
+=-\ii\hbar[g^*(x)f(x)]_0^a.
+\end{equation}
+(a) For Dirichlet boundary conditions
+$f(0)=f(a)=0$ this vanishes for every $g$
+without requiring $g$ to vanish at the
+endpoints. The operator is symmetric on
+$H_0^1(0,a)$, but its adjoint domain is
+larger (essentially $H^1(0,a)$), so it is
+not self-adjoint.
+(b) If $f(a)=\lambda f(0)$,
+the boundary term vanishes against all
+domain vectors $f$ precisely when
+$\lambda g^*(a)-g^*(0)=0$,
+or
+\begin{equation}
+\boxed{g(a)=\frac{g(0)}{\lambda^*}}
+\quad(\lambda\ne0).
+\end{equation}
+For the adjoint domain to be identical
+to the operator domain, require
+$\lambda=1/\lambda^*$, equivalently
+$\boxed{|\lambda|=1}$.
+Thus all phases $\lambda=\ee^{\ii\theta}$
+give self-adjoint quasi-periodic momentum
+operators on the finite interval.
+(c) On $(0,\infty)$, the deficiency equations
+$p^\dagger g=\pm\ii\gamma g$, $\gamma>0$,
+give
+$g_+(x)\propto\ee^{-\gamma x/\hbar}$,
+$g_-(x)\propto\ee^{+\gamma x/\hbar}$.
+Only the first is square integrable,
+so the deficiency indices are unequal:
+$\boxed{(n_+,n_-)=(1,0)}$ for this convention.
+Therefore there is no self-adjoint
+extension of $p$ on the half-line.
+\qnote{Momentum domains in a finite box
+are not determined solely by the
+formal differential expression.}
+
+\problem{3.49}{Gaussian free-particle evolution in momentum space}
+(a) For $H=p^2/(2m)$ the momentum-space
+Schrödinger equation is an ODE at each $p$:
+\begin{equation}
+\ii\hbar\partial_t\Phi(p,t)=
+\frac{p^2}{2m}\Phi(p,t)
+\quad\Longrightarrow\quad
+\boxed{\Phi(p,t)=
+\Phi(p,0)\ee^{-\ii p^2t/(2m\hbar)}}.
+\end{equation}
+(b) For the traveling Gaussian
+$\Psi(x,0)=(2a/\pi)^{1/4}
+\ee^{-ax^2+\ii\ell x}$ with $a>0$,
+completing the Fourier-transform square yields
+\begin{equation}
+\boxed{\Phi(p,0)=
+(2\pi a\hbar^2)^{-1/4}
+\exp\left[-\frac{(p-\hbar\ell)^2}
+{4a\hbar^2}\right]}.
+\end{equation}
+Therefore $|\Phi(p,t)|^2$ is the
+time-independent Gaussian
+\begin{equation}
+\boxed{|\Phi(p,t)|^2=
+\frac1{\sqrt{2\pi a\hbar^2}}
+\exp\left[-\frac{(p-\hbar\ell)^2}
+{2a\hbar^2}\right]}.
+\end{equation}
+(c) Standard Gaussian integration gives
+\begin{equation}
+\boxed{\avg p=\hbar\ell,\quad
+\avg{p^2}=\hbar^2(\ell^2+a),\quad
+\sigma_p=\hbar\sqrt a}.
+\end{equation}
+(d) The energy expectation decomposes as
+\begin{equation}
+\boxed{\avg H=\frac{\hbar^2(\ell^2+a)}{2m}
+=\frac{\avg p^2}{2m}
++\underbrace{\frac{\hbar^2 a}{2m}}_{\avg H_0}},
+\end{equation}
+where $\avg p^2$ in the first fraction
+of the final expression denotes
+$(\avg p)^2$, not $\avg{p^2}$.
+The first term is center-of-mass
+translation energy and the second is
+the internal spreading energy of
+the Gaussian wavepacket.

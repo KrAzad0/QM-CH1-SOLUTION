@@ -1,0 +1,98 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,mathtools,amsthm,booktabs}
+\usepackage[margin=25mm,headheight=16pt]{geometry}
+\usepackage{hyperref,xcolor,fancyhdr,graphicx}
+\definecolor{accent}{HTML}{9B4635}
+\hypersetup{colorlinks=true,linkcolor=accent,urlcolor=accent,citecolor=accent,pdftitle={Formalism: Griffiths Chapter 3 Solutions}}
+\numberwithin{equation}{section}
+\pagestyle{fancy}\fancyhf{}\lhead{\small Quantum Mechanics / Chapter 3: Formalism}
+\rhead{\small Kumar Azad}\cfoot{\thepage}
+\newcommand{\dd}{\,\mathrm{d}}
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\ee}{\mathrm{e}}
+\newcommand{\ket}[1]{\left|#1\right\rangle}
+\newcommand{\bra}[1]{\left\langle#1\right|}
+\newcommand{\braket}[2]{\left\langle#1\,\middle|\,#2\right\rangle}
+\newcommand{\avg}[1]{\left\langle#1\right\rangle}
+\newcommand{\comm}[2]{\left[#1,#2\right]}
+\newcommand{\problem}[2]{\subsection*{Problem #1 — #2}\addcontentsline{toc}{subsection}{Problem #1 — #2}}
+\newcommand{\qnote}[1]{\par\smallskip\noindent\textit{Verification / interpretation.} #1\par\smallskip}
+\newcommand{\answer}[1]{\par\smallskip\noindent\textcolor{accent}{\textbf{Result:}}\quad #1\par\smallskip}
+\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}
+\title{\textcolor{accent}{\small MATHEMATICAL PHYSICS · EDUCATIONAL COMPANION}\\[8pt]
+\textbf{\Huge Quantum Mechanics:\\Formalism}\\[11pt]
+{\large Independent worked solutions to Chapter 3}\\[4pt]
+{\normalsize Problems 3.1–3.49}}
+\author{Kumar Azad\\ \small\url{https://krazad0.github.io/QM-CH1-SOLUTION/chapter3/}}
+\date{November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Independent, original stepwise calculations for the forty-nine numbered exercises
+in Chapter 3 (\emph{Formalism}) of Griffiths and Schroeter,
+\emph{Introduction to Quantum Mechanics}, third edition.
+The material develops Hilbert spaces, Hermitian operators, continuous
+spectra, Fourier-dual representations, uncertainty relations, Dirac
+notation, matrix mechanics, coherent states, supersymmetric
+Hamiltonians, and operator domains. Short descriptions are
+paraphrased, not copied from the textbook; consult the original for
+the full questions. This is an academic-style coursework
+companion, \textbf{not an arXiv submission or a peer-reviewed paper}.
+\end{abstract}
+\tableofcontents
+\section{Notation, domains and inner products}
+For position-space wavefunctions, the Hilbert space is
+$L^2(\mathbb R)$ or $L^2(a,b)$, as appropriate, and
+$\braket{f}{g}=\int f^*(x)g(x)\dd x$.
+A physical observable is represented by a self-adjoint operator
+on a specified domain; checking formal integration by parts
+is generally only a symmetry check. For sufficiently regular
+states and a real time-independent potential,
+\begin{align}
+\hat H&=\frac{\hat p^2}{2m}+V(\hat x),&
+\hat p&=-\ii\hbar\frac{\dd}{\dd x},&
+\comm{\hat x}{\hat p}&=\ii\hbar I,\\
+\frac{\dd}{\dd t}\avg Q&=
+\frac{\ii}{\hbar}\avg{\comm{H}{Q}}+
+\left\langle\frac{\partial Q}{\partial t}\right\rangle,&
+\sigma_A^2&=\avg{A^2}-\avg A^2.
+\end{align}
+The normalized momentum wavefunction is
+$\Phi(p)=(2\pi\hbar)^{-1/2}\int\ee^{-\ii px/\hbar}\Psi(x)\dd x$.
+Where eigenvectors are continuous-spectrum generalized states,
+Dirac deltas replace Kronecker deltas.
+\section{Hilbert space and Hermitian operators (3.1–3.10)}
+\input{tex/01-10}
+\section{Momentum representation and uncertainty (3.11–3.22)}
+\input{tex/11-22}
+\section{Dirac notation, matrices and transformations (3.23–3.30)}
+\input{tex/23-30}
+\section{Further formalism and quantum statistics (3.31–3.40)}
+\input{tex/31-40}
+\section{Coherent states, supersymmetry and operator domains (3.41–3.49)}
+\input{tex/41-49}
+\section{Reproducible figures}
+The companion script \texttt{scripts/plots.py} produces
+momentum-density and coherent-state illustrations.
+\IfFileExists{figures/momentum_well.pdf}{
+\begin{figure}[htbp]\centering
+\includegraphics[width=.86\linewidth]{figures/momentum_well.pdf}
+\caption{Momentum distributions for infinite-well states $n=1,2,5,10$
+(Problem 3.34), numerically normalized and compared with the exact transform.}
+\end{figure}}{}
+\IfFileExists{figures/coherent.pdf}{
+\begin{figure}[htbp]\centering
+\includegraphics[width=.86\linewidth]{figures/coherent.pdf}
+\caption{Coherent harmonic-oscillator probability density translated in
+position without changing its width (Problem 3.42).}
+\end{figure}}{}
+\clearpage
+\begin{thebibliography}{9}
+\bibitem{griffiths} D.~J.~Griffiths and D.~F.~Schroeter,
+\emph{Introduction to Quantum Mechanics}, 3rd ed.,
+Cambridge University Press (2018), Chapter 3, pp. 91–130.
+DOI: \href{https://doi.org/10.1017/9781316995433}{10.1017/9781316995433}.
+\end{thebibliography}
+\end{document}

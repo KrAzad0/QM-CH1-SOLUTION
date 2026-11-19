@@ -1,5 +1,14 @@
 # The Wave Function — Interactive Chapter 1 Website
 
+## Chapter 3 — Formalism
+
+**[Explore the interactive Chapter 3 website: 49 worked problems](https://krazad0.github.io/QM-CH1-SOLUTION/chapter3/)**
+
+The [Chapter 3 LaTeX manuscript](chapter3/) covers Hilbert spaces, Hermitian observables, momentum representations, uncertainty relations, Dirac notation, coherent states, supersymmetry and self-adjoint momentum operators. It is built and published alongside Chapters 1 and 2; all three chapters retain separate PDF manuscripts.
+
+---
+
+
 ## Continue to Chapter 2
 
 **[Time-Independent Schrödinger Equation — 64 worked problems](https://krazad0.github.io/QM-CH1-SOLUTION/chapter2/)**

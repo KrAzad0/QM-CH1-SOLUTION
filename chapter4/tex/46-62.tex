@@ -1,0 +1,494 @@
+\problem{4.46}{Three-dimensional harmonic oscillator and degeneracies}
+For $V(\mathbf r)=\frac12m\omega^2(x^2+y^2+z^2)$,
+the Hamiltonian is the sum of three commuting
+one-dimensional oscillator Hamiltonians.
+Product eigenstates
+$\psi_{n_x}(x)\psi_{n_y}(y)\psi_{n_z}(z)$
+therefore have energies
+\begin{equation}
+E=\sh\omega(n_x+n_y+n_z+\tfrac32),
+\qquad n_x,n_y,n_z=0,1,\dots.
+\end{equation}
+Writing $N=n_x+n_y+n_z$,
+\begin{equation}
+\boxed{E_N=(N+\tfrac32)\sh\omega}.
+\end{equation}
+The number of ordered nonnegative triples
+whose entries sum to $N$ is
+$\binom{N+2}{2}$ (stars and bars). Hence
+\begin{equation}
+\boxed{d(N)=\frac{(N+1)(N+2)}2}.
+\end{equation}
+The first degeneracies are $1,3,6,10,\dots$.
+
+\problem{4.47}{Spherical-coordinate solution of the isotropic oscillator}
+Separate $\psi=R(r)Y_\ell^m(\theta,\phi)$,
+and introduce
+$x=\sqrt{m\omega/\sh}\,r$ and
+$\epsilon=2E/(\sh\omega)$.
+The radial equation is
+\begin{equation}
+R''+\frac2xR'+
+\left[\epsilon-x^2-\frac{\ell(\ell+1)}{x^2}\right]R=0.
+\end{equation}
+Correct near-origin and asymptotic behavior
+suggests $R=x^\ell\ee^{-x^2/2}v(x)$.
+After differentiation and cancellation,
+\begin{equation}
+v''+\left(\frac{2\ell+2}{x}-2x\right)v'
++[\epsilon-(2\ell+3)]v=0.
+\end{equation}
+Put $v(x)=\sum_{j=0}^\infty c_jx^j$.
+The recurrence is
+\begin{equation}
+\boxed{c_{j+2}=
+\frac{2j+2\ell+3-\epsilon}
+{(j+2)(j+2\ell+3)}\,c_j}.
+\end{equation}
+Regularity selects an even series.
+Normalizability requires truncation at
+$j=2n_r$, which gives
+$\epsilon=4n_r+2\ell+3$ and
+\begin{equation}
+\boxed{E_{n_r\ell}
+=(2n_r+\ell+\tfrac32)\sh\omega},
+\qquad n_r,\ell=0,1,\dots.
+\end{equation}
+Identify $N=2n_r+\ell$ from Problem 4.46.
+For a given $N$, $\ell=N,N-2,\dots\ge0$.
+Summing the $2\ell+1$ magnetic states yields
+\begin{equation}
+\boxed{\sum_{\ell=N,N-2,\dots}(2\ell+1)
+=\frac{(N+1)(N+2)}2}.
+\end{equation}
+This checks complete agreement of
+Cartesian and spherical separations.
+
+\problem{4.48}{Three-dimensional virial theorem}
+Take $G=\mathbf r\cdot\mathbf p$ and use
+$\dd\avg G/\dd t=(\ii/\sh)\avg{[H,G]}$.
+The canonical commutators give
+\begin{equation}
+\boxed{\frac{\dd\avg G}{\dd t}
+=2\avg T-\avg{\mathbf r\cdot\nabla V}}.
+\end{equation}
+For a stationary state $\dd\avg G/\dd t=0$
+and therefore
+\begin{equation}
+\boxed{2\avg T=\avg{\mathbf r\cdot\nabla V}}.
+\end{equation}
+For Coulomb $V\propto r^{-1}$,
+$\mathbf r\cdot\nabla V=-V$,
+hence $2\avg T=-\avg V$.
+Using $E_n=\avg T+\avg V$ yields
+\begin{equation}
+\boxed{\avg T=-E_n,\qquad\avg V=2E_n}.
+\end{equation}
+For $V\propto r^2$,
+$\mathbf r\cdot\nabla V=2V$, giving
+$\boxed{\avg T=\avg V=E_n/2}$.
+These identities assume normalizable
+states and vanishing surface terms.
+
+\problem{4.49}{Probability current and hydrogen orbital flow}
+The three-dimensional current is
+\begin{equation}
+\boxed{\mathbf J=\frac{\sh}{2m\ii}
+(\Psi^*\nabla\Psi-\Psi\nabla\Psi^*)}.
+\end{equation}
+Take the Schrödinger equation
+$\ii\sh\partial_t\Psi=
+-\sh^2\nabla^2\Psi/(2m)+V\Psi$,
+multiply by $\Psi^*$, and subtract the
+complex-conjugate equation multiplied by
+$\Psi$. The real-potential terms cancel:
+\begin{equation}
+\partial_t|\Psi|^2=
+-\nabla\cdot\frac{\sh}{2m\ii}
+(\Psi^*\nabla\Psi-\Psi\nabla\Psi^*)
+=\boxed{-\nabla\cdot\mathbf J}.
+\end{equation}
+Integrating over a fixed volume gives
+$\oint\mathbf J\cdot\dd\mathbf a
+=-\dd(\int_V|\Psi|^2\dd^3r)/\dd t$.
+For $\psi_{211}=-r\sin\theta
+\ee^{-r/(2\aB)}\ee^{\ii\phi}/
+(8\sqrt\pi\aB^{5/2})$, only
+the azimuthal phase contributes:
+\begin{equation}
+\mathbf J=\frac{\sh}{mr\sin\theta}
+|\psi_{211}|^2\hat{\boldsymbol\phi}
+=\boxed{\frac{\sh}{64\pi m\aB^5}
+r\ee^{-r/\aB}\sin\theta\,
+\hat{\boldsymbol\phi}}.
+\end{equation}
+The mass-flow orbital angular momentum is
+$m\int(\mathbf r\times\mathbf J)\dd^3r$.
+Its $z$ component is
+$m\int r\sin\theta\,J_\phi\dd^3r=
+\sh\int|\psi_{211}|^2\dd^3r$, so
+\begin{equation}
+\boxed{L_z=\sh},
+\end{equation}
+as expected for $m_\ell=+1$.
+
+\problem{4.50}{Momentum-space hydrogen ground state}
+For
+$\psi_{100}(\mathbf r)=
+\ee^{-r/\aB}/\sqrt{\pi\aB^3}$,
+define the normalized Fourier transform
+\begin{equation}
+\phi(\mathbf p)=\frac{1}{(2\pi\sh)^{3/2}}
+\int_{\mathbb R^3}\ee^{-\ii\mathbf p\cdot
+\mathbf r/\sh}\psi_{100}(\mathbf r)\dd^3r.
+\end{equation}
+Choose the polar axis along $\mathbf p$.
+The angular integral is
+$\int\dd\Omega\,\ee^{-\ii pr\cos\theta/\sh}
+=4\pi\sin(pr/\sh)/(pr/\sh)$.
+Using
+$\int_0^\infty r\ee^{-\beta r}\sin(kr)\dd r
+=2\beta k/(\beta^2+k^2)^2$, gives
+\begin{equation}
+\boxed{\phi(\mathbf p)=\frac1\pi
+\left(\frac{2\aB}{\sh}\right)^{3/2}
+\frac1{[1+(\aB p/\sh)^2]^2}}.
+\end{equation}
+Put $u=\aB p/\sh$. Its norm is
+\begin{equation}
+\int|\phi|^2\dd^3p
+=\frac{32}{\pi}\int_0^\infty
+\frac{u^2\dd u}{(1+u^2)^4}=1,
+\end{equation}
+where the integral equals $\pi/32$.
+Similarly,
+\begin{equation}
+\avg{p^2}=\frac{32\sh^2}{\pi\aB^2}
+\int_0^\infty\frac{u^4\dd u}{(1+u^2)^4}
+=\boxed{\frac{\sh^2}{\aB^2}}.
+\end{equation}
+Thus $\boxed{\avg T=\sh^2/(2m\aB^2)=-E_1}$,
+in agreement with the Coulomb virial theorem.
+
+\problem{4.51}{Why every attractive circular well binds in two dimensions}
+For a radially symmetric two-dimensional
+potential $V=-V_0$ inside $r<a$
+and zero outside, a bound $s$-wave has
+$-V_0<E<0$, with
+$k^2=2m(V_0+E)/\sh^2$ and
+$\kappa^2=-2mE/\sh^2$.
+The finite-at-origin interior solution is
+$R_{\rm in}=AJ_0(kr)$; the decaying exterior
+solution is $R_{\rm out}=BK_0(\kappa r)$.
+Matching $R$ and $R'$ at $r=a$ gives
+\begin{equation}
+\boxed{k\frac{J_1(ka)}{J_0(ka)}
+=\kappa\frac{K_1(\kappa a)}{K_0(\kappa a)}}.
+\end{equation}
+For arbitrarily weak attraction, $ka\ll1$.
+As $\kappa a\to0$,
+$K_0(\kappa a)\sim-\ln(\kappa a/2)-\gamma_E$,
+$\kappa K_1(\kappa a)\sim1/a$, while
+$kJ_1(ka)/J_0(ka)\sim k^2a/2$.
+Hence
+\begin{equation}
+-\ln(\kappa a/2)-\gamma_E
+\sim\frac{2}{(ka)^2},
+\quad
+\boxed{\kappa a\sim
+2\exp[-\gamma_E-2/(ka)^2]}.
+\end{equation}
+For every $V_0>0$ this is nonzero,
+though exponentially small, so there
+is at least one negative-energy bound state.
+Unlike three dimensions, there is no
+nonzero threshold depth for an attractive
+two-dimensional circular well.
+
+\problem{4.52}{Hydrogen $\psi_{321}$ and radial moments}
+For $n=3,\ell=2$,
+$R_{32}=(2/(3\aB))^{3/2}\rho^2
+\ee^{-\rho/2}/\sqrt{720}$,
+$\rho=2r/(3\aB)$.
+With
+$Y_2^1=-\sqrt{15/(8\pi)}
+\sin\theta\cos\theta\ee^{\ii\phi}$,
+simplification gives
+\begin{equation}
+\boxed{\psi_{321}(r,\theta,\phi)=
+-\frac{r^2}{81\sqrt\pi\,\aB^{7/2}}
+\ee^{-r/(3\aB)}
+\sin\theta\cos\theta\ee^{\ii\phi}}.
+\end{equation}
+For normalization, the angular integral is
+$\int\sin^2\theta\cos^2\theta\dd\Omega=8\pi/15$;
+the radial integral is
+\begin{equation}
+\int_0^\infty r^6\ee^{-2r/(3\aB)}\dd r
+=6!\left(\frac{3\aB}{2}\right)^7.
+\end{equation}
+Combining with the displayed prefactor yields one.
+For arbitrary real $s$,
+\begin{equation}
+\boxed{\avg{r^s}=
+\frac{\Gamma(s+7)}{\Gamma(7)}
+\left(\frac{3\aB}{2}\right)^s},
+\qquad\boxed{s>-7}.
+\end{equation}
+The restriction follows from the
+$r^{s+6}$ behavior near $r=0$.
+
+\problem{4.53}{Hydrogen $\psi_{433}$ and transverse angular momentum}
+For $n=4,\ell=3,m=3$,
+$R_{43}=(1/(2\aB))^{3/2}\rho^3
+\ee^{-\rho/2}/\sqrt{8\,7!}$,
+where $\rho=r/(2\aB)$, and
+$Y_3^3=-\sqrt{35/(64\pi)}
+\sin^3\theta\ee^{3\ii\phi}$.
+Therefore
+\begin{equation}
+\boxed{\psi_{433}=
+-\frac{r^3}{6144\sqrt\pi\,\aB^{9/2}}
+\ee^{-r/(4\aB)}
+\sin^3\theta\ee^{3\ii\phi}}.
+\end{equation}
+The exact hydrogen radial expectation is
+$\avg r=\frac{\aB}{2}[3n^2-\ell(\ell+1)]$;
+here
+\begin{equation}
+\boxed{\avg r=18\aB}.
+\end{equation}
+Since $L_x^2+L_y^2=L^2-L_z^2$,
+the state is already an eigenstate of the
+requested observable:
+\begin{equation}
+\boxed{(L_x^2+L_y^2)\psi_{433}
+=\sh^2[3(4)-3^2]\psi_{433}
+=3\sh^2\psi_{433}}.
+\end{equation}
+A measurement returns $3\sh^2$ with probability one.
+
+\problem{4.54}{Ground-state penetration of a finite-size nucleus}
+For the hydrogen $1s$ state,
+the probability inside a sphere of radius $b$ is
+\begin{align}
+P(r<b)&=\frac4{\aB^3}\int_0^b
+r^2\ee^{-2r/\aB}\dd r\\
+&=\boxed{1-\ee^{-2b/\aB}
+\left(1+\frac{2b}{\aB}+
+\frac{2b^2}{\aB^2}\right)}.
+\end{align}
+Let $\epsilon=2b/\aB\ll1$.
+Expanding
+$1-\ee^{-\epsilon}(1+\epsilon+\epsilon^2/2)
+=\epsilon^3/6+O(\epsilon^4)$ gives
+\begin{equation}
+\boxed{P\simeq\frac43(b/\aB)^3}.
+\end{equation}
+Approximating $\psi$ by its value at the
+origin in the nuclear volume gives
+$(4\pi b^3/3)|\psi(0)|^2=
+(4/3)(b/\aB)^3$, the same result.
+With $b=10^{-15}$ m and
+$\aB=0.5\times10^{-10}$ m,
+\begin{equation}
+\boxed{P\simeq1.07\times10^{-14}}.
+\end{equation}
+This uses a point-Coulomb wavefunction
+inside the nuclear volume, as requested;
+finite nuclear structure modifies it.
+
+\problem{4.55}{Circular hydrogenic states and radial uncertainty}
+For $\ell=n-1$, the radial polynomial
+is constant, and
+$R_{n,n-1}=N_n r^{n-1}\ee^{-r/(n\aB)}$.
+Set $\beta=2/(n\aB)$.
+Normalization requires
+$1=|N_n|^2\int_0^\infty r^{2n}
+\ee^{-\beta r}\dd r=
+|N_n|^2(2n)!/\beta^{2n+1}$, so
+\begin{equation}
+\boxed{N_n=\frac{\beta^{n+1/2}}{\sqrt{(2n)!}}}.
+\end{equation}
+The radial moments follow from successive
+gamma-function integrals:
+\begin{align}
+\boxed{\avg r}&=\frac{2n+1}{\beta}
+=\frac{n\aB}{2}(2n+1),\\
+\boxed{\avg{r^2}}&=\frac{(2n+1)(2n+2)}{\beta^2}.
+\end{align}
+Thus
+$\sigma_r^2=(2n+1)/\beta^2$,
+and
+\begin{equation}
+\boxed{\sigma_r=\frac{\avg r}{\sqrt{2n+1}}}.
+\end{equation}
+The fractional radial spread decreases
+as $n^{-1/2}$ for large $n$,
+suggesting a more localized radial
+distribution in highly excited circular states.
+
+\problem{4.56}{Two distinct hydrogen transitions with the same wavelength}
+The Rydberg formula assigns
+$\lambda^{-1}=R_H(n_f^{-2}-n_i^{-2})$.
+Take the two different transitions
+$(n_i,n_f)=(7,5)$ and $(35,7)$:
+\begin{align}
+\frac1{5^2}-\frac1{7^2}
+&=\frac{49-25}{1225}=\frac{24}{1225},\\
+\frac1{7^2}-\frac1{35^2}
+&=\frac{25-1}{1225}=\frac{24}{1225}.
+\end{align}
+Both have $n_i>n_f$, hence
+\begin{equation}
+\boxed{\lambda_{7\to5}=\lambda_{35\to7}
+=\frac{1225}{24R_H}}.
+\end{equation}
+This pair is not the example given
+in the textbook.
+
+\problem{4.57}{Uncertainty between $x^2$ and $L_z$}
+Using $[L_z,x]=\ii\sh y$, one obtains
+$[x^2,L_z]=-\ii\sh(xy+yx)
+=-2\ii\sh xy$,
+because $x$ and $y$ commute.
+Robertson's inequality gives
+\begin{equation}
+\boxed{\sigma_{x^2}\,\sigma_{L_z}
+\ge\sh|\avg{xy}|}.
+\end{equation}
+Every $\psi_{n\ell m}$ is an $L_z$
+eigenstate, so $\sigma_{L_z}=0$.
+Consequently
+\begin{equation}
+\boxed{\avg{xy}_{n\ell m}=0}.
+\end{equation}
+This agrees with azimuthal symmetry
+of $|\psi_{n\ell m}|^2$.
+
+\problem{4.58}{Probabilities for a complex spinor}
+Take $\chi=A(1-2\ii,2)^T$.
+Normalization gives $|A|^2(5+4)=1$;
+choose $\boxed{A=1/3}$.
+For $S_z$, the outcomes are
+$\pm\sh/2$ with
+\begin{equation}
+\boxed{P_z(+)={5}/{9},\quad
+P_z(-)={4}/{9},\quad
+\avg{S_z}=\sh/18}.
+\end{equation}
+Since $a^*b=(1+2\ii)2/9=(2+4\ii)/9$,
+$\avg{S_x}=\sh\,\mathrm{Re}(a^*b)=2\sh/9$,
+$\avg{S_y}=\sh\,\mathrm{Im}(a^*b)=4\sh/9$.
+The two-outcome relations
+$P_i(\pm)=\frac12\pm\avg{S_i}/\sh$ give
+\begin{align}
+\boxed{P_x(+)=13/18,\ P_x(-)=5/18},\\
+\boxed{P_y(+)=17/18,\ P_y(-)=1/18}.
+\end{align}
+Each pair sums to one and the
+expectations follow from their weighted outcomes.
+
+\problem{4.59}{Opposite spin correlations in the singlet}
+The singlet is
+$\ket{\mathrm s}=
+(\ket{\uparrow\downarrow}
+-\ket{\downarrow\uparrow})/\sqrt2$.
+It satisfies
+$\bra{\mathrm s}\sigma_i^{(1)}
+\sigma_j^{(2)}\ket{\mathrm s}=-\delta_{ij}$:
+the diagonal terms are $-1$ by rotational
+invariance, and mixed terms vanish.
+For unit vectors $\mathbf a,\mathbf b$,
+\begin{align}
+\avg{S_{\mathbf a}^{(1)}
+S_{\mathbf b}^{(2)}}&=
+\frac{\sh^2}{4}
+\sum_{ij}a_ib_j
+\avg{\sigma_i^{(1)}\sigma_j^{(2)}}\\
+&=-\frac{\sh^2}{4}\,\mathbf a\cdot\mathbf b.
+\end{align}
+Writing $\mathbf a\cdot\mathbf b=\cos\theta$ gives
+\begin{equation}
+\boxed{\avg{S_{\mathbf a}^{(1)}
+S_{\mathbf b}^{(2)}}=-\frac{\sh^2}{4}\cos\theta}.
+\end{equation}
+
+\problem{4.60}{Coupling spin one-half to arbitrary spin}
+Let $s_2=j$ and set total $s=j\pm1/2$.
+At fixed $m$, only two uncoupled states occur:
+$\ket{+\frac12,j,m-\frac12}$ and
+$\ket{-\frac12,j,m+\frac12}$.
+Write
+$\ket{sm}=A\ket{+\frac12,j,m-\frac12}
++B\ket{-\frac12,j,m+\frac12}$.
+The matrix for $S^2$ on this span is
+obtained from
+$S^2=S_1^2+S_2^2+2S_{1z}S_{2z}+
+S_{1+}S_{2-}+S_{1-}S_{2+}$.
+Its diagonalization, followed by
+$|A|^2+|B|^2=1$, yields
+\begin{align}
+\boxed{s=j+\tfrac12:}&\quad
+A=\sqrt{\frac{j+m+1/2}{2j+1}},&
+B=\sqrt{\frac{j-m+1/2}{2j+1}},\\
+\boxed{s=j-\tfrac12:}&\quad
+A=\sqrt{\frac{j-m+1/2}{2j+1}},&
+B=-\sqrt{\frac{j+m+1/2}{2j+1}}.
+\end{align}
+This is the standard Condon--Shortley phase choice.
+For $j=1/2$, these reproduce the triplet
+and singlet coefficients; for $j=1$ and
+$j=3/2$, substitution reproduces
+the corresponding table entries.
+
+\problem{4.61}{Spin-three-halves $S_x$ matrix and eigenvalues}
+In the ordered $S_z$ basis
+$m=3/2,1/2,-1/2,-3/2$,
+\begin{equation}
+\boxed{S_x=\frac\sh2
+\begin{pmatrix}
+0&\sqrt3&0&0\\
+\sqrt3&0&2&0\\
+0&2&0&\sqrt3\\
+0&0&\sqrt3&0
+\end{pmatrix}}.
+\end{equation}
+Writing $t=2\lambda/\sh$, the
+characteristic polynomial is
+\begin{equation}
+\det(tI-2S_x/\sh)
+=(t^2-1)(t^2-9).
+\end{equation}
+Therefore
+\begin{equation}
+\boxed{\lambda=\pm\frac{3\sh}{2},
+\quad\pm\frac\sh2}.
+\end{equation}
+These eigenvalues agree with rotational
+equivalence of $S_x$ and $S_z$.
+
+\problem{4.62}{General spin-$s$ Cartesian matrices}
+In the ordered $\ket{s,m}$ basis
+$m=s,s-1,\ldots,-s$,
+\begin{align}
+\boxed{(S_z)_{m'm}}&=
+\sh m\,\delta_{m'm},\\
+\boxed{(S_+)_{m'm}}&=
+\sh\sqrt{(s-m)(s+m+1)}\,
+\delta_{m',m+1},\\
+\boxed{(S_-)_{m'm}}&=
+\sh\sqrt{(s+m)(s-m+1)}\,
+\delta_{m',m-1}.
+\end{align}
+Hence
+\begin{equation}
+\boxed{S_x=\tfrac12(S_++S_-),\qquad
+S_y=\tfrac1{2\ii}(S_+-S_-)}.
+\end{equation}
+They are $(2s+1)\times(2s+1)$ Hermitian
+matrices with nonzero off-diagonal entries
+only between adjacent $m$ values.
+Their commutators obey
+$[S_i,S_j]=\ii\sh\epsilon_{ijk}S_k$
+and $S^2=\sh^2s(s+1)I$.

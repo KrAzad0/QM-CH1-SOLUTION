@@ -1,5 +1,14 @@
 # The Wave Function — Interactive Chapter 1 Website
 
+## Chapter 4 — Quantum Mechanics in Three Dimensions
+
+**[Open Chapter 4 interactive website — 76 worked problems](https://krazad0.github.io/QM-CH1-SOLUTION/chapter4/)**
+
+The [Chapter 4 LaTeX solutions](chapter4/) cover the three-dimensional Schrödinger equation, spherical harmonics, the hydrogen atom, angular momentum, spin, coupling of spins, electromagnetic interactions, and the Aharonov–Bohm effect. The new website and PDF join the existing Chapters 1–3 without overwriting them.
+
+---
+
+
 ## Chapter 3 — Formalism
 
 **[Explore the interactive Chapter 3 website: 49 worked problems](https://krazad0.github.io/QM-CH1-SOLUTION/chapter3/)**

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f6f3eb">
+  <meta name="description" content="Quantum Mechanics Chapter 4: Quantum Mechanics in Three Dimensions. Original step-by-step solutions to all 76 exercises in Griffiths and Schroeter, third edition.">
+  <meta property="og:title" content="Quantum Mechanics Chapter 4 — Three Dimensions">
+  <meta property="og:description" content="76 original solutions spanning spherical harmonics, hydrogen, angular momentum, spin, magnetic fields and the Aharonov–Bohm effect.">
+  <meta property="og:url" content="https://krazad0.github.io/QM-CH1-SOLUTION/chapter4/">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../style.css">
+  <title>Chapter 4 — Quantum Mechanics in Three Dimensions | Kumar Azad</title>
+  <script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script defer src="./chapter4.js"></script>
+  <script defer src="../site.js"></script>
+  <style>
+    .hero.chapter-four h1{font-size:clamp(52px,6.6vw,92px)}
+    .hero.chapter-four .hero-grid{min-height:620px}
+    .hero.chapter-four .hero-source{max-width:520px}
+    .topic-grid .topic{min-height:236px}
+    .topic-math{font-size:15px}
+    .quick-nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;padding-top:35px}
+    .quick-nav a{padding:18px 16px;background:var(--paper);border:1px solid var(--line);transition:background .2s}
+    .quick-nav a:hover{background:var(--accent-light)}
+    .quick-nav span{font:400 10px var(--mono);color:var(--accent)}
+    .quick-nav strong{display:block;font:400 19px/1.25 var(--serif);margin-top:9px}
+    .quick-nav small{display:block;color:var(--muted);font-size:10px;margin-top:8px}
+    .formal-note{padding:20px 25px;border-left:3px solid var(--accent);color:var(--muted);background:var(--paper);font-size:13px;line-height:1.75}
+    .chapter-top-nav a{display:inline-block;margin-right:18px;font-size:12px;color:var(--muted)}
+    .chapter-top-nav a[aria-current="page"]{color:var(--accent);font-weight:700}
+    .section-topline{margin-bottom:18px}
+    @media(max-width:1050px){.quick-nav{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:700px){.quick-nav{grid-template-columns:repeat(2,1fr)}.hero.chapter-four h1{font-size:clamp(50px,11vw,78px)}}
+    @media(max-width:390px){.quick-nav{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<div class="top-progress" id="reading-progress"></div>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="../index.html" aria-label="Quantum Mechanics Chapters">
+      <span class="brand-mark">Ψ</span>
+      <span class="brand-text">Q.M. <strong>CHAPTER 04</strong><small>Mathematical physics / 2026</small></span>
+    </a>
+    <nav class="main-nav" aria-label="Chapter navigation">
+      <a href="../index.html">Chapter 1</a>
+      <a href="../chapter2/">Chapter 2</a><a href="../chapter3/">Chapter 3</a>
+      <a href="#topics">Concepts</a>
+      <a href="#problems">76 problems</a>
+      <a href="#manuscript">Manuscript</a>
+    </nav>
+    <div class="header-actions">
+      <button class="theme-toggle" id="theme-toggle" type="button" title="Toggle color theme" aria-label="Switch color theme">◐</button>
+      <a class="github-pill" href="https://github.com/KrAzad0/QM-CH1-SOLUTION/tree/main/chapter4" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero chapter-four" id="top">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-line"></span> The geometry of quantum mechanics <span class="eyebrow-index">04 / 12</span></div>
+        <h1>Quantum<br><em>in Three</em><br>Dimensions<span class="title-dot">.</span></h1>
+        <p class="hero-lede">From spherical harmonics to the hydrogen spectrum, spin, and magnetic interactions: the complete three-dimensional quantum framework.</p>
+        <p class="hero-source">Independent worked solutions to Chapter 4 of <cite>Introduction to Quantum Mechanics</cite>, 3rd edition, by David J. Griffiths &amp; Darrell F. Schroeter.</p>
+        <div class="hero-cta">
+          <a class="button button-primary" href="#problems">Explore 76 problems <span>↗</span></a>
+          <a class="button button-outline" href="./chapter-4-solutions.pdf" target="_blank" rel="noopener noreferrer">Read PDF <span>↗</span></a>
+        </div>
+        <div class="hero-statline"><div><strong>76</strong><span>Exercises</span></div><div><strong>06</strong><span>Concept groups</span></div><div><strong>04</strong><span>Chapter</span></div></div>
+      </div>
+      <div class="hero-visual">
+        <div class="visual-caption"><span>FIG. 03</span><span>SPHERICAL COORDINATES AND ANGULAR MOMENTUM</span></div>
+        <svg class="wave-figure" viewBox="0 0 620 440" role="img" aria-label="Spherical harmonics and central potential radial coordinate diagram">
+<g class="wave-grid"><path d="M65 80H565M65 145H565M65 210H565M65 275H565M65 340H565"/><path d="M110 58V370M200 58V370M290 58V370M380 58V370M470 58V370"/></g>
+<ellipse cx="305" cy="230" rx="177" ry="156" fill="#bd7b58" fill-opacity=".08" stroke="#a6493b" stroke-width="2"/>
+<ellipse cx="305" cy="230" rx="177" ry="62" transform="rotate(-26 305 230)" fill="none" stroke="#2c7771" stroke-width="2.2"/>
+<ellipse cx="305" cy="230" rx="70" ry="156" transform="rotate(29 305 230)" fill="none" stroke="#a6493b" stroke-width="1.8" stroke-dasharray="5 5"/>
+<path d="M305 230L458 107" stroke="#a6493b" stroke-width="4" stroke-linecap="round"/><path d="M458 107L439 113 453 127Z" fill="#a6493b"/>
+<path d="M305 230L305 75" stroke="currentColor" stroke-width="1.3" opacity=".5"/>
+<path d="M305 230L511 230" stroke="currentColor" stroke-width="1.3" opacity=".5"/>
+<path d="M305 230L218 309" stroke="currentColor" stroke-width="1.3" opacity=".5"/>
+<path d="M305 174Q350 181 363 201" stroke="#2c7771" stroke-width="2" fill="none"/>
+<circle cx="305" cy="230" r="5" fill="#a6493b"/>
+<g font-family="monospace" font-size="17" fill="currentColor"><text x="473" y="107">r</text><text x="317" y="96">z</text><text x="520" y="235">x</text><text x="197" y="322">y</text><text x="370" y="195">θ</text><text x="317" y="258">O</text></g>
+</svg>
+        <div class="formula-panel">
+          <span class="formula-kicker">SEPARATING RADIAL AND ANGULAR MOTION</span>
+          <div class="hero-formula">\(\psi_{n\ell m}=R_{n\ell}Y_\ell^m\)</div>
+          <span class="formula-foot">CENTRAL POTENTIALS · ORBITAL QUANTIZATION · SPIN</span>
+        </div>
+        <div class="figure-reference">SPHERICAL COORDINATES · SCHEMATIC GEOMETRY</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="principles" id="topics">
+    <div class="container">
+      <div class="section-topline"><span>01 — THE STRUCTURE OF QUANTUM THEORY</span><span>SIX CONCEPT CLUSTERS</span></div>
+      <div class="intro-layout">
+        <h2>From spatial waves<br><em>to quantum spin.</em></h2>
+        <div class="intro-text">
+          <p>Chapter 4 extends the Schrödinger equation to three dimensions. Separation in spherical coordinates reveals angular momentum quantization and the exact Coulomb spectrum.</p>
+          <p>Its later exercises develop spin one-half, coupled angular momenta, Stern–Gerlach dynamics, minimal coupling, numerical confined hydrogen and the Aharonov–Bohm effect.</p>
+        </div>
+      </div>
+      <div class="topic-grid">
+<article class="topic"><span>4.1</span><h3>Three-dimensional Schrödinger equation</h3><p>Cartesian separation, central potentials, radial boundary conditions.</p><div class="topic-math">\(\hat H=-\frac{\hbar^2}{2m}\nabla^2+V\)</div></article>
+<article class="topic"><span>4.2</span><h3>Hydrogen atom</h3><p>Radial Coulomb solutions, orbital shapes, discrete spectral energies.</p><div class="topic-math">\(E_n=-13.6\,\mathrm{eV}/n^2\)</div></article>
+<article class="topic"><span>4.3</span><h3>Orbital angular momentum</h3><p>Commutator algebra, spherical harmonics and ladder operators.</p><div class="topic-math">\(L^2=\hbar^2\ell(\ell+1)\)</div></article>
+<article class="topic"><span>4.4</span><h3>Spin and addition</h3><p>Pauli matrices, spinors, singlets, triplets and Clebsch–Gordan coupling.</p><div class="topic-math">\(S_i=\hbar\sigma_i/2\)</div></article>
+<article class="topic"><span>4.5</span><h3>Electromagnetic interactions</h3><p>Gauge transformations, Landau levels and magnetic-flux interference.</p><div class="topic-math">\(\mathbf p\mapsto\mathbf p-q\mathbf A\)</div></article>
+<article class="topic"><span>4.6</span><h3>Advanced solutions</h3><p>Numerical spherical wells, hydrogen confinement, spin correlations and scattering.</p><div class="topic-math">\(\Delta\varphi=q\Phi/\hbar\)</div></article>
+</div>
+
+      <div class="quick-nav">
+<a href="#problem-4-1"><span>PROBLEMS 01–11</span><strong>Three dimensions and spherical wells</strong><small>11 exercises</small></a>
+<a href="#problem-4-12"><span>PROBLEMS 12–20</span><strong>Hydrogen atom and Coulomb theory</strong><small>9 exercises</small></a>
+<a href="#problem-4-21"><span>PROBLEMS 21–34</span><strong>Angular momentum and spin</strong><small>14 exercises</small></a>
+<a href="#problem-4-35"><span>PROBLEMS 35–45</span><strong>Spin dynamics and gauge theory</strong><small>11 exercises</small></a>
+<a href="#problem-4-46"><span>PROBLEMS 46–62</span><strong>Advanced 3D quantum mechanics</strong><small>17 exercises</small></a>
+<a href="#problem-4-63"><span>PROBLEMS 63–76</span><strong>Coupled spins and magnetic fields</strong><small>14 exercises</small></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="problem-section" id="problems">
+    <div class="container">
+      <div class="section-topline"><span>02 — PROBLEM INDEX</span><span>TEXTBOOK NUMBERING 4.1 TO 4.76</span></div>
+      <div class="section-heading-row">
+        <div><h2>Every problem.<br><em>Every derivation.</em></h2><p>Search the mathematical concept, problem title or exercise number, then open its detailed solution in the LaTeX manuscript.</p></div>
+        <div class="complete-count">76 <span>/ 76</span><small>DOCUMENTED</small></div>
+      </div>
+      <div class="problem-toolbar">
+        <label class="search-wrap"><span class="sr-only">Search Chapter 4 exercises</span><span aria-hidden="true">⌕</span><input id="problem-search" type="search" placeholder="Search: hydrogen, spin, 4.68…" autocomplete="off"></label>
+        <div class="filter-group" role="group" aria-label="Problem group">
+          <button type="button" class="filter is-active" data-filter="all" aria-pressed="true">All 76</button>
+          <button type="button" class="filter" data-filter="section" aria-pressed="false">4.1–4.45</button>
+          <button type="button" class="filter" data-filter="further" aria-pressed="false">4.46–4.76</button>
+        </div>
+      </div>
+      <div class="problem-list" id="problem-list"></div>
+      <p class="no-results" id="no-results" hidden>No matching exercises found.</p>
+      <div class="list-footer"><span id="visible-count" aria-live="polite">Showing 76 of 76 problems</span><a href="#manuscript">Continue to the manuscript ↘</a></div>
+    </div>
+  </section>
+
+  <section class="manuscript-section" id="manuscript">
+    <div class="container">
+      <div class="section-topline"><span>03 — COMPLETE MANUSCRIPT</span><span>LATEX AND REPRODUCIBLE FIGURES</span></div>
+      <div class="manuscript-layout">
+        <div class="manuscript-heading">
+          <div class="manuscript-index">MATHEMATICAL PHYSICS / QM-04</div>
+          <h2>Read the<br><em>three-dimensional theory.</em></h2>
+          <p>All 76 exercises in one research-style study manuscript with boundary-condition derivations, hydrogenic formulas, angular-momentum calculations and numerical checks.</p>
+          <div class="manuscript-actions">
+            <a class="button button-primary" href="./chapter-4-solutions.pdf" target="_blank" rel="noopener noreferrer">Read full PDF <span>↗</span></a>
+            <a class="button button-outline" href="https://github.com/KrAzad0/QM-CH1-SOLUTION/tree/main/chapter4" target="_blank" rel="noopener noreferrer">View LaTeX source <span>↗</span></a>
+          </div>
+        </div>
+        <div class="paper-preview">
+          <div class="paper-head"><span>MATHEMATICAL PHYSICS · EDUCATIONAL COMPANION</span><span>QM—04</span></div>
+          <div class="paper-accent"></div>
+          <div class="paper-title">Quantum Mechanics:<br>Three Dimensions</div>
+          <div class="paper-subtitle">Independent worked solutions to Chapter 4<br>Problems 4.1–4.76</div>
+          <div class="paper-author">Kumar Azad</div>
+          <div class="paper-rule"></div>
+          <strong>Abstract</strong>
+          <p>The three-dimensional Schrödinger equation, spherical harmonics, hydrogenic states, orbital and spin angular momentum, Clebsch–Gordan coupling, magnetic interactions and gauge phases.</p>
+          <div class="paper-fake-lines"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="paper-bottom">INDEPENDENT COURSEWORK · NOVEMBER 2026</div>
+        </div>
+      </div>
+      <div class="citation-strip">
+        <div><span>PRIMARY TEXTBOOK</span><p>D. J. Griffiths &amp; D. F. Schroeter, <em>Introduction to Quantum Mechanics</em>, 3rd edition. Cambridge University Press (2018), Chapter 4.</p></div>
+        <a href="https://doi.org/10.1017/9781316995433" target="_blank" rel="noopener noreferrer">Book DOI ↗</a>
+      </div>
+      <p class="formal-note">Independent educational solution companion. The problem descriptions are paraphrases; consult the original textbook for the exact exercises. This is not an official solutions manual, a peer-reviewed publication or an arXiv preprint.</p>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div><a class="footer-brand" href="#top">Ψ <span>Quantum Three Dimensions</span></a><p>Linear algebra, functional analysis, and quantum observables.</p></div>
+    <div><span>CHAPTERS</span><a href="../index.html">Chapter 1 — Wavefunction</a><a href="../chapter2/">Chapter 2 — Stationary states</a><a href="../chapter3/">Chapter 3 — Formalism</a><a href="#top">Chapter 4 — Three Dimensions</a></div>
+    <div><span>LINKS</span><a href="https://github.com/KrAzad0/QM-CH1-SOLUTION" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://krazad0.github.io/" target="_blank" rel="noopener noreferrer">Portfolio ↗</a></div>
+  </div>
+  <div class="container footer-bottom"><span>© 2026 Kumar Azad · Independent coursework.</span><span>Not an arXiv submission.</span></div>
+</footer>
+</body>
+</html>

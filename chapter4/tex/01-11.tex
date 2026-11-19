@@ -1,0 +1,260 @@
+\problem{4.1}{Canonical commutators and three-dimensional Ehrenfest theorem}
+For smooth test functions $f(\mathbf r)$,
+\begin{align}
+[r_i,p_j]f&=-\ii\sh r_i\partial_j f+
+\ii\sh\partial_j(r_if)=\ii\sh\delta_{ij}f,\\
+[r_i,r_j]&=0,&[p_i,p_j]&=0.
+\end{align}
+Thus $[r_i,p_j]=\ii\sh\delta_{ij}$, including
+$[x,p_y]=0$ and $[x,p_x]=\ii\sh$.
+For $H=\sum_jp_j^2/(2m)+V$,
+$[H,r_i]=-\ii\sh p_i/m$ and
+$[H,p_i]=\ii\sh\partial_iV$. Apply
+$\dd\langle Q\rangle/\dd t=(\ii/\sh)
+\langle[H,Q]\rangle$:
+\begin{equation}
+\boxed{\frac{\dd\langle\mathbf r\rangle}{\dd t}
+=\frac{\langle\mathbf p\rangle}{m},
+\qquad
+\frac{\dd\langle\mathbf p\rangle}{\dd t}
+=-\langle\nabla V\rangle}.
+\end{equation}
+
+\problem{4.2}{Infinite cubic well and accidental degeneracy}
+Inside $0<x,y,z<a$, separate
+$\psi=X(x)Y(y)Z(z)$, each factor satisfying
+a one-dimensional infinite-well equation.
+The normalized stationary states and energies are
+\begin{align}
+\boxed{\psi_{n_xn_yn_z}(\mathbf r)}
+&=\boxed{\left(\frac2a\right)^{3/2}
+\sin\frac{n_x\pi x}{a}
+\sin\frac{n_y\pi y}{a}
+\sin\frac{n_z\pi z}{a}},\\
+\boxed{E_{n_xn_yn_z}}&=
+\frac{\pi^2\sh^2}{2ma^2}(n_x^2+n_y^2+n_z^2).
+\end{align}
+Writing $E_*=\pi^2\sh^2/(2ma^2)$, distinct
+levels begin
+\begin{equation}
+\begin{array}{c|rrrrrr}
+\text{level}&E_1&E_2&E_3&E_4&E_5&E_6\\\hline
+E/E_*&3&6&9&11&12&14\\
+\text{degeneracy}&1&3&3&3&1&6
+\end{array}.
+\end{equation}
+The fourteenth distinct level is
+$\boxed{E_{14}=27E_*}$ with
+$\boxed{4}$ states: three permutations of $(1,1,5)$
+and the distinct state $(3,3,3)$.
+The latter is an accidental degeneracy,
+not explained by permuting the three axes.
+
+\problem{4.3}{Reconstructing central potentials from wavefunctions}
+For a real radial wavefunction $\psi(r)$,
+$\nabla^2\psi=\psi''+(2/r)\psi'$, so the
+stationary equation gives
+\begin{equation}
+\boxed{V(r)=E+\frac{\sh^2}{2m}
+\frac{\psi''+2\psi'/r}{\psi}}.
+\end{equation}
+(a) If $\psi=A\ee^{-r/a}$,
+$\psi'/\psi=-1/a$,
+$\psi''/\psi=1/a^2$, and
+\begin{equation}
+V(r)=E+\frac{\sh^2}{2m}
+\left(\frac1{a^2}-\frac2{ar}\right).
+\end{equation}
+As $V(\infty)=0$,
+$\boxed{E=-\sh^2/(2ma^2)}$ and
+$\boxed{V=-\sh^2/(mar)}$.
+(b) If $\psi=A\ee^{-r^2/a^2}$,
+$\psi'/\psi=-2r/a^2$,
+$\psi''/\psi=-2/a^2+4r^2/a^4$, yielding
+$\nabla^2\psi/\psi=-6/a^2+4r^2/a^4$.
+Setting $V(0)=0$ gives
+\begin{equation}
+\boxed{E=3\sh^2/(ma^2),\qquad
+V(r)=2\sh^2r^2/(ma^4)}.
+\end{equation}
+This is an isotropic oscillator of frequency
+$\omega=2\sh/(ma^2)$.
+
+\problem{4.4}{Constructing and normalizing spherical harmonics}
+With the Condon--Shortley convention,
+$P_0=1$, $P_2^1(x)=-3x\sqrt{1-x^2}$ and
+\begin{equation}
+\boxed{Y_0^0=\frac1{\sqrt{4\pi}},
+\qquad Y_2^1=-\sqrt{\frac{15}{8\pi}}\sin\theta
+\cos\theta\,\ee^{\ii\phi}}.
+\end{equation}
+For $Y_{00}$,
+$\int|Y_{00}|^2\dd\Omega=4\pi/(4\pi)=1$.
+For $Y_{21}$,
+$\int_0^{2\pi}\dd\phi=2\pi$ and
+$\int_0^\pi\sin^3\theta\cos^2\theta\dd\theta
+=4/15$, hence its norm is
+$(15/(8\pi))(2\pi)(4/15)=1$.
+Orthogonality follows by integrating the
+factor $\ee^{\ii\phi}$ over $\phi$.
+
+\problem{4.5}{Why the second angular solution is unacceptable}
+For $\ell=m=0$ the polar angular equation is
+$\frac1{\sin\theta}\frac{\dd}{\dd\theta}
+(\sin\theta\,\Theta')=0$. Integrating gives
+$\sin\theta\,\Theta'=A$, so
+\begin{equation}
+\Theta(\theta)=A\ln\tan\frac\theta2+B.
+\end{equation}
+Although the logarithm is integrable with
+the $\sin\theta$ measure, it diverges at
+$\theta=0,\pi$, and is not a regular smooth
+angular eigenfunction on the sphere.
+It is excluded by the regularity domain of
+the self-adjoint angular Laplacian; the
+acceptable $\ell=0$ solution is constant.
+\note{Divergence at a coordinate pole,
+not failure of square integrability alone,
+is the key domain condition.}
+
+\problem{4.6}{Conjugation identity of spherical harmonics}
+Using the real associated Legendre function
+and standard normalization,
+$Y_\ell^m=N_{\ell m}P_\ell^m(\cos\theta)\ee^{\ii m\phi}$.
+For integer $m>0$,
+\begin{equation}
+P_\ell^{-m}(x)=(-1)^m
+\frac{(\ell-m)!}{(\ell+m)!}P_\ell^m(x),\quad
+N_{\ell,-m}=
+\sqrt{\frac{2\ell+1}{4\pi}
+\frac{(\ell+m)!}{(\ell-m)!}}.
+\end{equation}
+Multiplying these and reversing the
+azimuthal exponential gives
+\begin{equation}
+\boxed{Y_\ell^{-m}=(-1)^m(Y_\ell^{m})^*}.
+\end{equation}
+
+\problem{4.7}{Highest-weight harmonics and the explicit $Y_3^2$}
+Rodrigues' expression gives
+$P_\ell^\ell(x)=(-1)^\ell(2\ell-1)!!
+(1-x^2)^{\ell/2}$.
+Therefore
+\begin{equation}
+\boxed{Y_\ell^\ell=
+(-1)^\ell
+\sqrt{\frac{2\ell+1}{4\pi}
+\frac{(2\ell-1)!!^2}{(2\ell)!}}\,
+\sin^\ell\theta\,\ee^{\ii\ell\phi}}.
+\end{equation}
+For $\ell=3$, $P_3^2(x)=15x(1-x^2)$,
+and
+\begin{equation}
+\boxed{Y_3^2=
+\sqrt{\frac{105}{32\pi}}\,
+\sin^2\theta\cos\theta\,\ee^{2\ii\phi}}.
+\end{equation}
+Substitution into the angular Laplacian
+$\Delta_\Omega=
+(\sin\theta)^{-1}\partial_\theta
+(\sin\theta\,\partial_\theta)
++(\sin^2\theta)^{-1}\partial_\phi^2$
+gives $\Delta_\Omega Y_\ell^m
+=-\ell(\ell+1)Y_\ell^m$;
+in the second case the eigenvalue is $-12$.
+
+\problem{4.8}{Legendre orthogonality from Rodrigues' formula}
+The Legendre functions obey
+$\frac{\dd}{\dd x}[(1-x^2)P_\ell']
++\ell(\ell+1)P_\ell=0$.
+Multiply the $\ell$ equation by $P_j$,
+the $j$ equation by $P_\ell$, subtract,
+and integrate over $[-1,1]$:
+\begin{equation}
+[\ell(\ell+1)-j(j+1)]
+\int_{-1}^1P_\ell P_j\dd x
+=\left[(1-x^2)(P_jP_\ell'-P_\ell P_j')\right]_{-1}^1=0.
+\end{equation}
+For $\ell\ne j$ the overlap vanishes.
+To normalize, Rodrigues' formula gives
+$P_\ell=(2^\ell\ell!)^{-1}\frac{\dd^\ell}{\dd x^\ell}
+(x^2-1)^\ell$. Integrating by parts $\ell$
+times, boundary terms vanish, leaving
+\begin{equation}
+\int_{-1}^1P_\ell^2\dd x
+=\frac{(2\ell)!}{2^{2\ell}(\ell!)^2}
+\int_{-1}^1(1-x^2)^\ell\dd x
+=\frac{2}{2\ell+1}.
+\end{equation}
+Hence
+$\boxed{\int_{-1}^1P_\ell P_j\dd x=
+2\delta_{\ell j}/(2\ell+1)}$.
+
+\problem{4.9}{Spherical Neumann functions near the origin}
+The irregular spherical Bessel functions
+are $n_0(x)=-\cos x/x$, $n_1(x)=-\cos x/x^2-\sin x/x$
+and $n_{\ell+1}=(2\ell+1)n_\ell/x-n_{\ell-1}$.
+Therefore
+\begin{equation}
+\boxed{n_1(x)=-\frac{\cos x}{x^2}
+-\frac{\sin x}{x},\quad
+n_2(x)=
+-\left(\frac3{x^3}-\frac1x\right)\cos x
+-\frac{3\sin x}{x^2}}.
+\end{equation}
+With $\sin x=x-x^3/6+\cdots$ and
+$\cos x=1-x^2/2+\cdots$,
+\begin{equation}
+\boxed{n_1(x)=-x^{-2}-\tfrac12+O(x^2),\qquad
+n_2(x)=-3x^{-3}-\tfrac1{2x}+O(x)}.
+\end{equation}
+The irregular solutions diverge at $r=0$;
+for a finite central potential and
+physical regularity one selects $j_\ell$.
+
+\problem{4.10}{Spherical hard-wall energies at $\ell=1$}
+For free radial motion $R(r)=Aj_1(kr)$,
+$j_1(z)=\sin z/z^2-\cos z/z$.
+It obeys $R''+(2/r)R'+[k^2-2/r^2]R=0$
+by substitution (the $\ell=1$ radial equation).
+A hard wall at $r=a$ imposes $j_1(ka)=0$:
+\begin{equation}
+\sin z-z\cos z=0
+\quad\Longleftrightarrow\quad
+\boxed{\tan z=z},\qquad z=ka>0.
+\end{equation}
+The first three positive roots are
+$z_1\simeq4.493409$, $z_2\simeq7.725252$,
+$z_3\simeq10.904122$, giving
+$\boxed{E_{N1}=\sh^2 z_N^2/(2ma^2)}$.
+For large $N$, $z_N\sim(N+1/2)\pi$ and
+\begin{equation}
+\boxed{E_{N1}\sim\frac{\pi^2\sh^2}{2ma^2}
+(N+\tfrac12)^2}.
+\end{equation}
+The $\ell=1$ magnetic degeneracy is three.
+
+\problem{4.11}{Finite spherical well and the threshold for binding}
+For $V=-V_0$ inside $r<a$ and $V=0$
+outside, write $u=rR$, $E=-\sh^2\kappa^2/(2m)$,
+$k^2=2m(V_0+E)/\sh^2$. For $\ell=0$,
+regularity at the origin gives
+$u_{\rm in}=A\sin kr$, while
+$u_{\rm out}=B\ee^{-\kappa r}$.
+Matching $u,u'$ at $a$ gives
+\begin{equation}
+\boxed{k\cot(ka)=-\kappa},\qquad
+k^2+\kappa^2=\frac{2mV_0}{\sh^2}.
+\end{equation}
+At the first threshold $\kappa\to0^+$,
+$ka\to\pi/2$, so a bound level exists
+only when $ka$ can reach at least $\pi/2$:
+\begin{equation}
+\boxed{V_0a^2>\frac{\pi^2\sh^2}{8m}}.
+\end{equation}
+At equality the zero-energy threshold
+state is not square-integrable outside;
+there is no normalizable bound state.
+This contrasts with one-dimensional
+finite wells, which bind at arbitrarily
+small integrated attraction.

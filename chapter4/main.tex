@@ -1,0 +1,109 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm,mathtools,booktabs}
+\usepackage[a4paper,margin=24mm,headheight=17pt]{geometry}
+\usepackage{hyperref,xcolor,fancyhdr,graphicx}
+\definecolor{accent}{HTML}{8F473D}
+\hypersetup{colorlinks=true,linkcolor=accent,urlcolor=accent,pdftitle={Quantum Mechanics in Three Dimensions: Chapter 4 Worked Solutions}}
+\pagestyle{fancy}\fancyhf{}\lhead{\small Quantum Mechanics / Chapter 4}
+\rhead{\small Kumar Azad}\cfoot{\thepage}
+\numberwithin{equation}{section}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\ii}{\mathrm i}
+\newcommand{\ee}{\mathrm e}
+\newcommand{\ket}[1]{\lvert #1\rangle}
+\newcommand{\bra}[1]{\langle #1\rvert}
+\newcommand{\avg}[1]{\langle #1\rangle}
+\newcommand{\braket}[2]{\langle #1\mid #2\rangle}
+\newcommand{\comm}[2]{[#1,#2]}
+\newcommand{\problem}[2]{\subsection*{Problem #1: #2}\addcontentsline{toc}{subsection}{Problem #1: #2}}
+\newcommand{\answer}[1]{\par\smallskip\noindent\textcolor{accent}{\textbf{Result.}} #1\par\smallskip}
+\newcommand{\note}[1]{\par\smallskip\noindent\textit{Check / scope.} #1\par\smallskip}
+\newcommand{\aB}{a_{\mathrm B}}
+\newcommand{\sh}{\hbar}
+\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}
+\title{\textcolor{accent}{\large MATHEMATICAL PHYSICS · COURSEWORK COMPANION}\\[9pt]
+\textbf{\Huge Quantum Mechanics\\in Three Dimensions}\\[11pt]
+{\large Independent worked solutions to Chapter 4}\\[5pt]
+{\normalsize Problems 4.1--4.76}}
+\author{Kumar Azad\\\small\url{https://krazad0.github.io/QM-CH1-SOLUTION/chapter4/}}
+\date{November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+This educational manuscript develops independent stepwise solutions to the
+76 numbered exercises in Chapter 4 of Griffiths and Schroeter,
+\emph{Introduction to Quantum Mechanics}, third edition.
+The topics include the three-dimensional Schrödinger equation,
+spherical Bessel functions and spherical harmonics,
+hydrogenic Coulomb spectra, orbital and spin angular momentum,
+addition of spins, electromagnetic minimal coupling,
+gauge covariance, and the Aharonov--Bohm effect.
+Original descriptions paraphrase the textbook: consult the book for
+the authoritative problem wording, numerical data, and figures.
+The academic-style presentation is \textbf{not an arXiv publication
+or a substitute for the textbook}.
+\end{abstract}
+\tableofcontents
+
+\section{Notation and physical framework}
+For a particle of mass $m$ in three dimensions,
+\begin{equation}
+\hat H=-\frac{\sh^2}{2m}\nabla^2+V(\mathbf r),\qquad
+\hat{\mathbf p}=-\ii\sh\nabla,\qquad
+[\hat r_i,\hat p_j]=\ii\sh\delta_{ij}.
+\end{equation}
+For a central potential, write
+$\psi_{n\ell m}(\mathbf r)=R_{n\ell}(r)Y_\ell^m(\theta,\phi)$,
+with
+\begin{equation}
+\int_0^\infty |R_{n\ell}(r)|^2r^2\dd r=1,\quad
+\int|Y_\ell^m|^2\dd\Omega=1,\quad
+\hat L^2Y_\ell^m=\sh^2\ell(\ell+1)Y_\ell^m.
+\end{equation}
+Use the Condon--Shortley phase convention for $Y_\ell^m$.
+For hydrogen, set $\aB=4\pi\epsilon_0\sh^2/(\mu e^2)$
+and $E_n=-\sh^2/(2\mu\aB^2n^2)$ when reduced mass
+$\mu$ is used. Where the textbook neglects nuclear recoil,
+set $\mu\simeq m_e$. For spin, $S_i=\sh\sigma_i/2$.
+All numerical eigenvalue results specify units and numerical cutoffs;
+a discretized spherical wall is not ordinary unconfined hydrogen.
+
+\section{Three dimensions and spherical radial equations (4.1--4.11)}
+\input{tex/01-11}
+\section{Hydrogen atom and Coulomb observables (4.12--4.20)}
+\input{tex/12-20}
+\section{Angular momentum and elementary spin (4.21--4.34)}
+\input{tex/21-34}
+\section{Spin dynamics, coupled spins, electromagnetic theory (4.35--4.45)}
+\input{tex/35-45}
+\section{Additional three-dimensional methods (4.46--4.62)}
+\input{tex/46-62}
+\section{Advanced angular momentum and gauge problems (4.63--4.76)}
+\input{tex/63-76}
+
+\section{Reproducible numerical illustrations}
+The accompanying \texttt{scripts/verify.py} checks a set of independent
+eigenvalue, normalization, matrix, and spin-coupling calculations.
+\IfFileExists{figures/radial_density.pdf}{
+\begin{figure}[htbp]\centering
+\includegraphics[width=.86\linewidth]{figures/radial_density.pdf}
+\caption{Hydrogenic radial distributions in units of the Bohr radius.
+Probability per radial interval includes the Jacobian $r^2$.}
+\end{figure}}{}
+\IfFileExists{figures/spherical_box.pdf}{
+\begin{figure}[htbp]\centering
+\includegraphics[width=.86\linewidth]{figures/spherical_box.pdf}
+\caption{Zeros of spherical Bessel functions $j_\ell$ and energy
+quantization for a spherical hard-wall box (Problem 4.10).}
+\end{figure}}{}
+\clearpage
+\section{Reference and scope}
+D. J. Griffiths and D. F. Schroeter,
+\emph{Introduction to Quantum Mechanics}, 3rd ed.,
+Cambridge University Press (2018), Chapter 4,
+DOI \href{https://doi.org/10.1017/9781316995433}{10.1017/9781316995433}.
+These are original educational explanations, not an official solutions
+manual; the numbering follows the third-edition textbook.
+\end{document}

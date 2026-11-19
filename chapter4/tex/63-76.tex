@@ -1,0 +1,515 @@
+\problem{4.63}{Normalization of all spherical harmonics}
+Write $Y_\ell^m=K_{\ell m}
+P_\ell^m(\cos\theta)\ee^{\ii m\phi}$.
+The differential ladder operator and
+the identity for associated Legendre
+functions imply
+\begin{equation}
+L_+Y_\ell^m=\sh K_{\ell m}
+P_\ell^{m+1}(\cos\theta)
+\ee^{\ii(m+1)\phi}.
+\end{equation}
+But the normalized angular-momentum rule is
+$L_+Y_\ell^m=
+\sh\sqrt{(\ell-m)(\ell+m+1)}Y_\ell^{m+1}$.
+Consequently
+\begin{equation}
+\boxed{\frac{K_{\ell,m+1}}{K_{\ell m}}
+=\frac1{\sqrt{(\ell-m)(\ell+m+1)}}}.
+\end{equation}
+Iterating from $m=0$ gives
+\begin{equation}
+K_{\ell m}=K_{\ell0}
+\sqrt{\frac{(\ell-m)!}{(\ell+m)!}}.
+\end{equation}
+Orthogonality of ordinary Legendre polynomials
+requires
+$1=2\pi K_{\ell0}^2\int_{-1}^1P_\ell^2\dd x
+=4\pi K_{\ell0}^2/(2\ell+1)$.
+Thus
+\begin{equation}
+\boxed{K_{\ell m}=
+\sqrt{\frac{2\ell+1}{4\pi}
+\frac{(\ell-m)!}{(\ell+m)!}}}.
+\end{equation}
+The phase is fixed by the Condon--Shortley
+convention built into $P_\ell^m$.
+Negative $m$ follows from
+$Y_\ell^{-m}=(-1)^mY_\ell^{m*}$.
+
+\problem{4.64}{Combined orbital and spin hydrogen measurements}
+Consider the normalized state
+\begin{equation}
+\ket\Psi=\sqrt{\frac13}\ket{\ell=1,m_\ell=0}
+\ket{\uparrow}+
+\sqrt{\frac23}\ket{1,1}\ket{\downarrow},
+\end{equation}
+with the common normalized $R_{21}(r)$.
+Both components have $\ell=1$ and $s=1/2$.
+Therefore
+\begin{equation}
+\boxed{L^2=2\sh^2\;(P=1),\qquad
+S^2=\tfrac34\sh^2\;(P=1)}.
+\end{equation}
+For $L_z$ the outcomes are $0$ with $P=1/3$
+and $\sh$ with $P=2/3$; for $S_z$, the outcomes
+$\sh/2,-\sh/2$ have $P=1/3,2/3$.
+Both components have $m_j=m_\ell+m_s=1/2$,
+so $\boxed{J_z=\sh/2\;(P=1)}$.
+For $j=3/2,m_j=1/2$ the CG vector is
+$\sqrt{2/3}\ket{0,\uparrow}+
+\sqrt{1/3}\ket{1,\downarrow}$.
+Projecting gives amplitude
+$\sqrt2/3+\sqrt2/3=2\sqrt2/3$, hence
+\begin{equation}
+\boxed{P(J^2=\tfrac{15}{4}\sh^2)=\tfrac89,\qquad
+P(J^2=\tfrac34\sh^2)=\tfrac19}.
+\end{equation}
+For position measurement the spin alternatives
+are orthogonal, so no spatial interference term:
+\begin{align}
+|\Psi(\mathbf r)|^2&=|R_{21}(r)|^2
+\left[\tfrac13|Y_1^0|^2+
+\tfrac23|Y_1^1|^2\right]\\
+&=\boxed{\frac{|R_{21}(r)|^2}{4\pi}},
+\end{align}
+which is isotropic. The probability per unit
+radius for spin up is
+\begin{equation}
+\boxed{P_+(r)=\frac13r^2|R_{21}(r)|^2}.
+\end{equation}
+
+\problem{4.65}{Three spin halves: one quadruplet and two doublets}
+Use the shorthand $u=\uparrow$, $d=\downarrow$.
+The totally symmetric spin-$3/2$ quadruplet is
+\begin{align}
+\ket{\tfrac32,\tfrac32}&=\ket{uuu},\\
+\ket{\tfrac32,\tfrac12}&=
+(\ket{uud}+\ket{udu}+\ket{duu})/\sqrt3,\\
+\ket{\tfrac32,-\tfrac12}&=
+(\ket{udd}+\ket{dud}+\ket{ddu})/\sqrt3,\\
+\ket{\tfrac32,-\tfrac32}&=\ket{ddd}.
+\end{align}
+The first spin-$1/2$ doublet is obtained by
+placing particles 1 and 2 in a singlet:
+\begin{align}
+\ket{\tfrac12,\tfrac12}_{1}
+&=(\ket{udu}-\ket{duu})/\sqrt2,\\
+\ket{\tfrac12,-\tfrac12}_{1}
+&=(\ket{udd}-\ket{dud})/\sqrt2.
+\end{align}
+A second independent doublet, orthogonal
+to both the first doublet and the quadruplet,
+is
+\begin{align}
+\ket{\tfrac12,\tfrac12}_{2}
+&=(2\ket{uud}-\ket{udu}-\ket{duu})/\sqrt6,\\
+\ket{\tfrac12,-\tfrac12}_{2}
+&=(\ket{udd}+\ket{dud}-2\ket{ddu})/\sqrt6.
+\end{align}
+Each state has unit norm, the two doublets
+are mutually orthogonal, and total
+ladder operators connect the $\pm1/2$
+members within each doublet. Dimension
+count gives $4+2+2=8=2^3$.
+
+\problem{4.66}{Saturation of the spin uncertainty bound}
+Let $\chi=(a,b)^T$, $\|\chi\|=1$.
+Remove an overall phase to make $a\ge0$ real.
+Define the Bloch components
+$n_x=2a\operatorname{Re}b$,
+$n_y=2a\operatorname{Im}b$,
+$n_z=|a|^2-|b|^2$.
+A pure spinor obeys $n_x^2+n_y^2+n_z^2=1$.
+Since $\sigma_{S_i}^2=
+(\sh^2/4)(1-n_i^2)$,
+\begin{align}
+\sigma_{S_x}^2\sigma_{S_y}^2
+-\frac{\sh^2}{4}\avg{S_z}^2
+&=\frac{\sh^4}{16}
+[(1-n_x^2)(1-n_y^2)-n_z^2]\\
+&=\frac{\sh^4}{16}n_x^2n_y^2.
+\end{align}
+Equality therefore holds if and only if
+$n_xn_y=0$. With $a$ real, this means
+\begin{equation}
+\boxed{\operatorname{Re}b=0
+\quad\text{or}\quad\operatorname{Im}b=0},
+\end{equation}
+so $b$ can be chosen purely imaginary
+or purely real. The special case $a=0$
+automatically saturates the inequality.
+
+\problem{4.67}{Antiferromagnetic frustration on triangles and squares}
+For three spins $\mathbf S_i$ of magnitude
+$s_i=1/2$, define $\mathbf S=\sum_i\mathbf S_i$.
+Then
+\begin{equation}
+S^2=\sum_iS_i^2+
+2(S_1\cdot S_2+S_2\cdot S_3+S_3\cdot S_1).
+\end{equation}
+Hence for the triangular Hamiltonian
+\begin{equation}
+\boxed{H_\triangle=
+\frac J2(S^2-\tfrac94\sh^2)}.
+\end{equation}
+Possible total spins are $3/2$ and $1/2$;
+the latter occurs in two independent doublets.
+Their energies are
+$E_{1/2}=-3J\sh^2/4$ and
+$E_{3/2}=3J\sh^2/4$.
+Thus
+\begin{equation}
+\boxed{E_{\rm ground}^{\triangle}=-\tfrac34J\sh^2,
+\qquad d_{\rm ground}=4}.
+\end{equation}
+For a square, group opposite vertices:
+$\mathbf A=\mathbf S_1+\mathbf S_3$,
+$\mathbf B=\mathbf S_2+\mathbf S_4$.
+Then $H_\square=J\mathbf A\cdot\mathbf B$
+and
+\begin{equation}
+\boxed{H_\square=
+\frac J2(S^2-A^2-B^2)}.
+\end{equation}
+Each opposite-vertex pair can have
+spin $0$ or $1$. Choosing $A=B=1$
+and combining to total $S=0$ minimizes
+the energy:
+\begin{equation}
+\boxed{E_{\rm ground}^{\square}=-2J\sh^2},
+\end{equation}
+with a unique singlet ground state.
+
+\problem{4.68}{Numerical radial hydrogen in a large spherical wall}
+For a Coulomb center with a hard wall
+$u(b)=0$, discretize
+$u(r)=rR(r)$ at $r_j=j\Delta r$,
+$\Delta r=b/(N+1)$, and put
+$\beta=\Delta r/\aB=b/[(N+1)\aB]$.
+With energies scaled to $\sh^2/(2m\Delta r^2)$,
+the interior tridiagonal matrix has
+\begin{equation}
+\boxed{H_{jj}=2+v_j,\quad
+H_{j,j\pm1}=-1,\quad
+v_j=-\frac{2\beta}{j}
++\frac{\ell(\ell+1)}{j^2}}.
+\end{equation}
+The end conditions are $u_0=u_{N+1}=0$.
+For $\beta=1/50$, $N=1000$,
+$b=(N+1)\aB/50\simeq20.02\aB$.
+Diagonalizing the symmetric tridiagonal matrix,
+and converting to Hartrees
+$(1\ {\rm Ha}=\sh^2/(m\aB^2))$, gives
+\begin{equation}
+\begin{array}{c|rrr}
+\ell& E_1/{\rm Ha}&E_2/{\rm Ha}&E_3/{\rm Ha}\\\hline
+0&-0.499950&-0.124984&-0.049955\\
+1&-0.124996&-0.051639&+0.007931\\
+2&-0.053979&-0.005638&+0.067981
+\end{array}.
+\end{equation}
+The corresponding unconfined hydrogen energies
+are $E_n=-1/(2n^2)$ Ha, with
+$n\ge\ell+1$. Higher-energy states are
+strongly affected by the finite wall; in
+particular positive confined eigenvalues
+are not hydrogen bound levels.
+The attached numerical script reproduces
+the matrix eigenvalues and radial plots.
+\note{The geometry here is a spherical \emph{volume}
+with a hard radial boundary, not a surface-constrained
+particle or a toroidal hydrogen system.}
+
+\problem{4.69}{Numerical shooting targets for the first Coulomb states}
+For the hydrogen radial equation, set
+$E=-\sh^2/(2m\aB^2 n_{\rm eff}^2)$
+and $\rho=2r/(n_{\rm eff}\aB)$.
+The radial ODE is
+\begin{equation}
+\frac{\dd^2u}{\dd\rho^2}
++\left[-\frac14+\frac{n_{\rm eff}}{\rho}
+-\frac{\ell(\ell+1)}{\rho^2}\right]u=0.
+\end{equation}
+Near $\rho=0$ the regular solution has
+$u\propto\rho^{\ell+1}$.
+Integrate from a small positive cutoff
+$\rho_{\min}$ with
+$u(\rho_{\min})=\rho_{\min}^{\ell+1}$
+and $u'(\rho_{\min})=
+(\ell+1)\rho_{\min}^\ell$.
+For varying $n_{\rm eff}$, demand a
+decaying rather than growing tail as
+$\rho\to\infty$. The first three regular
+normalizable values are
+\begin{equation}
+\boxed{\begin{array}{c|ccc}
+\ell&n_{\rm eff,1}&n_{\rm eff,2}&n_{\rm eff,3}\\\hline
+0&1.000&2.000&3.000\\
+1&2.000&3.000&4.000\\
+2&3.000&4.000&5.000
+\end{array}}
+\end{equation}
+to four significant figures.
+These values follow analytically from
+termination of the confluent-hypergeometric
+series at $n\ge\ell+1$. Shooting is
+a numerical independent check; convergence
+must be tested with larger integration
+cutoffs and smaller step sizes.
+
+\problem{4.70}{Sequential Stern--Gerlach measurements}
+(a) For an initial $\ket{z+}$,
+a first $z$ measurement always yields $z+$.
+If the second measurement retains only
+$x+$, every retained particle had $z+$
+earlier. If instead the first measurement
+was along $x$, the $x+$ and $x-$ outcomes
+each occur with probability $1/2$,
+but the second $x$ measurement retains only
+particles that were previously $x+$.
+Thus in either version
+$\boxed{P(\text{first up}\mid\text{second }x+)=1}$.
+(b) For arbitrary unit axes $\mathbf a,\mathbf b,
+\mathbf c$, let
+$u=\cos^2(\theta_{ab}/2)$,
+$v=\cos^2(\theta_{bc}/2)$.
+The joint probabilities for the two successive
+measurements along $\mathbf b$ and $\mathbf c$
+are
+\begin{align}
+P_{++}&=uv,&P_{+-}&=u(1-v),\\
+P_{-+}&=(1-u)(1-v),&
+P_{--}&=(1-u)v.
+\end{align}
+Among the subensemble whose second result is $c+$,
+the fraction with an earlier $b+$ is
+\begin{equation}
+\boxed{\frac{uv}{uv+(1-u)(1-v)}
+=\frac1{1+\tan^2(\theta_{ab}/2)
+\tan^2(\theta_{bc}/2)}}.
+\end{equation}
+
+\problem{4.71}{Cartesian hydrogen $2p$ orbitals}
+The combinations of spherical harmonics satisfy
+\begin{align}
+\sin\theta\cos\phi\,\sqrt{\frac{3}{4\pi}}
+&=(Y_1^{-1}-Y_1^1)/\sqrt2,\\
+\sin\theta\sin\phi\,\sqrt{\frac{3}{4\pi}}
+&=\ii(Y_1^{-1}+Y_1^1)/\sqrt2,\\
+\cos\theta\,\sqrt{\frac{3}{4\pi}}&=Y_1^0.
+\end{align}
+Multiplying by the common normalized $R_{21}(r)$,
+\begin{equation}
+\boxed{\psi_{2p_x}=
+(\psi_{21,-1}-\psi_{211})/\sqrt2,\quad
+\psi_{2p_y}=
+\ii(\psi_{21,-1}+\psi_{211})/\sqrt2,\quad
+\psi_{2p_z}=\psi_{210}}.
+\end{equation}
+These are proportional to
+$x\ee^{-r/(2\aB)}$, $y\ee^{-r/(2\aB)}$,
+$z\ee^{-r/(2\aB)}$, respectively.
+Since, for example,
+$L_x=-\ii\sh(y\partial_z-z\partial_y)$
+and it annihilates any function
+$x f(r)$, one has
+\begin{equation}
+\boxed{L_x\psi_{2p_x}=0,\quad
+L_y\psi_{2p_y}=0,\quad
+L_z\psi_{2p_z}=0}.
+\end{equation}
+Each aligned orbital is an eigenstate of
+the corresponding angular-momentum component
+with eigenvalue zero. Isodensity contours have
+two lobes along the appropriate Cartesian axis,
+separated by its perpendicular nodal plane.
+
+\problem{4.72}{Uniform-field vector potential and magnetic coupling}
+Let $\mathbf A=-\frac12\mathbf r\times\mathbf B_0
+=\frac12\mathbf B_0\times\mathbf r$,
+with constant $\mathbf B_0$.
+The vector identity
+$\nabla\times(\mathbf B_0\times\mathbf r)=
+2\mathbf B_0$ gives
+\begin{equation}
+\boxed{\nabla\times\mathbf A=\mathbf B_0}.
+\end{equation}
+For a charge $q$ with spin coupling
+$-\gamma\mathbf B_0\cdot\mathbf S$,
+\begin{equation}
+H=\frac{(\mathbf p-q\mathbf A)^2}{2m}
++q\phi-\gamma\mathbf B_0\cdot\mathbf S.
+\end{equation}
+Since $\nabla\cdot\mathbf A=0$,
+$\mathbf p\cdot\mathbf A=\mathbf A\cdot\mathbf p$.
+Also
+$\mathbf A\cdot\mathbf p=
+\frac12\mathbf B_0\cdot(\mathbf r\times\mathbf p)
+=\frac12\mathbf B_0\cdot\mathbf L$
+and
+$\mathbf A^2=\frac14
+[r^2B_0^2-(\mathbf r\cdot\mathbf B_0)^2]$.
+Thus
+\begin{equation}
+\boxed{
+H=\frac{p^2}{2m}+q\phi
+-\mathbf B_0\cdot\left(\frac q{2m}\mathbf L+
+\gamma\mathbf S\right)
++\frac{q^2}{8m}
+[r^2B_0^2-(\mathbf r\cdot\mathbf B_0)^2]}.
+\end{equation}
+The term linear in field gives
+the orbital/spin Zeeman interaction;
+the quadratic term describes
+diamagnetic coupling.
+
+\problem{4.73}{Quantum force in a Stern--Gerlach field}
+For a neutral spin-one-half particle
+$H=p^2/(2m)-\gamma\mathbf B(\mathbf r)\cdot\mathbf S$.
+With
+$\mathbf B=-\alpha x\hat x+
+(B_0+\alpha z)\hat z$,
+only the spin interaction fails
+to commute with $p_z$:
+\begin{align}
+\frac{\dd\avg{p_z}}{\dd t}
+&=\frac{\ii}{\sh}
+\avg{[H,p_z]}
+=\gamma\avg{\partial_z\mathbf B\cdot\mathbf S}\\
+&=\gamma\alpha\avg{S_z}.
+\end{align}
+Since $\dd\avg z/\dd t=\avg{p_z}/m$,
+\begin{equation}
+\boxed{m\frac{\dd^2\avg z}{\dd t^2}
+=\gamma\alpha\avg{S_z}}.
+\end{equation}
+This is the quantum expectation-value
+version of the Stern--Gerlach force law.
+
+\problem{4.74}{Coupled spinor Schrödinger equations for Stern--Gerlach}
+Write the complete state as
+$\Psi=\Psi_+\chi_++\Psi_-\chi_-$,
+and use
+$\mathbf B=(-\alpha x,0,B_0+\alpha z)$.
+The Hamiltonian matrix is
+\begin{equation}
+H=-\frac{\sh^2}{2m}\nabla^2I
+-\frac{\gamma\sh}{2}
+\begin{pmatrix}
+B_0+\alpha z&-\alpha x\\
+-\alpha x&-B_0-\alpha z
+\end{pmatrix}.
+\end{equation}
+Equating spin components gives
+\begin{align}
+\ii\sh\partial_t\Psi_+
+&=-\frac{\sh^2}{2m}\nabla^2\Psi_+
+-\frac{\gamma\sh}{2}(B_0+\alpha z)\Psi_+
++\frac{\gamma\sh\alpha x}{2}\Psi_-,\\
+\ii\sh\partial_t\Psi_-
+&=-\frac{\sh^2}{2m}\nabla^2\Psi_-
++\frac{\gamma\sh}{2}(B_0+\alpha z)\Psi_-
++\frac{\gamma\sh\alpha x}{2}\Psi_+.
+\end{align}
+Factor the rapid uniform-field precession:
+$\Psi_\pm=\ee^{\pm\ii\gamma B_0t/2}
+\widetilde\Psi_\pm$. The equations become
+\begin{align}
+\ii\sh\partial_t\widetilde\Psi_+
+&=\left[-\frac{\sh^2}{2m}\nabla^2
+-\frac{\gamma\sh\alpha z}{2}\right]\widetilde\Psi_+
++\frac{\gamma\sh\alpha x}{2}
+\ee^{-\ii\gamma B_0t}\widetilde\Psi_-,\\
+\ii\sh\partial_t\widetilde\Psi_-
+&=\left[-\frac{\sh^2}{2m}\nabla^2
++\frac{\gamma\sh\alpha z}{2}\right]\widetilde\Psi_-
++\frac{\gamma\sh\alpha x}{2}
+\ee^{+\ii\gamma B_0t}\widetilde\Psi_+.
+\end{align}
+When rapid off-diagonal oscillations are
+negligible, the spin components independently
+see the linear potentials
+$V_\pm=\mp\gamma\sh\alpha z/2$.
+Their mean accelerations are
+\begin{equation}
+\boxed{\ddot{\avg z}_\pm
+=\pm\frac{\gamma\sh\alpha}{2m}}.
+\end{equation}
+The packet splits into two paths.
+\note{Neglecting off-diagonal coupling is
+a controlled approximation only when the
+uniform-field precession is rapid compared
+with the spatial coupling dynamics.}
+
+\problem{4.75}{Time-dependent magnetic flux in the ring problem}
+For charge $q$ on a ring of radius $b$,
+the time-dependent Hamiltonian is
+\begin{equation}
+H(t)=\frac{\sh^2}{2mb^2}
+\left(-\ii\frac{\dd}{\dd\phi}
+-\frac{q\Phi(t)}{2\pi\sh}\right)^2.
+\end{equation}
+All $H(t)$ are functions of the
+same derivative operator and commute
+at different times. A Fourier angular
+mode $\ee^{\ii n\phi}/\sqrt{2\pi}$
+has instantaneous eigenvalue
+\begin{equation}
+E_n(t)=\frac{\sh^2}{2mb^2}
+\left(n-\frac{q\Phi(t)}{2\pi\sh}\right)^2.
+\end{equation}
+Let $f(t)=\sh^{-1}\int_0^tE_n(t')\dd t'$.
+Then
+\begin{equation}
+\boxed{\Psi_n(\phi,t)=
+\frac{\ee^{\ii n\phi}}{\sqrt{2\pi}}
+\ee^{-\ii f(t)}}
+\end{equation}
+obeys
+$\ii\sh\partial_t\Psi_n=
+\sh f'(t)\Psi_n=E_n(t)\Psi_n=H(t)\Psi_n$.
+Normalization is unchanged, as only
+a time-dependent global phase is acquired.
+
+\problem{4.76}{Mechanical angular momentum and changing flux}
+Faraday's law gives the induced azimuthal
+electric field on the ring:
+$2\pi bE_\phi=-\dd\Phi/\dd t$.
+For tangential speed $v=b\omega$,
+the electric work rate is
+\begin{equation}
+\frac{\dd W}{\dd t}=qvE_\phi
+=-\frac{q\omega}{2\pi}\frac{\dd\Phi}{\dd t},
+\quad\boxed{\frac{\dd W}{\dd\Phi}
+=-\frac{q\omega}{2\pi}}.
+\end{equation}
+In a state $\psi_n=\ee^{\ii n\phi}/\sqrt{2\pi}$,
+canonical angular momentum is
+$L_{z,\mathrm{can}}=n\sh$.
+With $A_\phi=\Phi/(2\pi b)$, the
+mechanical momentum is
+$p_{\phi,\mathrm{mech}}=n\sh/b-qA_\phi$,
+so
+\begin{equation}
+\boxed{L_{z,\mathrm{mech}}=
+n\sh-\frac{q\Phi}{2\pi}},
+\quad
+\boxed{\omega=\frac{n\sh-q\Phi/(2\pi)}{mb^2}}.
+\end{equation}
+Differentiating the quantum stationary
+energy at fixed integer $n$,
+\begin{align}
+\frac{\dd E_n}{\dd\Phi}
+&=\frac{\dd}{\dd\Phi}
+\frac{[n\sh-q\Phi/(2\pi)]^2}{2mb^2}\\
+&=-\frac{q}{2\pi mb^2}
+[n\sh-q\Phi/(2\pi)]\\
+&=\boxed{-\frac{q\omega}{2\pi}}.
+\end{align}
+This exactly agrees with the
+classical work rate per unit flux.
+The \emph{mechanical} angular momentum
+is not generally an integer multiple
+of $\sh$ even though canonical
+angular momentum is.

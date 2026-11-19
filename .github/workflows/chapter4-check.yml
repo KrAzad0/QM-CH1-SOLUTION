@@ -1,0 +1,63 @@
+name: Verify Chapter 4 Three-Dimensional Quantum Mechanics
+
+on:
+  push:
+    branches: [chapter4-3d-quantum-mechanics, main]
+    paths:
+      - "chapter4/**"
+      - ".github/workflows/chapter4-check.yml"
+  pull_request:
+    paths:
+      - "chapter4/**"
+      - "docs/chapter4/**"
+      - ".github/workflows/chapter4-check.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Verify 76 exercises, numerical results, and Chapter 4 PDF
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install scientific packages
+        run: python -m pip install numpy scipy matplotlib
+      - name: Reproduce quantum numerical calculations
+        run: python chapter4/scripts/verify.py
+      - name: Ensure all 76 numbered exercises exist
+        run: |
+          python - <<'PY'
+          import re, pathlib
+          paths=sorted(pathlib.Path("chapter4/tex").glob("*.tex"))
+          numbers=[]
+          for p in paths:
+              numbers.extend(int(i) for i in re.findall(r"\\problem\{4\.(\d+)\}",p.read_text()))
+          assert numbers==list(range(1,77)), f"Missing or misordered problem numbers: {numbers}"
+          print("PASS all 76 exercises 4.1–4.76 are present in order")
+          PY
+      - name: Compile Chapter 4 manuscript
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: chapter4
+          root_file: main.tex
+          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+      - name: Verify deliverables
+        run: |
+          test -s chapter4/main.pdf
+          test -s chapter4/figures/radial_density.pdf
+          test -s chapter4/figures/spherical_box.pdf
+          test -s docs/chapter4/index.html
+          test -s docs/chapter4/chapter4.js
+      - name: Upload PDF and numerical plots
+        uses: actions/upload-artifact@v4
+        with:
+          name: QM-CH4-THREE-DIMENSIONS-PDF
+          path: |
+            chapter4/main.pdf
+            chapter4/figures/*.png
+          if-no-files-found: error

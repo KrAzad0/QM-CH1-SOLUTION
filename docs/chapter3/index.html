@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f6f3eb">
+  <meta name="description" content="Quantum Mechanics Chapter 3: Formalism. Original step-by-step solutions to all 49 exercises in Griffiths and Schroeter, third edition.">
+  <meta property="og:title" content="Quantum Mechanics Chapter 3 — Formalism">
+  <meta property="og:description" content="49 original worked solutions, Hilbert space, operators, commutators, uncertainty, Dirac notation and coherent states.">
+  <meta property="og:url" content="https://krazad0.github.io/QM-CH1-SOLUTION/chapter3/">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../style.css">
+  <title>Chapter 3 — Formalism | Quantum Mechanics | Kumar Azad</title>
+  <script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script defer src="./chapter3.js"></script>
+  <script defer src="../site.js"></script>
+  <style>
+    .hero.chapter-three h1{font-size:clamp(68px,7.8vw,112px)}
+    .hero.chapter-three .hero-grid{min-height:620px}
+    .hero.chapter-three .hero-source{max-width:520px}
+    .topic-grid .topic{min-height:236px}
+    .topic-math{font-size:15px}
+    .quick-nav{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;padding-top:35px}
+    .quick-nav a{padding:18px 16px;background:var(--paper);border:1px solid var(--line);transition:background .2s}
+    .quick-nav a:hover{background:var(--accent-light)}
+    .quick-nav span{font:400 10px var(--mono);color:var(--accent)}
+    .quick-nav strong{display:block;font:400 19px/1.25 var(--serif);margin-top:9px}
+    .quick-nav small{display:block;color:var(--muted);font-size:10px;margin-top:8px}
+    .formal-note{padding:20px 25px;border-left:3px solid var(--accent);color:var(--muted);background:var(--paper);font-size:13px;line-height:1.75}
+    .chapter-top-nav a{display:inline-block;margin-right:18px;font-size:12px;color:var(--muted)}
+    .chapter-top-nav a[aria-current="page"]{color:var(--accent);font-weight:700}
+    .section-topline{margin-bottom:18px}
+    @media(max-width:1050px){.quick-nav{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:700px){.quick-nav{grid-template-columns:repeat(2,1fr)}.hero.chapter-three h1{font-size:clamp(60px,12vw,84px)}}
+    @media(max-width:390px){.quick-nav{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<div class="top-progress" id="reading-progress"></div>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="../index.html" aria-label="Quantum Mechanics Chapters">
+      <span class="brand-mark">Ψ</span>
+      <span class="brand-text">Q.M. <strong>CHAPTER 03</strong><small>Mathematical physics / 2026</small></span>
+    </a>
+    <nav class="main-nav" aria-label="Chapter navigation">
+      <a href="../index.html">Chapter 1</a>
+      <a href="../chapter2/">Chapter 2</a>
+      <a href="#topics">Concepts</a>
+      <a href="#problems">49 problems</a>
+      <a href="#manuscript">Manuscript</a>
+    </nav>
+    <div class="header-actions">
+      <button class="theme-toggle" id="theme-toggle" type="button" title="Toggle color theme" aria-label="Switch color theme">◐</button>
+      <a class="github-pill" href="https://github.com/KrAzad0/QM-CH1-SOLUTION/tree/main/chapter3" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero chapter-three" id="top">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-line"></span> The mathematical foundations <span class="eyebrow-index">03 / 12</span></div>
+        <h1>Quantum<br><em>Formalism</em><span class="title-dot">.</span></h1>
+        <p class="hero-lede">The quantum state is a vector. An observable is an operator. Measurement, uncertainty and time evolution follow from their mathematical structure.</p>
+        <p class="hero-source">Independent worked solutions to Chapter 3 of <cite>Introduction to Quantum Mechanics</cite>, 3rd edition, by David J. Griffiths &amp; Darrell F. Schroeter.</p>
+        <div class="hero-cta">
+          <a class="button button-primary" href="#problems">Explore 49 problems <span>↗</span></a>
+          <a class="button button-outline" href="./chapter-3-solutions.pdf" target="_blank" rel="noopener noreferrer">Read PDF <span>↗</span></a>
+        </div>
+        <div class="hero-statline"><div><strong>49</strong><span>Exercises</span></div><div><strong>06</strong><span>Concept groups</span></div><div><strong>03</strong><span>Chapter</span></div></div>
+      </div>
+      <div class="hero-visual">
+        <div class="visual-caption"><span>FIG. 03</span><span>HILBERT SPACE &amp; OPERATOR STRUCTURE</span></div>
+        <svg class="wave-figure" viewBox="0 0 620 440" role="img" aria-label="Quantum states shown as a vector in a two-dimensional complex vector space">
+          <defs><linearGradient id="hilbert-wash" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#b64b3b" stop-opacity=".19"/><stop offset="100%" stop-color="#2c7771" stop-opacity=".03"/></linearGradient></defs>
+          <g class="wave-grid"><path d="M76 54V380M126 54V380M176 54V380M226 54V380M276 54V380M326 54V380M376 54V380M426 54V380M476 54V380M526 54V380"/><path d="M55 95H567M55 146H567M55 197H567M55 248H567M55 299H567M55 350H567"/></g>
+          <ellipse cx="305" cy="239" rx="213" ry="102" transform="rotate(-23 305 239)" fill="url(#hilbert-wash)" stroke="#b64b3b" stroke-opacity=".43" stroke-width="1.5"/>
+          <line x1="88" y1="332" x2="559" y2="332" stroke="currentColor" opacity=".38" stroke-width="1.4"/>
+          <line x1="258" y1="385" x2="258" y2="63" stroke="currentColor" opacity=".4" stroke-width="1.4"/>
+          <path d="M258 332L452 153" stroke="#a84a37" stroke-width="4" stroke-linecap="round"/>
+          <path d="M452 153l-15 4 11 12z" fill="#a84a37"/>
+          <path d="M258 332L165 235" stroke="#2c7771" stroke-width="3.1" stroke-linecap="round" stroke-dasharray="7 5"/>
+          <circle cx="258" cy="332" r="5" fill="var(--ink)"/>
+          <path d="M258 332L405 332L452 153" stroke="#a84a37" stroke-width="1.5" fill="none" stroke-dasharray="5 6" opacity=".6"/>
+          <g class="svg-label"><text x="470" y="147" fill="#a84a37" font-size="20">|ψ⟩</text><text x="100" y="224" fill="#2c7771" font-size="17">|φ⟩</text><text x="490" y="354">e₁</text><text x="272" y="87">e₂</text><text x="405" y="325" font-size="12">⟨e₁|ψ⟩</text></g>
+        </svg>
+        <div class="formula-panel">
+          <span class="formula-kicker">THE GEOMETRY OF QUANTUM STATES</span>
+          <div class="hero-formula">\(\langle\psi|\psi\rangle=1\quad \hat A^\dagger=\hat A\)</div>
+          <span class="formula-foot">INNER PRODUCTS · EIGENVECTORS · OPERATORS</span>
+        </div>
+        <div class="figure-reference">CONCEPTUAL 2D SLICE OF AN ABSTRACT HILBERT SPACE</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="principles" id="topics">
+    <div class="container">
+      <div class="section-topline"><span>01 — THE STRUCTURE OF QUANTUM THEORY</span><span>SIX CONCEPT CLUSTERS</span></div>
+      <div class="intro-layout">
+        <h2>From wavefunctions<br><em>to abstract states.</em></h2>
+        <div class="intro-text">
+          <p>Chapter 3 reorganizes the first two chapters into a general mathematical language. Square-integrable states live in Hilbert space, Hermitian operators describe observables, and their eigenvectors organize measurement probabilities.</p>
+          <p>Its later exercises go beyond the basic formalism: coherent states, quantum time scales, three-level systems, supersymmetry and the essential role of operator domains.</p>
+        </div>
+      </div>
+      <div class="topic-grid">
+        <article class="topic"><span>3.1</span><h3>Hilbert space</h3><p>Square integrability, inner products, normalization and complete bases.</p><div class="topic-math">\(\langle f|g\rangle=\int f^*g\,dx\)</div></article>
+        <article class="topic"><span>3.2</span><h3>Observables</h3><p>Adjoints, Hermitian operators, eigenvalues and their spectra.</p><div class="topic-math">\(\hat Q^\dagger=\hat Q\)</div></article>
+        <article class="topic"><span>3.3</span><h3>Eigenfunctions</h3><p>Discrete and continuous spectra, orthogonality and completeness.</p><div class="topic-math">\(\hat Q|q\rangle=q|q\rangle\)</div></article>
+        <article class="topic"><span>3.4</span><h3>Statistical interpretation</h3><p>Momentum distributions and measurement amplitudes in different bases.</p><div class="topic-math">\(P(q)=|\langle q|\psi\rangle|^2\)</div></article>
+        <article class="topic"><span>3.5</span><h3>Uncertainty</h3><p>Commutators, standard deviations and energy–time relations.</p><div class="topic-math">\(\sigma_A\sigma_B\geq\tfrac12|\langle[A,B]\rangle|\)</div></article>
+        <article class="topic"><span>3.6</span><h3>Vectors and operators</h3><p>Dirac notation, matrices, unitary dynamics and coherent states.</p><div class="topic-math">\(|\psi\rangle=\sum_n c_n|n\rangle\)</div></article>
+      </div>
+
+      <div class="quick-nav">
+        <a href="#problem-3-1"><span>PROBLEMS 01–10</span><strong>Hilbert space and observables</strong><small>Symmetry &amp; spectra</small></a>
+        <a href="#problem-3-11"><span>PROBLEMS 11–22</span><strong>Momentum and uncertainty</strong><small>Fourier representation</small></a>
+        <a href="#problem-3-23"><span>PROBLEMS 23–30</span><strong>Dirac notation and matrices</strong><small>Spectral decomposition</small></a>
+        <a href="#problem-3-31"><span>PROBLEMS 31–40</span><strong>Orthogonality and dynamics</strong><small>Oscillator matrices</small></a>
+        <a href="#problem-3-41"><span>PROBLEMS 41–49</span><strong>Advanced formalism</strong><small>Coherence &amp; operator domains</small></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="problem-section" id="problems">
+    <div class="container">
+      <div class="section-topline"><span>02 — PROBLEM INDEX</span><span>TEXTBOOK NUMBERING 3.1 TO 3.49</span></div>
+      <div class="section-heading-row">
+        <div><h2>Every problem.<br><em>Every derivation.</em></h2><p>Search the mathematical concept, problem title or exercise number, then open its detailed solution in the LaTeX manuscript.</p></div>
+        <div class="complete-count">49 <span>/ 49</span><small>DOCUMENTED</small></div>
+      </div>
+      <div class="problem-toolbar">
+        <label class="search-wrap"><span class="sr-only">Search Chapter 3 exercises</span><span aria-hidden="true">⌕</span><input id="problem-search" type="search" placeholder="Search: uncertainty, matrix, 3.42…" autocomplete="off"></label>
+        <div class="filter-group" role="group" aria-label="Problem group">
+          <button type="button" class="filter is-active" data-filter="all" aria-pressed="true">All 49</button>
+          <button type="button" class="filter" data-filter="section" aria-pressed="false">3.1–3.30</button>
+          <button type="button" class="filter" data-filter="further" aria-pressed="false">3.31–3.49</button>
+        </div>
+      </div>
+      <div class="problem-list" id="problem-list"></div>
+      <p class="no-results" id="no-results" hidden>No matching exercises found.</p>
+      <div class="list-footer"><span id="visible-count" aria-live="polite">Showing 49 of 49 problems</span><a href="#manuscript">Continue to the manuscript ↘</a></div>
+    </div>
+  </section>
+
+  <section class="manuscript-section" id="manuscript">
+    <div class="container">
+      <div class="section-topline"><span>03 — COMPLETE MANUSCRIPT</span><span>LATEX AND REPRODUCIBLE FIGURES</span></div>
+      <div class="manuscript-layout">
+        <div class="manuscript-heading">
+          <div class="manuscript-index">MATHEMATICAL PHYSICS / QM-03</div>
+          <h2>Read the<br><em>formalism.</em></h2>
+          <p>All 49 exercises in one arXiv-inspired study manuscript, with mathematical derivations, physical interpretation, boundary-condition checks, and numerical visualizations.</p>
+          <div class="manuscript-actions">
+            <a class="button button-primary" href="./chapter-3-solutions.pdf" target="_blank" rel="noopener noreferrer">Read full PDF <span>↗</span></a>
+            <a class="button button-outline" href="https://github.com/KrAzad0/QM-CH1-SOLUTION/tree/main/chapter3" target="_blank" rel="noopener noreferrer">View LaTeX source <span>↗</span></a>
+          </div>
+        </div>
+        <div class="paper-preview">
+          <div class="paper-head"><span>MATHEMATICAL PHYSICS · EDUCATIONAL COMPANION</span><span>QM—03</span></div>
+          <div class="paper-accent"></div>
+          <div class="paper-title">Quantum Mechanics:<br>Formalism</div>
+          <div class="paper-subtitle">Independent worked solutions to Chapter 3<br>Problems 3.1–3.49</div>
+          <div class="paper-author">Kumar Azad</div>
+          <div class="paper-rule"></div>
+          <strong>Abstract</strong>
+          <p>Hilbert space, Hermitian observables, spectra and eigenstates, Fourier-dual representations, uncertainty inequalities, Dirac notation, coherent states, supersymmetric operators and self-adjoint domains.</p>
+          <div class="paper-fake-lines"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="paper-bottom">INDEPENDENT COURSEWORK · NOVEMBER 2026</div>
+        </div>
+      </div>
+      <div class="citation-strip">
+        <div><span>PRIMARY TEXTBOOK</span><p>D. J. Griffiths &amp; D. F. Schroeter, <em>Introduction to Quantum Mechanics</em>, 3rd edition. Cambridge University Press (2018), Chapter 3, pp. 91–130.</p></div>
+        <a href="https://doi.org/10.1017/9781316995433" target="_blank" rel="noopener noreferrer">Book DOI ↗</a>
+      </div>
+      <p class="formal-note">Independent educational solution companion. The problem descriptions are paraphrases; consult the original textbook for the exact exercises. This is not an official solutions manual, a peer-reviewed publication or an arXiv preprint.</p>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div><a class="footer-brand" href="#top">Ψ <span>Quantum Formalism</span></a><p>Linear algebra, functional analysis, and quantum observables.</p></div>
+    <div><span>CHAPTERS</span><a href="../index.html">Chapter 1 — Wavefunction</a><a href="../chapter2/">Chapter 2 — Stationary states</a><a href="#top">Chapter 3 — Formalism</a></div>
+    <div><span>LINKS</span><a href="https://github.com/KrAzad0/QM-CH1-SOLUTION" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://krazad0.github.io/" target="_blank" rel="noopener noreferrer">Portfolio ↗</a></div>
+  </div>
+  <div class="container footer-bottom"><span>© 2026 Kumar Azad · Independent coursework.</span><span>Not an arXiv submission.</span></div>
+</footer>
+</body>
+</html>

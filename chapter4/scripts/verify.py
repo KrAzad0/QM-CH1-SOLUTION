@@ -21,7 +21,7 @@ OUT=Path(__file__).resolve().parents[1]/"figures"
 OUT.mkdir(parents=True,exist_ok=True)
 
 def check(label, actual, target, rtol=2e-6):
-    assert np.isclose(actual,target,rtol=rtol,atol=1e-12), \
+    assert np.isclose(actual,target,rtol=rtol,atol=(1e-12 if target==0 else 1e-15*abs(target))), \
         f"{label}: got {actual}, expected {target}"
     print(f"PASS {label}: {actual:.9g}")
 
@@ -78,7 +78,7 @@ def radial_hydrogen():
     fig.savefig(OUT/"radial_density.png",dpi=175)
     plt.close(fig)
     for ell,rho in [("1s",r10),("2s",r20),("2p",r21)]:
-        check("4.13 radial norm "+ell,np.trapz(r*r*rho*rho,x=r),1,rtol=5e-5)
+        check("4.13 radial norm "+ell,np.trapezoid(r*r*rho*rho,x=r),1,rtol=5e-5)
     integrand=lambda r:r**6*np.exp(-2*r/3)
     ang=8*np.pi/15
     norm=ang/(81**2*np.pi)*quad(integrand,0,np.inf)[0]

@@ -1,0 +1,58 @@
+name: Verify Chapter 3 Formalism
+
+on:
+  push:
+    branches: [chapter3-formalism-solutions-site, main]
+    paths:
+      - "chapter3/**"
+      - ".github/workflows/chapter3-check.yml"
+  pull_request:
+    paths:
+      - "chapter3/**"
+      - "docs/chapter3/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: Validate Chapter 3 equations, numerical plots and PDF
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install numerical libraries
+        run: python -m pip install numpy scipy matplotlib
+
+      - name: Reproduce numerical checks and figures
+        run: python chapter3/scripts/plots.py
+
+      - name: Compile Chapter 3 PDF
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: chapter3
+          root_file: main.tex
+          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+
+      - name: Verify manuscript and plots
+        run: |
+          test -s chapter3/main.pdf
+          test -s chapter3/figures/momentum_well.pdf
+          test -s chapter3/figures/coherent.pdf
+          pdftotext chapter3/main.pdf - | grep '3.49'
+
+      - name: Upload compiled manuscript and plots
+        uses: actions/upload-artifact@v4
+        with:
+          name: QM-CH3-FORMALISM-PDF
+          path: |
+            chapter3/main.pdf
+            chapter3/figures/*.png
+          if-no-files-found: error

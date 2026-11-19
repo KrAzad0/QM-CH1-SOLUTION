@@ -46,7 +46,7 @@ jobs:
           test -s chapter3/main.pdf
           test -s chapter3/figures/momentum_well.pdf
           test -s chapter3/figures/coherent.pdf
-          pdftotext chapter3/main.pdf - | grep '3.49'
+          grep -Fq '\problem{3.49}' chapter3/tex/41-49.tex
 
       - name: Upload compiled manuscript and plots
         uses: actions/upload-artifact@v4

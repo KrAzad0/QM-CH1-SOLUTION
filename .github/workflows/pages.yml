@@ -10,6 +10,7 @@ on:
       - "scripts/**"
       - "chapter2/**"
       - "chapter3/**"
+      - "chapter4/**"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
 
@@ -22,7 +23,7 @@ concurrency:
 
 jobs:
   publish:
-    name: Build Chapter 1, 2 and 3 PDFs; publish GitHub Pages
+    name: Build Chapters 1 through 4 PDFs and publish GitHub Pages
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -39,6 +40,8 @@ jobs:
         run: python chapter2/scripts/numerical_checks.py
       - name: Reproduce Chapter 3 numerical checks and figures
         run: python chapter3/scripts/plots.py
+      - name: Reproduce Chapter 4 numerical checks and figures
+        run: python chapter4/scripts/verify.py
       - name: Compile Chapter 1 PDF
         uses: xu-cheng/latex-action@v3
         with:
@@ -56,20 +59,30 @@ jobs:
           working_directory: chapter3
           root_file: main.tex
           args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+      - name: Compile Chapter 4 PDF
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: chapter4
+          root_file: main.tex
+          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
       - name: Prepare published website and PDFs
         run: |
           test -s main.pdf
           test -s chapter2/main.pdf
           test -s chapter3/main.pdf
+          test -s chapter4/main.pdf
           test -s docs/index.html
           test -s docs/chapter2/index.html
           test -s docs/chapter3/index.html
+          test -s docs/chapter4/index.html
           cp main.pdf docs/chapter-1-solutions.pdf
           cp chapter2/main.pdf docs/chapter2/chapter-2-solutions.pdf
           cp chapter3/main.pdf docs/chapter3/chapter-3-solutions.pdf
-          mkdir -p docs/chapter2/figures docs/chapter3/figures
+          cp chapter4/main.pdf docs/chapter4/chapter-4-solutions.pdf
+          mkdir -p docs/chapter2/figures docs/chapter3/figures docs/chapter4/figures
           cp chapter2/figures/*.png docs/chapter2/figures/
           cp chapter3/figures/*.png docs/chapter3/figures/
+          cp chapter4/figures/*.png docs/chapter4/figures/
           touch docs/.nojekyll
       - name: Publish to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f6f3eb">
+  <meta name="description" content="Quantum Mechanics Chapter 5: Identical Particles. Independent worked solutions to all 39 exercises in Griffiths and Schroeter, third edition.">
+  <meta property="og:title" content="Quantum Mechanics Chapter 5 — Identical Particles">
+  <meta property="og:description" content="39 fully indexed mathematical solutions on exchange statistics, Slater determinants, atoms, Fermi gases, periodic solids and phonons.">
+  <meta property="og:url" content="https://krazad0.github.io/QM-CH1-SOLUTION/chapter5/">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../style.css">
+  <title>Chapter 5 — Identical Particles | Kumar Azad</title>
+  <script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script defer src="./chapter5.js"></script>
+  <script defer src="../site.js"></script>
+  <style>
+    .hero.chapter-five h1{font-size:clamp(52px,6.6vw,92px)}
+    .hero.chapter-five .hero-grid{min-height:620px}
+    .hero.chapter-five .hero-source{max-width:520px}
+    .topic-grid .topic{min-height:236px}
+    .topic-math{font-size:15px}
+    .quick-nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;padding-top:35px}
+    .quick-nav a{padding:18px 16px;background:var(--paper);border:1px solid var(--line);transition:background .2s}
+    .quick-nav a:hover{background:var(--accent-light)}
+    .quick-nav span{font:400 10px var(--mono);color:var(--accent)}
+    .quick-nav strong{display:block;font:400 19px/1.25 var(--serif);margin-top:9px}
+    .quick-nav small{display:block;color:var(--muted);font-size:10px;margin-top:8px}
+    .formal-note{padding:20px 25px;border-left:3px solid var(--accent);color:var(--muted);background:var(--paper);font-size:13px;line-height:1.75}
+    .chapter-top-nav a{display:inline-block;margin-right:18px;font-size:12px;color:var(--muted)}
+    .chapter-top-nav a[aria-current="page"]{color:var(--accent);font-weight:700}
+    .section-topline{margin-bottom:18px}
+    @media(max-width:1050px){.quick-nav{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:700px){.quick-nav{grid-template-columns:repeat(2,1fr)}.hero.chapter-five h1{font-size:clamp(50px,11vw,78px)}}
+    @media(max-width:390px){.quick-nav{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<div class="top-progress" id="reading-progress"></div>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="../index.html" aria-label="Quantum Mechanics Chapters">
+      <span class="brand-mark">Ψ</span>
+      <span class="brand-text">Q.M. <strong>CHAPTER 05</strong><small>Mathematical physics / 2026</small></span>
+    </a>
+    <nav class="main-nav" aria-label="Chapter navigation">
+      <a href="../index.html">Chapter 1</a>
+      <a href="../chapter2/">Chapter 2</a><a href="../chapter3/">Chapter 3</a><a href="../chapter4/">Chapter 4</a>
+      <a href="#topics">Concepts</a>
+      <a href="#problems">39 problems</a>
+      <a href="#manuscript">Manuscript</a>
+    </nav>
+    <div class="header-actions">
+      <button class="theme-toggle" id="theme-toggle" type="button" title="Toggle color theme" aria-label="Switch color theme">◐</button>
+      <a class="github-pill" href="https://github.com/KrAzad0/QM-CH1-SOLUTION/tree/main/chapter4" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero chapter-five" id="top">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-line"></span> The quantum mechanics of many particles <span class="eyebrow-index">05 / 12</span></div>
+        <h1>Identical<br><em>Particles</em><span class="title-dot">.</span></h1>
+        <p class="hero-lede">Quantum mechanics becomes collective. Exchange symmetry, the Pauli principle, and the emergence of atoms, electronic bands, and quantum solids.</p>
+        <p class="hero-source">Independent worked solutions to Chapter 5 of <cite>Introduction to Quantum Mechanics</cite>, 3rd edition, by David J. Griffiths &amp; Darrell F. Schroeter.</p>
+        <div class="hero-cta">
+          <a class="button button-primary" href="#problems">Explore 39 problems <span>↗</span></a>
+          <a class="button button-outline" href="./chapter-5-solutions.pdf" target="_blank" rel="noopener noreferrer">Read PDF <span>↗</span></a>
+        </div>
+        <div class="hero-statline"><div><strong>39</strong><span>Exercises</span></div><div><strong>06</strong><span>Problem groups</span></div><div><strong>05</strong><span>Chapter</span></div></div>
+      </div>
+      <div class="hero-visual">
+        <div class="visual-caption"><span>FIG. 03</span><span>EXCHANGE SYMMETRY OF TWO PARTICLES</span></div>
+        <svg class="wave-figure" viewBox="0 0 620 440" role="img" aria-label="Two exchange-symmetric quantum probability amplitudes">
+<g class="wave-grid"><path d="M60 90H565M60 150H565M60 210H565M60 270H565M60 330H565"/><path d="M115 50V375M185 50V375M255 50V375M325 50V375M395 50V375M465 50V375M535 50V375"/></g>
+<path d="M72 355L543 355M80 365L80 76" fill="none" stroke="currentColor" opacity=".38" stroke-width="1.6"/>
+<path d="M120 300Q205 100 315 217Q435 332 525 108" stroke="#a84a37" fill="none" stroke-width="3.8" stroke-linecap="round"/>
+<path d="M120 118Q230 320 320 214Q426 100 526 302" stroke="#2c7771" fill="none" stroke-width="3.8" stroke-linecap="round"/>
+<ellipse cx="316" cy="215" rx="47" ry="47" fill="#a84a37" fill-opacity=".07" stroke="#a84a37" stroke-dasharray="5 5" stroke-width="1.4"/>
+<path d="M316 215L269 168" stroke="#a84a37" stroke-dasharray="4 5"/>
+<circle cx="316" cy="215" r="5" fill="currentColor"/>
+<g font-family="monospace" font-size="15" fill="currentColor"><text x="522" y="90">a(1)b(2)</text><text x="438" y="316">b(1)a(2)</text><text x="334" y="202">P₁₂</text><text x="90" y="87">Ψ</text><text x="540" y="375">x</text></g>
+</svg>
+        <div class="formula-panel">
+          <span class="formula-kicker">PARTICLE EXCHANGE AND SUPERPOSITION</span>
+          <div class="hero-formula">\(\Psi_{\pm}=\frac{|ab\rangle\pm|ba\rangle}{\sqrt2}\)</div>
+          <span class="formula-foot">PARTICLE LABELS · SYMMETRIZATION · ANTISYMMETRIZATION</span>
+        </div>
+        <div class="figure-reference">SCHEMATIC AMPLITUDES · EXCHANGE OF IDENTICAL PARTICLES</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="principles" id="topics">
+    <div class="container">
+      <div class="section-topline"><span>01 — THE STRUCTURE OF MANY-PARTICLE THEORY</span><span>SIX PROBLEM GROUPS</span></div>
+      <div class="intro-layout">
+        <h2>From identical states<br><em>to quantum matter.</em></h2>
+        <div class="intro-text">
+          <p>Chapter 5 studies the fundamentally different ways bosons and fermions combine. Exchange symmetry determines the allowed states, spin configurations, and microscopic organization of matter.</p>
+          <p>Its later problems apply that structure to helium, the periodic table, Fermi statistics, band gaps, electron magnetism, white dwarfs, and phonons in crystals.</p>
+        </div>
+      </div>
+      <div class="topic-grid">
+<article class="topic"><span>5.1</span><h3>Exchange symmetry</h3><p>Symmetric bosons, antisymmetric fermions, and exclusion.</p><div class="topic-math">\(P_{12}\Psi=\pm\Psi\)</div></article>
+<article class="topic"><span>5.2</span><h3>Slater determinants</h3><p>Many-particle antisymmetrization with spatial and spin orbitals.</p><div class="topic-math">\(\Psi_F\propto\det[\phi_j(x_i)]\)</div></article>
+<article class="topic"><span>5.3</span><h3>Atoms and helium</h3><p>Electronic configurations, Coulomb repulsion and Hund's rules.</p><div class="topic-math">\(H=\sum_i h_i+\sum_{i<j}V_{ij}\)</div></article>
+<article class="topic"><span>5.4</span><h3>Fermi gas</h3><p>Filled momentum spheres, Fermi energy and degeneracy pressure.</p><div class="topic-math">\(k_F=(3\pi^2n)^{1/3}\)</div></article>
+<article class="topic"><span>5.5</span><h3>Periodic solids</h3><p>Bloch waves, band gaps and van Hove singularities.</p><div class="topic-math">\(\psi(x+a)=e^{iqa}\psi(x)\)</div></article>
+<article class="topic"><span>5.6</span><h3>Phonons and dense matter</h3><p>Harmonic chain operators and degeneracy-supported stars.</p><div class="topic-math">\(E_k=\hbar\omega_k(n_k+\tfrac12)\)</div></article>
+</div>
+      <div class="quick-nav">
+<a href="#problem-5-1"><span>PROBLEMS 01–08</span><strong>Two-particle exchange</strong><small>8 exercises</small></a>
+<a href="#problem-5-9"><span>PROBLEMS 09–16</span><strong>Spin and atomic states</strong><small>8 exercises</small></a>
+<a href="#problem-5-17"><span>PROBLEMS 17–23</span><strong>Atoms and Fermi gas</strong><small>7 exercises</small></a>
+<a href="#problem-5-24"><span>PROBLEMS 24–28</span><strong>Periodic potentials</strong><small>5 exercises</small></a>
+<a href="#problem-5-29"><span>PROBLEMS 29–34</span><strong>Quantum statistics</strong><small>6 exercises</small></a>
+<a href="#problem-5-35"><span>PROBLEMS 35–39</span><strong>Dense matter and phonons</strong><small>5 exercises</small></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="problem-section" id="problems">
+    <div class="container">
+      <div class="section-topline"><span>02 — PROBLEM INDEX</span><span>TEXTBOOK NUMBERING 4.1 TO 4.39</span></div>
+      <div class="section-heading-row">
+        <div><h2>One chapter.<br><em>39 derivations.</em></h2><p>Search the mathematical concept, problem title or exercise number, then open its detailed solution in the LaTeX manuscript.</p></div>
+        <div class="complete-count">39 <span>/ 39</span><small>DOCUMENTED</small></div>
+      </div>
+      <div class="problem-toolbar">
+        <label class="search-wrap"><span class="sr-only">Search Chapter 5 exercises</span><span aria-hidden="true">⌕</span><input id="problem-search" type="search" placeholder="Search: bosons, Fermi, 5.38…" autocomplete="off"></label>
+        <div class="filter-group" role="group" aria-label="Problem group">
+          <button type="button" class="filter is-active" data-filter="all" aria-pressed="true">All 39</button>
+          <button type="button" class="filter" data-filter="section" aria-pressed="false">5.1–5.28</button>
+          <button type="button" class="filter" data-filter="further" aria-pressed="false">4.46–4.39</button>
+        </div>
+      </div>
+      <div class="problem-list" id="problem-list"></div>
+      <p class="no-results" id="no-results" hidden>No matching exercises found.</p>
+      <div class="list-footer"><span id="visible-count" aria-live="polite">Showing 39 of 39 problems</span><a href="#manuscript">Continue to the manuscript ↘</a></div>
+    </div>
+  </section>
+
+  <section class="manuscript-section" id="manuscript">
+    <div class="container">
+      <div class="section-topline"><span>03 — COMPLETE MANUSCRIPT</span><span>LATEX AND REPRODUCIBLE FIGURES</span></div>
+      <div class="manuscript-layout">
+        <div class="manuscript-heading">
+          <div class="manuscript-index">MATHEMATICAL PHYSICS / QM-05</div>
+          <h2>Read the<br><em>many-body theory.</em></h2>
+          <p>Independent calculations across all 39 exercises, with explicit symmetrization, orbital statistics, Fermi-surface integrals, Bloch-wave band conditions and harmonic-chain operators.</p>
+          <div class="manuscript-actions">
+            <a class="button button-primary" href="./chapter-5-solutions.pdf" target="_blank" rel="noopener noreferrer">Read full PDF <span>↗</span></a>
+            <a class="button button-outline" href="https://github.com/KrAzad0/QM-CH1-SOLUTION/tree/main/chapter4" target="_blank" rel="noopener noreferrer">View LaTeX source <span>↗</span></a>
+          </div>
+        </div>
+        <div class="paper-preview">
+          <div class="paper-head"><span>MATHEMATICAL PHYSICS · EDUCATIONAL COMPANION</span><span>QM—05</span></div>
+          <div class="paper-accent"></div>
+          <div class="paper-title">Quantum Mechanics:<br>Three Dimensions</div>
+          <div class="paper-subtitle">Independent worked solutions to Chapter 4<br>Problems 4.1–4.39</div>
+          <div class="paper-author">Kumar Azad</div>
+          <div class="paper-rule"></div>
+          <strong>Abstract</strong>
+          <p>Reduced-mass systems, exchange symmetry, Slater determinants, Laughlin states, helium, Hund’s rules, Fermi gases, Stoner magnetism, Bloch bands, dense stars and phonons.</p>
+          <div class="paper-fake-lines"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="paper-bottom">INDEPENDENT COURSEWORK · NOVEMBER 2026</div>
+        </div>
+      </div>
+      <div class="citation-strip">
+        <div><span>PRIMARY TEXTBOOK</span><p>D. J. Griffiths &amp; D. F. Schroeter, <em>Introduction to Quantum Mechanics</em>, 3rd edition. Cambridge University Press (2018), Chapter 5.</p></div>
+        <a href="https://doi.org/10.1017/9781316995433" target="_blank" rel="noopener noreferrer">Book DOI ↗</a>
+      </div>
+      <p class="formal-note">Independent educational solution companion. The problem descriptions are paraphrases; consult the original textbook for the exact exercises. This is not an official solutions manual, a peer-reviewed publication or an arXiv preprint.</p>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div><a class="footer-brand" href="#top">Ψ <span>Quantum Three Dimensions</span></a><p>Linear algebra, functional analysis, and quantum observables.</p></div>
+    <div><span>CHAPTERS</span><a href="../index.html">Chapter 1 — Wavefunction</a><a href="../chapter2/">Chapter 2 — Stationary states</a><a href="../chapter3/">Chapter 3 — Formalism</a><a href="../chapter4/">Chapter 4 — Three Dimensions</a><a href="#top">Chapter 5 — Identical Particles</a></div>
+    <div><span>LINKS</span><a href="https://github.com/KrAzad0/QM-CH1-SOLUTION" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://krazad0.github.io/" target="_blank" rel="noopener noreferrer">Portfolio ↗</a></div>
+  </div>
+  <div class="container footer-bottom"><span>© 2026 Kumar Azad · Independent coursework.</span><span>Not an arXiv submission.</span></div>
+</footer>
+</body>
+</html>

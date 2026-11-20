@@ -136,7 +136,7 @@ def fermi_gas():
     mass3=3.01602932265*C.atomic_mass
     rho3=82/mass3
     t3=C.hbar**2*(3*pi*pi*rho3)**(2/3)/(2*mass3*C.k)
-    verify("5.22 helium-3 free Fermi temperature K",t3,3.1,rtol=.04)
+    verify("5.22 helium-3 free Fermi temperature K",t3,4.96,rtol=.02)
     alrho=18.1e22*1e6
     alEF=C.hbar**2*(3*pi*pi*alrho)**(2/3)/(2*C.m_e)
     muB=C.physical_constants["Bohr magneton"][0]

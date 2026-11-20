@@ -141,7 +141,7 @@ def fermi_gas():
     alEF=C.hbar**2*(3*pi*pi*alrho)**(2/3)/(2*C.m_e)
     muB=C.physical_constants["Bohr magneton"][0]
     chi=3*C.mu_0*alrho*muB*muB/(2*alEF)
-    verify("5.33 aluminum Pauli susceptibility",chi,1.2e-5,rtol=.09)
+    verify("5.33 aluminum Pauli susceptibility",chi,1.57e-5,rtol=.02)
     print("Aluminum theoretical chi:",chi)
 
 def stars():

@@ -1,0 +1,246 @@
+\pnum{5.1}{Two-particle separation into center-of-mass and relative motion}
+Put $M=m_1+m_2$, $\mu=m_1m_2/M$,
+$\mathbf r=\mathbf r_1-\mathbf r_2$ and
+$\mathbf R=(m_1\mathbf r_1+m_2\mathbf r_2)/M$.
+Solving these two linear vector equations gives
+\begin{equation}
+\boxed{\mathbf r_1=\mathbf R+\frac{\mu}{m_1}\mathbf r,\qquad
+\mathbf r_2=\mathbf R-\frac{\mu}{m_2}\mathbf r}.
+\end{equation}
+The multivariable chain rule gives
+$\nabla_1=(m_1/M)\nabla_R+\nabla_r
+=(\mu/m_2)\nabla_R+\nabla_r$, and
+$\nabla_2=(\mu/m_1)\nabla_R-\nabla_r$.
+Substitute into $-\sh^2(\nabla_1^2/m_1+
+\nabla_2^2/m_2)/2$. The mixed derivatives cancel:
+\begin{equation}
+\boxed{H=-\frac{\sh^2}{2M}\nabla_R^2
+-\frac{\sh^2}{2\mu}\nabla_r^2+V(\mathbf r)}.
+\end{equation}
+For $\Psi(\mathbf R,\mathbf r)=F(\mathbf R)u(\mathbf r)$,
+division by $Fu$ separates constants:
+\begin{align}
+-\frac{\sh^2}{2M}\nabla_R^2F&=E_{\rm CM}F,\\
+\left[-\frac{\sh^2}{2\mu}\nabla_r^2+V(\mathbf r)\right]u&=E_{\rm rel}u,
+\end{align}
+where $\boxed{E=E_{\rm CM}+E_{\rm rel}}$.
+This exactly maps a central two-body problem
+onto a free center of mass and a single reduced-mass particle.
+
+\pnum{5.2}{Reduced mass: isotope shifts, positronium and muonic hydrogen}
+For an orbiting particle of mass $m$ and nuclear mass $M$,
+$\mu=mM/(m+M)$. Coulomb energies scale with $\mu$,
+so using $m$ in place of $\mu$ overestimates
+the binding energy fractionally by
+\begin{equation}
+\frac{m-\mu}{\mu}=\frac mM.
+\end{equation}
+For ordinary hydrogen $m_e/m_p\simeq1/1836$,
+giving $\boxed{0.054\%}$ (two significant figures).
+For a Balmer transition $3\to2$,
+\begin{equation}
+\frac1\lambda=
+R_\infty\frac{\mu}{m_e}
+\left(\frac14-\frac19\right)
+=\frac{5R_\infty\mu}{36m_e},
+\quad
+\lambda(M)=\frac{36m_e}{5R_\infty\mu(M)}.
+\end{equation}
+Because deuterium's nucleus is heavier,
+its $\mu$ is larger, so its red line has a shorter
+wavelength. Inserting $M_D\simeq2m_p$ gives
+$\boxed{\lambda_H-\lambda_D\simeq0.18\ {\rm nm}}$.
+For positronium, $\mu=m_e/2$, so
+$\boxed{|E_1|=6.80\ {\rm eV}}$.
+For muonic hydrogen $\mu_\mu=
+m_\mu m_p/(m_\mu+m_p)$, with
+$m_\mu=206.77m_e$, the reduced-mass ratio
+$\mu_\mu/\mu_H\simeq186$;
+the Lyman-$\alpha$ wavelength scales inversely
+with $\mu$, giving
+$\boxed{\lambda_\mu\simeq0.653\ {\rm nm}}$.
+\checkit{The last value uses the nonrelativistic
+point-nucleus spectrum; finite proton size and
+QED corrections matter for precision muonic spectroscopy.}
+
+\pnum{5.3}{Isotope splitting in the vibrational spectrum of HCl}
+A diatomic oscillator has $\omega=\sqrt{k/\mu}$,
+$\mu=m_Hm_{\rm Cl}/(m_H+m_{\rm Cl})$.
+For approximate isotope masses $m_H=1$,
+$m_{35}=35$, and $m_{37}=37$ (atomic units),
+\begin{equation}
+\mu_{35}=\frac{35}{36},\qquad
+\mu_{37}=\frac{37}{38}.
+\end{equation}
+The frequencies are
+$\nu_{35}/\nu_{37}=\sqrt{\mu_{37}/\mu_{35}}
+=\sqrt{1332/1330}=1.0007516\ldots$,
+so
+\begin{equation}
+\boxed{\Delta\nu\simeq7.51\times10^{-4}\nu}.
+\end{equation}
+The vibrational line for the heavier chlorine isotope
+has the slightly lower frequency.
+
+\pnum{5.4}{Normalization of bosonic and fermionic two-orbital states}
+Take normalized orbitals $a,b$, with
+$S=\bracket a b$. For
+$\Psi_\pm=A[a(1)b(2)\pm b(1)a(2)]$,
+\begin{equation}
+\|\Psi_\pm\|^2=
+|A|^2[2\pm2|S|^2].
+\end{equation}
+For orthogonal orbitals $S=0$,
+$\boxed{A=1/\sqrt2}$ for both signs.
+For the same normalized orbital $a=b$,
+the symmetric bracket is $2a(1)a(2)$:
+$\boxed{A=1/2}$.
+The antisymmetric bracket is identically zero,
+so no normalized fermion state exists.
+
+\pnum{5.5}{Excited levels of two particles in a square well}
+Let $\epsilon=\pi^2\sh^2/(2ma^2)$,
+$\phi_n(x)=\sqrt{2/a}\sin(n\pi x/a)$.
+For particles on $0<x_1,x_2<a$,
+\begin{equation}
+H=-\frac{\sh^2}{2m}
+(\partial_{x_1}^2+\partial_{x_2}^2),
+\quad E_{nm}=(n^2+m^2)\epsilon.
+\end{equation}
+For $n\ne m$, define
+$\Phi^\pm_{nm}=
+[\phi_n(1)\phi_m(2)\pm\phi_m(1)\phi_n(2)]/\sqrt2$.
+Because the two product terms have the same sum
+of one-body energies,
+$H\Phi^-_{12}=5\epsilon\Phi^-_{12}$:
+the fermionic ground state is verified.
+Beyond the levels explicitly displayed in the
+textbook example, the next two \emph{distinct}
+levels are:
+\begin{center}\begin{tabular}{lccc}\toprule
+Statistics&Level&Wavefunction(s)&Degeneracy\\\midrule
+Distinguishable&$8\epsilon$&$\phi_2(1)\phi_2(2)$&1\\
+&$10\epsilon$&$\phi_1(1)\phi_3(2)$,
+$\phi_3(1)\phi_1(2)$&2\\
+Bosons&$8\epsilon$&$\phi_2(1)\phi_2(2)$&1\\
+&$10\epsilon$&$\Phi^+_{13}$&1\\
+Fermions&$10\epsilon$&$\Phi^-_{13}$&1\\
+&$13\epsilon$&$\Phi^-_{23}$&1\\\bottomrule
+\end{tabular}\end{center}
+For fermions, $(2,2)$ is forbidden in this
+spin-ignored model. Different ordered products
+count as different states only when the
+particles are distinguishable.
+
+\pnum{5.6}{Exchange correction to mean squared separation in a well}
+For $n\ne l$, the one-body moments are
+\begin{align}
+\av{x}_n&=a/2,&
+\av{x^2}_n&=a^2\left(\frac13-\frac1{2\pi^2n^2}\right),\\
+X_{nl}&=\int_0^a x\,\phi_n(x)\phi_l(x)\dd x\\
+&=\frac{a}{\pi^2}\left[
+\frac{(-1)^{n-l}-1}{(n-l)^2}
+-\frac{(-1)^{n+l}-1}{(n+l)^2}\right].
+\end{align}
+Integrate $x\cos(k\pi x/a)$ by parts to
+derive the last line; $X_{nl}=0$ for equal
+parity, otherwise
+$X_{nl}=-8anl/[\pi^2(n^2-l^2)^2]$.
+For distinguishable particles,
+$\av{(x_1-x_2)^2}_{D}=
+\av{x^2}_n+\av{x^2}_l-2\av{x}_n\av{x}_l$:
+\begin{equation}
+\boxed{D_{nl}=a^2\left[
+\frac16-\frac1{2\pi^2}
+\left(\frac1{n^2}+\frac1{l^2}\right)\right]}.
+\end{equation}
+The exchange cross term in
+$\av{x_1x_2}$ is $\pm|X_{nl}|^2$,
+so
+\begin{equation}
+\boxed{\av{(x_1-x_2)^2}_{B}=D_{nl}-2|X_{nl}|^2,\quad
+\av{(x_1-x_2)^2}_{F}=D_{nl}+2|X_{nl}|^2}.
+\end{equation}
+Bosons are closer on average in this
+specific observable, and fermions farther apart.
+This arises from exchange symmetry,
+not an additional mechanical force.
+
+\pnum{5.7}{Two oscillator orbitals: position densities and relative separation}
+Let $b=\sqrt{\sh/(m\omega)}$,
+$\phi_0(x)=\pi^{-1/4}b^{-1/2}
+\exp[-x^2/(2b^2)]$,
+and $\phi_1(x)=\sqrt2(x/b)\phi_0(x)$.
+With one particle in each orbital,
+\begin{equation}
+\Psi_D=\phi_0(x_1)\phi_1(x_2),\qquad
+\Psi_\pm=\frac{\phi_0(x_1)\phi_1(x_2)
+\pm\phi_1(x_1)\phi_0(x_2)}{\sqrt2}.
+\end{equation}
+The distinguishable, boson, and fermion
+probability surfaces are $|\Psi_D|^2$,
+$|\Psi_+|^2$ and $|\Psi_-|^2$;
+the last vanishes at $x_1=x_2$.
+Since $\av{x^2}_0=b^2/2$,
+$\av{x^2}_1=3b^2/2$ and
+$\av{x}_{01}=b/\sqrt2$,
+\begin{equation}
+\boxed{\av{(x_1-x_2)^2}_D=2b^2,\quad
+\av{(x_1-x_2)^2}_B=b^2,\quad
+\av{(x_1-x_2)^2}_F=3b^2}.
+\end{equation}
+Introduce $R=(x_1+x_2)/2$ and
+$r=x_1-x_2$, so
+$x_1=R+r/2$, $x_2=R-r/2$.
+The squared amplitudes factor into
+a common Gaussian
+$\exp[-2R^2/b^2-r^2/(2b^2)]$ times
+$(R-r/2)^2$ for $D$, $4R^2$ for $B$,
+or $r^2$ for $F$ (up to constants).
+After integrating over $R$, put
+$g_b(r)=\exp[-r^2/(2b^2)]/(\sqrt{2\pi}b)$.
+The signed relative-displacement densities are
+\begin{equation}
+\boxed{p_D(r)=\tfrac12(1+r^2/b^2)g_b(r),\quad
+p_B(r)=g_b(r),\quad
+p_F(r)=(r^2/b^2)g_b(r)}.
+\end{equation}
+The distribution of distance $d=|r|\ge0$
+is $\boxed{P_j(d)=2p_j(d)}$.
+All three integrate to one, and the
+second moments recover the results above.
+Finally, the one-body number-density operator
+$n(x)=\sum_{j=1}^2\delta(x-x_j)$ gives
+the \emph{same} mean in every case:
+\begin{equation}
+\boxed{\av{n(x)}=
+|\phi_0(x)|^2+|\phi_1(x)|^2}.
+\end{equation}
+Thus one-body density cannot distinguish
+exchange symmetry here; two-body correlations can.
+
+\pnum{5.8}{Three-particle bosonic permanent and fermionic determinant}
+For three orthonormal orbitals $a,b,c$,
+a particular distinguishable assignment is
+$\boxed{\Psi_D=a(1)b(2)c(3)}$.
+The completely symmetric state is
+\begin{equation}
+\boxed{\Psi_B=\frac1{\sqrt{3!}}
+\sum_{\pi\in S_3}
+a(\pi(1))b(\pi(2))c(\pi(3))}.
+\end{equation}
+Every one of the $3!$ terms is orthogonal
+to all others, so the norm is $3!/3!=1$;
+permutations merely reorder the sum.
+The completely antisymmetric state is
+\begin{equation}
+\boxed{\Psi_F=\frac1{\sqrt{3!}}
+\begin{vmatrix}
+a(1)&b(1)&c(1)\\
+a(2)&b(2)&c(2)\\
+a(3)&b(3)&c(3)
+\end{vmatrix}}.
+\end{equation}
+Exchanging two particle labels swaps
+two rows and reverses the sign; repeated
+orbitals give identical columns and zero.

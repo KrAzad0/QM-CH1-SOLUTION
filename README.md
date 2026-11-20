@@ -1,5 +1,14 @@
 # The Wave Function — Interactive Chapter 1 Website
 
+## Chapter 5 — Identical Particles
+
+**[Explore the interactive Chapter 5 website: 39 worked solutions](https://krazad0.github.io/QM-CH1-SOLUTION/chapter5/)**
+
+The [complete Chapter 5 LaTeX manuscript](chapter5/) covers boson–fermion symmetry, Slater determinants, atoms, electron gases, band theory and phonons. Chapters 1–4 remain accessible and are rebuilt alongside Chapter 5.
+
+---
+
+
 ## Chapter 4 — Quantum Mechanics in Three Dimensions
 
 **[Open Chapter 4 interactive website — 76 worked problems](https://krazad0.github.io/QM-CH1-SOLUTION/chapter4/)**

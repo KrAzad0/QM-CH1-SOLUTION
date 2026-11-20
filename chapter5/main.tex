@@ -1,0 +1,113 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,graphicx,booktabs,microtype}
+\usepackage[margin=24mm,headheight=16pt]{geometry}
+\usepackage{fancyhdr,hyperref,xcolor}
+\definecolor{accent}{HTML}{91453A}
+\hypersetup{colorlinks=true,urlcolor=accent,linkcolor=accent,pdftitle={Chapter 5: Identical Particles - Independent Worked Solutions}}
+\pagestyle{fancy}\fancyhf{}\lhead{\small Quantum Mechanics / Chapter 5}\rhead{\small Kumar Azad}\cfoot{\thepage}
+\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}
+\numberwithin{equation}{section}
+\newcommand{\sh}{\hbar}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\ii}{\mathrm i}
+\newcommand{\ee}{\mathrm e}
+\newcommand{\av}[1]{\langle #1\rangle}
+\newcommand{\ket}[1]{\lvert#1\rangle}
+\newcommand{\bra}[1]{\langle#1\rvert}
+\newcommand{\bracket}[2]{\langle #1\mid#2\rangle}
+\newcommand{\pnum}[2]{\subsection*{Problem #1 — #2}\addcontentsline{toc}{subsection}{Problem #1: #2}}
+\newcommand{\result}[1]{\par\noindent\textcolor{accent}{\textbf{Result.}} #1\par}
+\newcommand{\checkit}[1]{\par\noindent\textit{Interpretation / check.} #1\par}
+\newcommand{\Aop}{\hat{\mathcal A}}
+\newcommand{\Sop}{\hat{\mathcal S}}
+\title{\textcolor{accent}{\large MATHEMATICAL PHYSICS · COURSEWORK COMPANION}\\[9pt]
+\Huge\textbf{Identical Particles}\\[12pt]
+\Large Quantum Mechanics · Chapter Five\\[5pt]
+\normalsize Independent stepwise solutions to Problems 5.1–5.39}
+\author{Kumar Azad\\\small\url{https://krazad0.github.io/QM-CH1-SOLUTION/chapter5/}}
+\date{November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+An independent graduate-style solutions companion for all thirty-nine numbered
+exercises in Chapter 5 of Griffiths and Schroeter,
+\emph{Introduction to Quantum Mechanics}, third edition.
+The derivations develop reduced-mass separation, boson--fermion exchange,
+Slater determinants, spin symmetries, helium and atomic configurations,
+Fermi gases, magnetic response, periodic delta-function lattices,
+and harmonic-chain phonons. Problem descriptions are original paraphrases:
+consult the source textbook for precise wording and diagrams.
+This is \textbf{not} an arXiv preprint, a peer-reviewed article,
+or an official solution manual.
+\end{abstract}
+\tableofcontents
+\section{General framework: exchange and symmetrization}
+Let $P_{12}$ exchange every degree of freedom of two identical particles.
+The spin--statistics rule (taken as an input in nonrelativistic quantum mechanics)
+imposes
+\begin{equation}
+P_{12}\Psi=\begin{cases}+\Psi,&\text{identical bosons},\\
+-\Psi,&\text{identical fermions}.\end{cases}
+\end{equation}
+For different orthonormal one-particle orbitals $a,b$,
+\begin{equation}
+\Psi_\pm(1,2)=\frac{\phi_a(1)\phi_b(2)\pm
+\phi_b(1)\phi_a(2)}{\sqrt2}.
+\end{equation}
+For $N$ fermions, $\Psi_F=(N!)^{-1/2}\det[\phi_j(x_i)]$,
+where $x_i$ includes position \emph{and} spin when appropriate.
+A symmetric permanent with occupancy-dependent normalization describes
+bosons. In three-dimensional free Fermi gases at zero temperature,
+\begin{equation}
+k_F=(3\pi^2n)^{1/3},\qquad
+E_F=\frac{\sh^2k_F^2}{2m},\qquad
+\frac{E_{\rm tot}}{N}=\frac35E_F
+\end{equation}
+for spin-$1/2$ degeneracy two.
+We explicitly distinguish physical exchange symmetry from an actual force,
+and use $E_F$ only within the zero-temperature, noninteracting model.
+
+\section{Two-particle systems and exchange: Problems 5.1--5.8}
+\input{tex/01-08}
+\section{Spin, many-particle antisymmetry and atoms: Problems 5.9--5.16}
+\input{tex/09-16}
+\section{Atomic configurations and free-electron solids: Problems 5.17--5.23}
+\input{tex/17-23}
+\section{Periodic potentials and band structure: Problems 5.24--5.28}
+\input{tex/24-28}
+\section{Quantum statistics and magnetic response: Problems 5.29--5.34}
+\input{tex/29-34}
+\section{Degeneracy pressure and phonons: Problems 5.35--5.39}
+\input{tex/35-39}
+\section{Numerical verification and figures}
+The companion script \texttt{scripts/verify.py} reproduces independent
+spectrum, normalization, and band-structure checks using NumPy and SciPy.
+\IfFileExists{figures/exchange.pdf}{\begin{figure}[htbp]
+\centering\includegraphics[width=.85\linewidth]{figures/exchange.pdf}
+\caption{Relative separation density for two oscillator orbitals:
+distinguishable, bosonic, and fermionic states (Problem 5.7).}
+\end{figure}}{}
+\IfFileExists{figures/bands.pdf}{\begin{figure}[htbp]
+\centering\includegraphics[width=.85\linewidth]{figures/bands.pdf}
+\caption{Allowed Bloch bands of a repulsive periodic delta comb
+at $\alpha=m=a=\sh=1$ (Problem 5.28).}
+\end{figure}}{}
+\IfFileExists{figures/dos.pdf}{\begin{figure}[htbp]
+\centering\includegraphics[width=.85\linewidth]{figures/dos.pdf}
+\caption{One-dimensional density of states of a free electron
+and a repulsive delta-function comb; allowed-band boundaries
+generate van Hove peaks (Problem 5.37).}
+\end{figure}}{}
+\clearpage
+\section{Reference and limitations}
+D.~J. Griffiths and D.~F. Schroeter,
+\emph{Introduction to Quantum Mechanics}, third edition,
+Cambridge University Press (2018), Chapter 5;
+DOI \href{https://doi.org/10.1017/9781316995433}{10.1017/9781316995433}.
+These original independent educational derivations cite textbook
+problem numbers only and do not reproduce complete copyrighted prompts.
+Simple band, atom, and stellar models omit many-body, relativistic,
+surface, or material-specific corrections except where stated.
+\end{document}

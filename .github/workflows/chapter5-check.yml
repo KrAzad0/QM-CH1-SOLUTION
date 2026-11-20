@@ -1,0 +1,66 @@
+name: Verify Chapter 5 Identical Particles
+
+on:
+  push:
+    branches: [chapter5-identical-particles-solutions, main]
+    paths:
+      - "chapter5/**"
+      - ".github/workflows/chapter5-check.yml"
+  pull_request:
+    paths:
+      - "chapter5/**"
+      - "docs/chapter5/**"
+      - ".github/workflows/chapter5-check.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Check 39 exercises, numerical figures, and PDF
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install scientific dependencies
+        run: python -m pip install numpy scipy matplotlib
+      - name: Check exercise numbering and source completeness
+        run: |
+          python - <<'PY'
+          import pathlib,re
+          files=sorted(pathlib.Path("chapter5/tex").glob("*.tex"))
+          numbers=[]
+          for p in files:
+              nums=[int(n) for n in re.findall(r"\\pnum\{5\.(\d+)\}",p.read_text())]
+              print(p, len(nums),nums[0],nums[-1])
+              numbers+=nums
+          assert numbers==list(range(1,40)), f"Found {numbers}, expected 1–39 in order"
+          print("PASS: 39 distinct, consecutively numbered worked solutions")
+          PY
+      - name: Reproduce numerical checks and figures
+        run: python chapter5/scripts/verify.py
+      - name: Compile Chapter 5 manuscript
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: chapter5
+          root_file: main.tex
+          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+      - name: Verify output files
+        run: |
+          test -s chapter5/main.pdf
+          test -s chapter5/figures/exchange.pdf
+          test -s chapter5/figures/bands.pdf
+          test -s chapter5/figures/dos.pdf
+          test -s docs/chapter5/index.html
+          test -s docs/chapter5/chapter5.js
+      - name: Upload generated PDF and figures
+        uses: actions/upload-artifact@v4
+        with:
+          name: QM-CH5-IDENTICAL-PARTICLES
+          path: |
+            chapter5/main.pdf
+            chapter5/figures/*.png
+          if-no-files-found: error

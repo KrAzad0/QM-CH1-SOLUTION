@@ -1,0 +1,147 @@
+\pnum{5.24}{Wavefunctions in a periodic delta-function comb}
+Inside a cell $0<x<a$ the general solution
+is $\psi(x)=A\sin(kx)+B\cos(kx)$.
+Continuity and the Bloch condition imply
+$A\sin(ka)=[\ee^{\ii qa}-\cos(ka)]B$.
+For $\sin(ka)\ne0$, substitute and
+use $\sin(ka)\cos(kx)-\cos(ka)\sin(kx)
+=\sin[k(a-x)]$:
+\begin{equation}
+\boxed{\psi(x)=C\{
+\sin(kx)+\ee^{-\ii qa}\sin[k(a-x)]\}},
+\qquad 0\le x\le a,
+\end{equation}
+where $C=A/[\ldots]$ absorbs an
+unimportant constant and phase.
+Equivalently this follows by choosing
+$C=B\ee^{\ii qa}/\sin(ka)$.
+At a band boundary $z=ka=j\pi$,
+the ratio used in this derivation is
+singular. The correct state has zeros
+at every delta spike:
+\begin{equation}
+\boxed{\psi(x)\propto
+\sin(j\pi x/a)}
+\end{equation}
+extended globally as a standing wave.
+Its derivative is continuous across
+each spike because the jump
+$2m\alpha\psi/\sh^2$ vanishes there.
+The Bloch phase at this boundary is
+$\ee^{\ii qa}=(-1)^j$.
+
+\pnum{5.25}{Lower edge of the first repulsive delta-comb band}
+Define $z=ka$ and
+$\beta=m\alpha a/\sh^2$.
+The Bloch dispersion equation is
+\begin{equation}
+\boxed{\cos(qa)=f(z)=
+\cos z+\beta\frac{\sin z}{z}}.
+\end{equation}
+For $\beta=10$, $f(0)=11$,
+which is forbidden because $|\cos qa|\le1$.
+The lowest band starts at the first
+positive root of
+$f(z)=1$, which can be found with
+bisection or Brent's method.
+Numerically, $\boxed{z_0=2.627675433\ldots}$.
+The energy is $E=\sh^2z^2/(2ma^2)$.
+Since $\alpha/a=1$ eV and
+$\beta=m\alpha a/\sh^2=10$,
+$\sh^2/(2ma^2)=\alpha/(2\beta a)=0.05$ eV.
+Therefore
+\begin{equation}
+\boxed{E_{\rm band,bottom}=
+0.05z_0^2\ {\rm eV}\simeq0.345\ {\rm eV}}
+\end{equation}
+(three significant digits).
+
+\pnum{5.26}{Attractive delta comb and negative-energy Bloch bands}
+For an attractive lattice set
+$\beta=-|\beta|$ in the same
+positive-energy dispersion function:
+\begin{equation}
+f(z)=\cos z-|\beta|\frac{\sin z}{z},
+\qquad z=ka>0.
+\end{equation}
+For negative energies, let
+$\kappa=\sqrt{-2mE}/\sh>0$
+and $t=\kappa a$. Analytic continuation
+$k=\ii\kappa$ gives
+\begin{equation}
+\boxed{\cos(qa)=
+\cosh t-|\beta|\frac{\sinh t}{t}}.
+\end{equation}
+Allowed states have the right-hand
+side in $[-1,1]$. For $|\beta|=1.5$,
+$f(E=0)=1-1.5=-0.5$, so the
+lowest band crosses $E=0$, containing
+both negative- and positive-energy
+states. As $E\to-\infty$,
+$\cosh t-|\beta|\sinh t/t\to\infty$
+and negative energies become forbidden.
+There is therefore a finite lower edge
+for the bound portion of the band.
+A periodic chain of $N$ cells has
+$\boxed{N\text{ spatial Bloch states
+per allowed band}}$ with periodic
+boundary conditions. Only some may
+have $E<0$ in this parameter regime;
+the rest lie in its positive-energy
+continuation.
+
+\pnum{5.27}{Bloch momentum reversal and energy degeneracies}
+For a ring of $N$ identical cells,
+$q_n=2\pi n/(Na)$, with
+$n=0,\ldots,N-1$.
+The dispersion relation depends
+on $q$ through $\cos(qa)$.
+Hence
+\begin{equation}
+E(q)=E(-q)
+\end{equation}
+within any fixed band.
+The modes $n$ and $N-n$ have the
+same cosine and normally form a pair
+of degenerate but independent traveling
+Bloch states. Exceptions occur when
+the two modes coincide modulo the
+reciprocal lattice vector:
+\begin{equation}
+q\equiv-q\pmod{2\pi/a}.
+\end{equation}
+This means $2n\equiv0\pmod N$.
+Thus
+\begin{equation}
+\boxed{n=0\text{ always};\qquad
+n=N/2\text{ also if }N\text{ is even}}.
+\end{equation}
+Those time-reversal invariant momenta
+are not forced into distinct $\pm q$
+pairs. At zero and zone-edge
+momenta there can be nondegenerate
+band-edge eigenfunctions.
+
+\pnum{5.28}{Reproducible dispersion plot of the delta comb}
+With $m=\sh=a=\alpha=1$,
+\begin{equation}
+E=\frac{k^2}{2},\qquad
+\cos q=\cos k+\frac{\sin k}{k}\equiv f(k).
+\end{equation}
+For each sampled $E\in(0,30]$,
+calculate $k=\sqrt{2E}$ and $f(k)$.
+If $|f(k)|\le1$, define
+$q=\arccos f(k)$ and add the two
+states $(q,E)$ and $(-q,E)$.
+Otherwise the energy belongs to a
+forbidden gap and should not be
+plotted as a Bloch eigenvalue.
+For the interval $[-\pi,\pi]$ this
+constructs the bands in the first
+Brillouin zone. The script
+\texttt{chapter5/scripts/verify.py}
+produces \texttt{figures/bands.pdf}
+using $30{,}000$ energy samples.
+\checkit{The plotted curve is an implicit
+dispersion relation, not the free-electron
+parabola; gaps occur where $|f(k)|>1$.}

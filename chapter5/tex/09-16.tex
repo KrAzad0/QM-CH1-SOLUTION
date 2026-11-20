@@ -1,0 +1,309 @@
+\pnum{5.9}{Including spin in low-lying two-particle well levels}
+Take single-particle well energies $n^2\epsilon$,
+$\epsilon=\pi^2\sh^2/(2ma^2)$, and
+$\phi_n=\sqrt{2/a}\sin(n\pi x/a)$.
+For fermions of spin $1/2$, antisymmetric
+\emph{total} states pair a symmetric
+spatial factor $\Phi^+_{nm}$ with the
+spin singlet $\ket{0,0}$, and antisymmetric
+$\Phi^-_{nm}$ with one of the three triplets
+$\ket{1,M}$, $M=-1,0,1$.
+When $n=m$, only the symmetric spatial
+state survives, and there is just one
+spin singlet. The first four distinct
+energies and degeneracies are therefore
+\begin{equation}
+\boxed{
+\begin{array}{c|c|c}
+E/\epsilon&\text{states}&g\\\hline
+2&\phi_1(1)\phi_1(2)\ket{0,0}&1\\
+5&\Phi^+_{12}\ket{0,0}\text{ and }
+\Phi^-_{12}\ket{1,M}&4\\
+8&\phi_2(1)\phi_2(2)\ket{0,0}&1\\
+10&\Phi^+_{13}\ket{0,0}\text{ and }
+\Phi^-_{13}\ket{1,M}&4
+\end{array}}.
+\end{equation}
+For hypothetical \emph{spin-1 bosons},
+the two-spin exchange-symmetric sectors
+have total $S=0$ (one state) and $S=2$
+(five states), while the antisymmetric
+sector has $S=1$ (three states).
+A symmetric total bosonic wavefunction
+therefore pairs $\Phi^+_{nm}$ with $S=0,2$
+and $\Phi^-_{nm}$ with $S=1$.
+For the same four energy levels, the
+degeneracies are
+\begin{equation}
+\boxed{g(2\epsilon)=6,\quad
+g(5\epsilon)=9,\quad
+g(8\epsilon)=6,\quad
+g(10\epsilon)=9}.
+\end{equation}
+These counts include spin and presume no
+spin-dependent interaction.
+
+\pnum{5.10}{Why three spin halves have no antisymmetric spin state}
+A spin-$1/2$ particle has a two-dimensional
+spin space $\mathbb C^2$. An entirely
+antisymmetric spin state of $N$ particles
+belongs to the exterior power
+$\bigwedge^N\mathbb C^2$, of dimension
+$\binom{2}{N}$. For $N=3$ that dimension
+vanishes: $\boxed{\bigwedge^3\mathbb C^2=\{0\}}$.
+Equivalently, every triple of arrows
+$\uparrow,\downarrow$ contains two equal
+arrows; swapping those must reverse the
+sign of a completely antisymmetric state
+but leaves the arrow assignment unchanged,
+so its coefficient is zero.
+
+For three spin-half fermions in a square
+well, one spin orbital can be occupied
+only once. The three lowest available
+spin orbitals are $1\uparrow$, $1\downarrow$,
+and either $2\uparrow$ or $2\downarrow$.
+Let $\zeta_{n\sigma}(x,s)=\phi_n(x)\chi_\sigma(s)$.
+The normalized ground states are the two
+Slater determinants
+\begin{equation}
+\boxed{\Psi_{\sigma}=
+\frac1{\sqrt{3!}}
+\det\begin{pmatrix}
+\zeta_{1\uparrow}(1)&\zeta_{1\downarrow}(1)&\zeta_{2\sigma}(1)\\
+\zeta_{1\uparrow}(2)&\zeta_{1\downarrow}(2)&\zeta_{2\sigma}(2)\\
+\zeta_{1\uparrow}(3)&\zeta_{1\downarrow}(3)&\zeta_{2\sigma}(3)
+\end{pmatrix}},
+\quad \sigma=\uparrow,\downarrow.
+\end{equation}
+Their energy is
+$\boxed{E_{\rm ground}=2\epsilon+\epsilon+4\epsilon
+=6\epsilon}$ and spin degeneracy is
+$\boxed{2}$. In general the determinant
+cannot be factored into one spatial
+wavefunction times one spin wavefunction.
+
+\pnum{5.11}{Laughlin wavefunction, Slater determinants, and correlation}
+Ignoring an overall normalization, the
+Laughlin state of $N$ electrons has the form
+\begin{equation}
+\Psi_q(z_1,\ldots,z_N)=
+\left[\prod_{j<k}(z_j-z_k)^q\right]
+\exp\left[-\frac12\sum_j|z_j|^2\right],
+\qquad q=1,3,5,\ldots .
+\end{equation}
+Exchanging $z_j,z_k$ changes one factor's
+sign by $(-1)^q=-1$; all other factors
+are permuted in pairs. The Gaussian is
+symmetric. Thus
+$\boxed{P_{jk}\Psi_q=-\Psi_q}$.
+For $q=1,N=3$, the Vandermonde formula is
+\begin{equation}
+\prod_{j<k}(z_j-z_k)=
+-\det\begin{pmatrix}
+1&z_1&z_1^2\\
+1&z_2&z_2^2\\
+1&z_3&z_3^2
+\end{pmatrix}.
+\end{equation}
+Up to normalization and a global sign,
+this is one Slater determinant formed from
+single-particle orbitals
+$\boxed{\varphi_m(z)\propto z^m\ee^{-|z|^2/2},
+\quad m=0,1,2}$.
+For $q=3,N=2$,
+\begin{align}
+(z_1-z_2)^3
+&=(z_1^3-z_2^3)-3(z_1^2z_2-z_1z_2^2)\\
+&=-\det\begin{pmatrix}1&z_1^3\\1&z_2^3\end{pmatrix}
+-3\det\begin{pmatrix}z_1&z_1^2\\z_2&z_2^2\end{pmatrix}.
+\end{align}
+The state is a superposition of
+determinants with different orbital
+occupancies $(0,3)$ and $(1,2)$.
+The Jastrow factor has a third-order
+zero when particles meet, encoding
+correlation not captured by a single
+determinant. The normalized determinant
+coefficients require the normalization
+of the $z^m$ orbitals.
+
+\pnum{5.12}{Symmetry projection for a general atomic eigenstate}
+For $Z$ particles let $U_\pi$ permute their
+position arguments. Since the identical-electron
+Hamiltonian commutes with every permutation,
+$[H,U_\pi]=0$. Define
+\begin{equation}
+\Sop=\frac1{Z!}\sum_{\pi\in S_Z}U_\pi,
+\qquad
+\Aop=\frac1{Z!}\sum_{\pi\in S_Z}
+\operatorname{sgn}(\pi)\,U_\pi.
+\end{equation}
+If $H\psi=E\psi$, then
+$H(\Sop\psi)=E(\Sop\psi)$ and
+$H(\Aop\psi)=E(\Aop\psi)$.
+These states must be normalized
+if nonzero. If $\psi$ is symmetric
+under exchange of two coordinates,
+pair permutations that differ by this
+exchange; contributions cancel,
+giving $\boxed{\Aop\psi=0}$.
+The one-electron spin Hilbert space
+has only dimension two.
+A completely antisymmetric spin state
+of $Z$ spin-half electrons would lie
+in $\bigwedge^Z\mathbb C^2$, which
+vanishes whenever $Z>2$.
+Thus $\boxed{Z>2:\text{ no nonzero
+completely antisymmetric pure-spin factor}}$.
+For atomic fermions the full position--spin
+state is antisymmetric, but it typically
+cannot be separated into pure spatial and
+pure spin factors.
+
+\pnum{5.13}{Autoionization energy and the hydrogenic helium-ion spectrum}
+In the independent-electron approximation
+of helium ($Z=2$), a hydrogenic electron
+has $E_n=-54.4/n^2$ eV.
+Two electrons both initially occupying
+$n=2$ contribute
+$E_i=2(-54.4/4)=-27.2$ eV.
+If one falls to $1s$ while the other
+is ejected, the final helium ion has
+$E_{\mathrm{He}^+}=-54.4$ eV plus the
+free electron's kinetic energy $K$.
+Energy conservation
+$-27.2=-54.4+K$ gives
+\begin{equation}
+\boxed{K=27.2\ {\rm eV}}.
+\end{equation}
+The helium ion $\mathrm{He}^+$ has one
+electron and therefore the Coulomb
+spectrum $E_n=-4(13.6\ {\rm eV})/n^2$.
+Its radiative transitions obey
+\begin{equation}
+\boxed{\frac1\lambda=
+4R_H\left(\frac1{n_f^2}-\frac1{n_i^2}\right),
+\qquad n_i>n_f}.
+\end{equation}
+Finite nuclear-mass corrections change
+the Rydberg constant slightly.
+\checkit{The autoionization estimate ignores
+electron--electron repulsion and requires
+a physically allowed initial configuration;
+it is a textbook idealization.}
+
+\pnum{5.14}{Hypothetical exchange statistics and helium multiplets}
+Physical electrons are identical fermions:
+spatially symmetric orbitals pair with the
+antisymmetric spin singlet, and spatially
+antisymmetric orbitals pair with the symmetric
+spin triplet. In ground-state helium both
+electrons occupy $1s$, hence the spatial part
+is symmetric and only a spin singlet is allowed.
+If the electrons were instead hypothetical
+identical \emph{bosons} with spin $1/2$,
+the \emph{total} state would be symmetric.
+The two-$1s$ ground configuration would
+therefore have the symmetric spin triplet,
+with $\boxed{3}$ spin projections.
+For excited distinct orbitals $a,b$,
+the symmetric spatial sector would pair with
+the triplet, and the antisymmetric spatial
+sector with the singlet. The former tends
+to have larger direct Coulomb repulsion
+than the latter; the relative para/ortho
+pattern would be interchanged.
+If the particles were \emph{distinguishable}
+but retained the same masses and charges,
+there would be no mandatory spin--space
+symmetry pairing. Spatial symmetric and
+antisymmetric eigenfunctions could each
+occur with all four independent spin
+configurations (one singlet and three triplets).
+In the spin-independent Hamiltonian,
+each spatial energy would have a fourfold
+spin degeneracy, aside from any independent
+spatial degeneracies. These hypotheticals
+alter exchange rules, not the Coulomb operator.
+
+\pnum{5.15}{Helium ground-state Coulomb repulsion integral}
+In the uncorrelated $1s^2$ trial state
+for charge $Z=2$,
+\begin{equation}
+\psi_0(\mathbf r_1,\mathbf r_2)
+=\frac{Z^3}{\pi a^3}
+\exp[-Z(r_1+r_2)/a],\qquad Z=2,
+\end{equation}
+where $a$ is the ordinary Bohr radius.
+The normalized one-particle density is
+$\rho(r)=Z^3\exp(-2Zr/a)/(\pi a^3)$.
+The angular average of the Coulomb kernel
+for fixed $r_1,r_2$ satisfies
+\begin{equation}
+\frac1{4\pi}\int
+\frac{\dd\Omega_2}{|\mathbf r_1-\mathbf r_2|}
+=\frac1{\max(r_1,r_2)};
+\end{equation}
+it follows by integrating
+$[r_1^2+r_2^2-2r_1r_2u]^{-1/2}$
+over $u\in[-1,1]$.
+Set $b=2Z/a$.
+The expectation is then
+\begin{align}
+I&=\int\dd^3r_1\dd^3r_2
+\frac{\rho(r_1)\rho(r_2)}{|\mathbf r_1-\mathbf r_2|}\\
+&=\frac{b^6}{2}\int_0^\infty\dd r_1\,
+r_1\ee^{-br_1}
+\int_0^{r_1}\dd r_2\,r_2^2\ee^{-br_2}\\
+&=\frac{5b}{16}=\frac{5Z}{8a}.
+\end{align}
+Thus for helium $\boxed{I=5/(4a)}$.
+The interaction energy is
+\begin{equation}
+\Delta E=\frac{e^2}{4\pi\epsilon_0}I
+=\frac54\frac{e^2}{4\pi\epsilon_0a}
+\simeq\boxed{34.0\ {\rm eV}}.
+\end{equation}
+Adding to the independent-electron value
+$E_0\simeq-108.8$ eV gives
+$\boxed{E_{\rm trial}\simeq-74.8\ {\rm eV}}$,
+compared with experimental
+$E_{\rm He}\simeq-78.98$ eV.
+This is a first-order / variational
+estimate with an unoptimized $1s^2$ trial
+state, not an exact helium solution.
+
+\pnum{5.16}{Lithium: determinant ground state and degeneracy}
+Neglect electron--electron interactions
+for nuclear charge $Z=3$. The lowest
+hydrogenic orbital has energy
+$E_{1s}=-13.6Z^2=-122.4$ eV.
+Two electrons occupy the distinct spin
+orbitals $1s\uparrow$, $1s\downarrow$.
+The third occupies $2s$ with
+$E_{2s}=-122.4/4=-30.6$ eV.
+Therefore
+\begin{equation}
+\boxed{E_{\rm Li}\simeq
+2E_{1s}+E_{2s}=-275.4\ {\rm eV}}.
+\end{equation}
+For each $\sigma\in\{\uparrow,\downarrow\}$
+the normalized wavefunction is
+\begin{equation}
+\boxed{
+\Psi_{\sigma}(1,2,3)=
+\frac1{\sqrt{3!}}\det
+\begin{pmatrix}
+1s\uparrow(1)&1s\downarrow(1)&2s\sigma(1)\\
+1s\uparrow(2)&1s\downarrow(2)&2s\sigma(2)\\
+1s\uparrow(3)&1s\downarrow(3)&2s\sigma(3)
+\end{pmatrix}}.
+\end{equation}
+These are eigenstates of the sum of
+hydrogenic one-body Hamiltonians and
+are fully antisymmetric. The closed
+$1s^2$ shell has zero total spin;
+the $2s$ valence electron provides
+a spin doublet:
+$\boxed{g_{\rm ground}=2}$.

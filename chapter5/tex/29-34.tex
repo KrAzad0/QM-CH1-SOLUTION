@@ -1,0 +1,200 @@
+\pnum{5.29}{Three particles distributed among three orbitals}
+There are three distinguishable particles and
+three available orthonormal one-body states.
+Each labeled particle independently has
+three choices, so
+$\boxed{\mathcal N_D=3^3=27}$.
+For three identical bosons, an arrangement
+is specified by nonnegative occupancies
+$n_a+n_b+n_c=3$. Stars-and-bars gives
+\begin{equation}
+\boxed{\mathcal N_B=
+\binom{3+3-1}{3}=\binom53=10}.
+\end{equation}
+For three identical fermions with no additional
+spin degree of freedom, the Pauli principle
+allows at most one particle in each orbital,
+so all three must be singly occupied:
+\begin{equation}
+\boxed{\mathcal N_F=\binom33=1}.
+\end{equation}
+The last state is the unique antisymmetric
+Slater determinant up to phase.
+
+\pnum{5.30}{Fermi energy in a two-dimensional square well}
+For a large two-dimensional well, count
+states in momentum space in the
+thermodynamic limit. With area $A$,
+each $k$-state occupies $(2\pi)^2/A$
+and each accepts two spin orientations.
+A filled disk of radius $k_F$ has
+\begin{equation}
+N_e=2\frac{A}{(2\pi)^2}\pi k_F^2
+=\frac{Ak_F^2}{2\pi}.
+\end{equation}
+Let $\sigma=N_e/A$ be the areal density.
+Then
+$\boxed{k_F=\sqrt{2\pi\sigma}}$,
+and
+\begin{equation}
+\boxed{E_F=\frac{\sh^2k_F^2}{2m}
+=\frac{\pi\sh^2\sigma}{m}}.
+\end{equation}
+Boundary effects vanish relative to
+the area in the macroscopic limit.
+
+\pnum{5.31}{Cohesive-energy estimate including spin in three dimensions}
+In the textbook's idealized box analogy,
+take $N$ isolated monovalent atoms, each
+hosting an electron in a cubic box of
+side $a$. The individual ground-state
+energy is
+\begin{equation}
+E_{\rm atom}=
+\frac{\pi^2\sh^2}{2ma^2}(1^2+1^2+1^2)
+=\frac{3\pi^2\sh^2}{2ma^2}.
+\end{equation}
+The separated total is $NE_{\rm atom}$.
+After combining into a cubic metal
+of volume $V=Na^3$, the same $N$
+electrons occupy free-electron states
+with twofold spin degeneracy.
+Their number density is
+$n=N/V=1/a^3$, giving
+\begin{equation}
+E_F=\frac{\sh^2}{2ma^2}(3\pi^2)^{2/3},
+\quad
+E_{\rm metal}=\frac35 NE_F.
+\end{equation}
+Define the cohesive-energy gain
+as the separated energy minus the
+metal energy. Per atom,
+\begin{equation}
+\boxed{\frac{\Delta E_{\rm coh}}N=
+\frac{\sh^2}{2ma^2}\left[
+3\pi^2-\frac35(3\pi^2)^{2/3}\right]}.
+\end{equation}
+It is positive in this model, indicating
+an energetic advantage to delocalizing
+electrons across a much larger volume.
+The comparison intentionally ignores
+the detailed ionic binding potentials
+and is only an illustrative toy model.
+
+\pnum{5.32}{Fermi gas with unequal spin populations}
+Let $N_\pm$ be the spin-labeled counts
+in volume $V$ and $n_\pm=N_\pm/V$.
+Each spin species has degeneracy one,
+so its Fermi wavevector is
+$k_{F,\pm}=(6\pi^2n_\pm)^{1/3}$.
+Integrating the kinetic energy for
+each species gives
+\begin{equation}
+\boxed{E_{\rm tot}=
+\frac{3\sh^2}{10m}(6\pi^2)^{2/3}
+V(n_+^{5/3}+n_-^{5/3})}.
+\end{equation}
+For equal populations $n_\pm=\rho/2$,
+the result reduces to
+$E_{\rm tot}/V=
+(3/10)(\sh^2/m)(3\pi^2)^{2/3}
+\rho^{5/3}$, the unpolarized formula.
+With magnetization
+$M=-\mu_B(n_+-n_-)$,
+define $\eta=M/(\rho\mu_B)$, so
+$n_\pm=\rho(1\mp\eta)/2$.
+Substitute:
+\begin{equation}
+\frac{E_{\rm tot}}V=
+\frac{3}{10}\frac{\sh^2}{m}
+(3\pi^2)^{2/3}\rho^{5/3}
+\frac{(1+\eta)^{5/3}+
+(1-\eta)^{5/3}}2.
+\end{equation}
+The binomial expansion yields
+$\frac12[(1+\eta)^{5/3}+
+(1-\eta)^{5/3}]=
+1+\frac59\eta^2+O(\eta^4)$.
+Thus
+\begin{equation}
+\boxed{\frac{E_{\rm tot}}V=
+\frac{\sh^2(3\pi^2\rho)^{5/3}}
+{10\pi^2m}
+\left[1+\frac59
+\left(\frac{M}{\rho\mu_B}\right)^2
++O(M^4)\right]}.
+\end{equation}
+The positive quadratic term makes
+$M=0$ the kinetic-energy minimum.
+
+\pnum{5.33}{Pauli paramagnetism and aluminum susceptibility}
+For a weak uniform field along $z$,
+the Zeeman energy density is $-MB$.
+From Problem 5.32, the kinetic
+energy density for small $M$ is
+\begin{equation}
+\frac{E_{\rm kin}}V
+=\frac35\rho E_F+
+\frac{E_F}{3\rho\mu_B^2}M^2+O(M^4).
+\end{equation}
+Minimize
+$\mathcal E(M)=E_{\rm kin}/V-MB$:
+\begin{equation}
+\frac{\partial\mathcal E}{\partial M}
+=\frac{2E_F}{3\rho\mu_B^2}M-B=0,
+\qquad
+\boxed{M=\frac{3\rho\mu_B^2}{2E_F}B}.
+\end{equation}
+With susceptibility defined by
+$\chi=\mu_0\dd M/\dd B$,
+\begin{equation}
+\boxed{\chi_P=
+\frac{3\mu_0\rho\mu_B^2}{2E_F}},
+\quad
+E_F=\frac{\sh^2}{2m_e}(3\pi^2\rho)^{2/3}.
+\end{equation}
+For aluminum $\rho=18.1\times10^{22}
+\,{\rm cm^{-3}}=1.81\times10^{29}\,{\rm m^{-3}}$,
+substitution gives
+$\boxed{\chi_P\simeq1.57\times10^{-5}}$.
+The textbook's comparison value is
+$\chi_{\rm exp}=22\times10^{-6}$.
+This is spin-only Pauli susceptibility;
+orbital diamagnetism and interactions
+are intentionally omitted.
+
+\pnum{5.34}{Stoner criterion in a pair-counting interaction model}
+The model assigns extra energy $U$ to
+each opposite-spin pair:
+\begin{equation}
+\Delta E=UN_+N_-.
+\end{equation}
+Since $N_++N_-=\rho V$ and
+$N_+-N_-=-MV/\mu_B$,
+\begin{equation}
+\boxed{\Delta E=
+\frac{UV^2}{4}
+\left(\rho^2-\frac{M^2}{\mu_B^2}\right)}.
+\end{equation}
+From Problem 5.32 the kinetic
+contribution quadratic in $M$ is
+$V E_F M^2/(3\rho\mu_B^2)$.
+Thus the total quadratic coefficient is
+\begin{equation}
+\frac{V}{\mu_B^2}
+\left(\frac{E_F}{3\rho}
+-\frac{UV}{4}\right).
+\end{equation}
+The unpolarized state ceases to be a local
+minimum when this becomes negative, giving
+\begin{equation}
+\boxed{U>U_c=\frac{4E_F}{3\rho V}
+=\frac{4E_F}{3(N_++N_-)}}.
+\end{equation}
+\checkit{$U$ is the energy per
+opposite-spin \emph{pair}. For an
+extensive thermodynamic interaction,
+one normally scales $U\propto1/V$.
+This simple instability condition
+is the stated textbook model,
+not a complete theory of ferromagnetism.}

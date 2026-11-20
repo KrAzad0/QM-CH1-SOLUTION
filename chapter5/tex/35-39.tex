@@ -1,0 +1,281 @@
+\pnum{5.35}{Nonrelativistic white-dwarf degeneracy pressure}
+Let the star contain $N$ nucleons of mass
+$M$, and $N_e=dN$ electrons of mass $m$.
+Assume a uniformly dense sphere with
+$V=4\pi R^3/3$. In a nonrelativistic
+spin-$1/2$ Fermi gas,
+\begin{align}
+E_e&=\frac{3\sh^2}{10m}
+(3\pi^2)^{2/3}(dN)^{5/3}V^{-2/3}\\
+&=\frac{3}{10}
+\left(\frac{9\pi}{4}\right)^{2/3}
+\frac{\sh^2}{m}
+\frac{d^{5/3}N^{5/3}}{R^2}.
+\end{align}
+A uniform Newtonian sphere of mass
+$NM$ has gravitational potential energy
+\begin{equation}
+\boxed{E_g=-\frac35\frac{G(NM)^2}{R}}.
+\end{equation}
+The total energy has the form
+$E_{\rm tot}(R)=A/R^2-B/R$, with
+$A>0$, $B>0$. Differentiate:
+$\dd E/\dd R=-2A/R^3+B/R^2=0$.
+The equilibrium radius is $R=2A/B$:
+\begin{equation}
+\boxed{R=\left(\frac{9\pi}{4}\right)^{2/3}
+\frac{\sh^2 d^{5/3}}{GmM^2N^{1/3}}}.
+\end{equation}
+At this point $\dd^2E/\dd R^2=2A/R^4>0$,
+so it is an energy minimum.
+Putting $d=1/2$ and conventional nucleon
+masses gives approximately
+$\boxed{R=7.6\times10^{25}N^{-1/3}\ {\rm m}}$.
+For a solar mass $M_\odot\simeq
+1.989\times10^{30}$ kg,
+$N\simeq M_\odot/M\simeq1.19\times10^{57}$,
+and
+\begin{equation}
+\boxed{R_{\rm WD}\simeq7.2\times10^3\ {\rm km}}.
+\end{equation}
+Compute the electron density
+$n_e=dN/(4\pi R^3/3)$ and
+$E_F=\sh^2(3\pi^2n_e)^{2/3}/(2m)$.
+For this model the result is
+$\boxed{E_F\sim2.0\times10^5\ {\rm eV}}$,
+not dramatically below the electron
+rest energy $m_ec^2=5.11\times10^5$ eV.
+Thus relativistic corrections are significant
+and the nonrelativistic white-dwarf model
+is only an approximation.
+
+\pnum{5.36}{Ultrarelativistic gas, critical stellar mass and neutron star}
+(a) For $E(k)\simeq\sh ck$,
+two spin orientations supply
+$V k^2\dd k/\pi^2$ states.
+Integrating gives
+\begin{equation}
+\boxed{E_{\rm ultrarel}
+=\frac{V\sh c}{\pi^2}\int_0^{k_F}k^3\dd k
+=\frac{V\sh ck_F^4}{4\pi^2}
+=\frac34N_e\sh ck_F}.
+\end{equation}
+(b) With $N_e=dN$, $V=4\pi R^3/3$,
+\begin{equation}
+E_e^{\rm UR}=
+\frac34\left(\frac{9\pi}{4}\right)^{1/3}
+\frac{\sh c\,d^{4/3}N^{4/3}}R.
+\end{equation}
+Add $E_g=-3GM^2N^2/(5R)$. Both terms
+scale as $R^{-1}$, so the
+nonrelativistic $R^{-2}$ stabilization
+disappears. The coefficient of $1/R$
+changes sign at
+\begin{equation}
+\boxed{N_c=\left[
+\frac54\left(\frac{9\pi}{4}\right)^{1/3}
+\frac{\sh c\,d^{4/3}}{GM^2}
+\right]^{3/2}}.
+\end{equation}
+For $d=1/2$, $M$ equal to a nucleon mass,
+the estimate is
+$\boxed{N_c\simeq2.04\times10^{57}}$,
+equivalent to about
+$\boxed{1.7M_\odot}$.
+This is the uniform-density Newtonian toy
+model's Chandrasekhar-like limit, not a
+precision modern white-dwarf mass prediction.
+(c) Suppose a solar-mass object is supported
+by \emph{neutron} degeneracy rather than
+electron degeneracy. Set fermion mass
+$m=m_n$, gravitational nucleon mass
+$M\simeq m_n$, and one fermion per nucleon
+$d=1$ in the nonrelativistic radius formula:
+\begin{equation}
+\boxed{R_{\rm NS}\sim1.2\times10^4\ {\rm m}
+\sim12\ {\rm km}}.
+\end{equation}
+The density and Fermi energy are
+\begin{equation}
+n_n=\frac{N}{4\pi R^3/3},\quad
+E_{F,n}=\frac{\sh^2}{2m_n}(3\pi^2n_n)^{2/3}
+\sim\boxed{6\times10^7\ {\rm eV}}.
+\end{equation}
+Compare with $m_nc^2\simeq939$ MeV:
+the kinetic Fermi scale is roughly
+$6\%$ of the rest energy, so an
+initial nonrelativistic estimate is not
+grossly inconsistent. In real neutron stars,
+strong interactions and general relativity
+are essential.
+
+\pnum{5.37}{Density of states and one-dimensional van Hove peaks}
+A periodic chain has $N$ cells of spacing
+$a$, and allowed $q$ spacing
+$\Delta q=2\pi/(Na)$. Counting two
+momenta $\pm q$ with the same energy,
+the DOS per unit length is
+\begin{equation}
+\boxed{g(E)\equiv\frac{G(E)}{Na}
+=\frac1{\pi|\dd E/\dd q|}}.
+\end{equation}
+(a) For a free particle,
+$E=\sh^2q^2/(2m)$, so
+\begin{equation}
+\boxed{g_{\rm free}(E)
+=\frac1{\pi\sh}\sqrt{\frac{m}{2E}}}.
+\end{equation}
+(b) For the delta lattice let
+$k=\sqrt{2mE}/\sh$ and
+\begin{equation}
+f(k)=\cos(ka)+
+\frac{m\alpha}{\sh^2k}\sin(ka),
+\qquad \cos(qa)=f(k).
+\end{equation}
+Differentiate the implicit equation:
+$-a\sin(qa)\,\dd q/\dd E
+=(\dd f/\dd k)(\dd k/\dd E)$,
+where $\dd k/\dd E=m/(\sh^2k)$.
+Since $\sin^2(qa)=1-f(k)^2$,
+\begin{equation}
+\boxed{g_\alpha(E)=
+\frac{m}{\pi a\sh^2 k}
+\frac{|f'(k)|}{\sqrt{1-f(k)^2}}},
+\end{equation}
+valid in allowed bands $|f(k)|<1$, with
+\begin{equation}
+f'(k)=-a\sin(ka)+\frac{m\alpha}{\sh^2}
+\left[\frac{a\cos(ka)}k-
+\frac{\sin(ka)}{k^2}\right].
+\end{equation}
+For $|f(k)|>1$ there are no real
+Bloch modes and $g_\alpha(E)=0$.
+(c) The numerical script compares
+$g_0(E)$ and $g_{\alpha=1}(E)$
+for $m=\sh=a=1$. Near a band edge,
+the denominator $\sqrt{1-f^2}$
+vanishes while the derivative is
+generally nonzero, producing the
+characteristic one-dimensional
+van Hove divergence.
+\checkit{The DOS formula counts the
+two spatial momenta $\pm q$.
+If electron spin is also counted,
+multiply this spatial DOS by two.}
+
+\pnum{5.38}{Harmonic chain, normal modes and phonon operators}
+Consider $N$ equal masses on a ring,
+$x_{N+1}=x_1$, with Hamiltonian
+\begin{equation}
+H=-\frac{\sh^2}{2m}\sum_{j=1}^N
+\frac{\partial^2}{\partial x_j^2}
++\frac{m\omega^2}{2}
+\sum_{j=1}^N(x_{j+1}-x_j)^2.
+\end{equation}
+(a) The geometric series satisfies
+$\sum_{j=1}^N\ee^{2\pi\ii j n/N}=N$
+when $n$ is divisible by $N$ and
+zero otherwise. Therefore for
+$1\le k,k'\le N-1$,
+\begin{equation}
+\frac1N\sum_j\ee^{2\pi\ii j(k-k')/N}
+=\delta_{kk'},\qquad
+\frac1N\sum_j\ee^{2\pi\ii j(k+k')/N}
+=\delta_{k',N-k}.
+\end{equation}
+(b) Define $\omega_k=2\omega\sin(\pi k/N)$,
+and the operators
+\begin{equation}
+a_k^\pm=\frac1{\sqrt N}\sum_{j=1}^N
+\ee^{\pm2\pi\ii jk/N}
+\left[
+\sqrt{\frac{m\omega_k}{2\sh}}\,x_j
+\mp\sqrt{\frac{\sh}{2m\omega_k}}\,
+\partial_{x_j}\right].
+\end{equation}
+Using $[\partial_{x_j},x_l]=\delta_{jl}$
+and the Fourier orthogonality from (a),
+the only surviving terms in
+$[a_k^-,a_{k'}^+]$ are the two
+coordinate-derivative cross terms.
+Their coefficients add to one:
+\begin{equation}
+\boxed{[a_k^-,a_{k'}^+]=\delta_{kk'},\qquad
+[a_k^-,a_{k'}^-]=[a_k^+,a_{k'}^+]=0}.
+\end{equation}
+(c) Let $R=N^{-1}\sum_jx_j$.
+Inverse discrete Fourier transformation,
+using (a), gives
+\begin{align}
+\boxed{x_j}&=R+\frac1{\sqrt N}\sum_{k=1}^{N-1}
+\sqrt{\frac{\sh}{2m\omega_k}}
+(a_k^-+a_{N-k}^+)\ee^{2\pi\ii jk/N},\\
+\boxed{\partial_{x_j}}&=
+\frac1N\partial_R+
+\frac1{\sqrt N}\sum_{k=1}^{N-1}
+\sqrt{\frac{m\omega_k}{2\sh}}
+(a_k^--a_{N-k}^+)\ee^{2\pi\ii jk/N}.
+\end{align}
+(d) Substituting these inverses into
+the kinetic and nearest-neighbor
+quadratic potential, Fourier orthogonality
+eliminates all $k\ne k'$ cross terms.
+The result is a free center of mass
+plus $N-1$ independent oscillators:
+\begin{equation}
+\boxed{H=-\frac{\sh^2}{2Nm}\partial_R^2+
+\sum_{k=1}^{N-1}\sh\omega_k
+\left(a_k^+a_k^-+\frac12\right)}.
+\end{equation}
+For a center-of-mass plane wave
+$\ee^{\ii K R}$ the \emph{energy is positive}:
+\begin{equation}
+\boxed{E=\frac{\sh^2K^2}{2Nm}+
+\sum_{k=1}^{N-1}\sh\omega_k
+\left(n_k+\frac12\right)},\quad
+n_k=0,1,\dots.
+\end{equation}
+Each $n_k$ counts phonons in mode $k$.
+\checkit{The sign of the free center-of-mass
+energy follows from acting
+$-\partial_R^2$ on $\ee^{\ii K R}$.
+Any negative sign in the printed
+energy eigenvalue is a typographic
+inconsistency, not a negative kinetic energy.}
+
+\pnum{5.39}{Why periodic and hard-wall free-electron gases agree}
+For periodic box lengths $L_x,L_y,L_z$,
+the condition
+$\psi(\mathbf r+L_i\hat e_i)=\psi(\mathbf r)$
+on a plane wave
+$\psi=V^{-1/2}\ee^{\ii\mathbf k\cdot\mathbf r}$
+forces $\ee^{\ii k_iL_i}=1$.
+Therefore
+\begin{equation}
+\boxed{k_iL_i=2\pi n_i,\qquad
+n_i\in\mathbb Z}.
+\end{equation}
+Each allowed $\mathbf k$ occupies
+$\boxed{\Delta k_x\Delta k_y\Delta k_z
+=(2\pi)^3/V=8\pi^3/V}$.
+This cell is eight times larger
+than the $\pi^3/V$ cell of hard-wall
+standing-wave states, but periodic
+$\mathbf k$ spans the \emph{entire}
+sphere rather than only its positive
+octant. These factors of eight cancel.
+Including the same factor two for spin,
+\begin{equation}
+N_e=\frac{2V}{(2\pi)^3}
+\frac{4\pi k_F^3}{3}
+=\frac{Vk_F^3}{3\pi^2},
+\end{equation}
+so
+\begin{equation}
+\boxed{k_F=(3\pi^2n)^{1/3},\qquad
+E_F=\frac{\sh^2}{2m}(3\pi^2n)^{2/3},\qquad
+E_{\rm tot}=\frac35N_eE_F}.
+\end{equation}
+Bulk thermodynamic quantities therefore
+agree in the large-$N$ limit; surface
+and finite-size spectra differ.

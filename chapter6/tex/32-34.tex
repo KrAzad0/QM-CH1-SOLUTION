@@ -1,0 +1,282 @@
+\problem{6.32}{SU(2) rotations of a spin-half particle}
+Let $\boldsymbol\sigma=(\sigma_x,\sigma_y,\sigma_z)$
+be the Pauli matrices.
+\textbf{(a)} Their multiplication rule is
+\[
+\sigma_i\sigma_j=\delta_{ij}I+
+\ii\epsilon_{ijk}\sigma_k.
+\]
+For ordinary vectors $\mathbf a,\mathbf b$,
+sum $a_ib_j\sigma_i\sigma_j$ to obtain
+\begin{equation}
+\boxed{(\mathbf a\cdot\boldsymbol\sigma)
+(\mathbf b\cdot\boldsymbol\sigma)
+=(\mathbf a\cdot\mathbf b)I+
+\ii(\mathbf a\times\mathbf b)\cdot\boldsymbol\sigma.}
+\end{equation}
+\textbf{(b)} For a unit vector $\mathbf n$,
+the previous formula gives
+$(\mathbf n\cdot\boldsymbol\sigma)^2=I$.
+Thus its even powers are $I$ and odd
+powers are $\mathbf n\cdot\boldsymbol\sigma$.
+Expand the exponential:
+\begin{align}
+R_{\mathbf n}(\varphi)
+&=\exp[-\ii\varphi
+\mathbf n\cdot\mathbf S/\hb]\\
+&=\exp[-\ii(\varphi/2)
+\mathbf n\cdot\boldsymbol\sigma]\\
+&=\boxed{\cos(\varphi/2)I-
+\ii\sin(\varphi/2)
+\,\mathbf n\cdot\boldsymbol\sigma.}
+\end{align}
+\textbf{(c)} With
+$\mathbf n=(\sin\theta\cos\phi,
+\sin\theta\sin\phi,\cos\theta)$,
+\[
+\mathbf n\cdot\boldsymbol\sigma=
+\begin{pmatrix}
+\cos\theta&\sin\theta\,\ee^{-\ii\phi}\\
+\sin\theta\,\ee^{\ii\phi}&-\cos\theta
+\end{pmatrix}.
+\]
+Substitute this matrix into part (b)
+to obtain the requested standard-basis
+$2\times2$ rotation matrix.
+\textbf{(d)} Let $N=\mathbf n\cdot\boldsymbol\sigma$,
+which is Hermitian and satisfies $N^2=I$.
+Then
+\[
+R^\dagger R=(cI+\ii sN)(cI-\ii sN)
+=(c^2+s^2)I=I
+\]
+with $c=\cos(\varphi/2)$,
+$s=\sin(\varphi/2)$.
+Thus $\boxed{R^\dagger R=I}$.
+\textbf{(e)} For a $z$ rotation,
+$R_z=\operatorname{diag}(\ee^{-\ii\varphi/2},
+\ee^{+\ii\varphi/2})$. Multiply explicitly:
+\begin{align}
+R_z^\dagger S_xR_z
+&=\frac{\hb}{2}
+\begin{pmatrix}0&\ee^{\ii\varphi}\\
+\ee^{-\ii\varphi}&0\end{pmatrix}\\
+&=\boxed{S_x\cos\varphi-S_y\sin\varphi}.
+\end{align}
+This agrees with the transformed
+vector component in the textbook's
+active-state convention.
+\textbf{(f)} Around $x$ through $\pi$,
+\[
+\boxed{R_x(\pi)=-\ii\sigma_x=
+\begin{pmatrix}0&-\ii\\-\ii&0\end{pmatrix}.}
+\]
+It sends $\ket{\uparrow_z}=(1,0)^T$
+to $-\ii\ket{\downarrow_z}$, so the
+spin is flipped up to an
+unobservable overall phase.
+\textbf{(g)} A complete $2\pi$ turn gives
+\begin{equation}
+\boxed{R_z(2\pi)=
+\operatorname{diag}(-1,-1)=-I.}
+\end{equation}
+A spinor changes sign under $2\pi$
+rotation; it returns to itself only
+after $4\pi$. The sign is physically
+observable through interference
+against an unrotated reference path.
+
+\problem{6.33}{Dihedral symmetry and a degenerate square-well pair}
+Use the centered square $-L/2<x,y<L/2$,
+and write
+$f_n(x)=\sqrt{2/L}\sin[n\pi(x/L-1/2)]$,
+$\psi_{ab}(x,y)=f_a(x)f_b(y)$.
+\textbf{(a)} Under active counterclockwise
+rotation by $\pi/2$, the wavefunction
+is evaluated at the inverse-rotated
+coordinates $(y,-x)$:
+\[
+(\RR_{\pi/2}\psi_{ab})(x,y)
+=f_a(y)f_b(-x).
+\]
+An individual centered box mode
+satisfies
+\[
+f_n(-x)=(-1)^{n+1}f_n(x).
+\]
+Therefore
+\begin{equation}
+\boxed{\RR_{\pi/2}\psi_{ab}
+=(-1)^{b+1}\psi_{ba},\qquad
+\RR_{\pi/2}\psi_{ba}
+=(-1)^{a+1}\psi_{ab}.}
+\end{equation}
+\textbf{(b)} If $a$ and $b$ have
+the same parity, then
+$s=(-1)^{a+1}=(-1)^{b+1}$.
+Define $\psi_\pm=(\psi_{ab}\pm\psi_{ba})/\sqrt2$.
+Using part (a),
+\[
+\RR_{\pi/2}\psi_\pm=
+s(\psi_{ba}\pm\psi_{ab})/\sqrt2,
+\]
+so
+\begin{equation}
+\boxed{\RR_{\pi/2}\psi_+=s\psi_+,\qquad
+\RR_{\pi/2}\psi_-=-s\psi_-.}
+\end{equation}
+For two odd indices, $s=+1$;
+for two even indices, $s=-1$.
+\textbf{(c)} For $a=5$, $b=7$,
+both one-dimensional modes are even
+under $x\mapsto-x$.
+Hence reflections in the
+horizontal or vertical axis preserve
+$\psi_-$. Reflection in the
+diagonal $x=y$ interchanges the
+two products and changes the sign:
+\[
+\psi_-(y,x)=-\psi_-(x,y).
+\]
+The other diagonal combines a
+sign-preserving axial reflection
+with this interchange, so it also
+gives a minus sign.
+A quarter turn gives a minus sign
+by (b), and its powers produce
+$\pm1$ factors. Therefore $\psi_-$
+is an eigenstate of \emph{every}
+symmetry in the square's dihedral
+group $D_4$.
+The script writes a contour plot of
+$\psi_-=\frac1{\sqrt2}(\psi_{57}-\psi_{75})$,
+whose nodal and sign pattern visibly
+obeys these transformations.
+\phys{Although $\psi_{57}$ and
+$\psi_{75}$ have the same energy
+$E\propto5^2+7^2$, their symmetric
+and antisymmetric combinations
+transform in inequivalent one-dimensional
+$D_4$ representations. This discrete
+symmetry alone does not \emph{force}
+their equality of energy; the
+separable square Hamiltonian has
+additional structure.}
+
+\problem{6.34}{Laplace--Runge--Lenz operator and hidden hydrogen degeneracy}
+Put $k=e^2/(4\pi\epsilon_0)$.
+The Hermitian quantum
+Laplace--Runge--Lenz vector is
+\[
+\mathbf M=\frac{\mathbf p\times\mathbf L-
+\mathbf L\times\mathbf p}{2m}
+-\frac{k}{r}\,\mathbf r.
+\]
+The exercise supplies the algebra
+$[H,M_i]=0$, $[L_i,M_j]=
+\ii\hb\epsilon_{ijk}M_k$,
+$[M_i,M_j]=-(2\ii\hb H/m)
+\epsilon_{ijk}L_k$, together with
+\begin{equation}
+\mathbf M^2=k^2+\frac{2H}{m}
+(\mathbf L^2+\hb^2),
+\qquad\mathbf M\cdot\mathbf L=0.
+\end{equation}
+The latter are taken as given,
+as specified by the exercise.
+Write $\ket{n\ell\ell}$ for a
+hydrogen state with maximal $m$.
+Rotational covariance (Problem 6.19)
+and $[H,M_+]=0$ imply
+\[
+M_+\ket{n\ell\ell}
+=c_{n\ell}\ket{n,\ell+1,\ell+1}
+\]
+unless the state is annihilated.
+\textbf{(a)} The identity
+$\mathbf M\cdot\mathbf L=0$ can be
+written
+\[
+M_zL_z+\frac12(M_+L_-+M_-L_+)=0.
+\]
+Apply it to the highest-weight
+state, for which $L_+\ket{n\ell\ell}=0$.
+Use $L_-\ket{\ell\ell}
+=\hb\sqrt{2\ell}\ket{\ell,\ell-1}$.
+The Wigner--Eckart ratio of relevant
+rank-one tensor matrix elements gives
+\[
+M_+\ket{n\ell,\ell-1}
+=c_{n\ell}\sqrt{\frac{\ell}{\ell+1}}
+\ket{n,\ell+1,\ell},
+\]
+which follows from the ordinary
+CG coefficients for $\ell\otimes1
+\to\ell+1$.
+For $\ell>0$ substitute to obtain
+\begin{equation}
+\boxed{M_z\ket{n\ell\ell}
+=-\frac{c_{n\ell}}{\sqrt{2(\ell+1)}}
+\ket{n,\ell+1,\ell}.}
+\end{equation}
+The $\ell=0$ case follows by
+rotational covariance / CG factors,
+since the scalar product relation
+alone becomes trivial there.
+\textbf{(b)} With
+$M_\pm=M_x\pm\ii M_y$,
+\[
+M_-M_+=M_x^2+M_y^2+
+\ii[M_x,M_y]
+=M^2-M_z^2+\frac{2\hb H}{m}L_z.
+\]
+Act on $\ket{n\ell\ell}$ and insert
+$E_n=-mk^2/(2\hb^2n^2)$,
+$\mathbf L^2=\hb^2\ell(\ell+1)$ and
+$L_z=\hb\ell$:
+\begin{align}
+M_-M_+\ket{n\ell\ell}
+&=\left[k^2-\frac{k^2}{n^2}
+(\ell(\ell+1)+1)
+-\frac{k^2\ell}{n^2}-M_z^2\right]
+\ket{n\ell\ell}\\
+&=\boxed{\left[
+k^2\left(1-\frac{(\ell+1)^2}{n^2}\right)
+-M_z^2\right]\ket{n\ell\ell}.}
+\end{align}
+\textbf{(c)} Take the expectation
+value in the normalized state.
+Because $M_-=M_+^\dagger$,
+the left side is
+$\|M_+\ket{n\ell\ell}\|^2=|c_{n\ell}|^2$.
+From part (a),
+$\|M_z\ket{n\ell\ell}\|^2=
+|c_{n\ell}|^2/[2(\ell+1)]$.
+Therefore
+\[
+|c_{n\ell}|^2=
+k^2\left(1-\frac{(\ell+1)^2}{n^2}\right)
+-\frac{|c_{n\ell}|^2}{2(\ell+1)}.
+\]
+Solving for the coefficient:
+\begin{equation}
+\boxed{|c_{n\ell}|=
+k\sqrt{\frac{2(\ell+1)}{2\ell+3}
+\left[1-\frac{(\ell+1)^2}{n^2}\right]}.}
+\end{equation}
+An arbitrary phase may be chosen
+for the states, so only the magnitude
+is physically fixed.
+This coefficient is nonzero for
+$0\le\ell\le n-2$, but vanishes
+for $\ell=n-1$, where no state
+with $\ell=n$ exists in the same
+hydrogen shell.
+\phys{The LRL vector moves between
+different $\ell$ multiplets at fixed
+principal quantum number $n$.
+Together with angular momentum,
+it generates the hidden SO(4)
+symmetry behind the $n^2$
+orbital degeneracy of hydrogen
+(with spin ignored).}

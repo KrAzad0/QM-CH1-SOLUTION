@@ -46,6 +46,27 @@ jobs:
           PY
       - name: Reproduce Bloch bands, spin tests, square-well plots and Gaussian propagation
         run: python chapter6/scripts/verify.py
+      - name: Validate Chapter 6 website and JavaScript
+        run: |
+          node --check docs/chapter6/chapter6.js
+          node --check docs/site.js
+          python - <<'PY'
+          import re
+          from pathlib import Path
+          site=Path("docs/chapter6/index.html").read_text()
+          js=Path("docs/chapter6/chapter6.js").read_text()
+          assert 'CHAPTER 06' in site
+          assert 'id="problem-list"' in site
+          assert 'chapter-6-solutions.pdf' in site
+          assert 'chapter6.js' in site and '../site.js' in site
+          assert 'id="theme-toggle"' in site
+          assert 'id="problem-search"' in site
+          assert 'id="visible-count"' in site
+          assert len(re.findall(r'^.{0,180}~',js,flags=re.M))==0
+          assert 'data-filter="section"' in site and 'data-filter="further"' in site
+          assert all(f'problem-6-{n}' in site or '"problem-6-"+n' in js for n in (1,7,18,32,37))
+          print("PASS: main site interface, filters, and JavaScript syntax")
+          PY
       - name: Compile Chapter 6 solutions PDF
         uses: xu-cheng/latex-action@v3
         with:

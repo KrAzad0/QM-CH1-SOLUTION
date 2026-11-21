@@ -1,0 +1,235 @@
+\problem{6.35}{A Galilean boost as a unitary quantum transformation}
+Define
+\[
+G(v,t)=\exp\left[
+\frac{\ii}{\hb}(mv\x-vt\p)\right]
+\]
+with the textbook's active-state
+boost convention.
+\textbf{(a)} For infinitesimal $v=\delta$,
+write $G=I+A+O(\delta^2)$,
+$A=\ii\delta(mx-tp)/\hb$.
+As $G^\dagger xG=x+[x,A]+O(\delta^2)$,
+the canonical commutator gives
+\[
+[x,A]=\delta t,\qquad
+[p,A]=m\delta.
+\]
+Therefore
+\begin{equation}
+\boxed{G^\dagger xG=x+\delta t,\qquad
+G^\dagger pG=p+m\delta+O(\delta^2).}
+\end{equation}
+The wave packet's position and
+momentum are shifted according to
+a frame moving with relative speed $v$.
+\textbf{(b)} Let
+$A=\ii mvx/\hb$, $B=-\ii vt p/\hb$.
+Their commutator is the scalar
+$[A,B]=\ii mv^2t/\hb$, and all
+nested commutators vanish.
+The Baker--Campbell--Hausdorff
+identity therefore yields
+\begin{align}
+G&=\ee^{A+B}
+=\ee^{A}\ee^{B}\ee^{-[A,B]/2}\\
+&=\boxed{
+\exp\left[\frac{\ii}{\hb}
+(mvx-\tfrac12mv^2t)\right]\T(vt)},\\
+G&=\ee^{B}\ee^{A}\ee^{+[A,B]/2}\\
+&=\boxed{\T(vt)
+\exp\left[\frac{\ii}{\hb}
+(mvx+\tfrac12mv^2t)\right]}.
+\end{align}
+\textbf{(c)} If $\Psi$ satisfies
+$\ii\hb\partial_t\Psi=
+[-\hb^2\partial_x^2/(2m)+V(x)]\Psi$,
+then the boosted wave is
+\begin{equation}
+\boxed{\Psi'(x,t)=
+\ee^{\ii(mvx-mv^2t/2)/\hb}\,
+\Psi(x-vt,t).}
+\end{equation}
+Set $y=x-vt$ and denote the phase
+by $F$. The time derivative is
+\[
+\ii\hb\partial_t\Psi'
+=F[\tfrac12mv^2\Psi-\ii\hb v\partial_y\Psi+
+\ii\hb\partial_t\Psi].
+\]
+Differentiate twice in $x$:
+\[
+-\frac{\hb^2}{2m}\partial_x^2\Psi'
+=F[\tfrac12mv^2\Psi-\ii\hb v\partial_y\Psi
+-\tfrac{\hb^2}{2m}\partial_y^2\Psi].
+\]
+Insert the original Schrödinger
+equation; terms match term by term,
+and the remaining potential is
+$V(y)=V(x-vt)$:
+\begin{equation}
+\boxed{\ii\hb\partial_t\Psi'
+=\left[-\frac{\hb^2}{2m}\partial_x^2
++V(x-vt)\right]\Psi'.}
+\end{equation}
+\textbf{(d)} This reproduces the
+transformation of a wave packet
+under a uniform Galilean boost
+in Problem 2.50(a), including its
+necessary space--time dependent
+phase. Simply replacing
+$x\mapsto x-vt$ without that phase
+would not solve the moving-potential
+Schrödinger equation.
+
+\problem{6.36}{Spinless time reversal and the energy spectrum}
+For a spinless particle in
+position representation,
+$\Theta=K$ (complex conjugation),
+which is \emph{antiunitary}.
+\textbf{(a)} Apply it to an arbitrary
+test function $f$:
+\[
+(\Theta^{-1}x\Theta f)(x)=
+[x f^*(x)]^*=xf(x).
+\]
+For momentum,
+\[
+(\Theta^{-1}p\Theta f)(x)
+=[-\ii\hb (f^*)'(x)]^*
+=+\ii\hb f'(x)=-pf(x).
+\]
+Thus
+\begin{equation}
+\boxed{\Theta^{-1}x\Theta=x,\qquad
+\Theta^{-1}p\Theta=-p.}
+\end{equation}
+\textbf{(b)} Reversing motion should
+undo unitary evolution:
+\[
+\Theta U(t)\Theta^{-1}=U(-t).
+\]
+Expand the operator
+$U(\delta)=I-\ii H\delta/\hb+O(\delta^2)$.
+Because $\Theta$ is antiunitary,
+$\Theta\ii\Theta^{-1}=-\ii$.
+Hence
+\[
+\Theta U(\delta)\Theta^{-1}
+=I+\frac{\ii\delta}{\hb}
+\Theta H\Theta^{-1}+O(\delta^2).
+\]
+Compare with
+$U(-\delta)=I+\ii H\delta/\hb+O(\delta^2)$,
+showing that time-reversal invariance is
+equivalent to
+\begin{equation}
+\boxed{\Theta H\Theta^{-1}=H.}
+\end{equation}
+The relation is sometimes written
+$[\Theta,H]=0$, but $\Theta$
+is anti\emph{linear}; the equation
+above is the precise statement.
+\textbf{(c)} If $H\psi_n=E_n\psi_n$
+with real $E_n$, then
+$H\Theta\psi_n=\Theta H\psi_n
+=E_n\Theta\psi_n$, so
+$\psi_n^*$ has the same energy.
+For a nondegenerate eigenvalue,
+$\psi_n^*=c\psi_n$, $|c|=1$.
+Choose a global phase
+$\psi_n\mapsto\ee^{\ii\alpha}\psi_n$
+to make $c=1$, proving that an
+eigenfunction can be chosen real.
+\textbf{(d)} Momentum eigenstates satisfy
+\[
+\boxed{\Theta f_p(x)=f_p^*(x)=f_{-p}(x)}.
+\]
+Both energies equal $p^2/(2m)$,
+although their momenta are opposite.
+For hydrogen
+$\psi_{n\ell m}=R_{n\ell}(r)Y_\ell^m$,
+using the real radial convention and
+$Y_\ell^{m*}=(-1)^mY_\ell^{-m}$ gives
+\begin{equation}
+\boxed{\Theta\psi_{n\ell m}
+=(-1)^m\psi_{n\ell,-m}.}
+\end{equation}
+Hydrogen energies depend only
+on $n$ in the nonrelativistic
+point-Coulomb model, so the
+time-reversed state has the same
+energy. For $m=0$ it is the same
+state up to phase, while for
+$m\ne0$ it is generally an
+independent, degenerate state.
+\phys{A fixed externally imposed
+magnetic field breaks this symmetry
+unless the magnetic field itself
+is reversed with the system.}
+
+\problem{6.37}{Time reversal of spin-half and Kramers degeneracy}
+A spin-$1/2$ spinor is
+$\chi=(a,b)^T$. With the
+Condon--Shortley spin basis,
+time reversal acts as
+\begin{equation}
+\boxed{\Theta\begin{pmatrix}a\\b\end{pmatrix}
+=\begin{pmatrix}-b^*\\a^*\end{pmatrix}
+=-\ii\sigma_yK\begin{pmatrix}a\\b\end{pmatrix}.}
+\end{equation}
+\textbf{(a)} Apply the operation a second time:
+\[
+\Theta^2\begin{pmatrix}a\\b\end{pmatrix}
+=\Theta\begin{pmatrix}-b^*\\a^*\end{pmatrix}
+=\begin{pmatrix}-a\\-b\end{pmatrix}.
+\]
+Therefore
+\begin{equation}
+\boxed{\Theta^2=-I\qquad(s=\tfrac12).}
+\end{equation}
+\textbf{(b)} Suppose a normalized energy
+eigenstate $\ket\psi$ of a
+time-reversal invariant Hamiltonian
+were identical, up to phase,
+to its time-reversed state:
+$\Theta\ket\psi=c\ket\psi$.
+As $\Theta$ is anti\emph{linear},
+applying it again gives
+\[
+\Theta^2\ket\psi
+=\Theta(c\ket\psi)
+=c^*\Theta\ket\psi
+=|c|^2\ket\psi.
+\]
+But part (a) demands
+$\Theta^2\ket\psi=-\ket\psi$.
+Thus $|c|^2=-1$, impossible.
+Hence $\ket\psi$ and
+$\Theta\ket\psi$ are distinct
+eigenstates with the same energy:
+\begin{equation}
+\boxed{\text{Every level is at least doubly
+degenerate if }\Theta^2=-I
+\text{ and }[\Theta,H]=0.}
+\end{equation}
+The two states are in fact orthogonal.
+Using antiunitarity
+$\braket{\Theta a}{\Theta b}=
+\braket b a$ with $a=\psi$, $b=\Theta\psi$,
+\[
+\braket{\Theta\psi}{\Theta^2\psi}
+=\braket{\Theta\psi}{\psi}.
+\]
+The left side equals
+$-\braket{\Theta\psi}{\psi}$,
+so their overlap is zero.
+This is Kramers degeneracy.
+\caveat{The degeneracy theorem
+applies to systems whose physical
+time-reversal operator squares to
+$-I$, such as an odd number of
+spin-half fermions under the stated
+assumptions. A generic spinless
+particle has $\Theta^2=+I$ and
+need not have a Kramers doublet.}

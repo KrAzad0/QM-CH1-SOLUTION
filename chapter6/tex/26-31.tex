@@ -1,0 +1,300 @@
+\problem{6.26}{Heisenberg momentum of the oscillator}
+For the harmonic oscillator
+$H=\p^2/(2m)+m\omega^2\x^2/2$,
+Example 6.7 finds
+\[
+x_H(t)=x\cos\omega t+
+\frac{p}{m\omega}\sin\omega t.
+\]
+The Heisenberg equations are
+$\dot x_H=p_H/m$ and
+$\dot p_H=-m\omega^2x_H$.
+Differentiate the displayed
+$x_H(t)$ and multiply by $m$:
+\begin{equation}
+\boxed{p_H(t)=p\cos\omega t
+-m\omega x\sin\omega t.}
+\end{equation}
+At $t=0$ it reduces to $p$; its
+time derivative is indeed
+\[
+\dot p_H=-\omega p\sin\omega t
+-m\omega^2x\cos\omega t
+=-m\omega^2x_H(t).
+\]
+These are exactly the \emph{operator}
+forms of classical oscillator
+trajectories, with $x,p$
+replaced by their time-zero
+noncommuting operators.
+
+\problem{6.27}{Free-particle Heisenberg position and momentum}
+For $H=p^2/(2m)$,
+$[H,p]=0$ and
+$[x,H]=\ii\hb p/m$.
+Since the commutator $[x,H]$
+commutes with $H$, the identity
+\[
+[x,H^n]=
+\sum_{j=0}^{n-1}H^j[x,H]H^{n-1-j}
+=n\frac{\ii\hb p}{m}H^{n-1}
+\]
+holds for every positive integer $n$.
+Expand $U(t)=\sum_{n\ge0}(-\ii t/\hb)^nH^n/n!$:
+\[
+[x,U(t)]=
+\sum_{n=1}^{\infty}
+\frac{(-\ii t/\hb)^n}{n!}
+[x,H^n]=\frac{t}{m}p\,U(t).
+\]
+Using $U^\dagger U=I$,
+\begin{align}
+x_H(t)&=U^\dagger xU
+=x+U^\dagger[x,U]
+=x+\frac{t}{m}p,\\
+p_H(t)&=U^\dagger pU=p.
+\end{align}
+Thus
+\begin{equation}
+\boxed{x_H(t)=x_H(0)+
+\frac{t}{m}p_H(0),\qquad
+p_H(t)=p_H(0).}
+\end{equation}
+The mean values follow classical
+uniform-velocity motion, while
+the operators themselves still obey
+$[x_H(t),p_H(t)]=\ii\hb$.
+
+\problem{6.28}{Infinitesimal time-evolution operator}
+Taylor-expand the state in
+an infinitesimal interval $\delta$:
+\[
+\Psi(x,t_0+\delta)
+=\Psi(x,t_0)+\delta\,\partial_t\Psi(x,t_0)
++O(\delta^2).
+\]
+The Schrödinger equation gives
+$\partial_t\Psi=-(\ii/\hb)H(t_0)\Psi$.
+Substitute:
+\[
+\Psi(x,t_0+\delta)=
+\left[I-\frac{\ii\delta}{\hb}H(t_0)\right]
+\Psi(x,t_0)+O(\delta^2).
+\]
+Therefore
+\begin{equation}
+\boxed{U(t_0+\delta,t_0)
+=I-\frac{\ii\delta}{\hb}H(t_0)+O(\delta^2).}
+\end{equation}
+When $H$ depends on time, this
+first-order expression is valid
+without requiring $[H(t_1),H(t_2)]=0$.
+A finite interval generally
+requires time ordering.
+
+\problem{6.29}{Heisenberg equations directly from the evolution operator}
+Take a time-independent Hermitian
+Hamiltonian and observable $Q$.
+With $U(t)=\ee^{-\ii Ht/\hb}$,
+$Q_H(t)=U^\dagger(t)QU(t)$.
+Differentiate both factors:
+\begin{align}
+\frac{\dd Q_H}{\dd t}
+&=\frac{\ii}{\hb}U^\dagger HQU
+-\frac{\ii}{\hb}U^\dagger QHU\\
+&=\frac{\ii}{\hb}[H,Q_H].
+\end{align}
+Equivalently
+\begin{equation}
+\boxed{\ii\hb\frac{\dd Q_H}{\dd t}
+=[Q_H,H].}
+\end{equation}
+For a one-dimensional
+$H=p^2/(2m)+V(x)$, use
+$[x,p^2]=2\ii\hb p$ and
+$[p,V(x)]=-\ii\hb V'(x)$.
+This yields
+\begin{equation}
+\boxed{\frac{\dd x_H}{\dd t}=
+\frac{p_H}{m},\qquad
+\frac{\dd p_H}{\dd t}=
+-\frac{\partial V(x_H)}{\partial x_H}.}
+\end{equation}
+The operator derivative of $V$
+is interpreted through the
+spectral functional calculus.
+This is the Heisenberg analogue
+of Hamilton's equations.
+
+\problem{6.30}{Propagators for oscillator and free Gaussian packets}
+\textbf{(a) Spectral kernel.}
+Let $H\psi_n=E_n\psi_n$ and
+$\int\psi_n^*(x')\Psi(x',0)\dd x'=c_n$.
+The spectral resolution of $U$ is
+$\sum_n\ket n\ee^{-\ii E_nt/\hb}\bra n$,
+so
+\begin{align}
+\Psi(x,t)&=\sum_n\psi_n(x)
+\ee^{-\ii E_nt/\hb}c_n\\
+&=\int K(x,x';t)\Psi(x',0)\dd x',\\
+\boxed{K(x,x';t)}&=
+\sum_n\psi_n(x)\ee^{-\ii E_nt/\hb}
+\psi_n^*(x').
+\end{align}
+At $t=0$, completeness gives
+$K(x,x';0)=\delta(x-x')$.
+\textbf{(b) Harmonic oscillator.}
+Let $\theta=\omega t$,
+$\xi=\sqrt{m\omega/\hb}\,x$,
+$\eta=\sqrt{m\omega/\hb}\,x'$.
+Insert the normalized Hermite
+eigenfunctions
+$\psi_n(x)\propto
+\ee^{-\xi^2/2}H_n(\xi)/\sqrt{2^nn!}$
+and $E_n=\hb\omega(n+\frac12)$
+into the spectral sum.
+The generating identity given in
+the exercise (Mehler's formula),
+with $z=\ee^{-\ii\theta}$,
+sums it to
+\begin{equation}
+\boxed{
+K_{\rm HO}(x,x';t)=
+\sqrt{\frac{m\omega}{2\pi\ii\hb\sin\omega t}}
+\exp\!\left\{
+\frac{\ii m\omega}{2\hb\sin\omega t}
+\big[(x^2+x'^2)\cos\omega t-2xx'\big]
+\right\}.}
+\end{equation}
+This is valid away from focal
+times $\sin\omega t=0$, with the
+square-root phase chosen by
+continuous evolution from $t=0$;
+at those times the kernel is a
+distribution with a Maslov phase.
+\textbf{(c) Evolve an initially displaced Gaussian.}
+Let
+\[
+\Psi(x',0)=\left(\frac{2a}{\pi}\right)^{1/4}
+\ee^{-a(x'-x_0)^2}.
+\]
+Write
+$B=m\omega/(2\hb\sin\theta)$,
+$A=a-\ii B\cos\theta$, and
+$D=2ax_0-2\ii Bx$.
+Completing the square in the
+integral $\int K_{\rm HO}\Psi_0\dd x'$
+uses
+\[
+\int_{-\infty}^{\infty}
+\ee^{-Ax'^2+Dx'}\dd x'
+=\sqrt{\frac{\pi}{A}}\,
+\ee^{D^2/(4A)},\qquad
+\Re A=a>0.
+\]
+Consequently
+\begin{equation}
+\boxed{\begin{aligned}
+\Psi(x,t)&=
+\left(\frac{2a}{\pi}\right)^{1/4}
+\sqrt{\frac{m\omega}{2\ii\hb\sin\theta\, A}}\\
+&\quad\times\exp\left[
+\ii Bx^2\cos\theta-ax_0^2+
+\frac{D^2}{4A}\right].
+\end{aligned}}
+\end{equation}
+This compact expression is exact and
+includes the phase.
+For $a=m\omega/(2\hb)$, its
+probability density is a
+minimum-width Gaussian centered at
+$\boxed{\av{x(t)}=x_0\cos\omega t}$,
+the textbook's special coherent-state case.
+\textbf{(d) Free-particle kernel.}
+Replace the discrete sum by an
+integral of continuum momentum
+eigenfunctions:
+\[
+K_0(x,x';t)=\int_{\mathbb R}
+\frac{\dd p}{2\pi\hb}
+\exp\left[\frac{\ii p(x-x')}{\hb}
+-\frac{\ii p^2t}{2m\hb}\right].
+\]
+Complete the square in $p$
+using the Gaussian integral with
+the standard $t\to t-\ii0^+$
+prescription:
+\begin{equation}
+\boxed{K_0(x,x';t)=
+\sqrt{\frac{m}{2\pi\ii\hb t}}
+\exp\left[\frac{\ii m(x-x')^2}{2\hb t}\right].}
+\end{equation}
+\textbf{(e) Free spreading Gaussian.}
+With $\Psi(x,0)=(2a/\pi)^{1/4}\ee^{-ax^2}$,
+another Gaussian integral gives
+\begin{equation}
+\boxed{\Psi(x,t)=
+\left(\frac{2a}{\pi}\right)^{1/4}
+\frac{1}{\sqrt{1+2\ii\hb at/m}}
+\exp\left[-\frac{ax^2}{
+1+2\ii\hb at/m}\right].}
+\end{equation}
+Set $\tau=2\hb at/m$ and take the
+absolute square:
+\[
+|\Psi(x,t)|^2=
+\sqrt{\frac{2a}{\pi}}\,
+\frac{1}{\sqrt{1+\tau^2}}\,
+\exp[-2ax^2/(1+\tau^2)].
+\]
+Hence
+$\boxed{(\Delta x_t)^2=
+(1+\tau^2)/(4a)}$,
+which verifies normalized free
+wavepacket spreading.
+\caveat{Although the textbook informally
+calls $|K|^2$ a position-transition
+probability, a continuum position
+eigenstate is not normalizable.
+The actual probability density for a
+normalized initial state is $|\Psi(x,t)|^2$.}
+
+\problem{6.31}{Translation of a cusp state via spectral resolution}
+The normalized cusp function is
+$\psi(x)=\sqrt\lambda\,\ee^{-\lambda|x|}$:
+\[
+\int_{-\infty}^{\infty}|\psi(x)|^2\dd x
+=2\lambda\int_0^\infty
+\ee^{-2\lambda x}\dd x=1.
+\]
+The momentum-space transform is
+\begin{align}
+\phi(p)&=\frac{\sqrt\lambda}{\sqrt{2\pi\hb}}
+\int_{\mathbb R}
+\ee^{-\lambda|x|}\ee^{-\ii px/\hb}\dd x\\
+&=\frac{\sqrt\lambda}{\sqrt{2\pi\hb}}
+\left(\frac1{\lambda+\ii p/\hb}
++\frac1{\lambda-\ii p/\hb}\right)\\
+&=\boxed{\sqrt{\frac{2\lambda^3}{\pi\hb}}\,
+\frac1{\lambda^2+(p/\hb)^2}}.
+\end{align}
+Now use the spectral representation of
+the translation operator:
+\[
+(\T(a)\psi)(x)=
+\frac1{\sqrt{2\pi\hb}}\int_{\mathbb R}
+\ee^{\ii p(x-a)/\hb}\phi(p)\dd p.
+\]
+It is exactly the inverse Fourier
+transform of $\phi$ at $x-a$:
+\begin{equation}
+\boxed{(\T(a)\psi)(x)=
+\sqrt\lambda\,\ee^{-\lambda|x-a|}.}
+\end{equation}
+This proof is valid despite the
+undefined ordinary first derivative
+at the cusp $x=0$.
+\phys{The spectral definition of a
+unitary operator is more general
+than termwise Taylor expansion
+on smooth wavefunctions.}

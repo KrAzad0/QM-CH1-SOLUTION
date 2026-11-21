@@ -1,5 +1,14 @@
 # The Wave Function — Interactive Chapter 1 Website
 
+## Chapter 6 — Symmetries & Conservation Laws
+
+**[Explore the interactive Chapter 6 website: 37 worked exercises](https://krazad0.github.io/QM-CH1-SOLUTION/chapter6/index.html?fresh=20261121-ch6)**
+
+The [Chapter 6 LaTeX manuscript and numerical source](chapter6/) reproduce the full numbered exercise sequence 6.1–6.37 from Griffiths & Schroeter (third edition), covering translation, parity, Bloch waves, rotation generators, tensor selection rules, propagators, the quantum Laplace–Runge–Lenz vector, Galilean covariance and antiunitary time reversal. The separate PDF and figures are published with Chapters 1–5.
+
+---
+
+
 ## Chapter 5 — Identical Particles
 
 **[Explore the interactive Chapter 5 website: 39 worked solutions](https://krazad0.github.io/QM-CH1-SOLUTION/chapter5/)**

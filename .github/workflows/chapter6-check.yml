@@ -1,0 +1,91 @@
+name: Verify Chapter 6 Symmetries and Conservation Laws
+
+on:
+  push:
+    branches: [chapter6-symmetries-conservation, main]
+    paths:
+      - "chapter6/**"
+      - ".github/workflows/chapter6-check.yml"
+  pull_request:
+    paths:
+      - "chapter6/**"
+      - "docs/chapter6/**"
+      - ".github/workflows/chapter6-check.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    name: Check 37 exact-numbered exercises, numerical derivations and LaTeX PDF
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install NumPy, SciPy and Matplotlib
+        run: python -m pip install numpy scipy matplotlib
+      - name: Validate all problem headings and source ordering
+        run: |
+          python - <<'PY'
+          import re
+          from pathlib import Path
+          files=sorted(Path("chapter6/tex").glob("*.tex"))
+          assert len(files)==6,files
+          nums=[]
+          for file in files:
+              text=file.read_text()
+              numbers=[int(x) for x in re.findall(r"\\problem\{6\.(\d+)\}",text)]
+              assert numbers, file
+              nums+=numbers
+              print(file,numbers[0],numbers[-1],len(numbers))
+          assert nums==list(range(1,38)),f"Invalid problem numbering: {nums}"
+          print("PASS: all 37 numbered solutions 6.1–6.37 appear exactly once")
+          PY
+      - name: Reproduce Bloch bands, spin tests, square-well plots and Gaussian propagation
+        run: python chapter6/scripts/verify.py
+      - name: Validate Chapter 6 website and JavaScript
+        run: |
+          node --check docs/chapter6/chapter6.js
+          node --check docs/site.js
+          python - <<'PY'
+          import re
+          from pathlib import Path
+          site=Path("docs/chapter6/index.html").read_text()
+          js=Path("docs/chapter6/chapter6.js").read_text()
+          assert 'CHAPTER 06' in site
+          assert 'id="problem-list"' in site
+          assert 'chapter-6-solutions.pdf' in site
+          assert 'chapter6.js' in site and '../site.js' in site
+          assert 'id="theme-toggle"' in site
+          assert 'id="problem-search"' in site
+          assert 'id="visible-count"' in site
+          assert len(re.findall(r'^.{0,180}~',js,flags=re.M))==0
+          assert 'data-filter="section"' in site and 'data-filter="further"' in site
+          assert all(f'problem-6-{n}' in site or '"problem-6-"+n' in js for n in (1,7,18,32,37))
+          print("PASS: main site interface, filters, and JavaScript syntax")
+          PY
+      - name: Compile Chapter 6 solutions PDF
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: chapter6
+          root_file: main.tex
+          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+      - name: Verify output files
+        run: |
+          test -s chapter6/main.pdf
+          test -s chapter6/figures/bloch_bands.pdf
+          test -s chapter6/figures/square_symmetry.pdf
+          test -s chapter6/figures/spin_rotation.pdf
+          test -s docs/chapter6/index.html
+          test -s docs/chapter6/chapter6.js
+      - name: Upload compiled PDF and plots
+        uses: actions/upload-artifact@v4
+        with:
+          name: QM-CH6-SYMMETRIES-CONSERVATION
+          path: |
+            chapter6/main.pdf
+            chapter6/figures/*.png
+          if-no-files-found: error

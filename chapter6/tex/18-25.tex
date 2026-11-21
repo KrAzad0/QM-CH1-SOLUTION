@@ -1,0 +1,348 @@
+\problem{6.18}{Why translation and parity generate free-particle degeneracy}
+\textbf{(a)} For any test function $f$,
+\[
+(\PP\T(a)f)(x)=f(-x-a),\qquad
+(\T(a)\PP f)(x)=f(a-x).
+\]
+These are not generally equal; instead
+\begin{equation}
+\boxed{\PP\T(a)=\T(-a)\PP.}
+\end{equation}
+\textbf{(b)} The momentum eigenfunction
+$f_p(x)=\ee^{\ii px/\hb}/\sqrt{2\pi\hb}$
+obeys
+\[
+\PP f_p(x)=f_p(-x)=f_{-p}(x).
+\]
+The free Hamiltonian $H=\p^2/(2m)$
+commutes with parity. Thus if
+$Hf_p=E_pf_p$,
+$H(\PP f_p)=\PP Hf_p=E_p f_{-p}$.
+Hence
+\begin{equation}
+\boxed{E_{-p}=E_p=p^2/(2m),\qquad p\ne0.}
+\end{equation}
+\textbf{(c)} Define the even and odd
+continuum-normalized functions
+$c_p(x)=\cos(px/\hb)/\sqrt{\pi\hb}$,
+$s_p(x)=\sin(px/\hb)/\sqrt{\pi\hb}$.
+Angle-addition formulae give
+\[
+\begin{pmatrix}\T(a)c_p\\\T(a)s_p\end{pmatrix}
+=
+\begin{pmatrix}
+\cos(pa/\hb)&\sin(pa/\hb)\\
+-\sin(pa/\hb)&\cos(pa/\hb)
+\end{pmatrix}
+\begin{pmatrix}c_p\\s_p\end{pmatrix}.
+\]
+They are mixed by translations, so
+they must belong to the same energy
+eigenspace if translations commute
+with $H$.
+\phys{The momentum and parity bases
+diagonalize different commuting
+pairs; their ability to mix at fixed
+energy reveals the degeneracy.}
+
+\problem{6.19}{Commutators of a vector ladder operator}
+Let $V_\pm=V_x\pm\ii V_y$,
+and assume vector commutators
+$[L_i,V_j]=\ii\hb\epsilon_{ijk}V_k$.
+\textbf{(a)} Direct substitution yields
+\[
+[L_z,V_x]=\ii\hb V_y,\qquad
+[L_z,V_y]=-\ii\hb V_x,
+\]
+so
+\begin{equation}
+\boxed{[L_z,V_\pm]=\pm\hb V_\pm.}
+\end{equation}
+Use $L^2=L_-L_++L_z^2+\hb L_z$
+and
+\[
+[L_+,V_+]=0,\quad
+[L_-,V_+]=-2\hb V_z,\quad
+[L_z,V_+]=\hb V_+.
+\]
+Expanding $[AB,C]=A[B,C]+[A,C]B$
+and commuting $L_z$ through the
+vector components gives
+\begin{equation}
+\boxed{[L^2,V_\pm]=
+2\hb^2V_\pm
+\pm2\hb V_\pm L_z
+\mp2\hb V_zL_\pm.}
+\end{equation}
+\textbf{(b)} Suppose
+$L^2\ket{\ell,\ell}
+=\hb^2\ell(\ell+1)\ket{\ell,\ell}$.
+Since $L_+\ket{\ell,\ell}=0$,
+the previous formula gives
+\[
+L^2 V_+\ket{\ell,\ell}
+=\hb^2[\ell(\ell+1)+2+2\ell]
+V_+\ket{\ell,\ell}.
+\]
+The factor is $(\ell+1)(\ell+2)$.
+Also
+$L_zV_+\ket{\ell,\ell}
+=(\ell+1)\hb V_+\ket{\ell,\ell}$.
+Therefore either
+$V_+\ket{\ell,\ell}=0$, or it has
+\begin{equation}
+\boxed{\ell'=\ell+1,\qquad
+m'=\ell+1.}
+\end{equation}
+This is the highest-weight special
+case of the rank-one tensor
+selection rules.
+
+\problem{6.20}{Scalar selection rule using the lowering operator}
+A scalar $f$ has $[L_-,f]=0$.
+Fix $\ell'=\ell$ and consider
+$\ket{n\ell m}$ and $\ket{n'\ell,m-1}$.
+The matrix element of the commutator is
+\[
+0=\bra{n'\ell,m-1}[L_-,f]
+\ket{n\ell m}.
+\]
+For a scalar, $[L_z,f]=0$, so only
+equal magnetic indices occur.
+Using
+$L_-\ket{\ell m}=
+\hb B^\ell_m\ket{\ell,m-1}$,
+$B^\ell_m=\sqrt{(\ell+m)(\ell-m+1)}$,
+we obtain
+\[
+0=\hb B^\ell_m
+\left(
+\bra{n'\ell m}f\ket{n\ell m}
+-\bra{n'\ell,m-1}f\ket{n\ell,m-1}
+\right).
+\]
+For $m>-\ell$ the prefactor is
+nonzero, giving
+\begin{equation}
+\boxed{\bra{n'\ell m}f\ket{n\ell m}
+=\bra{n'\ell,m-1}f\ket{n\ell,m-1}.}
+\end{equation}
+Thus the diagonal-in-$m$ matrix element
+is independent of $m$, the same
+selection relation obtained from
+$[L_+,f]=0$.
+
+\problem{6.21}{A scalar reduced matrix element for a hydrogen superposition}
+Take the normalized
+$\ket\psi=(\ket{211}+\ket{21,-1})/\sqrt2$.
+Rotational scalar selection rules
+for the magnitude $r$ state
+\[
+\bra{n'\ell'm'}r\ket{n\ell m}
+=\delta_{\ell'\ell}\delta_{m'm}
+\mathcal R_{n'\ell;n\ell},
+\]
+where $\mathcal R_{n'\ell;n\ell}$
+is the single reduced radial
+matrix element for fixed $\ell$.
+The cross terms have $m'\ne m$ and
+vanish. The diagonal ones are equal,
+so
+\[
+\av r=\frac12(\mathcal R_{21;21}
++\mathcal R_{21;21})=\mathcal R_{21;21}.
+\]
+For hydrogen's $2p$ radial function
+$R_{21}(r)=
+r\ee^{-r/(2a_0)}/(2\sqrt6\,a_0^{5/2})$,
+\begin{align}
+\mathcal R_{21;21}
+&=\int_0^\infty
+r^3|R_{21}(r)|^2\dd r\\
+&=\frac1{24a_0^5}
+\int_0^\infty r^5\ee^{-r/a_0}\dd r
+=\frac{5!a_0^6}{24a_0^5}.
+\end{align}
+Consequently
+\begin{equation}
+\boxed{\av r=5a_0.}
+\end{equation}
+\phys{Rotational symmetry reduces two
+apparently separate diagonal
+expectation values to one radial integral.}
+
+\problem{6.22}{Vector-operator commutators and magnetic selection rule}
+\textbf{(a)} Start from
+$[L_i,V_j]=\ii\hb\epsilon_{ijk}V_k$.
+Using $L_\pm=L_x\pm\ii L_y$
+and $V_\pm=V_x\pm\ii V_y$,
+expand the commutators componentwise.
+The results are
+\begin{align}
+\boxed{[L_z,V_z]}&=0,&
+\boxed{[L_z,V_\pm]}&=\pm\hb V_\pm,\\
+\boxed{[L_\pm,V_\pm]}&=0,&
+\boxed{[L_\pm,V_z]}&=\mp\hb V_\pm,\\
+\boxed{[L_\pm,V_\mp]}&=\pm2\hb V_z.
+\end{align}
+For example
+$[L_+,V_z]=[L_x,V_z]
++\ii[L_y,V_z]=-\ii\hb V_y-\hb V_x
+=-\hb V_+$; the remaining identities
+follow analogously.
+\textbf{(b)} Insert eigenstates
+$\ket a=\ket{n\ell m}$ and
+$\ket b=\ket{n'\ell'm'}$
+into $[L_z,V_z]=0$:
+\[
+0=\bra b[L_z,V_z]\ket a
+=\hb(m'-m)\bra b V_z\ket a.
+\]
+Therefore
+\begin{equation}
+\boxed{\bra{n'\ell'm'}V_z\ket{n\ell m}
+=0\quad\text{unless }m'=m.}
+\end{equation}
+Likewise $V_+$ needs $m'=m+1$,
+and $V_-$ needs $m'=m-1$.
+These are the magnetic quantum-number
+selection rules in Equations 6.56--6.58.
+
+\problem{6.23}{Clebsch--Gordan coefficient recursions}
+\textbf{(a)} In the product space
+$\ket{j_1j_2m_1m_2}$,
+\[
+\ket{JM}=\sum_{m_1+m_2=M}
+C_{m_1m_2;M}^{j_1j_2;J}
+\ket{j_1j_2m_1m_2}.
+\]
+Take the inner product with a fixed
+uncoupled basis vector.
+Orthonormality leaves exactly one term:
+\begin{equation}
+\boxed{C_{m_1m_2;M}^{j_1j_2;J}
+=\braket{j_1j_2m_1m_2}{JM}.}
+\end{equation}
+\textbf{(b)} Define ladder coefficients
+\[
+A_m^j=\sqrt{(j-m)(j+m+1)},\qquad
+B_m^j=\sqrt{(j+m)(j-m+1)}.
+\]
+Apply $J_+=J_{1+}+J_{2+}$ to the
+coupled decomposition of $\ket{JM}$.
+The left-hand side is
+$\hb A_M^J\ket{J,M+1}$.
+Match the coefficient of the
+uncoupled $\ket{m_1,m_2}$:
+\begin{equation}
+\boxed{
+A_M^J C^{J,M+1}_{m_1m_2}=
+B_{m_1}^{j_1}C^{J,M}_{m_1-1,m_2}
++B_{m_2}^{j_2}C^{J,M}_{m_1,m_2-1}.}
+\end{equation}
+Similarly, $J_-$ yields
+\begin{equation}
+\boxed{
+B_M^J C^{J,M-1}_{m_1m_2}=
+A_{m_1}^{j_1}C^{J,M}_{m_1+1,m_2}
++A_{m_2}^{j_2}C^{J,M}_{m_1,m_2+1}.}
+\end{equation}
+In these formulas the fixed superscripts
+$j_1,j_2,J$ on the $C$ coefficients
+are suppressed for clarity.
+Out-of-range magnetic indices have
+zero coefficient. This establishes
+both recursions directly from angular
+momentum addition.
+
+\problem{6.24}{Six vector matrix-element recursions and Wigner--Eckart}
+Define
+\[
+M^{q}_{m'm}=\bra{n'\ell'm'}V_q\ket{n\ell m},
+\quad q=+,-,z,
+\]
+and $A_m^\ell,B_m^\ell$
+as in Problem 6.23.
+\textbf{(a)} Sandwiching the six
+commutators $[L_\pm,V_\pm]=0$,
+$[L_\pm,V_z]=\mp\hb V_\pm$,
+$[L_\pm,V_\mp]=\pm2\hb V_z$
+between the angular eigenstates
+produces the six identities
+\begin{align}
+B_{m'}^{\ell'}M^+_{m'-1,m}
+-A_m^\ell M^+_{m',m+1}&=0,\\
+A_{m'}^{\ell'}M^-_{m'+1,m}
+-B_m^\ell M^-_{m',m-1}&=0,\\
+B_{m'}^{\ell'}M^z_{m'-1,m}
+-A_m^\ell M^z_{m',m+1}&=-M^+_{m'm},\\
+A_{m'}^{\ell'}M^z_{m'+1,m}
+-B_m^\ell M^z_{m',m-1}&=+M^-_{m'm},\\
+B_{m'}^{\ell'}M^-_{m'-1,m}
+-A_m^\ell M^-_{m',m+1}&=+2M^z_{m'm},\\
+A_{m'}^{\ell'}M^+_{m'+1,m}
+-B_m^\ell M^+_{m',m-1}&=-2M^z_{m'm}.
+\end{align}
+The terms on the left are obtained by
+moving the ladder operator to the bra
+or acting on the ket; the sign on the
+right comes from its commutator.
+\textbf{(b)} Adopt the spherical tensor
+convention $V_{\pm1}=\mp V_\pm/\sqrt2$,
+$V_0=V_z$. The Wigner--Eckart
+ansatz (with phase convention of the text) is
+\begin{equation}
+\boxed{\begin{aligned}
+M^+_{m'm}&=-\sqrt2\,
+C^{\ell',m'}_{\ell,m;1,1}\,\mathcal R,\\
+M^-_{m'm}&=+\sqrt2\,
+C^{\ell',m'}_{\ell,m;1,-1}\,\mathcal R,\\
+M^z_{m'm}&=
+C^{\ell',m'}_{\ell,m;1,0}\,\mathcal R,
+\end{aligned}}
+\end{equation}
+where $\mathcal R=\bra{n'\ell'}V\ket{n\ell}$
+is a reduced matrix element independent of
+$m,m'$ and tensor component.
+Insert these three expressions into
+the six commutator identities.
+In each equation the common factor
+$\mathcal R$ cancels, while the remaining
+Clebsch--Gordan terms are precisely
+the raising or lowering recursions
+derived in Problem 6.23.
+Hence the Wigner--Eckart form
+solves all six constraints.
+\phys{Rotations fix every dependence
+on $m,m'$; radial dynamics is carried
+only by the reduced matrix element.}
+
+\problem{6.25}{The dipole of a $2p$ hydrogen superposition}
+Take
+\[
+\ket\psi=(\ket{211}+\ket{210})/\sqrt2,\qquad
+\mathbf p_e=-e\mathbf r.
+\]
+Each orbital has $\ell=1$, so
+$\PP\ket\psi=-\ket\psi$;
+the entire superposition has definite
+odd parity. Because
+$\PP^\dagger\mathbf p_e\PP=-\mathbf p_e$,
+\[
+\bra\psi\mathbf p_e\ket\psi
+=\bra\psi\PP^\dagger\mathbf p_e\PP\ket\psi
+=-\bra\psi\mathbf p_e\ket\psi.
+\]
+Therefore
+\begin{equation}
+\boxed{\av{p_{e,x}}=\av{p_{e,y}}=
+\av{p_{e,z}}=0.}
+\end{equation}
+In Wigner--Eckart notation every
+component is proportional to
+the same reduced dipole matrix element
+$\bra{2,1}\mathbf p_e\ket{2,1}$,
+which is \emph{zero by Laporte's rule}.
+Thus the vanishing is independent
+of the Clebsch--Gordan numerical values;
+no radial integration is required.

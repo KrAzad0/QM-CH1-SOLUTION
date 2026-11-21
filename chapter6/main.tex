@@ -1,0 +1,137 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{graphicx,booktabs,microtype,enumitem,hyperref,xcolor,fancyhdr}
+\usepackage[margin=23mm,headheight=16pt]{geometry}
+\definecolor{accent}{HTML}{8D443B}
+\hypersetup{colorlinks=true,linkcolor=accent,urlcolor=accent,
+pdftitle={Chapter 6: Symmetries and Conservation Laws -- 37 Worked Problems}}
+\pagestyle{fancy}\fancyhf{}\lhead{\small QM / Symmetries \& Conservation Laws}
+\rhead{\small K. Azad \ \textbullet\ Chapter 6}\cfoot{\thepage}
+\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}
+\allowdisplaybreaks[2]
+\numberwithin{equation}{section}
+\newcommand{\hb}{\hbar}
+\newcommand{\ii}{\mathrm i}
+\newcommand{\ee}{\mathrm e}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\ket}[1]{\lvert #1\rangle}
+\newcommand{\bra}[1]{\langle #1\rvert}
+\newcommand{\braket}[2]{\langle #1\mid #2\rangle}
+\newcommand{\av}[1]{\langle #1\rangle}
+\newcommand{\T}{\hat T}
+\newcommand{\PP}{\hat{\mathcal P}}
+\newcommand{\RR}{\hat R}
+\newcommand{\UU}{\hat U}
+\newcommand{\HH}{\hat H}
+\newcommand{\LL}{\hat{\mathbf L}}
+\newcommand{\mm}{\hat{\mathbf M}}
+\newcommand{\x}{\hat x}
+\newcommand{\p}{\hat p}
+\newcommand{\problem}[2]{\subsection*{Problem #1: #2}
+\addcontentsline{toc}{subsection}{Problem #1: #2}}
+\newcommand{\answer}[1]{\par\noindent{\color{accent}\bfseries Result.} #1}
+\newcommand{\phys}[1]{\par\noindent{\itshape Physical interpretation.} #1}
+\newcommand{\caveat}[1]{\par\noindent{\color{accent}\bfseries Assumption/check.} #1}
+\newcommand{\vc}[1]{\hat{\boldsymbol{#1}}}
+\title{{\color{accent}\small MATHEMATICAL PHYSICS · INDEPENDENT EDUCATIONAL COMPANION}\\[12pt]
+\Huge\bfseries Symmetries \&\\ Conservation Laws\\[10pt]
+\Large Quantum Mechanics — Chapter 6\\[9pt]
+\normalsize Problems 6.1--6.37, with original mathematical derivations}
+\author{Kumar Azad\\
+\small \url{https://krazad0.github.io/QM-CH1-SOLUTION/chapter6/}}
+\date{November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+This independent study companion develops the \emph{37 numbered
+exercises} of Chapter 6 of Griffiths and Schroeter,
+\emph{Introduction to Quantum Mechanics}, third edition
+(Cambridge University Press, 2018). Topics include translations
+and Bloch theory; conservation and parity; SO(3), SU(2) and
+Wigner--Eckart relations; selection rules; propagators;
+accidental degeneracy and the quantum Laplace--Runge--Lenz
+vector; Galilean boosts; and time reversal/Kramers degeneracy.
+Exercise descriptions are independently paraphrased. This is
+not an official solutions manual, arXiv preprint, or peer-reviewed
+research. Some long exercises are presented as compact
+reproducible derivations rather than exhaustive proofs
+of all general identities.
+\end{abstract}
+\tableofcontents
+\clearpage
+\section{Conventions and symmetry roadmap}
+The active one-dimensional translation convention used by
+the textbook is
+\[
+\T(a)f(x)=f(x-a),\qquad
+\T(a)=\ee^{-\ii a\p/\hb},\qquad
+\T(a)^\dagger \x\T(a)=\x+a.
+\]
+Spatial inversion and rotations obey
+\[
+\PP f(\mathbf r)=f(-\mathbf r),\quad
+\PP^2=I,\qquad
+\RR_{\mathbf n}(\varphi)=
+\exp(-\ii\varphi\,\mathbf n\cdot\LL/\hb).
+\]
+For a time-independent Hamiltonian
+$\UU(t)=\exp(-\ii\HH t/\hb)$.
+An operator $Q$ with no explicit time
+dependence is conserved if $[\HH,Q]=0$.
+A parity-even operator connects
+states of the same parity; a parity-odd
+operator can connect only opposite parities.
+Tensor-operator rotational selection rules
+are encoded by the Wigner--Eckart theorem.
+A spin-half time-reversal transformation
+is \emph{antiunitary}, not unitary.
+\section{Translations, Bloch waves, momentum: Problems 6.1--6.7}
+\input{tex/01-07}
+\section{Parity and rotation: Problems 6.8--6.17}
+\input{tex/08-17}
+\section{Degeneracy and tensor selection rules: Problems 6.18--6.25}
+\input{tex/18-25}
+\section{Time translations, dynamics and propagators: Problems 6.26--6.31}
+\input{tex/26-31}
+\section{Spin rotations and hidden spatial symmetries: Problems 6.32--6.34}
+\input{tex/32-34}
+\section{Galilean boosts and time reversal: Problems 6.35--6.37}
+\input{tex/35-37}
+\section{Reproducible numerical verification}
+The open-source script \texttt{chapter6/scripts/verify.py}
+uses finite-difference spectra, analytic spin matrices,
+discrete rotation operators and normalized Gaussian
+integrals to check selected independent calculations.
+\IfFileExists{figures/bloch_bands.pdf}{
+\begin{figure}[htbp]\centering
+\includegraphics[width=.82\linewidth]{figures/bloch_bands.pdf}
+\caption{Lowest two bands of the periodic finite-depth
+well used in Problem 6.6. Energies in $\hb^2/(2ma^2)$
+and crystal momentum $qa$.}\end{figure}}{}
+\IfFileExists{figures/square_symmetry.pdf}{
+\begin{figure}[htbp]\centering
+\includegraphics[width=.8\linewidth]{figures/square_symmetry.pdf}
+\caption{Two-dimensional square-well antisymmetric
+superposition $\psi_-=(\psi_{57}-\psi_{75})/\sqrt2$
+(Problem 6.33).}\end{figure}}{}
+\IfFileExists{figures/spin_rotation.pdf}{
+\begin{figure}[htbp]\centering
+\includegraphics[width=.8\linewidth]{figures/spin_rotation.pdf}
+\caption{Spin-$1/2$ rotation probability check
+over $0\le\varphi\le2\pi$ (Problem 6.32).}\end{figure}}{}
+\clearpage
+\section{References and limitations}
+D. J. Griffiths and D. F. Schroeter,
+\emph{Introduction to Quantum Mechanics}, 3rd edition,
+Cambridge University Press (2018), Chapter 6,
+\href{https://doi.org/10.1017/9781316995433}{DOI:
+10.1017/9781316995433}.
+Solutions are written for educational verification.
+The author has not claimed ownership of the textbook
+problems. The full statements, diagrams and specific
+numerical conventions should be checked in the
+textbook itself. Numerical studies specify
+grid, units and convergence checks where applicable.
+\end{document}

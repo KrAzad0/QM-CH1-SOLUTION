@@ -1,0 +1,252 @@
+\problem{6.1}{Parity, mirror reflections, and hydrogenic harmonics}
+\textbf{(a)} A reflection in the $xy$ plane sends
+$(x,y,z)\mapsto(x,y,-z)$. Following it with a
+half turn about $z$ sends
+$(x,y,-z)\mapsto(-x,-y,-z)=-\mathbf r$.
+Thus spatial inversion can be realized by a
+mirror reflection followed by a rotation.
+\textbf{(b)} In spherical coordinates
+$x=r\sin\theta\cos\phi$, $y=r\sin\theta\sin\phi$,
+$z=r\cos\theta$. The transformation
+\[
+\theta\longmapsto\pi-\theta,\qquad
+\phi\longmapsto\phi+\pi
+\]
+changes each Cartesian coordinate's sign,
+and $r$ stays fixed. Consequently
+\begin{equation}
+\boxed{(\PP\psi)(r,\theta,\phi)=
+\psi(r,\pi-\theta,\phi+\pi).}
+\end{equation}
+\textbf{(c)} For $\psi_{n\ell m}=R_{n\ell}(r)
+Y_\ell^m(\theta,\phi)$, use the standard
+harmonic $Y_\ell^m=N_{\ell m}
+P_\ell^m(\cos\theta)\ee^{\ii m\phi}$.
+Since
+$P_\ell^m(-u)=(-1)^{\ell+m}P_\ell^m(u)$ and
+$\ee^{\ii m\pi}=(-1)^m$,
+\[
+Y_\ell^m(\pi-\theta,\phi+\pi)
+=(-1)^{\ell+2m}Y_\ell^m(\theta,\phi)
+=(-1)^\ell Y_\ell^m.
+\]
+The radial function depends only on $r$:
+\begin{equation}
+\boxed{\PP\psi_{n\ell m}=(-1)^\ell\psi_{n\ell m}.}
+\end{equation}
+This conclusion is valid for \emph{any} central
+potential, not just the Coulomb potential.
+\phys{Even $\ell$ gives even parity; odd $\ell$
+gives odd parity.}
+
+\problem{6.2}{Exponential of a Hermitian generator is unitary}
+Let $Q^\dagger=Q$ and
+$U=\exp(\ii Q)=\sum_{n\ge0}(\ii Q)^n/n!$.
+Taking the adjoint termwise,
+\[
+U^\dagger=\sum_{n\ge0}
+\frac{(-\ii Q^\dagger)^n}{n!}
+=\exp(-\ii Q).
+\]
+The two exponentials commute because
+they contain the same operator $Q$.
+Therefore
+\begin{equation}
+\boxed{U^\dagger U=
+\ee^{-\ii Q}\ee^{\ii Q}=
+\ee^{0}=I,\qquad UU^\dagger=I.}
+\end{equation}
+By the spectral theorem this remains
+valid for a self-adjoint (possibly
+unbounded) $Q$ through the functional
+calculus; a formal power series need
+not converge on every state.
+
+\problem{6.3}{Momentum does not change under spatial translations}
+Take $\T(a)f(x)=f(x-a)$,
+$\p=-\ii\hb\partial_x$, and
+$\T(a)^\dagger=\T(-a)$. Acting on
+a differentiable test function,
+\begin{align}
+(\T^\dagger\p\T f)(x)
+&=\T(-a)[-\ii\hb f'(x-a)]\\
+&=-\ii\hb f'(x)=(\p f)(x).
+\end{align}
+Hence
+\begin{equation}
+\boxed{\T(a)^\dagger\p\T(a)=\p.}
+\end{equation}
+Equivalently $[\p,\T(a)]=0$
+because $\T(a)=\exp(-\ii a\p/\hb)$.
+\phys{A change of origin shifts position
+but not the momentum.}
+
+\problem{6.4}{Translation of an arbitrary operator series}
+First, the example discussed in the text gives
+$\T^\dagger\x\T=\x+a$; Problem 6.3 gives
+$\T^\dagger\p\T=\p$.
+For any operators $A,B$ and unitary $T$,
+\[
+T^\dagger(AB)T=
+(T^\dagger AT)(T^\dagger BT)
+\]
+by inserting $TT^\dagger=I$.
+Apply the identity repeatedly:
+\[
+\T^\dagger \x^m\p^n\T
+=(\x+a)^m\p^n.
+\]
+Therefore if $Q=\sum_{m,n}c_{mn}\x^m\p^n$
+in the ordering specified in the exercise,
+\begin{equation}
+\boxed{\T^\dagger Q(\x,\p)\T
+=Q(\x+a,\p).}
+\end{equation}
+The result extends to ordered products
+and suitable functions by functional
+calculus, but operator ordering should
+be preserved when $[\x,\p]\ne0$.
+
+\problem{6.5}{Proving the periodic factor in Bloch's theorem}
+Let the Hamiltonian commute with translation
+by $a$, and let its chosen eigenstate obey
+\[
+\T(a)\psi(x)=\psi(x-a)
+=\ee^{-\ii qa}\psi(x).
+\]
+Define $u(x)=\ee^{-\ii qx}\psi(x)$,
+so $\psi(x)=\ee^{\ii qx}u(x)$.
+Then
+\begin{align}
+u(x-a)
+&=\ee^{-\ii q(x-a)}\psi(x-a)\\
+&=\ee^{-\ii qx}\ee^{\ii qa}
+\ee^{-\ii qa}\psi(x)
+=u(x).
+\end{align}
+Shifting $x\mapsto x+a$ shows
+$u(x+a)=u(x)$:
+\begin{equation}
+\boxed{\psi_q(x)=\ee^{\ii qx}u_q(x),
+\qquad u_q(x+a)=u_q(x).}
+\end{equation}
+Here $q$ and $q+2\pi/a$ describe
+the same Bloch translation eigenvalue.
+A periodic potential conserves \emph{crystal}
+momentum, not necessarily ordinary momentum.
+
+\problem{6.6}{The lowest two bands in the periodic finite well}
+\textbf{(a) Derivation.}
+Write $\psi_q(x)=\ee^{\ii qx}u_q(x)$, where
+$u_q(x+a)=u_q(x)$. Differentiating twice,
+\[
+\psi_q''=\ee^{\ii qx}
+(u_q''+2\ii q u_q'-q^2u_q).
+\]
+Substitute in $-\hb^2\psi_q''/(2m)+V\psi_q=E\psi_q$:
+\begin{equation}
+\boxed{\left[-\frac{\hb^2}{2m}\frac{\dd^2}{\dd x^2}
+-\frac{\ii\hb^2q}{m}\frac{\dd}{\dd x}
++\frac{\hb^2q^2}{2m}+V(x)\right]u_q
+=E_q u_q.}
+\end{equation}
+The opposite Bloch-phase convention changes
+the sign of the linear-derivative term but
+not the energies.
+\textbf{(b) Exact matching reference.}
+Use $E_*=\hb^2/(2ma^2)$,
+$s=x/a$, $\epsilon=E/E_*$, and
+$v=-20$ on $1/4<s<3/4$ (zero outside).
+Translation of the origin gives two
+segments of length $a/2$ with potentials
+$-20E_*$ and $0$. At a constant-potential
+segment of dimensionless length $d$,
+a state $(\psi,\psi')^T$ propagates through
+\begin{equation}
+M(k,d)=
+\begin{pmatrix}
+\cos(kd)&\sin(kd)/k\\
+-k\sin(kd)&\cos(kd)
+\end{pmatrix},
+\qquad k=\sqrt{\epsilon-v}.
+\end{equation}
+For imaginary $k$ the entries are real
+hyperbolic functions. Bloch boundary
+conditions imply that the eigenvalues of
+$M(\sqrt\epsilon,\tfrac12)
+M(\sqrt{\epsilon+20},\tfrac12)$
+are $\ee^{\pm\ii qa}$. Since $\det M=1$,
+\begin{equation}
+\boxed{\cos(qa)=\frac12\operatorname{tr}
+\left[M(\sqrt\epsilon,\tfrac12)
+M(\sqrt{\epsilon+20},\tfrac12)\right].}
+\end{equation}
+A root search gives the \emph{two lowest}
+energy levels in units of $E_*$:
+\begin{equation}
+\begin{array}{c|rr}
+qa& E_1/E_*&E_2/E_*\\\hline
+-\pi&-6.981932&5.618248\\
+-\pi/2&-10.060437&13.552029\\
+0&-11.989299&28.848077\\
+\pi/2&-10.060437&13.552029\\
+\pi&-6.981932&5.618248
+\end{array}
+\end{equation}
+\textbf{(c) Reproducible finite differences.}
+On an $N$-point periodic grid with
+$h=1/N$, approximate the Bloch-covariant
+kinetic operator by
+\begin{equation}
+(H_qu)_j=\frac{
+2u_j-\ee^{\ii qh}u_{j+1}
+-\ee^{-\ii qh}u_{j-1}}{h^2}
++v(s_j)u_j,
+\quad j\bmod N.
+\end{equation}
+The resulting matrix is Hermitian.
+For $N=400$ or $800$, diagonalize
+its two lowest eigenvalues for
+$qa\in[-\pi,\pi]$; increasing $N$
+checks convergence to the exact-matching
+table. The plotting script writes
+\texttt{figures/bloch\_bands.pdf}.
+\phys{The two bands are even in $q$ because
+the potential and Hamiltonian are real;
+their band gap is an effect of periodic
+scattering, not an imposed boundary wall.}
+
+\problem{6.7}{Total momentum conservation for an interacting pair}
+Let
+$H=\p_1^2/(2m_1)+\p_2^2/(2m_2)+
+V(|x_1-x_2|)$.
+\textbf{(a)} A simultaneous translation
+of both coordinates acts as
+\begin{equation}
+\T(a)\psi(x_1,x_2)
+=\psi(x_1-a,x_2-a)
+=\exp[-a(\partial_{x_1}+\partial_{x_2})]\psi.
+\end{equation}
+Using $p_j=-\ii\hb\partial_{x_j}$,
+\[
+\boxed{\T(a)=\exp(-\ii aP/\hb),\qquad
+P=p_1+p_2.}
+\]
+\textbf{(b)} The kinetic energy
+commutes with $P$.
+With $r=x_1-x_2$,
+\[
+[P,V(|r|)]=-\ii\hb
+(\partial_{x_1}+\partial_{x_2})V(|r|)
+=0
+\]
+since $\partial_{x_1}V=V'(r)$ and
+$\partial_{x_2}V=-V'(r)$ wherever
+the derivative is defined. Therefore
+\begin{equation}
+\boxed{[H,P]=0,\qquad
+\frac{\dd\av P}{\dd t}=0.}
+\end{equation}
+\phys{Internal forces can exchange
+momentum between the particles but
+cannot change the total momentum.}

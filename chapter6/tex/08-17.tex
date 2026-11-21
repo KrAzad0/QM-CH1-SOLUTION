@@ -1,0 +1,327 @@
+\problem{6.8}{Hermiticity and spectrum of parity}
+\textbf{(a)} In one dimension
+$(\PP g)(x)=g(-x)$, and
+\[
+\braket f{\PP g}=\int_{-\infty}^\infty
+f^*(x)g(-x)\dd x.
+\]
+Set $u=-x$, reverse integration limits:
+\[
+\braket f{\PP g}=
+\int_{-\infty}^\infty f^*(-u)g(u)\dd u
+=\braket{\PP f}g.
+\]
+Therefore $\boxed{\PP^\dagger=\PP}$.
+The same coordinate substitution works in
+three dimensions because the Jacobian's
+absolute value equals one.
+\textbf{(b)} Inverting coordinates twice gives
+$\PP^2=I$. If $\PP\psi=\lambda\psi$,
+then $\PP^2\psi=\lambda^2\psi=\psi$.
+For a nonzero eigenstate
+\begin{equation}
+\boxed{\lambda^2=1,\qquad\lambda=\pm1.}
+\end{equation}
+Moreover $\PP^\dagger\PP=\PP^2=I$,
+so parity is both Hermitian and unitary.
+
+\problem{6.9}{Commutator and anticommutator parity classification}
+For an operator $A$, let
+$A'=\PP^\dagger A\PP=\PP A\PP$.
+If $A$ is \emph{even}, $A'=A$.
+Multiply on the left by $\PP$
+and use $\PP^2=I$: $A\PP=\PP A$.
+Hence
+\[
+\boxed{[\PP,A]=0\qquad\text{(even under parity)}.}
+\]
+If $A$ is \emph{odd}, $A'=-A$,
+and the same manipulation gives
+$A\PP=-\PP A$. Thus
+\[
+\boxed{\{\PP,A\}\equiv\PP A+A\PP=0
+\qquad\text{(odd under parity)}.}
+\]
+Consequently a true scalar and
+a pseudovector commute with parity;
+a pseudoscalar and a true vector
+anticommute with parity.
+\phys{The scalar/vector distinction
+concerns rotations; the true/pseudo
+distinction concerns inversion.}
+
+\problem{6.10}{Position and momentum are parity-odd}
+Apply the triple product $\PP \x\PP$
+to an arbitrary $f$:
+\begin{align}
+(\PP\x\PP f)(x)
+&=\PP[x f(-x)]\\
+&=-x f(x)=-(\x f)(x).
+\end{align}
+Therefore $\boxed{\PP\x\PP=-\x}$.
+For momentum, using $\p=-\ii\hb\partial_x$,
+\begin{align}
+(\PP\p\PP f)(x)
+&=\PP\left[-\ii\hb\frac{\dd}{\dd x}
+f(-x)\right]\\
+&=\PP[\ii\hb f'(-x)]
+=\ii\hb f'(x)=-(\p f)(x).
+\end{align}
+Thus $\boxed{\PP\p\PP=-\p}$.
+In three dimensions, apply the argument
+to each coordinate:
+\begin{equation}
+\boxed{\PP^\dagger\mathbf r\PP=-\mathbf r,\qquad
+\PP^\dagger\mathbf p\PP=-\mathbf p.}
+\end{equation}
+Their cross product
+$\mathbf L=\mathbf r\times\mathbf p$
+is consequently parity \emph{even}.
+
+\problem{6.11}{Selection rule for a pseudovector or true scalar}
+Let the two states have definite parities
+$\PP\ket a=\eta_a\ket a$ and
+$\PP\ket b=\eta_b\ket b$, where
+$\eta_a,\eta_b=\pm1$.
+For angular momentum, $\PP\mathbf L\PP=\mathbf L$.
+Insert the identity as parity operators
+on both sides:
+\[
+\bra b\mathbf L\ket a=
+\bra b\PP^\dagger\mathbf L\PP\ket a
+=\eta_b\eta_a\bra b\mathbf L\ket a.
+\]
+If $\eta_b\eta_a=-1$, the only possible
+matrix element is zero:
+\begin{equation}
+\boxed{\bra{n'\ell'm'}\mathbf L\ket{n\ell m}=0
+\quad\text{if }\ell+\ell'\text{ is odd}.}
+\end{equation}
+The same \emph{parity} rule holds for
+any pseudovector or true scalar.
+For $\mathbf L$ an even stronger
+\emph{rotational} rule applies:
+$\ell'=\ell$, because
+$[\mathbf L,L^2]=0$ and $\mathbf L$
+acts inside a fixed $\ell$ irreducible
+multiplet.
+\caveat{Parity gives a necessary condition,
+not a guarantee of a nonzero matrix element.}
+
+\problem{6.12}{Parity acts trivially on a pure spin-half spinor}
+Let $\PP_s$ denote the $2\times2$ matrix
+that acts only on the spin factor.
+Spin is a pseudovector, so
+$[\PP_s,S_i]=0$ for $i=x,y,z$.
+Write
+$\PP_s=\begin{pmatrix}a&b\\c&d\end{pmatrix}$.
+From $[\PP_s,S_z]=0$ we obtain
+$b=c=0$, so $\PP_s=\mathrm{diag}(a,d)$.
+Then $[\PP_s,S_x]=0$ forces $a=d$:
+$\PP_s=aI_2$.
+The parity identity $\PP_s^2=I_2$
+and Hermiticity give $a=\pm1$.
+Choose the conventional intrinsic
+spin parity $+1$:
+\begin{equation}
+\boxed{\PP_s=I_2.}
+\end{equation}
+The full electron state can still have
+odd spatial parity $(-1)^\ell$.
+This convention does not claim that an
+electron and its antiparticle have the
+same intrinsic parity.
+
+\problem{6.13}{Electric dipole of the $1s$ state and an $n=2$ superposition}
+\textbf{(a)} For an electron
+$\mathbf p_e=-e\mathbf r$,
+a parity-odd vector.
+The hydrogen $1s$ state has even parity,
+so $\av{\mathbf p_e}=-
+\av{\PP^\dagger\mathbf p_e\PP}
+=-\av{\mathbf p_e}$.
+Therefore
+$\boxed{\av{\mathbf p_e}_{1s}=0}$,
+with no integration.
+\textbf{(b)} The $n=2$ shell is
+degenerate between $2s$ and $2p$.
+Take the \emph{normalized} state
+\begin{equation}
+\boxed{\ket\psi=
+(\ket{200}+\ket{210})/\sqrt2.}
+\end{equation}
+Its $x$ and $y$ dipoles vanish by
+azimuthal integration. For $z=r\cos\theta$,
+the two diagonal terms vanish by parity,
+and only the cross term survives:
+\[
+\av z=\frac12
+(\bra{200}z\ket{210}
++\bra{210}z\ket{200}).
+\]
+Use the real hydrogen functions
+\[
+R_{20}=\frac{(2-r/a_0)\ee^{-r/(2a_0)}}{
+2\sqrt2\,a_0^{3/2}},\quad
+R_{21}=\frac{(r/a_0)\ee^{-r/(2a_0)}}{
+2\sqrt6\,a_0^{3/2}},
+\]
+and $Y_0^0=1/\sqrt{4\pi}$,
+$Y_1^0=\sqrt{3/(4\pi)}\cos\theta$.
+The angular integral is
+$\int (Y_0^0)^*\cos\theta Y_1^0\dd\Omega
+=1/\sqrt3$. The radial one is
+\begin{align}
+\int_0^\infty r^3R_{20}R_{21}\dd r
+&=\frac{a_0}{8\sqrt3}
+\int_0^\infty t^4(2-t)\ee^{-t}\dd t\\
+&=\frac{a_0}{8\sqrt3}(2\cdot4!-5!)
+=-3\sqrt3\,a_0.
+\end{align}
+Hence $\bra{200}z\ket{210}=-3a_0$,
+and
+\begin{equation}
+\boxed{\av{\mathbf r}=-3a_0\hat{\mathbf z},
+\qquad\av{\mathbf p_e}=+3ea_0\hat{\mathbf z}.}
+\end{equation}
+\phys{A degenerate superposition of
+opposite-parity orbitals can carry a
+static dipole moment even though each
+pure orbital has zero dipole.}
+
+\problem{6.14}{Finite rotations from infinitesimal planar matrices}
+Put $\delta=\varphi/N$ and
+\[
+M_N=\begin{pmatrix}1&-\delta\\\delta&1\end{pmatrix}
+=I+\delta J,\qquad
+J=\begin{pmatrix}0&-1\\1&0\end{pmatrix}.
+\]
+\textbf{(a)} Since $J$ has eigenvectors
+$v_-=(1,\ii)^T/\sqrt2$ and
+$v_+=(1,-\ii)^T/\sqrt2$
+with eigenvalues $-\ii$ and $+\ii$,
+the unitary $S=(v_-\ v_+)$ gives
+\[
+\boxed{S^\dagger M_NS=
+\operatorname{diag}(1-\ii\delta,1+\ii\delta).}
+\]
+\textbf{(b)} For each eigenvalue,
+$\lim_{N\to\infty}
+(1\mp\ii\varphi/N)^N=\ee^{\mp\ii\varphi}$.
+Thus
+\[
+\lim_{N\to\infty}M_N^N=
+S\,\operatorname{diag}(\ee^{-\ii\varphi},
+\ee^{+\ii\varphi})S^\dagger.
+\]
+\textbf{(c)} Evaluate the product:
+\begin{equation}
+\boxed{\lim_{N\to\infty}M_N^N=
+\ee^{\varphi J}=
+\begin{pmatrix}
+\cos\varphi&-\sin\varphi\\
+\sin\varphi&\cos\varphi
+\end{pmatrix}.}
+\end{equation}
+This exactly connects the
+infinitesimal transformation
+of Equation 6.30 with its finite
+rotation in Equation 6.31.
+
+\problem{6.15}{Rotational invariance of a scalar operator}
+A scalar operator satisfies
+$[L_i,f]=0$ for each Cartesian $i$.
+Hence $[\mathbf n\cdot\mathbf L,f]=0$
+for every unit $\mathbf n$.
+Because
+$\RR_{\mathbf n}(\varphi)
+=\exp(-\ii\varphi\,\mathbf n\cdot\mathbf L/\hb)$,
+every power in its exponential commutes
+with $f$ and so does the complete rotation:
+$\RR f=f\RR$.
+Consequently
+\begin{equation}
+\boxed{\RR^\dagger f\RR
+=\RR^\dagger\RR f=f.}
+\end{equation}
+The result holds for both true scalars
+and pseudoscalars under \emph{proper}
+rotations. Parity is a separate question.
+
+\problem{6.16}{Infinitesimal rotation about the $y$ axis}
+For a vector operator $\mathbf V$,
+$[L_i,V_j]=\ii\hb\epsilon_{ijk}V_k$.
+Under a small rotation of angle
+$\delta$ about $y$,
+\begin{align}
+V_j'&=\RR_y^\dagger(\delta)V_j\RR_y(\delta)\\
+&=V_j+\frac{\ii\delta}{\hb}[L_y,V_j]
++O(\delta^2)\\
+&=V_j-\delta\epsilon_{yjk}V_k+O(\delta^2).
+\end{align}
+Using $\epsilon_{yxz}=-1$,
+$\epsilon_{yzx}=+1$:
+\[
+V_x'=V_x+\delta V_z,\quad
+V_y'=V_y,\quad
+V_z'=V_z-\delta V_x.
+\]
+Thus
+\begin{equation}
+\boxed{\begin{pmatrix}V_x'\\V_y'\\V_z'\end{pmatrix}
+=\begin{pmatrix}
+1&0&\delta\\
+0&1&0\\
+-\delta&0&1
+\end{pmatrix}
+\begin{pmatrix}V_x\\V_y\\V_z\end{pmatrix}
++O(\delta^2).}
+\end{equation}
+This is the linear approximation to
+the conventional $y$-axis rotation
+matrix.
+
+\problem{6.17}{Infinitesimal rotation of $\ket{n\ell m}$}
+Expand the rotation operator to first order:
+\[
+\RR_{\mathbf n}(\delta)=
+I-\frac{\ii\delta}{\hb}
+(n_xL_x+n_yL_y+n_zL_z)+O(\delta^2).
+\]
+Use $L_x=(L_++L_-)/2$,
+$L_y=(L_+-L_-)/(2\ii)$, giving
+\[
+\mathbf n\cdot\mathbf L=
+n_zL_z+\frac{n_x-\ii n_y}{2}L_+
++\frac{n_x+\ii n_y}{2}L_-.
+\]
+On the angular-momentum basis,
+\[
+L_\pm\ket{n\ell m}=
+\hb\sqrt{(\ell\mp m)(\ell\pm m+1)}
+\ket{n\ell,m\pm1},
+\quad L_z\ket{n\ell m}=m\hb\ket{n\ell m}.
+\]
+Therefore
+\begin{align}
+\RR_{\mathbf n}(\delta)\ket{n\ell m}
+&=\sum_{m'=-\ell}^{\ell}
+D_{m'm}^{(\ell)}\ket{n\ell m'}+O(\delta^2),\\
+\boxed{D_{m'm}^{(\ell)}}&=
+\delta_{m'm}-\ii\delta\bigg[
+n_zm\,\delta_{m'm}\\
+&\quad+\frac{n_x-\ii n_y}{2}
+\sqrt{(\ell-m)(\ell+m+1)}\,
+\delta_{m',m+1}\\
+&\quad+\frac{n_x+\ii n_y}{2}
+\sqrt{(\ell+m)(\ell-m+1)}\,
+\delta_{m',m-1}
+\bigg].
+\end{align}
+The principal $n$ and total orbital
+$\ell$ labels remain fixed, while
+the projection $m$ mixes with its
+neighbors. As $D=I-\ii\delta A$
+with $A=A^\dagger$, $D^\dagger D
+=I+O(\delta^2)$, as required
+by unitarity.
